@@ -1,0 +1,179 @@
+/* 智慧健康 - 浅蓝主题色系 */
+.navbar[data-v-e1c8316f] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-inner[data-v-e1c8316f] {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.navbar-left[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-icon[data-v-e1c8316f] {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.navbar-title[data-v-e1c8316f] {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar-right[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 智慧健康 - 浅蓝主题色系 */
+/* 智慧健康 - 浅蓝主题色系 */
+.page-wrapper[data-v-48d5af11] {
+  min-height: 100vh;
+  background: #e2eef0;
+  padding-bottom: 1.5rem;
+}
+.content[data-v-48d5af11] {
+  padding: 0.75rem 1rem;
+}
+.today-section[data-v-48d5af11] {
+  background: rgba(226, 238, 240, 0.8);
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  margin-bottom: 1rem;
+}
+.section-title[data-v-48d5af11] {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  margin-bottom: 0.625rem;
+}
+.take-item[data-v-48d5af11] {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 0.0625rem solid rgba(74, 144, 217, 0.15);
+}
+.take-item[data-v-48d5af11]:last-child {
+  border-bottom: none;
+}
+.take-time[data-v-48d5af11] {
+  width: 3.125rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4A90D9;
+  flex-shrink: 0;
+}
+.take-body[data-v-48d5af11] {
+  flex: 1;
+  min-width: 0;
+}
+.take-name[data-v-48d5af11] {
+  display: block;
+  font-size: 0.875rem;
+  color: #1D2129;
+  margin-bottom: 0.125rem;
+}
+.take-dosage[data-v-48d5af11] {
+  font-size: 0.75rem;
+  color: #4E5969;
+}
+.take-status[data-v-48d5af11] {
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.take-status.status-done[data-v-48d5af11] {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+.take-status.status-pending[data-v-48d5af11] {
+  background: #EAF2FB;
+  color: #4A90D9;
+}
+.take-status.status-missed[data-v-48d5af11] {
+  background: #E5E6EB;
+  color: #8F959E;
+}
+.list-title[data-v-48d5af11] {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  margin-bottom: 0.625rem;
+}
+.med-card[data-v-48d5af11] {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  margin-bottom: 0.625rem;
+  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04);
+}
+.med-card-hover[data-v-48d5af11] {
+  transform: translateY(-0.0625rem);
+}
+.med-icon[data-v-48d5af11] {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  text-align: center;
+  margin-right: 0.75rem;
+}
+.med-body[data-v-48d5af11] {
+  flex: 1;
+  min-width: 0;
+}
+.med-name[data-v-48d5af11] {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  margin-bottom: 0.3125rem;
+}
+.med-schedule[data-v-48d5af11] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.schedule-tag[data-v-48d5af11] {
+  padding: 0.125rem 0.4375rem;
+  background: #EAF2FB;
+  color: #4A90D9;
+  border-radius: 0.375rem;
+  font-size: 0.6875rem;
+}
+.med-info[data-v-48d5af11] {
+  font-size: 0.75rem;
+  color: #4E5969;
+}
+.feedback-btn[data-v-48d5af11] {
+  background: #FFF8E1;
+  border: 0.0625rem solid #FFC107;
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #E65100;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.add-med-btn[data-v-48d5af11] {
+  background: #4A90D9;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #fff;
+  font-weight: 600;
+}

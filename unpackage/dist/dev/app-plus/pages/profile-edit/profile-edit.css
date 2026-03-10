@@ -1,0 +1,129 @@
+/* 智慧健康 - 浅蓝主题色系 */
+.navbar[data-v-e1c8316f] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-inner[data-v-e1c8316f] {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.navbar-left[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-icon[data-v-e1c8316f] {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.navbar-title[data-v-e1c8316f] {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar-right[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 智慧健康 - 浅蓝主题色系 */
+.page[data-v-b59caf64] {
+  min-height: 100vh;
+  background: #e2eef0;
+}
+.nav-save[data-v-b59caf64] {
+  font-size: 0.9375rem;
+  color: #4A90D9;
+}
+.page-body[data-v-b59caf64] {
+  padding: 0.75rem;
+}
+.avatar-section[data-v-b59caf64] {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.avatar-upload[data-v-b59caf64] {
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0.125rem dashed #C9CDD4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-icon[data-v-b59caf64] {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+.avatar-hint[data-v-b59caf64] {
+  font-size: 0.6875rem;
+  color: #4E5969;
+}
+.form-section[data-v-b59caf64] {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.section-title[data-v-b59caf64] {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  display: block;
+  margin-bottom: 0.75rem;
+  padding-left: 0.25rem;
+  border-left: 0.1875rem solid #4A90D9;
+}
+.form-item[data-v-b59caf64] {
+  margin-bottom: 0.75rem;
+}
+.form-item[data-v-b59caf64]:last-child {
+  margin-bottom: 0;
+}
+.label[data-v-b59caf64] {
+  font-size: 0.8125rem;
+  color: #4E5969;
+  display: block;
+  margin-bottom: 0.375rem;
+}
+.input[data-v-b59caf64] {
+  height: 2.25rem;
+  background: #F5F7FA;
+  border-radius: 0.375rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+.pill-group[data-v-b59caf64] {
+  display: flex;
+  gap: 0.5rem;
+}
+.pill[data-v-b59caf64] {
+  padding: 0.5rem 1rem;
+  background: #F5F7FA;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: #4E5969;
+}
+.pill.active[data-v-b59caf64] {
+  background: #4A90D9;
+  color: #fff;
+}
+.picker-value[data-v-b59caf64] {
+  height: 2.25rem;
+  line-height: 2.25rem;
+  background: #F5F7FA;
+  border-radius: 0.375rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: #1D2129;
+}

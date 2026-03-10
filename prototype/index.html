@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 原型导航总览</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #0F172A;
+      color: #E2E8F0;
+      min-height: 100vh;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 50%, #2563EB 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    }
+    .hero-icon {
+      width: 80px; height: 80px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 16px;
+      backdrop-filter: blur(10px);
+    }
+    .hero h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto; }
+    .hero .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 24px;
+    }
+    .hero .stat-item { text-align: center; }
+    .hero .stat-num { font-size: 28px; font-weight: 800; color: #fff; }
+    .hero .stat-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .module-section { margin-bottom: 40px; }
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .module-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .module-header h2 { font-size: 20px; font-weight: 700; color: #F1F5F9; }
+    .module-header span { font-size: 13px; color: #64748B; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .page-card {
+      background: #1E293B;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all .3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .page-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      border-color: rgba(59,130,246,0.3);
+    }
+    .page-preview {
+      height: 160px;
+      background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: rgba(255,255,255,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-preview .preview-label {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      padding: 3px 8px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 4px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.7);
+    }
+    .page-info { padding: 14px; }
+    .page-info h3 { font-size: 14px; font-weight: 600; color: #F1F5F9; margin-bottom: 4px; }
+    .page-info p { font-size: 12px; color: #64748B; line-height: 1.5; }
+    .page-info .page-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .page-tag {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .tag-interaction { background: rgba(139,92,246,0.15); color: #A78BFA; }
+    .tag-chart { background: rgba(59,130,246,0.15); color: #60A5FA; }
+    .tag-form { background: rgba(16,185,129,0.15); color: #6EE7B7; }
+    .tag-ai { background: rgba(245,158,11,0.15); color: #FCD34D; }
+
+    .tech-stack {
+      background: #1E293B;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .tech-stack h3 {
+      font-size: 16px; font-weight: 600; color: #F1F5F9;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tech-items { display: flex; gap: 12px; flex-wrap: wrap; }
+    .tech-item {
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      font-size: 13px;
+      color: #94A3B8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tech-item i { color: #60A5FA; }
+
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-icon"><i class="fas fa-heartbeat"></i></div>
+    <h1>智慧健康管理系统</h1>
+    <p>基于 Spring 的智慧养老健康管理系统 App 原型设计</p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-num">19</div>
+        <div class="stat-label">原型页面</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">功能模块</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">交互节点</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Tech Stack -->
+    <div class="tech-stack">
+      <h3><i class="fas fa-code"></i> 技术栈</h3>
+      <div class="tech-items">
+        <div class="tech-item"><i class="fab fa-html5"></i> HTML5</div>
+        <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+        <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="tech-item"><i class="fab fa-font-awesome"></i> FontAwesome 6</div>
+        <div class="tech-item"><i class="fas fa-chart-line"></i> Chart.js</div>
+        <div class="tech-item"><i class="fas fa-image"></i> Unsplash</div>
+        <div class="tech-item"><i class="fas fa-palette"></i> 蓝色医疗风</div>
+        <div class="tech-item"><i class="fas fa-mobile-screen"></i> 375x812 手机壳</div>
+      </div>
+    </div>
+
+    <!-- Login/Register -->
+    <div class="module-section">
+      <div class="module-header">
+        <div class="module-icon" style="background:rgba(139,92,246,0.15);color:#A78BFA"><i class="fas fa-right-to-bracket"></i></div>
+        <div>
+          <h2>登录注册</h2>
+          <span>2 个页面</span>
+        </div>
+      </div>
+      <div class="page-grid">
+        <a href="pages/login.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#2563EB,#1E40AF)">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="preview-label">login.html</span>
+          </div>
+          <div class="page-info">
+            <h3>登录页</h3>
+            <p>账号密码 / 验证码双模式登录，支持第三方登录</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">Tab切换</span>
+              <span class="page-tag tag-form">表单验证</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/register.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#2563EB,#1D4ED8)">
+            <i class="fas fa-user-plus"></i>
+            <span class="preview-label">register.html</span>
+          </div>
+          <div class="page-info">
+            <h3>注册页</h3>
+            <p>分步引导注册，邮箱验证码验证 + 密码强度检测</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">分步表单</span>
+              <span class="page-tag tag-form">验证码</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Home Module -->
+    <div class="module-section">
+      <div class="module-header">
+        <div class="module-icon" style="background:rgba(59,130,246,0.15);color:#60A5FA"><i class="fas fa-home"></i></div>
+        <div>
+          <h2>首页模块 - 健康数据管理</h2>
+          <span>5 个页面</span>
+        </div>
+      </div>
+      <div class="page-grid">
+        <a href="pages/home.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#2563EB,#1D4ED8)">
+            <i class="fas fa-heart-pulse"></i>
+            <span class="preview-label">home.html</span>
+          </div>
+          <div class="page-info">
+            <h3>首页</h3>
+            <p>健康评分环形图 + 身体指标网格 + 快捷操作 + 建议</p>
+            <div class="page-tags">
+              <span class="page-tag tag-chart">环形图</span>
+              <span class="page-tag tag-interaction">Tab栏</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/health-detail.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#3B82F6,#2563EB)">
+            <i class="fas fa-chart-column"></i>
+            <span class="preview-label">health-detail.html</span>
+          </div>
+          <div class="page-info">
+            <h3>指标详情</h3>
+            <p>单项指标详情、历史数据列表、正常范围参考</p>
+            <div class="page-tags">
+              <span class="page-tag tag-chart">数据列表</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/health-input.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#8B5CF6,#7C3AED)">
+            <i class="fas fa-microphone"></i>
+            <span class="preview-label">health-input.html</span>
+          </div>
+          <div class="page-info">
+            <h3>数据录入</h3>
+            <p>手动录入 + 语音录入，AI自动提取健康指标</p>
+            <div class="page-tags">
+              <span class="page-tag tag-ai">AI提取</span>
+              <span class="page-tag tag-interaction">语音输入</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/health-trend.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#2563EB,#1E3A8A)">
+            <i class="fas fa-chart-line"></i>
+            <span class="preview-label">health-trend.html</span>
+          </div>
+          <div class="page-info">
+            <h3>指标趋势</h3>
+            <p>Chart.js 折线图展示指标变化趋势和统计</p>
+            <div class="page-tags">
+              <span class="page-tag tag-chart">折线图</span>
+              <span class="page-tag tag-interaction">时间范围</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/health-advice.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#10B981,#059669)">
+            <i class="fas fa-lightbulb"></i>
+            <span class="preview-label">health-advice.html</span>
+          </div>
+          <div class="page-info">
+            <h3>健康建议</h3>
+            <p>饮食 / 运动 / 生活方式 / 就医四类AI个性化建议</p>
+            <div class="page-tags">
+              <span class="page-tag tag-ai">AI生成</span>
+              <span class="page-tag tag-interaction">Tab分类</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- AI Consult Module -->
+    <div class="module-section">
+      <div class="module-header">
+        <div class="module-icon" style="background:rgba(245,158,11,0.15);color:#FCD34D"><i class="fas fa-robot"></i></div>
+        <div>
+          <h2>AI智能健康咨询模块</h2>
+          <span>3 个页面</span>
+        </div>
+      </div>
+      <div class="page-grid">
+        <a href="pages/ai-consult.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#F59E0B,#D97706)">
+            <i class="fas fa-comments"></i>
+            <span class="preview-label">ai-consult.html</span>
+          </div>
+          <div class="page-info">
+            <h3>AI健康咨询</h3>
+            <p>智能问答聊天 + AI主动问诊，下拉框切换模式</p>
+            <div class="page-tags">
+              <span class="page-tag tag-ai">AI对话</span>
+              <span class="page-tag tag-interaction">模式切换</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/ai-history.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#F59E0B,#B45309)">
+            <i class="fas fa-clock-rotate-left"></i>
+            <span class="preview-label">ai-history.html</span>
+          </div>
+          <div class="page-info">
+            <h3>咨询历史</h3>
+            <p>咨询记录列表，支持搜索和按模式筛选</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">搜索筛选</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/ai-history-detail.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#D97706,#92400E)">
+            <i class="fas fa-file-lines"></i>
+            <span class="preview-label">ai-history-detail.html</span>
+          </div>
+          <div class="page-info">
+            <h3>咨询详情</h3>
+            <p>完整对话回放 + AI总结摘要</p>
+            <div class="page-tags">
+              <span class="page-tag tag-ai">AI总结</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Plan & Task Module -->
+    <div class="module-section">
+      <div class="module-header">
+        <div class="module-icon" style="background:rgba(16,185,129,0.15);color:#6EE7B7"><i class="fas fa-clipboard-list"></i></div>
+        <div>
+          <h2>健康计划与任务管理模块</h2>
+          <span>6 个页面</span>
+        </div>
+      </div>
+      <div class="page-grid">
+        <a href="pages/plan-overview.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#10B981,#059669)">
+            <i class="fas fa-clipboard-check"></i>
+            <span class="preview-label">plan-overview.html</span>
+          </div>
+          <div class="page-info">
+            <h3>计划总览</h3>
+            <p>四类健康计划概览 + AI智能生成 + 进度展示</p>
+            <div class="page-tags">
+              <span class="page-tag tag-ai">AI生成</span>
+              <span class="page-tag tag-chart">进度条</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/plan-edit.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#059669,#047857)">
+            <i class="fas fa-pen-to-square"></i>
+            <span class="preview-label">plan-edit.html</span>
+          </div>
+          <div class="page-info">
+            <h3>计划编辑</h3>
+            <p>运动 / 饮食 / 用药 / 复查四类计划编辑</p>
+            <div class="page-tags">
+              <span class="page-tag tag-form">Tab表单</span>
+              <span class="page-tag tag-interaction">增删改</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/medication.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#EF4444,#DC2626)">
+            <i class="fas fa-pills"></i>
+            <span class="preview-label">medication.html</span>
+          </div>
+          <div class="page-info">
+            <h3>用药管理</h3>
+            <p>长期用药列表 + 今日服药打卡 + 副作用反馈</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">打卡</span>
+              <span class="page-tag tag-form">提醒设置</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/medication-detail.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#DC2626,#B91C1C)">
+            <i class="fas fa-capsules"></i>
+            <span class="preview-label">medication-detail.html</span>
+          </div>
+          <div class="page-info">
+            <h3>用药详情</h3>
+            <p>药物详细信息 + 提醒设置 + 服药记录</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">提醒开关</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/task-today.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#10B981,#047857)">
+            <i class="fas fa-list-check"></i>
+            <span class="preview-label">task-today.html</span>
+          </div>
+          <div class="page-info">
+            <h3>今日任务</h3>
+            <p>今日健康任务清单 + 打卡完成 + 进度统计</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">打卡完成</span>
+              <span class="page-tag tag-chart">进度环</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/task-history.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#047857,#065F46)">
+            <i class="fas fa-calendar-days"></i>
+            <span class="preview-label">task-history.html</span>
+          </div>
+          <div class="page-info">
+            <h3>历史任务</h3>
+            <p>日历视图 + 历史完成记录 + 完成率统计</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">日历视图</span>
+              <span class="page-tag tag-chart">统计数据</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Profile Module -->
+    <div class="module-section">
+      <div class="module-header">
+        <div class="module-icon" style="background:rgba(139,92,246,0.15);color:#A78BFA"><i class="fas fa-user"></i></div>
+        <div>
+          <h2>个人中心模块</h2>
+          <span>3 个页面</span>
+        </div>
+      </div>
+      <div class="page-grid">
+        <a href="pages/profile.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#8B5CF6,#7C3AED)">
+            <i class="fas fa-user-circle"></i>
+            <span class="preview-label">profile.html</span>
+          </div>
+          <div class="page-info">
+            <h3>个人中心</h3>
+            <p>用户信息 + 统计数据 + 功能菜单入口</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">菜单导航</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/profile-edit.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#7C3AED,#6D28D9)">
+            <i class="fas fa-user-pen"></i>
+            <span class="preview-label">profile-edit.html</span>
+          </div>
+          <div class="page-info">
+            <h3>信息编辑</h3>
+            <p>头像上传 + 基本信息 / 联系方式 / 紧急联系人</p>
+            <div class="page-tags">
+              <span class="page-tag tag-form">表单编辑</span>
+            </div>
+          </div>
+        </a>
+        <a href="pages/settings.html" class="page-card">
+          <div class="page-preview" style="background:linear-gradient(135deg,#6D28D9,#5B21B6)">
+            <i class="fas fa-gear"></i>
+            <span class="preview-label">settings.html</span>
+          </div>
+          <div class="page-info">
+            <h3>设置</h3>
+            <p>提醒 / 字体大小(适老化) / 隐私 / 缓存</p>
+            <div class="page-tags">
+              <span class="page-tag tag-interaction">开关控制</span>
+              <span class="page-tag tag-form">适老化</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    智慧健康管理系统 App 原型 v1.0 &copy; 2026 | 蓝色医疗风 | HTML + CSS + FontAwesome + Chart.js
+  </div>
+</body>
+</html>

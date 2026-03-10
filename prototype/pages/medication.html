@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 用药管理</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .med-card {
+      background: #fff;
+      margin: 8px 16px;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .med-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .med-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .med-info { flex: 1; }
+    .med-name { font-size: 15px; font-weight: 600; color: var(--gray-800); }
+    .med-dose { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+    .med-schedule {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .schedule-tag {
+      padding: 6px 12px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .schedule-tag i { font-size: 11px; }
+    .med-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .remind-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .today-record {
+      background: var(--primary-bg);
+      margin: 0 16px 12px;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .today-record h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .take-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(37,99,235,0.1);
+    }
+    .take-item:last-child { border-bottom: none; }
+    .take-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .take-info .take-name { font-size: 13px; font-weight: 500; color: var(--gray-800); }
+    .take-info .take-time { font-size: 11px; color: var(--gray-500); }
+    .take-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+    .take-btn.done {
+      background: var(--success-bg);
+      color: var(--success);
+    }
+    .take-btn.pending {
+      background: var(--primary);
+      color: #fff;
+    }
+    .take-btn.missed {
+      background: var(--danger-bg);
+      color: var(--danger);
+    }
+    .side-effect-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 0 16px 16px;
+      padding: 12px;
+      background: #fff;
+      border: 1.5px solid var(--warning);
+      border-radius: 12px;
+      color: var(--warning);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+    }
+    .side-effect-btn:hover {
+      background: var(--warning-bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="status-bar"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></span></div>
+      <div class="nav-bar nav-bar-light">
+        <a href="plan-overview.html" class="back-btn" style="color:var(--gray-800)"><i class="fas fa-chevron-left"></i></a>
+        用药管理
+      </div>
+
+      <!-- Today's Record -->
+      <div class="today-record" style="margin-top:12px">
+        <h3><i class="fas fa-calendar-check" style="color:var(--primary)"></i> 今日服药记录</h3>
+        <div class="take-item">
+          <div class="take-left">
+            <div class="checkbox checked" style="width:20px;height:20px;border-radius:50%"><i class="fas fa-check" style="font-size:10px;color:#fff"></i></div>
+            <div class="take-info">
+              <div class="take-name">硝苯地平缓释片 30mg</div>
+              <div class="take-time">早上 8:00</div>
+            </div>
+          </div>
+          <button class="take-btn done"><i class="fas fa-check"></i> 已服用</button>
+        </div>
+        <div class="take-item">
+          <div class="take-left">
+            <div class="checkbox" style="width:20px;height:20px;border-radius:50%"></div>
+            <div class="take-info">
+              <div class="take-name">硝苯地平缓释片 30mg</div>
+              <div class="take-time">晚上 8:00</div>
+            </div>
+          </div>
+          <button class="take-btn pending" onclick="this.className='take-btn done';this.innerHTML='<i class=\'fas fa-check\'></i> 已服用'">打卡</button>
+        </div>
+        <div class="take-item">
+          <div class="take-left">
+            <div class="checkbox checked" style="width:20px;height:20px;border-radius:50%"><i class="fas fa-check" style="font-size:10px;color:#fff"></i></div>
+            <div class="take-info">
+              <div class="take-name">阿司匹林肠溶片 100mg</div>
+              <div class="take-time">早上 8:00</div>
+            </div>
+          </div>
+          <button class="take-btn done"><i class="fas fa-check"></i> 已服用</button>
+        </div>
+        <div class="take-item">
+          <div class="take-left">
+            <div class="checkbox" style="width:20px;height:20px;border-radius:50%"></div>
+            <div class="take-info">
+              <div class="take-name">维生素D 400IU</div>
+              <div class="take-time">午餐后</div>
+            </div>
+          </div>
+          <button class="take-btn pending" onclick="this.className='take-btn done';this.innerHTML='<i class=\'fas fa-check\'></i> 已服用'">打卡</button>
+        </div>
+      </div>
+
+      <!-- Medication List -->
+      <div class="section-title">长期用药</div>
+      <a href="medication-detail.html" class="med-card" style="text-decoration:none;color:inherit;display:block">
+        <div class="med-header">
+          <div class="med-icon" style="background:#FEF2F2;color:#EF4444"><i class="fas fa-capsules"></i></div>
+          <div class="med-info">
+            <div class="med-name">硝苯地平缓释片</div>
+            <div class="med-dose">30mg · 每日2次 · 口服</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color:var(--gray-300);font-size:14px"></i>
+        </div>
+        <div class="med-schedule">
+          <span class="schedule-tag"><i class="fas fa-sun"></i> 早 8:00</span>
+          <span class="schedule-tag"><i class="fas fa-moon"></i> 晚 8:00</span>
+        </div>
+        <div class="med-actions">
+          <div class="remind-row"><i class="fas fa-bell" style="color:var(--primary)"></i> 提醒已开启</div>
+          <span class="badge badge-success">服药中</span>
+        </div>
+      </a>
+
+      <a href="medication-detail.html" class="med-card" style="text-decoration:none;color:inherit;display:block">
+        <div class="med-header">
+          <div class="med-icon" style="background:#DBEAFE;color:#2563EB"><i class="fas fa-tablets"></i></div>
+          <div class="med-info">
+            <div class="med-name">阿司匹林肠溶片</div>
+            <div class="med-dose">100mg · 每日1次 · 口服</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color:var(--gray-300);font-size:14px"></i>
+        </div>
+        <div class="med-schedule">
+          <span class="schedule-tag"><i class="fas fa-sun"></i> 早 8:00</span>
+        </div>
+        <div class="med-actions">
+          <div class="remind-row"><i class="fas fa-bell" style="color:var(--primary)"></i> 提醒已开启</div>
+          <span class="badge badge-success">服药中</span>
+        </div>
+      </a>
+
+      <a href="medication-detail.html" class="med-card" style="text-decoration:none;color:inherit;display:block">
+        <div class="med-header">
+          <div class="med-icon" style="background:#FFFBEB;color:#F59E0B"><i class="fas fa-pills"></i></div>
+          <div class="med-info">
+            <div class="med-name">维生素D滴剂</div>
+            <div class="med-dose">400IU · 每日1次 · 口服</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color:var(--gray-300);font-size:14px"></i>
+        </div>
+        <div class="med-schedule">
+          <span class="schedule-tag"><i class="fas fa-cloud-sun"></i> 午餐后</span>
+        </div>
+        <div class="med-actions">
+          <div class="remind-row"><i class="fas fa-bell-slash" style="color:var(--gray-400)"></i> 提醒未开启</div>
+          <span class="badge badge-success">服药中</span>
+        </div>
+      </a>
+
+      <a href="#" class="side-effect-btn">
+        <i class="fas fa-exclamation-triangle"></i> 反馈药物副作用
+      </a>
+
+      <div class="add-item-btn" style="margin-bottom:20px"><i class="fas fa-plus"></i> 添加药物</div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 用药管理</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>集中管理用户的长期用药，提供服药打卡和副作用反馈功能。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>今日服药打卡区域使用蓝色背景突出</li>
+      <li>药物卡片展示完整信息（名称、剂量、时间、提醒状态）</li>
+      <li>打卡按钮区分已完成/待打卡/已漏服状态</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">打卡操作</span>
+    <span class="note-tag interaction">提醒开关</span>
+    <ul>
+      <li>点击"打卡"按钮记录服药</li>
+      <li>药物卡片可点击进入详情设置</li>
+      <li>副作用反馈入口方便用户记录异常</li>
+      <li>支持添加新药物</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>药物列表：GET /api/medication</li>
+      <li>服药打卡：POST /api/medication/take-record</li>
+      <li>副作用反馈：POST /api/medication/side-effect</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+</body>
+</html>

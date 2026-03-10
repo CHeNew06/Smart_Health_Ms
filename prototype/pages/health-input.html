@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 数据录入</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .voice-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .mic-btn {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+      color: #fff;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(124,58,237,0.3);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mic-btn:hover { transform: scale(1.05); }
+    .mic-btn.recording {
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 12px rgba(124,58,237,0.1), 0 0 0 24px rgba(124,58,237,0.05);
+    }
+    .voice-hint { font-size: 13px; color: var(--gray-500); margin-top: 14px; }
+    .wave-bars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      height: 40px;
+      margin-top: 16px;
+    }
+    .wave-bars span {
+      width: 4px;
+      border-radius: 2px;
+      background: var(--primary-lighter);
+      animation: waveAnim 0.8s ease-in-out infinite;
+    }
+    .wave-bars span:nth-child(1) { height: 12px; animation-delay: 0s; }
+    .wave-bars span:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+    .wave-bars span:nth-child(3) { height: 30px; animation-delay: 0.2s; }
+    .wave-bars span:nth-child(4) { height: 24px; animation-delay: 0.3s; }
+    .wave-bars span:nth-child(5) { height: 36px; animation-delay: 0.15s; }
+    .wave-bars span:nth-child(6) { height: 18px; animation-delay: 0.25s; }
+    .wave-bars span:nth-child(7) { height: 28px; animation-delay: 0.05s; }
+    @keyframes waveAnim {
+      0%, 100% { transform: scaleY(0.5); }
+      50% { transform: scaleY(1.4); }
+    }
+    .voice-result {
+      margin: 16px;
+      background: var(--gray-50);
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 14px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      border: 1px dashed var(--gray-200);
+    }
+    .voice-result .label { font-size: 12px; color: var(--gray-500); margin-bottom: 6px; }
+    .extracted-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .extracted-tag {
+      padding: 6px 12px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .metric-select {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 0 16px;
+      margin-bottom: 16px;
+    }
+    .metric-opt {
+      padding: 10px 6px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all .2s;
+      background: #fff;
+    }
+    .metric-opt i { display: block; font-size: 20px; margin-bottom: 4px; }
+    .metric-opt.active {
+      border-color: var(--primary);
+      background: var(--primary-bg);
+      color: var(--primary);
+      font-weight: 500;
+    }
+    .dual-input {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .dual-input .separator {
+      font-size: 18px;
+      color: var(--gray-400);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="status-bar"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></span></div>
+      <div class="nav-bar nav-bar-light">
+        <a href="home.html" class="back-btn" style="color:var(--gray-800)"><i class="fas fa-chevron-left"></i></a>
+        数据录入
+      </div>
+
+      <div class="tabs" data-target="inputContent">
+        <button class="tab-btn active" data-tab="manualTab">手动录入</button>
+        <button class="tab-btn" data-tab="voiceTab">语音录入</button>
+      </div>
+
+      <div id="inputContent">
+        <!-- Manual Input -->
+        <div class="tab-content active" id="manualTab">
+          <div class="section-title" style="padding-top:0">选择指标类型</div>
+          <div class="metric-select">
+            <div class="metric-opt active" onclick="selectMetric(this)"><i class="fas fa-heart-pulse"></i>血压</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-heartbeat"></i>心率</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-temperature-half"></i>体温</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-droplet"></i>血糖</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-moon"></i>睡眠</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-lungs"></i>呼吸</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-weight-scale"></i>体重</div>
+            <div class="metric-opt" onclick="selectMetric(this)"><i class="fas fa-ruler-vertical"></i>身高</div>
+          </div>
+
+          <div style="padding:0 16px">
+            <div class="input-group">
+              <label>数值</label>
+              <div class="dual-input">
+                <input type="number" class="input-field" placeholder="收缩压" style="flex:1">
+                <span class="separator">/</span>
+                <input type="number" class="input-field" placeholder="舒张压" style="flex:1">
+              </div>
+              <div style="font-size:11px;color:var(--gray-400);margin-top:4px">单位：mmHg</div>
+            </div>
+            <div class="input-group">
+              <label>测量时间</label>
+              <input type="datetime-local" class="input-field" value="2026-03-09T08:30">
+            </div>
+            <div class="input-group">
+              <label>备注</label>
+              <textarea class="input-field" placeholder="可记录测量状态，如：饭后、运动后等" style="height:70px;padding:10px 14px;resize:none"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" style="margin-bottom:20px">
+              <i class="fas fa-check"></i> 确认提交
+            </button>
+          </div>
+        </div>
+
+        <!-- Voice Input -->
+        <div class="tab-content" id="voiceTab">
+          <div class="voice-area">
+            <button class="mic-btn recording" id="micBtn" onclick="toggleRecording()">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <div class="voice-hint">点击按钮开始语音记录</div>
+            <div class="wave-bars" id="waveBars">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="voice-result">
+            <div class="label"><i class="fas fa-volume-up"></i> 识别结果</div>
+            "今天早上量了血压，收缩压145，舒张压92，心率72次，感觉有点头晕"
+          </div>
+
+          <div style="padding:0 16px">
+            <div class="section-title" style="padding-left:0">AI 自动提取指标</div>
+            <div class="extracted-tags">
+              <div class="extracted-tag"><i class="fas fa-heart-pulse"></i> 血压: 145/92 mmHg</div>
+              <div class="extracted-tag"><i class="fas fa-heartbeat"></i> 心率: 72 次/分</div>
+              <div class="extracted-tag" style="background:#FEF2F2;color:var(--danger)"><i class="fas fa-exclamation-triangle"></i> 症状: 头晕</div>
+            </div>
+
+            <div class="card" style="margin:16px 0;background:var(--warning-bg);border:1px solid #FDE68A">
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--warning)">
+                <i class="fas fa-info-circle"></i>
+                <span>请确认AI提取的数据是否准确，确认后点击提交</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" style="margin-bottom:20px">
+              <i class="fas fa-check"></i> 确认并提交
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 数据录入</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>提供手动和语音两种录入方式，语音模式支持AI自动提取健康指标，降低老年用户操作门槛。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>手动模式：网格化指标选择 + 表单输入，清晰直观</li>
+      <li>语音模式：中心大按钮 + 波形动画，操作引导明确</li>
+      <li>AI提取结果用标签卡片展示，可编辑确认</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">Tab切换</span>
+    <span class="note-tag interaction">语音录制</span>
+    <span class="note-tag ux">AI提取</span>
+    <ul>
+      <li>Tab切换手动/语音模式</li>
+      <li>指标类型单选卡片，选中高亮</li>
+      <li>语音按钮长按录制，录制中动画反馈</li>
+      <li>AI自动识别后展示提取结果，需用户确认</li>
+      <li>血压等特殊指标提供双输入框</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>手动提交：POST /api/health/metrics</li>
+      <li>语音上传：POST /api/health/voice-record</li>
+      <li>AI识别：POST /api/ai/extract-metrics</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script>
+    function selectMetric(el) {
+      document.querySelectorAll('.metric-opt').forEach(m => m.classList.remove('active'));
+      el.classList.add('active');
+    }
+    function toggleRecording() {
+      const btn = document.getElementById('micBtn');
+      btn.classList.toggle('recording');
+    }
+  </script>
+</body>
+</html>
