@@ -123,7 +123,7 @@
         },
         {
           "pagePath": "pages/plan-overview/plan-overview",
-          "text": "健康记录",
+          "text": "健康计划",
           "iconPath": "/static/tab/empty.png",
           "selectedIconPath": "/static/tab/empty.png"
         },

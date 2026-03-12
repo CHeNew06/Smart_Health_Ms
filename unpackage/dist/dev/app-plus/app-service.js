@@ -38,7 +38,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$m = {
+  const _sfc_main$q = {
     name: "Login",
     data() {
       return {
@@ -75,7 +75,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "login-header" }, [
         vue.createElementVNode("view", { class: "login-logo" }, [
@@ -282,8 +282,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/login/login.vue"]]);
-  const _sfc_main$l = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/login/login.vue"]]);
+  const _sfc_main$p = {
     name: "CustomNavbar",
     props: {
       title: { type: String, default: "" },
@@ -308,7 +308,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -373,8 +373,8 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const CustomNavbar = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-e1c8316f"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-navbar.vue"]]);
-  const _sfc_main$k = {
+  const CustomNavbar = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__scopeId", "data-v-e1c8316f"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-navbar.vue"]]);
+  const _sfc_main$o = {
     name: "Register",
     components: { CustomNavbar },
     data() {
@@ -492,7 +492,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -881,8 +881,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-bac4a35d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/register/register.vue"]]);
-  const _sfc_main$j = {
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__scopeId", "data-v-bac4a35d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/register/register.vue"]]);
+  const _sfc_main$n = {
     name: "CustomTabbar",
     props: {
       current: { type: Number, default: 0 }
@@ -892,7 +892,7 @@ if (uni.restoreGlobal) {
         tabs: [
           { icon: "🏠", text: "首页", url: "/pages/home/home" },
           { icon: "🤖", text: "AI问答", url: "/pages/ai-consult/ai-consult" },
-          { icon: "📋", text: "健康记录", url: "/pages/plan-overview/plan-overview" },
+          { icon: "📋", text: "健康计划", url: "/pages/plan-overview/plan-overview" },
           { icon: "👤", text: "我的", url: "/pages/profile/profile" }
         ],
         keyboardUp: false
@@ -911,7 +911,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -968,8 +968,8 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const CustomTabbar = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-c0af68ba"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-tabbar.vue"]]);
-  const _sfc_main$i = {
+  const CustomTabbar = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-c0af68ba"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-tabbar.vue"]]);
+  const _sfc_main$m = {
     components: { CustomTabbar },
     data() {
       return {
@@ -1007,7 +1007,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createElementVNode("view", { class: "home-header" }, [
@@ -1219,8 +1219,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_CustomTabbar, { current: 0 })
     ]);
   }
-  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-07e72d3c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/home/home.vue"]]);
-  const _sfc_main$h = {
+  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-07e72d3c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/home/home.vue"]]);
+  const _sfc_main$l = {
     components: { CustomTabbar },
     data() {
       return {
@@ -1296,6 +1296,11 @@ if (uni.restoreGlobal) {
         this.$nextTick(() => setTimeout(() => this.scrollToEnd(), 300));
       },
       onInputBlur() {
+      },
+      onScrollTouch() {
+        if (this.kbUp) {
+          uni.hideKeyboard();
+        }
       },
       sendMessage() {
         const txt = (this.inputText || "").trim();
@@ -1433,7 +1438,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "chat-page" }, [
       vue.createElementVNode(
@@ -1537,7 +1542,8 @@ if (uni.restoreGlobal) {
         "scroll-y": "",
         "scroll-into-view": $data.scrollIntoId,
         "scroll-with-animation": true,
-        style: vue.normalizeStyle({ paddingBottom: $options.scrollPadBottom + "px" })
+        style: vue.normalizeStyle({ paddingBottom: $options.scrollPadBottom + "px" }),
+        onTouchstart: _cache[4] || (_cache[4] = (...args) => $options.onScrollTouch && $options.onScrollTouch(...args))
       }, [
         vue.createElementVNode("view", { class: "msg-inner" }, [
           (vue.openBlock(true), vue.createElementBlock(
@@ -1631,11 +1637,11 @@ if (uni.restoreGlobal) {
             style: { "height": "20rpx" }
           })
         ])
-      ], 12, ["scroll-into-view"]),
+      ], 44, ["scroll-into-view"]),
       $data.isTyping ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 1,
         class: "stop-bar",
-        onClick: _cache[4] || (_cache[4] = (...args) => $options.stopTyping && $options.stopTyping(...args))
+        onClick: _cache[5] || (_cache[5] = (...args) => $options.stopTyping && $options.stopTyping(...args))
       }, [
         vue.createElementVNode("view", { class: "stop-pill" }, [
           vue.createElementVNode("text", { class: "stop-icon-txt" }, "⏹"),
@@ -1694,7 +1700,7 @@ if (uni.restoreGlobal) {
               }, null, 8, ["src"]),
               vue.createElementVNode("view", {
                 class: "preview-del",
-                onClick: _cache[5] || (_cache[5] = ($event) => $data.tempImagePath = "")
+                onClick: _cache[6] || (_cache[6] = ($event) => $data.tempImagePath = "")
               }, [
                 vue.createElementVNode("text", null, "×")
               ])
@@ -1705,22 +1711,22 @@ if (uni.restoreGlobal) {
               !$options.hasInput ? (vue.openBlock(), vue.createElementBlock("view", {
                 key: 0,
                 class: "icon-btn",
-                onClick: _cache[6] || (_cache[6] = (...args) => $options.chooseImage && $options.chooseImage(...args))
+                onClick: _cache[7] || (_cache[7] = (...args) => $options.chooseImage && $options.chooseImage(...args))
               }, [
                 vue.createElementVNode("text", { class: "ib-icon" }, "📷")
               ])) : vue.createCommentVNode("v-if", true),
               vue.createElementVNode("view", { class: "input-box" }, [
                 vue.withDirectives(vue.createElementVNode("input", {
                   type: "text",
-                  "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.inputText = $event),
+                  "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.inputText = $event),
                   class: "chat-input",
                   placeholder: $options.hasInput ? "请输入消息..." : "发消息或按住说话...",
                   "placeholder-class": "ph",
                   "confirm-type": "send",
                   "adjust-position": false,
-                  onConfirm: _cache[8] || (_cache[8] = (...args) => $options.sendMessage && $options.sendMessage(...args)),
-                  onFocus: _cache[9] || (_cache[9] = (...args) => $options.onInputFocus && $options.onInputFocus(...args)),
-                  onBlur: _cache[10] || (_cache[10] = (...args) => $options.onInputBlur && $options.onInputBlur(...args))
+                  onConfirm: _cache[9] || (_cache[9] = (...args) => $options.sendMessage && $options.sendMessage(...args)),
+                  onFocus: _cache[10] || (_cache[10] = (...args) => $options.onInputFocus && $options.onInputFocus(...args)),
+                  onBlur: _cache[11] || (_cache[11] = (...args) => $options.onInputBlur && $options.onInputBlur(...args))
                 }, null, 40, ["placeholder"]), [
                   [vue.vModelText, $data.inputText]
                 ])
@@ -1733,9 +1739,9 @@ if (uni.restoreGlobal) {
                     "view",
                     {
                       class: vue.normalizeClass(["icon-btn voice-area", { "voice-active": $data.isRecording || $data.isRecognizing }]),
-                      onTouchstart: _cache[11] || (_cache[11] = (...args) => $options.startRecording && $options.startRecording(...args)),
-                      onTouchmove: _cache[12] || (_cache[12] = (...args) => $options.onTouchMove && $options.onTouchMove(...args)),
-                      onTouchend: _cache[13] || (_cache[13] = (...args) => $options.stopRecording && $options.stopRecording(...args))
+                      onTouchstart: _cache[12] || (_cache[12] = (...args) => $options.startRecording && $options.startRecording(...args)),
+                      onTouchmove: _cache[13] || (_cache[13] = (...args) => $options.onTouchMove && $options.onTouchMove(...args)),
+                      onTouchend: _cache[14] || (_cache[14] = (...args) => $options.stopRecording && $options.stopRecording(...args))
                     },
                     [
                       vue.createElementVNode("text", { class: "ib-icon" }, "🎤")
@@ -1745,7 +1751,7 @@ if (uni.restoreGlobal) {
                   ),
                   vue.createElementVNode("view", {
                     class: "icon-btn",
-                    onClick: _cache[14] || (_cache[14] = ($event) => $data.showModeSheet = true)
+                    onClick: _cache[15] || (_cache[15] = ($event) => $data.showModeSheet = true)
                   }, [
                     vue.createElementVNode("text", { class: "ib-icon" }, "⊕")
                   ])
@@ -1756,7 +1762,7 @@ if (uni.restoreGlobal) {
               $options.hasInput ? (vue.openBlock(), vue.createElementBlock("view", {
                 key: 2,
                 class: "send-btn",
-                onClick: _cache[15] || (_cache[15] = (...args) => $options.sendMessage && $options.sendMessage(...args))
+                onClick: _cache[16] || (_cache[16] = (...args) => $options.sendMessage && $options.sendMessage(...args))
               }, [
                 vue.createElementVNode("text", { class: "send-text" }, "发送")
               ])) : vue.createCommentVNode("v-if", true)
@@ -1802,11 +1808,11 @@ if (uni.restoreGlobal) {
       $data.showModeSheet ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 3,
         class: "sheet-mask",
-        onClick: _cache[20] || (_cache[20] = ($event) => $data.showModeSheet = false)
+        onClick: _cache[21] || (_cache[21] = ($event) => $data.showModeSheet = false)
       }, [
         vue.createElementVNode("view", {
           class: "sheet-panel",
-          onClick: _cache[19] || (_cache[19] = vue.withModifiers(() => {
+          onClick: _cache[20] || (_cache[20] = vue.withModifiers(() => {
           }, ["stop"]))
         }, [
           vue.createElementVNode("text", { class: "sheet-title" }, "切换模式"),
@@ -1814,7 +1820,7 @@ if (uni.restoreGlobal) {
             "view",
             {
               class: vue.normalizeClass(["sheet-opt", { active: $data.consultMode === 0 }]),
-              onClick: _cache[16] || (_cache[16] = ($event) => $options.switchMode(0))
+              onClick: _cache[17] || (_cache[17] = ($event) => $options.switchMode(0))
             },
             [
               vue.createElementVNode("text", { class: "so-icon" }, "💬"),
@@ -1834,7 +1840,7 @@ if (uni.restoreGlobal) {
             "view",
             {
               class: vue.normalizeClass(["sheet-opt", { active: $data.consultMode === 1 }]),
-              onClick: _cache[17] || (_cache[17] = ($event) => $options.switchMode(1))
+              onClick: _cache[18] || (_cache[18] = ($event) => $options.switchMode(1))
             },
             [
               vue.createElementVNode("text", { class: "so-icon" }, "🩺"),
@@ -1852,7 +1858,7 @@ if (uni.restoreGlobal) {
           ),
           vue.createElementVNode("view", {
             class: "sheet-cancel",
-            onClick: _cache[18] || (_cache[18] = ($event) => $data.showModeSheet = false)
+            onClick: _cache[19] || (_cache[19] = ($event) => $data.showModeSheet = false)
           }, [
             vue.createElementVNode("text", null, "取消")
           ])
@@ -1864,56 +1870,55 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAiConsultAiConsult = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-78fd8d65"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-consult/ai-consult.vue"]]);
-  const _sfc_main$g = {
+  const PagesAiConsultAiConsult = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-78fd8d65"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-consult/ai-consult.vue"]]);
+  const _sfc_main$k = {
     components: { CustomTabbar },
     data() {
       return {
         aiLoading: false,
-        plans: [
-          {
-            icon: "🏃",
-            iconBg: "#ECFDF5",
-            iconColor: "#10B981",
-            title: "运动计划",
-            desc: "每日有氧运动，强化心肺功能",
-            progress: 65,
-            tags: ["快走 30分钟/天", "太极拳 周三/五"]
-          },
-          {
-            icon: "🍽",
-            iconBg: "#FFFBEB",
-            iconColor: "#F59E0B",
-            title: "饮食计划",
-            desc: "低盐低脂，营养均衡",
-            progress: 80,
-            tags: ["每日盐<5g", "蔬果≥500g", "限制红肉"]
-          },
-          {
-            icon: "💊",
-            iconBg: "#FEF2F2",
-            iconColor: "#EF4444",
-            title: "用药计划",
-            desc: "降压药规律服用",
-            progress: 95,
-            tags: ["硝苯地平 早晚各1片"]
-          },
-          {
-            icon: "🏥",
-            iconBg: "#DBEAFE",
-            iconColor: "#2563EB",
-            title: "复查计划",
-            desc: "定期检查，跟踪指标变化",
-            progress: 30,
-            tags: ["心内科 3月15日", "血常规 4月1日"]
-          }
+        tasks: [
+          { id: 1, title: "晨跑30分钟", type: "运动", time: "07:00", done: false },
+          { id: 2, title: "早餐营养搭配", type: "饮食", time: "08:00", done: false },
+          { id: 3, title: "服用降压药", type: "用药", time: "09:00", done: false },
+          { id: 4, title: "测量血压", type: "健康", time: "09:30", done: false },
+          { id: 5, title: "午间散步20分钟", type: "运动", time: "12:30", done: true },
+          { id: 6, title: "午餐清淡饮食", type: "饮食", time: "12:00", done: true },
+          { id: 7, title: "下午服药", type: "用药", time: "15:00", done: true },
+          { id: 8, title: "晚间太极拳", type: "运动", time: "18:00", done: true },
+          { id: 9, title: "晚间用药", type: "用药", time: "20:00", done: true }
         ]
       };
+    },
+    computed: {
+      pendingTasks() {
+        return this.tasks.filter((t) => !t.done);
+      },
+      doneTasks() {
+        return this.tasks.filter((t) => t.done);
+      },
+      doneCount() {
+        return this.doneTasks.length;
+      },
+      completionPercent() {
+        if (!this.tasks.length)
+          return 0;
+        return Math.round(this.doneCount / this.tasks.length * 100);
+      },
+      ringStyle() {
+        const deg = this.completionPercent / 100 * 360;
+        return {
+          background: `conic-gradient(#34C759 0deg ${deg}deg, transparent ${deg}deg 360deg)`
+        };
+      }
     },
     onShow() {
       uni.hideTabBar();
     },
     methods: {
+      tagColor(type) {
+        const m = { "运动": "#34C759", "饮食": "#FF9500", "用药": "#EF4444", "健康": "#4A90D9" };
+        return m[type] || "#4A90D9";
+      },
       onAiGen() {
         if (this.aiLoading)
           return;
@@ -1921,28 +1926,44 @@ if (uni.restoreGlobal) {
         setTimeout(() => {
           this.aiLoading = false;
           uni.showToast({ title: "计划已生成", icon: "success" });
-        }, 2500);
+        }, 3e3);
+      },
+      confirmComplete(item) {
+        uni.showModal({
+          title: "确认完成",
+          content: `确定已完成「${item.title}」吗？`,
+          success: (res) => {
+            if (res.confirm) {
+              item.done = true;
+              uni.showToast({ title: "已完成", icon: "success" });
+            }
+          }
+        });
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      $data.aiLoading ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "loading-overlay"
+      }, [
+        vue.createElementVNode("view", { class: "loading-card" }, [
+          vue.createElementVNode("view", { class: "spinner" }),
+          vue.createElementVNode("text", { class: "loading-title" }, "AI正在生成健康计划"),
+          vue.createElementVNode("text", { class: "loading-sub" }, "正在分析您的健康数据与用药记录...")
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
       vue.createElementVNode("view", { class: "plan-header" }, [
         vue.createElementVNode("text", { class: "plan-h-title" }, "健康计划"),
-        vue.createElementVNode("text", { class: "plan-h-sub" }, "AI为您量身定制的健康管理方案"),
-        vue.createElementVNode(
-          "view",
-          {
-            class: vue.normalizeClass(["ai-gen-btn", { loading: $data.aiLoading }]),
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.onAiGen && $options.onAiGen(...args))
-          },
-          [
-            !$data.aiLoading ? (vue.openBlock(), vue.createElementBlock("text", { key: 0 }, "✨ AI智能生成健康计划")) : (vue.openBlock(), vue.createElementBlock("text", { key: 1 }, "⏳ AI正在生成计划..."))
-          ],
-          2
-          /* CLASS */
-        )
+        vue.createElementVNode("text", { class: "plan-h-sub" }, "AI为您量身定制的七天健康管理方案"),
+        vue.createElementVNode("view", {
+          class: "ai-gen-btn",
+          onClick: _cache[0] || (_cache[0] = (...args) => $options.onAiGen && $options.onAiGen(...args))
+        }, [
+          vue.createElementVNode("text", null, "✨ AI智能生成健康计划")
+        ])
       ]),
       vue.createElementVNode("view", { class: "plan-body" }, [
         vue.createElementVNode("text", { class: "sec-title" }, "快捷入口"),
@@ -1952,129 +1973,189 @@ if (uni.restoreGlobal) {
             class: "quick-card",
             "hover-class": "quick-hover"
           }, [
-            vue.createElementVNode("text", {
-              class: "q-icon",
-              style: { "color": "#EF4444" }
-            }, "💊"),
+            vue.createElementVNode("text", { class: "q-icon" }, "💊"),
             vue.createElementVNode("text", { class: "q-label" }, "用药管理"),
-            vue.createElementVNode("text", { class: "q-count" }, "3种在用药物")
+            vue.createElementVNode("text", { class: "q-count" }, "用药档案与记录")
           ]),
           vue.createElementVNode("navigator", {
-            url: "/pages/task-today/task-today",
+            url: "/pages/plan-edit/plan-edit",
             class: "quick-card",
             "hover-class": "quick-hover"
           }, [
-            vue.createElementVNode("text", {
-              class: "q-icon",
-              style: { "color": "#10B981" }
-            }, "✅"),
-            vue.createElementVNode("text", { class: "q-label" }, "今日任务"),
-            vue.createElementVNode("text", { class: "q-count" }, "已完成 3/8")
+            vue.createElementVNode("text", { class: "q-icon" }, "📅"),
+            vue.createElementVNode("text", { class: "q-label" }, "当前计划"),
+            vue.createElementVNode("text", { class: "q-count" }, "本周健康计划")
           ])
         ]),
-        vue.createElementVNode("text", { class: "sec-title" }, "当前计划"),
-        (vue.openBlock(true), vue.createElementBlock(
-          vue.Fragment,
-          null,
-          vue.renderList($data.plans, (p, idx) => {
-            return vue.openBlock(), vue.createElementBlock("navigator", {
-              key: idx,
-              url: "/pages/plan-edit/plan-edit",
-              class: "plan-card",
-              "hover-class": "plan-card-hover"
-            }, [
-              vue.createElementVNode("view", { class: "pc-header" }, [
+        vue.createElementVNode("text", { class: "sec-title" }, "今日任务"),
+        vue.createElementVNode("view", { class: "progress-card" }, [
+          vue.createElementVNode("view", { class: "progress-ring-area" }, [
+            vue.createElementVNode("view", { class: "ring-bg" }, [
+              vue.createElementVNode(
+                "view",
+                {
+                  class: "ring-fill",
+                  style: vue.normalizeStyle($options.ringStyle)
+                },
+                null,
+                4
+                /* STYLE */
+              ),
+              vue.createElementVNode("view", { class: "ring-center" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "ring-pct" },
+                  vue.toDisplayString($options.completionPercent) + "%",
+                  1
+                  /* TEXT */
+                )
+              ])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "progress-info" }, [
+            vue.createElementVNode(
+              "text",
+              { class: "pi-main" },
+              vue.toDisplayString($options.doneCount) + "/" + vue.toDisplayString($data.tasks.length) + " 已完成",
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("text", { class: "pi-sub" }, "继续加油，完成今日健康任务"),
+            vue.createElementVNode("view", { class: "pi-bar-wrap" }, [
+              vue.createElementVNode("view", { class: "pi-bar-bg" }, [
                 vue.createElementVNode(
                   "view",
                   {
-                    class: "pc-icon",
-                    style: vue.normalizeStyle({ background: p.iconBg, color: p.iconColor })
+                    class: "pi-bar-fill",
+                    style: vue.normalizeStyle({ width: $options.completionPercent + "%" })
+                  },
+                  null,
+                  4
+                  /* STYLE */
+                )
+              ])
+            ])
+          ])
+        ]),
+        $options.pendingTasks.length ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "task-section"
+        }, [
+          vue.createElementVNode("text", { class: "task-sec-label" }, "待完成"),
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($options.pendingTasks, (t, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: "p" + i,
+                class: "task-item",
+                onClick: ($event) => $options.confirmComplete(t)
+              }, [
+                vue.createElementVNode("view", { class: "task-check" }, [
+                  vue.createElementVNode("text", { class: "check-empty" })
+                ]),
+                vue.createElementVNode("view", { class: "task-body" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "task-name" },
+                    vue.toDisplayString(t.title),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "task-time" },
+                    vue.toDisplayString(t.time),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: "task-tag",
+                    style: vue.normalizeStyle({ background: $options.tagColor(t.type) })
                   },
                   [
                     vue.createElementVNode(
                       "text",
                       null,
-                      vue.toDisplayString(p.icon),
+                      vue.toDisplayString(t.type),
                       1
                       /* TEXT */
                     )
                   ],
                   4
                   /* STYLE */
-                ),
-                vue.createElementVNode("view", { class: "pc-info" }, [
+                )
+              ], 8, ["onClick"]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])) : vue.createCommentVNode("v-if", true),
+        $options.doneTasks.length ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "task-section"
+        }, [
+          vue.createElementVNode("text", { class: "task-sec-label" }, "已完成"),
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($options.doneTasks, (t, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: "d" + i,
+                class: "task-item task-done"
+              }, [
+                vue.createElementVNode("view", { class: "task-check checked" }, [
+                  vue.createElementVNode("text", null, "✓")
+                ]),
+                vue.createElementVNode("view", { class: "task-body" }, [
                   vue.createElementVNode(
                     "text",
-                    { class: "pc-title" },
-                    vue.toDisplayString(p.title),
+                    { class: "task-name line-through" },
+                    vue.toDisplayString(t.title),
                     1
                     /* TEXT */
                   ),
                   vue.createElementVNode(
                     "text",
-                    { class: "pc-desc" },
-                    vue.toDisplayString(p.desc),
+                    { class: "task-time" },
+                    vue.toDisplayString(t.time),
                     1
                     /* TEXT */
                   )
                 ]),
-                vue.createElementVNode("text", { class: "pc-arrow" }, "›")
-              ]),
-              vue.createElementVNode("view", { class: "pc-progress" }, [
-                vue.createElementVNode("view", { class: "pc-bar" }, [
-                  vue.createElementVNode(
-                    "view",
-                    {
-                      class: "pc-fill",
-                      style: vue.normalizeStyle({ width: p.progress + "%", background: p.iconColor })
-                    },
-                    null,
-                    4
-                    /* STYLE */
-                  )
-                ]),
                 vue.createElementVNode(
-                  "text",
+                  "view",
                   {
-                    class: "pc-pct",
-                    style: vue.normalizeStyle({ color: p.iconColor })
+                    class: "task-tag",
+                    style: vue.normalizeStyle({ background: $options.tagColor(t.type) })
                   },
-                  vue.toDisplayString(p.progress) + "%",
-                  5
-                  /* TEXT, STYLE */
-                )
-              ]),
-              vue.createElementVNode("view", { class: "pc-tags" }, [
-                (vue.openBlock(true), vue.createElementBlock(
-                  vue.Fragment,
-                  null,
-                  vue.renderList(p.tags, (t, j) => {
-                    return vue.openBlock(), vue.createElementBlock(
+                  [
+                    vue.createElementVNode(
                       "text",
-                      {
-                        key: j,
-                        class: "pc-tag"
-                      },
-                      vue.toDisplayString(t),
+                      null,
+                      vue.toDisplayString(t.type),
                       1
                       /* TEXT */
-                    );
-                  }),
-                  128
-                  /* KEYED_FRAGMENT */
-                ))
-              ])
-            ]);
-          }),
-          128
-          /* KEYED_FRAGMENT */
-        ))
+                    )
+                  ],
+                  4
+                  /* STYLE */
+                )
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])) : vue.createCommentVNode("v-if", true)
       ]),
       vue.createVNode(_component_CustomTabbar, { current: 2 })
     ]);
   }
-  const PagesPlanOverviewPlanOverview = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-b97d5bf4"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-overview/plan-overview.vue"]]);
-  const _sfc_main$f = {
+  const PagesPlanOverviewPlanOverview = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-b97d5bf4"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-overview/plan-overview.vue"]]);
+  const _sfc_main$j = {
     components: { CustomNavbar },
     data() {
       return {
@@ -2157,7 +2238,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-task-today" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -2337,8 +2418,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesTaskTodayTaskToday = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-9d6d08e3"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-today/task-today.vue"]]);
-  const _sfc_main$e = {
+  const PagesTaskTodayTaskToday = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-9d6d08e3"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-today/task-today.vue"]]);
+  const _sfc_main$i = {
     components: { CustomTabbar },
     onShow() {
       uni.hideTabBar();
@@ -2352,7 +2433,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-profile" }, [
       vue.createElementVNode("view", { class: "profile-header" }, [
@@ -2499,8 +2580,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_CustomTabbar, { current: 3 })
     ]);
   }
-  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-dd383ca2"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile/profile.vue"]]);
-  const _sfc_main$d = {
+  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-dd383ca2"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile/profile.vue"]]);
+  const _sfc_main$h = {
     components: { CustomNavbar },
     data() {
       return {
@@ -2516,7 +2597,7 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -2614,8 +2695,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthDetailHealthDetail = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-ea663d6b"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-detail/health-detail.vue"]]);
-  const _sfc_main$c = {
+  const PagesHealthDetailHealthDetail = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-ea663d6b"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-detail/health-detail.vue"]]);
+  const _sfc_main$g = {
     name: "TabSwitch",
     props: {
       tabs: { type: Array, default: () => [] },
@@ -2623,7 +2704,7 @@ if (uni.restoreGlobal) {
     },
     emits: ["update:modelValue"]
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "tab-switch" }, [
       (vue.openBlock(true), vue.createElementBlock(
         vue.Fragment,
@@ -2648,8 +2729,8 @@ if (uni.restoreGlobal) {
       ))
     ]);
   }
-  const TabSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-b971217e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/tab-switch.vue"]]);
-  const _sfc_main$b = {
+  const TabSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-b971217e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/tab-switch.vue"]]);
+  const _sfc_main$f = {
     components: { CustomNavbar, TabSwitch },
     data() {
       return {
@@ -2716,7 +2797,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     const _component_TabSwitch = vue.resolveComponent("TabSwitch");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
@@ -2997,8 +3078,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthInputHealthInput = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-5e69f1fd"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-input/health-input.vue"]]);
-  const _sfc_main$a = {
+  const PagesHealthInputHealthInput = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-5e69f1fd"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-input/health-input.vue"]]);
+  const _sfc_main$e = {
     components: { CustomNavbar },
     data() {
       return {
@@ -3239,7 +3320,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, { title: "指标趋势" }),
@@ -3349,8 +3430,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthTrendHealthTrend = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-067ba3e8"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-trend/health-trend.vue"]]);
-  const _sfc_main$9 = {
+  const PagesHealthTrendHealthTrend = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-067ba3e8"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-trend/health-trend.vue"]]);
+  const _sfc_main$d = {
     components: { CustomNavbar, TabSwitch },
     data() {
       return {
@@ -3375,7 +3456,7 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     const _component_TabSwitch = vue.resolveComponent("TabSwitch");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
@@ -3673,8 +3754,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthAdviceHealthAdvice = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-f71751e5"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-advice/health-advice.vue"]]);
-  const _sfc_main$8 = {
+  const PagesHealthAdviceHealthAdvice = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-f71751e5"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-advice/health-advice.vue"]]);
+  const _sfc_main$c = {
     name: "AiHistory",
     components: { CustomNavbar },
     data() {
@@ -3744,7 +3825,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -3865,8 +3946,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesAiHistoryAiHistory = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-ecdf042d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-history/ai-history.vue"]]);
-  const _sfc_main$7 = {
+  const PagesAiHistoryAiHistory = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-ecdf042d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-history/ai-history.vue"]]);
+  const _sfc_main$b = {
     name: "AiHistoryDetail",
     components: { CustomNavbar },
     data() {
@@ -3895,7 +3976,7 @@ if (uni.restoreGlobal) {
       this.modeLabel = options.mode === "inquiry" ? "问诊模式" : "问答模式";
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -3969,500 +4050,730 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesAiHistoryDetailAiHistoryDetail = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-3c13b7ea"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-history-detail/ai-history-detail.vue"]]);
-  const _sfc_main$6 = {
-    components: { CustomNavbar, TabSwitch },
+  const PagesAiHistoryDetailAiHistoryDetail = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-3c13b7ea"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-history-detail/ai-history-detail.vue"]]);
+  const _sfc_main$a = {
+    components: { CustomNavbar },
     data() {
       return {
-        tabIndex: 0,
-        exerciseItems: [
-          { icon: "🏃", name: "快走", detail: "30分钟/次，每周5次" },
-          { icon: "🧘", name: "太极拳", detail: "20分钟/次，每周3次" },
-          { icon: "🚶", name: "散步", detail: "45分钟/次，每日" }
-        ],
-        mealCards: [
-          { title: "早餐", foods: [
-            { name: "燕麦粥", recommended: true },
-            { name: "水煮蛋", recommended: true },
-            { name: "油条", recommended: false }
-          ] },
-          { title: "午餐", foods: [
-            { name: "糙米饭", recommended: true },
-            { name: "清蒸鱼", recommended: true },
-            { name: "青菜", recommended: true }
-          ] },
-          { title: "晚餐", foods: [
-            { name: "杂粮粥", recommended: true },
-            { name: "炒腊肉", recommended: false }
-          ] }
-        ],
-        medForm: { name: "", dose: "", freq: "", time: "" },
-        checkupItems: [
-          { date: "2025-04-15", type: "血常规", typeClass: "type-a", hospital: "市人民医院" },
-          { date: "2025-05-20", type: "肝肾功能", typeClass: "type-b", hospital: "市人民医院" }
+        plans: [
+          {
+            icon: "🏃",
+            title: "运动计划",
+            desc: "每日运动30分钟，有氧+无氧结合",
+            progress: 65,
+            bgColor: "#E8F5E9",
+            barColor: "#34C759",
+            tagBg: "#E8F5E9",
+            tagColor: "#34C759",
+            tags: ["晨跑", "太极拳", "散步"],
+            url: "/pages/plan-exercise/plan-exercise"
+          },
+          {
+            icon: "🥗",
+            title: "饮食计划",
+            desc: "均衡营养，低盐低脂饮食",
+            progress: 50,
+            bgColor: "#FFF3E0",
+            barColor: "#FF9500",
+            tagBg: "#FFF3E0",
+            tagColor: "#FF9500",
+            tags: ["低盐", "高蛋白", "粗粮"],
+            url: "/pages/plan-diet/plan-diet"
+          },
+          {
+            icon: "💊",
+            title: "用药计划",
+            desc: "按时服药，定期复查",
+            progress: 80,
+            bgColor: "#FFEBEE",
+            barColor: "#EF4444",
+            tagBg: "#FFEBEE",
+            tagColor: "#EF4444",
+            tags: ["降压药", "降糖药", "维生素"],
+            url: "/pages/plan-medication/plan-medication"
+          },
+          {
+            icon: "🏥",
+            title: "复查计划",
+            desc: "定期体检，跟踪健康指标变化",
+            progress: 30,
+            bgColor: "#E3F2FD",
+            barColor: "#4A90D9",
+            tagBg: "#E3F2FD",
+            tagColor: "#4A90D9",
+            tags: ["血常规", "心电图", "肝功能"],
+            url: "/pages/plan-checkup/plan-checkup"
+          }
         ]
       };
     },
     methods: {
-      onSave() {
-        uni.showToast({ title: "保存成功", icon: "success" });
-      },
-      addExercise() {
-        this.exerciseItems.push({ icon: "⚽", name: "新运动", detail: "请编辑" });
-      },
-      addFood() {
-        uni.showToast({ title: "添加食物", icon: "none" });
-      },
-      addCheckup() {
-        this.checkupItems.push({
-          date: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10),
-          type: "新复查",
-          typeClass: "type-a",
-          hospital: "请选择医院"
-        });
+      goDetail(url) {
+        uni.navigateTo({ url });
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
-    const _component_TabSwitch = vue.resolveComponent("TabSwitch");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, {
-        title: "计划编辑",
-        "show-back": true
-      }, {
-        right: vue.withCtx(() => [
-          vue.createElementVNode("text", {
-            class: "nav-save",
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.onSave && $options.onSave(...args))
-          }, "保存")
-        ]),
-        _: 1
-        /* STABLE */
+        title: "当前计划",
+        showBack: true,
+        bgColor: "#4A90D9",
+        titleColor: "#fff"
       }),
-      vue.createVNode(_component_TabSwitch, {
-        tabs: ["运动", "饮食", "用药", "复查"],
-        modelValue: $data.tabIndex,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.tabIndex = $event)
-      }, null, 8, ["modelValue"]),
-      vue.createElementVNode("view", { class: "content" }, [
-        vue.withDirectives(vue.createElementVNode(
-          "view",
-          { class: "tab-content" },
-          [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($data.exerciseItems, (item, i) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: i,
-                  class: "exercise-item"
-                }, [
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "plan-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "plan-list" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.plans, (p, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: "plan-card",
+                onClick: ($event) => $options.goDetail(p.url)
+              }, [
+                vue.createElementVNode("view", { class: "card-top" }, [
                   vue.createElementVNode(
-                    "text",
-                    { class: "ex-icon" },
-                    vue.toDisplayString(item.icon),
-                    1
-                    /* TEXT */
+                    "view",
+                    {
+                      class: "card-icon-wrap",
+                      style: vue.normalizeStyle({ background: p.bgColor })
+                    },
+                    [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "card-icon" },
+                        vue.toDisplayString(p.icon),
+                        1
+                        /* TEXT */
+                      )
+                    ],
+                    4
+                    /* STYLE */
                   ),
-                  vue.createElementVNode("view", { class: "ex-body" }, [
+                  vue.createElementVNode("view", { class: "card-info" }, [
                     vue.createElementVNode(
                       "text",
-                      { class: "ex-name" },
-                      vue.toDisplayString(item.name),
+                      { class: "card-title" },
+                      vue.toDisplayString(p.title),
                       1
                       /* TEXT */
                     ),
                     vue.createElementVNode(
                       "text",
-                      { class: "ex-detail" },
-                      vue.toDisplayString(item.detail),
+                      { class: "card-desc" },
+                      vue.toDisplayString(p.desc),
                       1
                       /* TEXT */
                     )
-                  ])
-                ]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            )),
-            vue.createElementVNode("view", {
-              class: "add-btn",
-              onClick: _cache[2] || (_cache[2] = (...args) => $options.addExercise && $options.addExercise(...args))
-            }, [
-              vue.createElementVNode("text", null, "＋ 添加运动")
-            ])
-          ],
-          512
-          /* NEED_PATCH */
-        ), [
-          [vue.vShow, $data.tabIndex === 0]
-        ]),
-        vue.withDirectives(vue.createElementVNode(
-          "view",
-          { class: "tab-content" },
-          [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($data.mealCards, (meal, mi) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: mi,
-                  class: "meal-card"
-                }, [
-                  vue.createElementVNode(
-                    "text",
-                    { class: "meal-title" },
-                    vue.toDisplayString(meal.title),
-                    1
-                    /* TEXT */
-                  ),
-                  vue.createElementVNode("view", { class: "food-tags" }, [
-                    (vue.openBlock(true), vue.createElementBlock(
-                      vue.Fragment,
+                  ]),
+                  vue.createElementVNode("text", { class: "card-arrow" }, "›")
+                ]),
+                vue.createElementVNode("view", { class: "card-progress" }, [
+                  vue.createElementVNode("view", { class: "progress-bar-bg" }, [
+                    vue.createElementVNode(
+                      "view",
+                      {
+                        class: "progress-bar-fill",
+                        style: vue.normalizeStyle({ width: p.progress + "%", background: p.barColor })
+                      },
                       null,
-                      vue.renderList(meal.foods, (f, fi) => {
-                        return vue.openBlock(), vue.createElementBlock(
-                          "text",
-                          {
-                            key: fi,
-                            class: vue.normalizeClass(["food-tag", f.recommended ? "recommended" : "avoid"])
-                          },
-                          vue.toDisplayString(f.name),
-                          3
-                          /* TEXT, CLASS */
-                        );
-                      }),
-                      128
-                      /* KEYED_FRAGMENT */
-                    ))
-                  ])
-                ]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            )),
-            vue.createElementVNode("view", {
-              class: "add-btn",
-              onClick: _cache[3] || (_cache[3] = (...args) => $options.addFood && $options.addFood(...args))
-            }, [
-              vue.createElementVNode("text", null, "＋ 添加食物")
-            ])
-          ],
-          512
-          /* NEED_PATCH */
-        ), [
-          [vue.vShow, $data.tabIndex === 1]
-        ]),
-        vue.withDirectives(vue.createElementVNode(
-          "view",
-          { class: "tab-content" },
-          [
-            vue.createElementVNode("view", { class: "form-row" }, [
-              vue.createElementVNode("text", { class: "form-label" }, "药物名称"),
-              vue.withDirectives(vue.createElementVNode(
-                "input",
-                {
-                  class: "form-input",
-                  placeholder: "请输入药物名称",
-                  "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.medForm.name = $event)
-                },
-                null,
-                512
-                /* NEED_PATCH */
-              ), [
-                [vue.vModelText, $data.medForm.name]
-              ])
-            ]),
-            vue.createElementVNode("view", { class: "form-row" }, [
-              vue.createElementVNode("text", { class: "form-label" }, "剂量"),
-              vue.withDirectives(vue.createElementVNode(
-                "input",
-                {
-                  class: "form-input",
-                  placeholder: "如 100mg",
-                  "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.medForm.dose = $event)
-                },
-                null,
-                512
-                /* NEED_PATCH */
-              ), [
-                [vue.vModelText, $data.medForm.dose]
-              ])
-            ]),
-            vue.createElementVNode("view", { class: "form-row" }, [
-              vue.createElementVNode("text", { class: "form-label" }, "频次"),
-              vue.withDirectives(vue.createElementVNode(
-                "input",
-                {
-                  class: "form-input",
-                  placeholder: "如 每日两次",
-                  "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.medForm.freq = $event)
-                },
-                null,
-                512
-                /* NEED_PATCH */
-              ), [
-                [vue.vModelText, $data.medForm.freq]
-              ])
-            ]),
-            vue.createElementVNode("view", { class: "form-row" }, [
-              vue.createElementVNode("text", { class: "form-label" }, "时间"),
-              vue.withDirectives(vue.createElementVNode(
-                "input",
-                {
-                  class: "form-input",
-                  placeholder: "如 早晚饭后",
-                  "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.medForm.time = $event)
-                },
-                null,
-                512
-                /* NEED_PATCH */
-              ), [
-                [vue.vModelText, $data.medForm.time]
-              ])
-            ]),
-            vue.createElementVNode("navigator", {
-              url: "/pages/medication/medication",
-              class: "med-link",
-              "hover-class": "none"
-            }, [
-              vue.createElementVNode("text", null, "前往用药管理 ›")
-            ])
-          ],
-          512
-          /* NEED_PATCH */
-        ), [
-          [vue.vShow, $data.tabIndex === 2]
-        ]),
-        vue.withDirectives(vue.createElementVNode(
-          "view",
-          { class: "tab-content" },
-          [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($data.checkupItems, (item, i) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: i,
-                  class: "checkup-item"
-                }, [
-                  vue.createElementVNode(
-                    "view",
-                    { class: "checkup-date" },
-                    vue.toDisplayString(item.date),
-                    1
-                    /* TEXT */
-                  ),
+                      4
+                      /* STYLE */
+                    )
+                  ]),
                   vue.createElementVNode(
                     "text",
-                    {
-                      class: vue.normalizeClass(["checkup-type", item.typeClass])
-                    },
-                    vue.toDisplayString(item.type),
-                    3
-                    /* TEXT, CLASS */
-                  ),
-                  vue.createElementVNode(
-                    "text",
-                    { class: "checkup-hospital" },
-                    vue.toDisplayString(item.hospital),
-                    1
-                    /* TEXT */
-                  )
-                ]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            )),
-            vue.createElementVNode("view", {
-              class: "add-btn",
-              onClick: _cache[8] || (_cache[8] = (...args) => $options.addCheckup && $options.addCheckup(...args))
-            }, [
-              vue.createElementVNode("text", null, "＋ 添加复查")
-            ])
-          ],
-          512
-          /* NEED_PATCH */
-        ), [
-          [vue.vShow, $data.tabIndex === 3]
-        ])
-      ])
-    ]);
-  }
-  const PagesPlanEditPlanEdit = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-3819ddb0"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-edit/plan-edit.vue"]]);
-  const _sfc_main$5 = {
-    components: { CustomNavbar },
-    data() {
-      return {
-        todayMeds: [
-          { time: "08:00", name: "阿司匹林肠溶片", dosage: "100mg", status: "done" },
-          { time: "12:00", name: "二甲双胍", dosage: "500mg", status: "pending" },
-          { time: "20:00", name: "阿托伐他汀", dosage: "20mg", status: "missed" }
-        ],
-        longTermMeds: [
-          { id: 1, name: "阿司匹林肠溶片", schedule: ["早", "晚"], info: "每次100mg，餐后服用" },
-          { id: 2, name: "二甲双胍缓释片", schedule: ["早", "中", "晚"], info: "每次500mg，随餐服用" },
-          { id: 3, name: "阿托伐他汀钙片", schedule: ["晚"], info: "每次20mg，睡前服用" }
-        ]
-      };
-    },
-    methods: {
-      confirmTake(idx) {
-        const med = this.todayMeds[idx];
-        if (med.status !== "pending")
-          return;
-        uni.showModal({
-          title: "确认服药",
-          content: `确定已服用「${med.name}」${med.dosage} 吗？`,
-          success: (res) => {
-            if (res.confirm) {
-              this.todayMeds[idx].status = "done";
-              uni.showToast({ title: "已标记服用", icon: "success" });
-            }
-          }
-        });
-      },
-      onFeedback() {
-        uni.showToast({ title: "不良反应反馈", icon: "none" });
-      },
-      addMedication() {
-        uni.showToast({ title: "添加药物", icon: "none" });
-      }
-    }
-  };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
-      vue.createVNode(_component_CustomNavbar, { title: "用药管理" }),
-      vue.createElementVNode("view", { class: "content" }, [
-        vue.createElementVNode("view", { class: "today-section" }, [
-          vue.createElementVNode("text", { class: "section-title" }, "今日用药"),
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($data.todayMeds, (m, i) => {
-              return vue.openBlock(), vue.createElementBlock("view", {
-                key: i,
-                class: "take-item",
-                onClick: ($event) => m.status === "pending" ? $options.confirmTake(i) : null
-              }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "take-time" },
-                  vue.toDisplayString(m.time),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode("view", { class: "take-body" }, [
-                  vue.createElementVNode(
-                    "text",
-                    { class: "take-name" },
-                    vue.toDisplayString(m.name),
-                    1
-                    /* TEXT */
-                  ),
-                  vue.createElementVNode(
-                    "text",
-                    { class: "take-dosage" },
-                    vue.toDisplayString(m.dosage),
+                    { class: "progress-text" },
+                    vue.toDisplayString(p.progress) + "%",
                     1
                     /* TEXT */
                   )
                 ]),
-                vue.createElementVNode(
-                  "view",
-                  {
-                    class: vue.normalizeClass(["take-status", "status-" + m.status])
-                  },
-                  [
-                    vue.createElementVNode(
-                      "text",
-                      null,
-                      vue.toDisplayString(m.status === "done" ? "已服用" : m.status === "pending" ? "待服用" : "漏服"),
-                      1
-                      /* TEXT */
-                    )
-                  ],
-                  2
-                  /* CLASS */
-                )
-              ], 8, ["onClick"]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ]),
-        vue.createElementVNode("text", { class: "list-title" }, "长期用药"),
-        (vue.openBlock(true), vue.createElementBlock(
-          vue.Fragment,
-          null,
-          vue.renderList($data.longTermMeds, (m, i) => {
-            return vue.openBlock(), vue.createElementBlock("navigator", {
-              key: i,
-              url: "/pages/medication-detail/medication-detail?id=" + m.id,
-              class: "med-card",
-              "hover-class": "med-card-hover"
-            }, [
-              vue.createElementVNode("text", { class: "med-icon" }, "💊"),
-              vue.createElementVNode("view", { class: "med-body" }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "med-name" },
-                  vue.toDisplayString(m.name),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode("view", { class: "med-schedule" }, [
+                vue.createElementVNode("view", { class: "card-tags" }, [
                   (vue.openBlock(true), vue.createElementBlock(
                     vue.Fragment,
                     null,
-                    vue.renderList(m.schedule, (s, j) => {
+                    vue.renderList(p.tags, (tag, ti) => {
                       return vue.openBlock(), vue.createElementBlock(
-                        "text",
+                        "view",
                         {
-                          key: j,
-                          class: "schedule-tag"
+                          key: ti,
+                          class: "tag-item",
+                          style: vue.normalizeStyle({ background: p.tagBg, color: p.tagColor })
                         },
-                        vue.toDisplayString(s),
-                        1
-                        /* TEXT */
+                        [
+                          vue.createElementVNode(
+                            "text",
+                            null,
+                            vue.toDisplayString(tag),
+                            1
+                            /* TEXT */
+                          )
+                        ],
+                        4
+                        /* STYLE */
                       );
                     }),
                     128
                     /* KEYED_FRAGMENT */
                   ))
-                ]),
-                vue.createElementVNode(
-                  "text",
-                  { class: "med-info" },
-                  vue.toDisplayString(m.info),
-                  1
-                  /* TEXT */
-                )
-              ])
-            ], 8, ["url"]);
-          }),
-          128
-          /* KEYED_FRAGMENT */
-        )),
-        vue.createElementVNode("view", {
-          class: "feedback-btn",
-          onClick: _cache[0] || (_cache[0] = (...args) => $options.onFeedback && $options.onFeedback(...args))
-        }, [
-          vue.createElementVNode("text", null, "⚠ 不良反应反馈")
-        ]),
-        vue.createElementVNode("view", {
-          class: "add-med-btn",
-          onClick: _cache[1] || (_cache[1] = (...args) => $options.addMedication && $options.addMedication(...args))
-        }, [
-          vue.createElementVNode("text", null, "＋ 添加药物")
+                ])
+              ], 8, ["onClick"]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
         ])
       ])
     ]);
   }
-  const PagesMedicationMedication = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-48d5af11"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/medication/medication.vue"]]);
-  const _sfc_main$4 = {
+  const PagesPlanEditPlanEdit = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-3819ddb0"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-edit/plan-edit.vue"]]);
+  function emptyShort() {
+    return { name: "", frequency: "", contraindication: "", dosage: "", date: "", onTime: "", sideEffect: "", doctor: "", remark: "" };
+  }
+  function emptyLong() {
+    return { name: "", purpose: "", contraindication: "", frequency: "", dosage: "", date: "", onTime: "", sideEffect: "", doctor: "", followUpNote: "" };
+  }
+  const _sfc_main$9 = {
+    components: { CustomNavbar },
+    data() {
+      return {
+        tabIdx: 0,
+        tabList: ["用药人档案", "短期用药记录", "慢性病长期用药"],
+        genderList: ["男", "女"],
+        editMode: false,
+        profile: {
+          name: "张三",
+          gender: "男",
+          age: "72",
+          drugAllergy: "青霉素",
+          otherAllergy: "无",
+          chronicDisease: "高血压、2型糖尿病",
+          majorHistory: "2018年心脏支架手术",
+          longTermMeds: "氨氯地平 5mg/日、二甲双胍 500mg×2/日",
+          emergencyContact: "张小明 138-0000-1234"
+        },
+        shortTermMeds: [emptyShort(), emptyShort(), emptyShort()],
+        longTermMeds: [emptyLong(), emptyLong(), emptyLong()]
+      };
+    },
+    methods: {
+      onGenderChange(e) {
+        this.profile.gender = this.genderList[e.detail.value];
+      },
+      saveProfile() {
+        this.editMode = false;
+        uni.showToast({ title: "档案已保存", icon: "success" });
+      },
+      addShort() {
+        this.shortTermMeds.push(emptyShort());
+      },
+      removeShort(i) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定删除药品 #${i + 1} 吗？`,
+          success: (res) => {
+            if (res.confirm)
+              this.shortTermMeds.splice(i, 1);
+          }
+        });
+      },
+      submitShort() {
+        uni.showToast({ title: "短期记录已提交", icon: "success" });
+      },
+      addLong() {
+        this.longTermMeds.push(emptyLong());
+      },
+      removeLong(i) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定删除药品 #${i + 1} 吗？`,
+          success: (res) => {
+            if (res.confirm)
+              this.longTermMeds.splice(i, 1);
+          }
+        });
+      },
+      submitLong() {
+        uni.showToast({ title: "慢性病记录已提交", icon: "success" });
+      }
+    }
+  };
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      vue.createVNode(_component_CustomNavbar, {
+        title: "用药管理",
+        showBack: true,
+        bgColor: "#4A90D9",
+        titleColor: "#fff"
+      }),
+      vue.createElementVNode("view", { class: "tab-bar" }, [
+        (vue.openBlock(true), vue.createElementBlock(
+          vue.Fragment,
+          null,
+          vue.renderList($data.tabList, (tab, i) => {
+            return vue.openBlock(), vue.createElementBlock("view", {
+              key: i,
+              class: vue.normalizeClass(["tab-item", { active: $data.tabIdx === i }]),
+              onClick: ($event) => $data.tabIdx = i
+            }, [
+              vue.createElementVNode(
+                "text",
+                null,
+                vue.toDisplayString(tab),
+                1
+                /* TEXT */
+              )
+            ], 10, ["onClick"]);
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        ))
+      ]),
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "content-scroll"
+      }, [
+        $data.tabIdx === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "tab-content"
+        }, [
+          vue.createElementVNode("view", { class: "form-card" }, [
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "姓名"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.profile.name = $event),
+                placeholder: "请输入姓名",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.name]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "性别"),
+              vue.createElementVNode("picker", {
+                range: $data.genderList,
+                onChange: _cache[1] || (_cache[1] = (...args) => $options.onGenderChange && $options.onGenderChange(...args)),
+                disabled: !$data.editMode
+              }, [
+                vue.createElementVNode(
+                  "view",
+                  { class: "form-input picker-val" },
+                  vue.toDisplayString($data.profile.gender || "请选择"),
+                  1
+                  /* TEXT */
+                )
+              ], 40, ["range", "disabled"])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "年龄"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.profile.age = $event),
+                placeholder: "请输入年龄",
+                type: "number",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.age]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "药物过敏史"),
+              vue.withDirectives(vue.createElementVNode("textarea", {
+                class: "form-textarea",
+                "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.profile.drugAllergy = $event),
+                placeholder: "无/具体药物名称",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.drugAllergy]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "食物/其他过敏史"),
+              vue.withDirectives(vue.createElementVNode("textarea", {
+                class: "form-textarea",
+                "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.profile.otherAllergy = $event),
+                placeholder: "无/具体过敏源",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.otherAllergy]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "基础慢性病记录"),
+              vue.withDirectives(vue.createElementVNode("textarea", {
+                class: "form-textarea",
+                "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.profile.chronicDisease = $event),
+                placeholder: "例：高血压、糖尿病",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.chronicDisease]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "既往重大病史/手术史"),
+              vue.withDirectives(vue.createElementVNode("textarea", {
+                class: "form-textarea",
+                "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.profile.majorHistory = $event),
+                placeholder: "无/具体病史或手术",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.majorHistory]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "长期固定服用药品"),
+              vue.withDirectives(vue.createElementVNode("textarea", {
+                class: "form-textarea",
+                "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.profile.longTermMeds = $event),
+                placeholder: "药品名称、剂量",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.longTermMeds]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "紧急联系人"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.profile.emergencyContact = $event),
+                placeholder: "姓名 + 电话",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.emergencyContact]
+              ])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "btn-group" }, [
+            !$data.editMode ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "btn-primary",
+              onClick: _cache[9] || (_cache[9] = ($event) => $data.editMode = true)
+            }, [
+              vue.createElementVNode("text", null, "✏️ 编辑档案")
+            ])) : (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "btn-primary",
+              onClick: _cache[10] || (_cache[10] = (...args) => $options.saveProfile && $options.saveProfile(...args))
+            }, [
+              vue.createElementVNode("text", null, "💾 保存档案")
+            ]))
+          ])
+        ])) : vue.createCommentVNode("v-if", true),
+        $data.tabIdx === 1 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "tab-content"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.shortTermMeds, (item, idx) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: "s" + idx,
+                class: "med-card"
+              }, [
+                vue.createElementVNode("view", { class: "med-card-header" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-no" },
+                    "药品 #" + vue.toDisplayString(idx + 1),
+                    1
+                    /* TEXT */
+                  ),
+                  $data.shortTermMeds.length > 1 ? (vue.openBlock(), vue.createElementBlock("text", {
+                    key: 0,
+                    class: "med-del",
+                    onClick: ($event) => $options.removeShort(idx)
+                  }, "✕ 删除", 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "药品名称"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.name = $event,
+                    placeholder: "请输入药品名称"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.name]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "医嘱频次"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.frequency = $event,
+                    placeholder: "如：每日3次"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.frequency]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药禁忌"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.contraindication = $event,
+                    placeholder: "无/具体禁忌"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.contraindication]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "单次剂量"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.dosage = $event,
+                    placeholder: "如：1片/5ml"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.dosage]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药日期"),
+                  vue.createElementVNode("picker", {
+                    mode: "date",
+                    onChange: (e) => item.date = e.detail.value
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.date || "选择日期"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "是否按时服用"),
+                  vue.createElementVNode("picker", {
+                    range: ["是", "否", "未记录"],
+                    onChange: (e) => item.onTime = ["是", "否", "未记录"][e.detail.value]
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.onTime || "请选择"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "不良反应"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.sideEffect = $event,
+                    placeholder: "无/具体不良反应"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.sideEffect]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "开具医师"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.doctor = $event,
+                    placeholder: "医师姓名"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.doctor]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "备注"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.remark = $event,
+                    placeholder: "其他说明"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.remark]
+                  ])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          )),
+          vue.createElementVNode("view", {
+            class: "add-row",
+            onClick: _cache[11] || (_cache[11] = (...args) => $options.addShort && $options.addShort(...args))
+          }, [
+            vue.createElementVNode("text", null, "+ 添加药品")
+          ]),
+          vue.createElementVNode("view", { class: "btn-group" }, [
+            vue.createElementVNode("view", {
+              class: "btn-primary",
+              onClick: _cache[12] || (_cache[12] = (...args) => $options.submitShort && $options.submitShort(...args))
+            }, [
+              vue.createElementVNode("text", null, "📤 提交短期用药记录")
+            ])
+          ])
+        ])) : vue.createCommentVNode("v-if", true),
+        $data.tabIdx === 2 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 2,
+          class: "tab-content"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.longTermMeds, (item, idx) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: "l" + idx,
+                class: "med-card"
+              }, [
+                vue.createElementVNode("view", { class: "med-card-header" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-no" },
+                    "药品 #" + vue.toDisplayString(idx + 1),
+                    1
+                    /* TEXT */
+                  ),
+                  $data.longTermMeds.length > 1 ? (vue.openBlock(), vue.createElementBlock("text", {
+                    key: 0,
+                    class: "med-del",
+                    onClick: ($event) => $options.removeLong(idx)
+                  }, "✕ 删除", 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "药品名称"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.name = $event,
+                    placeholder: "请输入药品名称"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.name]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "治疗病症/用途"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.purpose = $event,
+                    placeholder: "如：高血压"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.purpose]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药禁忌"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.contraindication = $event,
+                    placeholder: "无/具体禁忌"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.contraindication]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "医嘱频次"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.frequency = $event,
+                    placeholder: "如：每日2次"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.frequency]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "单次剂量"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.dosage = $event,
+                    placeholder: "如：1片"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.dosage]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药日期"),
+                  vue.createElementVNode("picker", {
+                    mode: "date",
+                    onChange: (e) => item.date = e.detail.value
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.date || "选择日期"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "是否按时服用"),
+                  vue.createElementVNode("picker", {
+                    range: ["是", "否", "未记录"],
+                    onChange: (e) => item.onTime = ["是", "否", "未记录"][e.detail.value]
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.onTime || "请选择"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "不良反应"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.sideEffect = $event,
+                    placeholder: "无/具体不良反应"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.sideEffect]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "开具医师"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.doctor = $event,
+                    placeholder: "医师姓名"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.doctor]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "复诊/调整备注"),
+                  vue.withDirectives(vue.createElementVNode("input", {
+                    class: "field-input",
+                    "onUpdate:modelValue": ($event) => item.followUpNote = $event,
+                    placeholder: "复诊计划或剂量调整说明"
+                  }, null, 8, ["onUpdate:modelValue"]), [
+                    [vue.vModelText, item.followUpNote]
+                  ])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          )),
+          vue.createElementVNode("view", {
+            class: "add-row",
+            onClick: _cache[13] || (_cache[13] = (...args) => $options.addLong && $options.addLong(...args))
+          }, [
+            vue.createElementVNode("text", null, "+ 添加药品")
+          ]),
+          vue.createElementVNode("view", { class: "btn-group" }, [
+            vue.createElementVNode("view", {
+              class: "btn-primary",
+              onClick: _cache[14] || (_cache[14] = (...args) => $options.submitLong && $options.submitLong(...args))
+            }, [
+              vue.createElementVNode("text", null, "📤 提交慢性病用药记录")
+            ])
+          ])
+        ])) : vue.createCommentVNode("v-if", true)
+      ])
+    ]);
+  }
+  const PagesMedicationMedication = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-48d5af11"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/medication/medication.vue"]]);
+  const _sfc_main$8 = {
     components: { CustomNavbar },
     data() {
       return {
@@ -4510,7 +4821,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -4656,8 +4967,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesMedicationDetailMedicationDetail = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-2eec67f9"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/medication-detail/medication-detail.vue"]]);
-  const _sfc_main$3 = {
+  const PagesMedicationDetailMedicationDetail = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-2eec67f9"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/medication-detail/medication-detail.vue"]]);
+  const _sfc_main$7 = {
     components: { CustomNavbar },
     data() {
       const today = /* @__PURE__ */ new Date();
@@ -4698,7 +5009,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-task-history" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -4808,8 +5119,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesTaskHistoryTaskHistory = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-6ca84a2e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-history/task-history.vue"]]);
-  const _sfc_main$2 = {
+  const PagesTaskHistoryTaskHistory = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-6ca84a2e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-history/task-history.vue"]]);
+  const _sfc_main$6 = {
     components: { CustomNavbar },
     data() {
       return {
@@ -4845,7 +5156,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-profile-edit" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -5074,8 +5385,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesProfileEditProfileEdit = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-b59caf64"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile-edit/profile-edit.vue"]]);
-  const _sfc_main$1 = {
+  const PagesProfileEditProfileEdit = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-b59caf64"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile-edit/profile-edit.vue"]]);
+  const _sfc_main$5 = {
     components: { CustomNavbar },
     data() {
       return {
@@ -5101,7 +5412,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-settings" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -5263,7 +5574,1023 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-7fad0a1c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/settings/settings.vue"]]);
+  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-7fad0a1c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/settings/settings.vue"]]);
+  const _sfc_main$4 = {
+    components: { CustomNavbar },
+    data() {
+      return {
+        aerobicPct: 65,
+        totalCalories: 2350,
+        weekPlan: [
+          {
+            name: "周一",
+            date: "3/3",
+            isToday: false,
+            exercises: [
+              { name: "晨跑", duration: "30分钟", intensity: "5km · 中等", isAerobic: true },
+              { name: "拉伸", duration: "15分钟", intensity: "低强度", isAerobic: true }
+            ]
+          },
+          {
+            name: "周二",
+            date: "3/4",
+            isToday: false,
+            exercises: [
+              { name: "哑铃训练", duration: "40分钟", intensity: "中等强度", isAerobic: false },
+              { name: "平板支撑", duration: "10分钟", intensity: "高强度", isAerobic: false }
+            ]
+          },
+          {
+            name: "周三",
+            date: "3/5",
+            isToday: false,
+            exercises: [
+              { name: "太极拳", duration: "45分钟", intensity: "低强度", isAerobic: true },
+              { name: "散步", duration: "30分钟", intensity: "2km · 低强度", isAerobic: true }
+            ]
+          },
+          {
+            name: "周四",
+            date: "3/6",
+            isToday: false,
+            exercises: [
+              { name: "游泳", duration: "40分钟", intensity: "1km · 中等", isAerobic: true }
+            ]
+          },
+          {
+            name: "周五",
+            date: "3/7",
+            isToday: false,
+            exercises: [
+              { name: "弹力带训练", duration: "30分钟", intensity: "中等强度", isAerobic: false },
+              { name: "瑜伽", duration: "30分钟", intensity: "低强度", isAerobic: true }
+            ]
+          },
+          {
+            name: "周六",
+            date: "3/8",
+            isToday: false,
+            exercises: []
+          },
+          {
+            name: "周日",
+            date: "3/9",
+            isToday: true,
+            exercises: [
+              { name: "快走", duration: "40分钟", intensity: "4km · 中等", isAerobic: true },
+              { name: "八段锦", duration: "20分钟", intensity: "低强度", isAerobic: true }
+            ]
+          }
+        ]
+      };
+    },
+    computed: {
+      ringAerobicStyle() {
+        const deg = this.aerobicPct / 100 * 360;
+        return {
+          background: `conic-gradient(#34C759 0deg ${deg}deg, #FF9500 ${deg}deg 360deg)`
+        };
+      }
+    }
+  };
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      vue.createVNode(_component_CustomNavbar, {
+        title: "运动计划",
+        showBack: true,
+        bgColor: "#34C759",
+        titleColor: "#fff"
+      }),
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "ex-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "stat-area" }, [
+          vue.createElementVNode("view", { class: "ring-wrap" }, [
+            vue.createElementVNode("view", { class: "ring-outer" }, [
+              vue.createElementVNode(
+                "view",
+                {
+                  class: "ring-aerobic",
+                  style: vue.normalizeStyle($options.ringAerobicStyle)
+                },
+                null,
+                4
+                /* STYLE */
+              ),
+              vue.createElementVNode("view", { class: "ring-hole" }, [
+                vue.createElementVNode("text", { class: "ring-label" }, "有氧/无氧"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "ring-ratio" },
+                  vue.toDisplayString($data.aerobicPct) + "% / " + vue.toDisplayString(100 - $data.aerobicPct) + "%",
+                  1
+                  /* TEXT */
+                )
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "ring-legend" }, [
+              vue.createElementVNode("view", { class: "legend-item" }, [
+                vue.createElementVNode("view", {
+                  class: "legend-dot",
+                  style: { "background": "#34C759" }
+                }),
+                vue.createElementVNode("text", null, "有氧运动")
+              ]),
+              vue.createElementVNode("view", { class: "legend-item" }, [
+                vue.createElementVNode("view", {
+                  class: "legend-dot",
+                  style: { "background": "#FF9500" }
+                }),
+                vue.createElementVNode("text", null, "无氧运动")
+              ])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "calorie-box" }, [
+            vue.createElementVNode(
+              "text",
+              { class: "cal-num" },
+              vue.toDisplayString($data.totalCalories),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("text", { class: "cal-unit" }, "kcal"),
+            vue.createElementVNode("text", { class: "cal-label" }, "本周预计消耗")
+          ])
+        ]),
+        vue.createElementVNode("text", { class: "section-title" }, "本周运动安排"),
+        vue.createElementVNode("view", { class: "timeline" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.weekPlan, (day, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: "day-row"
+              }, [
+                vue.createElementVNode("view", { class: "day-left" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "day-name" },
+                    vue.toDisplayString(day.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "day-date" },
+                    vue.toDisplayString(day.date),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "day-line" }, [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: "line-dot",
+                      style: vue.normalizeStyle({ background: day.isToday ? "#34C759" : "#C9CDD4" })
+                    },
+                    null,
+                    4
+                    /* STYLE */
+                  ),
+                  i < $data.weekPlan.length - 1 ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "line-bar"
+                  })) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "day-right" }, [
+                  (vue.openBlock(true), vue.createElementBlock(
+                    vue.Fragment,
+                    null,
+                    vue.renderList(day.exercises, (ex, j) => {
+                      return vue.openBlock(), vue.createElementBlock(
+                        "view",
+                        {
+                          key: j,
+                          class: vue.normalizeClass(["exercise-item", { aerobic: ex.isAerobic, anaerobic: !ex.isAerobic }])
+                        },
+                        [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "ex-name" },
+                            vue.toDisplayString(ex.name),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode(
+                            "text",
+                            { class: "ex-detail" },
+                            vue.toDisplayString(ex.duration) + " · " + vue.toDisplayString(ex.intensity),
+                            1
+                            /* TEXT */
+                          )
+                        ],
+                        2
+                        /* CLASS */
+                      );
+                    }),
+                    128
+                    /* KEYED_FRAGMENT */
+                  )),
+                  !day.exercises.length ? (vue.openBlock(), vue.createElementBlock("text", {
+                    key: 0,
+                    class: "rest-text"
+                  }, "🛌 休息日")) : vue.createCommentVNode("v-if", true)
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])
+      ])
+    ]);
+  }
+  const PagesPlanExercisePlanExercise = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-a0098282"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-exercise/plan-exercise.vue"]]);
+  const _sfc_main$3 = {
+    components: { CustomNavbar },
+    data() {
+      return {
+        dailyTarget: 2e3,
+        consumed: 1650,
+        editMode: false,
+        weekMeals: [
+          {
+            name: "周一",
+            date: "3/3",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 380, foods: ["燕麦粥", "鸡蛋", "牛奶"] },
+              { type: "午餐", calories: 550, foods: ["糙米饭", "清蒸鱼", "时蔬"] },
+              { type: "晚餐", calories: 420, foods: ["杂粮粥", "凉拌菜", "豆腐"] }
+            ]
+          },
+          {
+            name: "周二",
+            date: "3/4",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 350, foods: ["全麦面包", "酸奶", "苹果"] },
+              { type: "午餐", calories: 520, foods: ["荞麦面", "鸡胸肉", "西兰花"] },
+              { type: "晚餐", calories: 400, foods: ["小米粥", "蒸南瓜", "青菜"] }
+            ]
+          },
+          {
+            name: "周三",
+            date: "3/5",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 360, foods: ["紫薯", "豆浆", "坚果"] },
+              { type: "午餐", calories: 530, foods: ["米饭", "番茄牛腩", "菠菜"] },
+              { type: "晚餐", calories: 380, foods: ["玉米粥", "清炒虾仁", "黄瓜"] }
+            ]
+          },
+          {
+            name: "周四",
+            date: "3/6",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 370, foods: ["燕麦", "蓝莓", "核桃"] },
+              { type: "午餐", calories: 540, foods: ["糙米", "白切鸡", "油菜"] },
+              { type: "晚餐", calories: 410, foods: ["红薯", "清蒸鲈鱼", "豆芽"] }
+            ]
+          },
+          {
+            name: "周五",
+            date: "3/7",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 340, foods: ["鸡蛋饼", "牛奶", "香蕉"] },
+              { type: "午餐", calories: 560, foods: ["面条", "红烧排骨", "芹菜"] },
+              { type: "晚餐", calories: 390, foods: ["杂粮饭", "蒸蛋", "木耳"] }
+            ]
+          },
+          {
+            name: "周六",
+            date: "3/8",
+            isToday: false,
+            meals: [
+              { type: "早餐", calories: 400, foods: ["包子", "豆浆", "小菜"] },
+              { type: "午餐", calories: 500, foods: ["饺子", "紫菜蛋汤"] },
+              { type: "晚餐", calories: 380, foods: ["粥", "咸鸭蛋", "青菜"] }
+            ]
+          },
+          {
+            name: "周日",
+            date: "3/9",
+            isToday: true,
+            meals: [
+              { type: "早餐", calories: 380, foods: ["燕麦粥", "鸡蛋", "橙子"] },
+              { type: "午餐", calories: 550, foods: ["米饭", "蒸鱼", "丝瓜"] },
+              { type: "晚餐", calories: 420, foods: ["红豆粥", "凉拌木耳", "豆干"] }
+            ]
+          }
+        ]
+      };
+    },
+    computed: {
+      remaining() {
+        return Math.max(0, this.dailyTarget - this.consumed);
+      },
+      intakeRingStyle() {
+        const pct = Math.min(100, this.consumed / this.dailyTarget * 100);
+        const deg = pct / 100 * 360;
+        return {
+          background: `conic-gradient(#FF9500 0deg ${deg}deg, #E5E6EB ${deg}deg 360deg)`
+        };
+      }
+    },
+    methods: {
+      updateFoods(dayIdx, mealIdx, val) {
+        this.weekMeals[dayIdx].meals[mealIdx].foods = val.split("、").filter((s) => s.trim());
+      },
+      saveEdit() {
+        this.editMode = false;
+        uni.showToast({ title: "已保存", icon: "success" });
+      }
+    }
+  };
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      vue.createVNode(_component_CustomNavbar, {
+        title: "饮食计划",
+        showBack: true,
+        bgColor: "#FF9500",
+        titleColor: "#fff"
+      }),
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "diet-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "stat-card" }, [
+          vue.createElementVNode("view", { class: "stat-top" }, [
+            vue.createElementVNode("view", { class: "stat-col" }, [
+              vue.createElementVNode("text", { class: "stat-val" }, "1650"),
+              vue.createElementVNode("text", { class: "stat-label" }, "已摄入(kcal)")
+            ]),
+            vue.createElementVNode("view", { class: "stat-ring-col" }, [
+              vue.createElementVNode("view", { class: "ring-outer-d" }, [
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: "ring-fill-d",
+                    style: vue.normalizeStyle($options.intakeRingStyle)
+                  },
+                  null,
+                  4
+                  /* STYLE */
+                ),
+                vue.createElementVNode("view", { class: "ring-center-d" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ring-val-d" },
+                    vue.toDisplayString($options.remaining),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("text", { class: "ring-unit-d" }, "kcal")
+                ])
+              ]),
+              vue.createElementVNode("text", { class: "stat-sub" }, "还可摄入")
+            ]),
+            vue.createElementVNode("view", { class: "stat-col" }, [
+              vue.createElementVNode("text", { class: "stat-val" }, "350"),
+              vue.createElementVNode("text", { class: "stat-label" }, "运动消耗(kcal)")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "nutrient-bars" }, [
+            vue.createElementVNode("view", { class: "nut-row" }, [
+              vue.createElementVNode("text", { class: "nut-name" }, "碳水"),
+              vue.createElementVNode("view", { class: "nut-bar-bg" }, [
+                vue.createElementVNode("view", {
+                  class: "nut-bar-fill",
+                  style: { "width": "62%", "background": "#FF9500" }
+                })
+              ]),
+              vue.createElementVNode("text", { class: "nut-pct" }, "155/250g")
+            ]),
+            vue.createElementVNode("view", { class: "nut-row" }, [
+              vue.createElementVNode("text", { class: "nut-name" }, "蛋白质"),
+              vue.createElementVNode("view", { class: "nut-bar-bg" }, [
+                vue.createElementVNode("view", {
+                  class: "nut-bar-fill",
+                  style: { "width": "48%", "background": "#4A90D9" }
+                })
+              ]),
+              vue.createElementVNode("text", { class: "nut-pct" }, "36/75g")
+            ]),
+            vue.createElementVNode("view", { class: "nut-row" }, [
+              vue.createElementVNode("text", { class: "nut-name" }, "脂肪"),
+              vue.createElementVNode("view", { class: "nut-bar-bg" }, [
+                vue.createElementVNode("view", {
+                  class: "nut-bar-fill",
+                  style: { "width": "55%", "background": "#EF4444" }
+                })
+              ]),
+              vue.createElementVNode("text", { class: "nut-pct" }, "33/60g")
+            ])
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "week-header" }, [
+          vue.createElementVNode("text", { class: "section-title" }, "本周饮食安排"),
+          !$data.editMode ? (vue.openBlock(), vue.createElementBlock("text", {
+            key: 0,
+            class: "edit-hint",
+            onClick: _cache[0] || (_cache[0] = ($event) => $data.editMode = true)
+          }, "✏️ 编辑")) : (vue.openBlock(), vue.createElementBlock("text", {
+            key: 1,
+            class: "edit-hint save",
+            onClick: _cache[1] || (_cache[1] = (...args) => $options.saveEdit && $options.saveEdit(...args))
+          }, "💾 保存"))
+        ]),
+        vue.createElementVNode("view", { class: "timeline" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.weekMeals, (day, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: "day-row"
+              }, [
+                vue.createElementVNode("view", { class: "day-left" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "day-name" },
+                    vue.toDisplayString(day.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "day-date" },
+                    vue.toDisplayString(day.date),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "day-line" }, [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: "line-dot",
+                      style: vue.normalizeStyle({ background: day.isToday ? "#FF9500" : "#C9CDD4" })
+                    },
+                    null,
+                    4
+                    /* STYLE */
+                  ),
+                  i < $data.weekMeals.length - 1 ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "line-bar"
+                  })) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "day-right" }, [
+                  (vue.openBlock(true), vue.createElementBlock(
+                    vue.Fragment,
+                    null,
+                    vue.renderList(day.meals, (meal, mi) => {
+                      return vue.openBlock(), vue.createElementBlock("view", {
+                        key: mi,
+                        class: "meal-box"
+                      }, [
+                        vue.createElementVNode("view", { class: "meal-header" }, [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "meal-type" },
+                            vue.toDisplayString(meal.type),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode(
+                            "text",
+                            { class: "meal-cal" },
+                            vue.toDisplayString(meal.calories) + " kcal",
+                            1
+                            /* TEXT */
+                          )
+                        ]),
+                        !$data.editMode ? (vue.openBlock(), vue.createElementBlock("view", {
+                          key: 0,
+                          class: "meal-foods"
+                        }, [
+                          (vue.openBlock(true), vue.createElementBlock(
+                            vue.Fragment,
+                            null,
+                            vue.renderList(meal.foods, (f, fi) => {
+                              return vue.openBlock(), vue.createElementBlock(
+                                "text",
+                                {
+                                  key: fi,
+                                  class: "food-tag"
+                                },
+                                vue.toDisplayString(f),
+                                1
+                                /* TEXT */
+                              );
+                            }),
+                            128
+                            /* KEYED_FRAGMENT */
+                          ))
+                        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                          key: 1,
+                          class: "meal-foods"
+                        }, [
+                          vue.createElementVNode("input", {
+                            class: "meal-edit-input",
+                            value: meal.foods.join("、"),
+                            onInput: (e) => $options.updateFoods(i, mi, e.detail.value)
+                          }, null, 40, ["value", "onInput"])
+                        ]))
+                      ]);
+                    }),
+                    128
+                    /* KEYED_FRAGMENT */
+                  ))
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])
+      ])
+    ]);
+  }
+  const PagesPlanDietPlanDiet = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-12372653"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-diet/plan-diet.vue"]]);
+  const _sfc_main$2 = {
+    components: { CustomNavbar },
+    data() {
+      return {
+        selectedDay: 6,
+        weekDays: [
+          { short: "一", date: "3/3" },
+          { short: "二", date: "3/4" },
+          { short: "三", date: "3/5" },
+          { short: "四", date: "3/6" },
+          { short: "五", date: "3/7" },
+          { short: "六", date: "3/8" },
+          { short: "日", date: "3/9" }
+        ],
+        allMeds: {
+          0: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "12:30", period: "午餐后", name: "阿卡波糖", dosage: "50mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          1: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "12:30", period: "午餐后", name: "阿卡波糖", dosage: "50mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          2: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          3: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "12:30", period: "午餐后", name: "阿卡波糖", dosage: "50mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          4: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          5: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" },
+            { time: "12:30", period: "午餐后", name: "阿卡波糖", dosage: "50mg × 1片", status: "done" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "done" }
+          ],
+          6: [
+            { time: "08:00", period: "早餐后", name: "氨氯地平", dosage: "5mg × 1片", status: "done" },
+            { time: "08:00", period: "早餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "pending" },
+            { time: "12:30", period: "午餐后", name: "阿卡波糖", dosage: "50mg × 1片", status: "pending" },
+            { time: "20:00", period: "晚餐后", name: "二甲双胍", dosage: "500mg × 1片", status: "missed" },
+            { time: "21:00", period: "睡前", name: "维生素D", dosage: "400IU × 1粒", status: "pending" }
+          ]
+        }
+      };
+    },
+    computed: {
+      currentMeds() {
+        return this.allMeds[this.selectedDay] || [];
+      }
+    },
+    methods: {
+      toggleMed(idx) {
+        const m = this.currentMeds[idx];
+        if (m.status !== "pending")
+          return;
+        uni.showModal({
+          title: "确认服药",
+          content: `确定已服用「${m.name}」${m.dosage} 吗？`,
+          success: (res) => {
+            if (res.confirm) {
+              m.status = "done";
+              uni.showToast({ title: "已标记服用", icon: "success" });
+            }
+          }
+        });
+      }
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      vue.createVNode(_component_CustomNavbar, {
+        title: "用药计划",
+        showBack: true,
+        bgColor: "#EF4444",
+        titleColor: "#fff"
+      }),
+      vue.createElementVNode("scroll-view", {
+        "scroll-x": "",
+        class: "week-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "week-bar" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.weekDays, (d, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: vue.normalizeClass(["week-btn", { active: $data.selectedDay === i }]),
+                onClick: ($event) => $data.selectedDay = i
+              }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "wb-name" },
+                  vue.toDisplayString(d.short),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode(
+                  "text",
+                  { class: "wb-date" },
+                  vue.toDisplayString(d.date),
+                  1
+                  /* TEXT */
+                )
+              ], 10, ["onClick"]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])
+      ]),
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "med-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "med-list" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($options.currentMeds, (m, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: "med-item"
+              }, [
+                vue.createElementVNode("view", { class: "med-time-col" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-time" },
+                    vue.toDisplayString(m.time),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-period" },
+                    vue.toDisplayString(m.period),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "med-info" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-name" },
+                    vue.toDisplayString(m.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "med-dosage" },
+                    vue.toDisplayString(m.dosage),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", {
+                  class: vue.normalizeClass(["med-status", m.status]),
+                  onClick: ($event) => $options.toggleMed(i)
+                }, [
+                  m.status === "done" ? (vue.openBlock(), vue.createElementBlock("text", { key: 0 }, "✓ 已服")) : m.status === "pending" ? (vue.openBlock(), vue.createElementBlock("text", { key: 1 }, "待服用")) : (vue.openBlock(), vue.createElementBlock("text", { key: 2 }, "未服用"))
+                ], 10, ["onClick"])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          )),
+          !$options.currentMeds.length ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "empty-hint"
+          }, [
+            vue.createElementVNode("text", null, "🎉 今日无用药计划")
+          ])) : vue.createCommentVNode("v-if", true)
+        ]),
+        vue.createElementVNode("navigator", {
+          url: "/pages/medication/medication",
+          class: "goto-med-btn",
+          "hover-class": "goto-hover"
+        }, [
+          vue.createElementVNode("text", null, "💊 前往用药管理")
+        ])
+      ])
+    ]);
+  }
+  const PagesPlanMedicationPlanMedication = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-87c692a3"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-medication/plan-medication.vue"]]);
+  const _sfc_main$1 = {
+    components: { CustomNavbar },
+    data() {
+      return {
+        showAddModal: false,
+        newRecord: { date: "", hospital: "", itemsStr: "", note: "" },
+        records: [
+          {
+            day: "15",
+            month: "3月",
+            hospital: "市第一人民医院",
+            items: ["血常规", "肝功能", "肾功能"],
+            note: "空腹抽血",
+            status: "upcoming"
+          },
+          {
+            day: "22",
+            month: "3月",
+            hospital: "中心医院心内科",
+            items: ["心电图", "心脏彩超"],
+            note: "携带既往报告",
+            status: "upcoming"
+          },
+          {
+            day: "05",
+            month: "4月",
+            hospital: "市第一人民医院",
+            items: ["糖化血红蛋白", "尿常规"],
+            note: "",
+            status: "upcoming"
+          },
+          {
+            day: "01",
+            month: "3月",
+            hospital: "社区卫生中心",
+            items: ["血压", "血糖"],
+            note: "",
+            status: "done"
+          },
+          {
+            day: "15",
+            month: "2月",
+            hospital: "市第一人民医院",
+            items: ["血常规", "血脂"],
+            note: "",
+            status: "done"
+          }
+        ]
+      };
+    },
+    methods: {
+      addRecord() {
+        if (!this.newRecord.date || !this.newRecord.hospital || !this.newRecord.itemsStr) {
+          uni.showToast({ title: "请填写完整", icon: "none" });
+          return;
+        }
+        const parts = this.newRecord.date.split("-");
+        this.records.unshift({
+          day: parts[2],
+          month: parseInt(parts[1]) + "月",
+          hospital: this.newRecord.hospital,
+          items: this.newRecord.itemsStr.split("、").filter((s) => s.trim()),
+          note: this.newRecord.note,
+          status: "upcoming"
+        });
+        this.showAddModal = false;
+        this.newRecord = { date: "", hospital: "", itemsStr: "", note: "" };
+        uni.showToast({ title: "已添加", icon: "success" });
+      }
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
+      vue.createVNode(_component_CustomNavbar, {
+        title: "复查计划",
+        showBack: true,
+        bgColor: "#4A90D9",
+        titleColor: "#fff"
+      }),
+      vue.createElementVNode("scroll-view", {
+        "scroll-y": "",
+        class: "ck-scroll"
+      }, [
+        vue.createElementVNode("view", { class: "ck-list" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.records, (r, i) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                key: i,
+                class: "ck-card"
+              }, [
+                vue.createElementVNode("view", { class: "ck-date-col" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ck-day" },
+                    vue.toDisplayString(r.day),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ck-month" },
+                    vue.toDisplayString(r.month),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "ck-info" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ck-hospital" },
+                    vue.toDisplayString(r.hospital),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("view", { class: "ck-tags" }, [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList(r.items, (t, ti) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          key: ti,
+                          class: "ck-tag"
+                        }, [
+                          vue.createElementVNode(
+                            "text",
+                            null,
+                            vue.toDisplayString(t),
+                            1
+                            /* TEXT */
+                          )
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
+                  ]),
+                  r.note ? (vue.openBlock(), vue.createElementBlock(
+                    "text",
+                    {
+                      key: 0,
+                      class: "ck-note"
+                    },
+                    vue.toDisplayString(r.note),
+                    1
+                    /* TEXT */
+                  )) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: vue.normalizeClass(["ck-status", r.status])
+                  },
+                  [
+                    r.status === "done" ? (vue.openBlock(), vue.createElementBlock("text", { key: 0 }, "已完成")) : r.status === "upcoming" ? (vue.openBlock(), vue.createElementBlock("text", { key: 1 }, "待复查")) : (vue.openBlock(), vue.createElementBlock("text", { key: 2 }, "已过期"))
+                  ],
+                  2
+                  /* CLASS */
+                )
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]),
+        vue.createElementVNode("view", {
+          class: "add-ck-card",
+          onClick: _cache[0] || (_cache[0] = ($event) => $data.showAddModal = true)
+        }, [
+          vue.createElementVNode("text", { class: "add-icon" }, "+"),
+          vue.createElementVNode("text", { class: "add-text" }, "添加复查计划")
+        ])
+      ]),
+      $data.showAddModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "modal-mask",
+        onClick: _cache[7] || (_cache[7] = vue.withModifiers(($event) => $data.showAddModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-card" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "新增复查"),
+          vue.createElementVNode("view", { class: "modal-row" }, [
+            vue.createElementVNode("text", { class: "modal-label" }, "复查日期"),
+            vue.createElementVNode(
+              "picker",
+              {
+                mode: "date",
+                onChange: _cache[1] || (_cache[1] = (e) => $data.newRecord.date = e.detail.value)
+              },
+              [
+                vue.createElementVNode(
+                  "view",
+                  { class: "modal-input picker-v" },
+                  vue.toDisplayString($data.newRecord.date || "选择日期"),
+                  1
+                  /* TEXT */
+                )
+              ],
+              32
+              /* NEED_HYDRATION */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "modal-row" }, [
+            vue.createElementVNode("text", { class: "modal-label" }, "医院/诊所"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.newRecord.hospital = $event),
+                placeholder: "请输入"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.newRecord.hospital]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-row" }, [
+            vue.createElementVNode("text", { class: "modal-label" }, "检查项目"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.newRecord.itemsStr = $event),
+                placeholder: "多项用顿号分隔"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.newRecord.itemsStr]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-row" }, [
+            vue.createElementVNode("text", { class: "modal-label" }, "备注"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.newRecord.note = $event),
+                placeholder: "选填"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.newRecord.note]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "m-btn cancel",
+              onClick: _cache[5] || (_cache[5] = ($event) => $data.showAddModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "m-btn confirm",
+              onClick: _cache[6] || (_cache[6] = (...args) => $options.addRecord && $options.addRecord(...args))
+            }, [
+              vue.createElementVNode("text", null, "确认添加")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesPlanCheckupPlanCheckup = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-f8be226f"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-checkup/plan-checkup.vue"]]);
   __definePage("pages/login/login", PagesLoginLogin);
   __definePage("pages/register/register", PagesRegisterRegister);
   __definePage("pages/home/home", PagesHomeHome);
@@ -5283,6 +6610,10 @@ if (uni.restoreGlobal) {
   __definePage("pages/task-history/task-history", PagesTaskHistoryTaskHistory);
   __definePage("pages/profile-edit/profile-edit", PagesProfileEditProfileEdit);
   __definePage("pages/settings/settings", PagesSettingsSettings);
+  __definePage("pages/plan-exercise/plan-exercise", PagesPlanExercisePlanExercise);
+  __definePage("pages/plan-diet/plan-diet", PagesPlanDietPlanDiet);
+  __definePage("pages/plan-medication/plan-medication", PagesPlanMedicationPlanMedication);
+  __definePage("pages/plan-checkup/plan-checkup", PagesPlanCheckupPlanCheckup);
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);

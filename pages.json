@@ -132,6 +132,34 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "设置"
 			}
+		},
+		{
+			"path": "pages/plan-exercise/plan-exercise",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "运动计划"
+			}
+		},
+		{
+			"path": "pages/plan-diet/plan-diet",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "饮食计划"
+			}
+		},
+		{
+			"path": "pages/plan-medication/plan-medication",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "用药计划"
+			}
+		},
+		{
+			"path": "pages/plan-checkup/plan-checkup",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "复查计划"
+			}
 		}
 	],
 	"globalStyle": {
@@ -160,7 +188,7 @@
 			},
 			{
 				"pagePath": "pages/plan-overview/plan-overview",
-				"text": "健康记录",
+				"text": "健康计划",
 				"iconPath": "static/tab/empty.png",
 				"selectedIconPath": "static/tab/empty.png"
 			},

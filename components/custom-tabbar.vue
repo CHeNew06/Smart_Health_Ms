@@ -25,7 +25,7 @@ export default {
 			tabs: [
 				{ icon: '🏠', text: '首页', url: '/pages/home/home' },
 				{ icon: '🤖', text: 'AI问答', url: '/pages/ai-consult/ai-consult' },
-				{ icon: '📋', text: '健康记录', url: '/pages/plan-overview/plan-overview' },
+				{ icon: '📋', text: '健康计划', url: '/pages/plan-overview/plan-overview' },
 				{ icon: '👤', text: '我的', url: '/pages/profile/profile' }
 			],
 			keyboardUp: false

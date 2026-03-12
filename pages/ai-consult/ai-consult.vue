@@ -59,6 +59,7 @@
 			:scroll-into-view="scrollIntoId"
 			:scroll-with-animation="true"
 			:style="{ paddingBottom: scrollPadBottom + 'px' }"
+			@touchstart="onScrollTouch"
 		>
 			<view class="msg-inner">
 				<view
@@ -294,6 +295,11 @@ export default {
 			this.$nextTick(() => setTimeout(() => this.scrollToEnd(), 300))
 		},
 		onInputBlur() {},
+		onScrollTouch() {
+			if (this.kbUp) {
+				uni.hideKeyboard()
+			}
+		},
 		sendMessage() {
 			const txt = (this.inputText || '').trim()
 			if (!txt && !this.tempImagePath) {

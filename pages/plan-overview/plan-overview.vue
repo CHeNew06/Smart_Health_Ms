@@ -1,59 +1,85 @@
 <template>
 	<view class="page-wrapper">
+		<!-- 全屏loading遮罩 -->
+		<view v-if="aiLoading" class="loading-overlay">
+			<view class="loading-card">
+				<view class="spinner"></view>
+				<text class="loading-title">AI正在生成健康计划</text>
+				<text class="loading-sub">正在分析您的健康数据与用药记录...</text>
+			</view>
+		</view>
+
 		<view class="plan-header">
 			<text class="plan-h-title">健康计划</text>
-			<text class="plan-h-sub">AI为您量身定制的健康管理方案</text>
-			<view class="ai-gen-btn" :class="{ loading: aiLoading }" @click="onAiGen">
-				<text v-if="!aiLoading">✨ AI智能生成健康计划</text>
-				<text v-else>⏳ AI正在生成计划...</text>
+			<text class="plan-h-sub">AI为您量身定制的七天健康管理方案</text>
+			<view class="ai-gen-btn" @click="onAiGen">
+				<text>✨ AI智能生成健康计划</text>
 			</view>
 		</view>
 
 		<view class="plan-body">
+			<!-- 快捷入口 -->
 			<text class="sec-title">快捷入口</text>
 			<view class="quick-grid">
 				<navigator url="/pages/medication/medication" class="quick-card" hover-class="quick-hover">
-					<text class="q-icon" style="color:#EF4444">💊</text>
+					<text class="q-icon">💊</text>
 					<text class="q-label">用药管理</text>
-					<text class="q-count">3种在用药物</text>
+					<text class="q-count">用药档案与记录</text>
 				</navigator>
-				<navigator url="/pages/task-today/task-today" class="quick-card" hover-class="quick-hover">
-					<text class="q-icon" style="color:#10B981">✅</text>
-					<text class="q-label">今日任务</text>
-					<text class="q-count">已完成 3/8</text>
+				<navigator url="/pages/plan-edit/plan-edit" class="quick-card" hover-class="quick-hover">
+					<text class="q-icon">📅</text>
+					<text class="q-label">当前计划</text>
+					<text class="q-count">本周健康计划</text>
 				</navigator>
 			</view>
 
-			<text class="sec-title">当前计划</text>
-			<navigator
-				v-for="(p, idx) in plans"
-				:key="idx"
-				url="/pages/plan-edit/plan-edit"
-				class="plan-card"
-				hover-class="plan-card-hover"
-			>
-				<view class="pc-header">
-					<view class="pc-icon" :style="{ background: p.iconBg, color: p.iconColor }">
-						<text>{{ p.icon }}</text>
+			<!-- 今日任务进度 -->
+			<text class="sec-title">今日任务</text>
+			<view class="progress-card">
+				<view class="progress-ring-area">
+					<view class="ring-bg">
+						<view class="ring-fill" :style="ringStyle"></view>
+						<view class="ring-center">
+							<text class="ring-pct">{{ completionPercent }}%</text>
+						</view>
 					</view>
-					<view class="pc-info">
-						<text class="pc-title">{{ p.title }}</text>
-						<text class="pc-desc">{{ p.desc }}</text>
+				</view>
+				<view class="progress-info">
+					<text class="pi-main">{{ doneCount }}/{{ tasks.length }} 已完成</text>
+					<text class="pi-sub">继续加油，完成今日健康任务</text>
+					<view class="pi-bar-wrap">
+						<view class="pi-bar-bg">
+							<view class="pi-bar-fill" :style="{ width: completionPercent + '%' }"></view>
+						</view>
 					</view>
-					<text class="pc-arrow">›</text>
 				</view>
-				<view class="pc-progress">
-					<view class="pc-bar">
-						<view class="pc-fill" :style="{ width: p.progress + '%', background: p.iconColor }"></view>
-					</view>
-					<text class="pc-pct" :style="{ color: p.iconColor }">{{ p.progress }}%</text>
-				</view>
-				<view class="pc-tags">
-					<text v-for="(t, j) in p.tags" :key="j" class="pc-tag">{{ t }}</text>
-				</view>
-			</navigator>
-		</view>
+			</view>
 
+			<!-- 今日任务列表 -->
+			<view class="task-section" v-if="pendingTasks.length">
+				<text class="task-sec-label">待完成</text>
+				<view v-for="(t, i) in pendingTasks" :key="'p'+i" class="task-item" @click="confirmComplete(t)">
+					<view class="task-check"><text class="check-empty"></text></view>
+					<view class="task-body">
+						<text class="task-name">{{ t.title }}</text>
+						<text class="task-time">{{ t.time }}</text>
+					</view>
+					<view class="task-tag" :style="{ background: tagColor(t.type) }"><text>{{ t.type }}</text></view>
+				</view>
+			</view>
+
+			<view class="task-section" v-if="doneTasks.length">
+				<text class="task-sec-label">已完成</text>
+				<view v-for="(t, i) in doneTasks" :key="'d'+i" class="task-item task-done">
+					<view class="task-check checked"><text>✓</text></view>
+					<view class="task-body">
+						<text class="task-name line-through">{{ t.title }}</text>
+						<text class="task-time">{{ t.time }}</text>
+					</view>
+					<view class="task-tag" :style="{ background: tagColor(t.type) }"><text>{{ t.type }}</text></view>
+				</view>
+			</view>
+		</view>
 		<CustomTabbar :current="2" />
 	</view>
 </template>
@@ -66,208 +92,165 @@ export default {
 	data() {
 		return {
 			aiLoading: false,
-			plans: [
-				{
-					icon: '🏃', iconBg: '#ECFDF5', iconColor: '#10B981',
-					title: '运动计划', desc: '每日有氧运动，强化心肺功能',
-					progress: 65, tags: ['快走 30分钟/天', '太极拳 周三/五']
-				},
-				{
-					icon: '🍽', iconBg: '#FFFBEB', iconColor: '#F59E0B',
-					title: '饮食计划', desc: '低盐低脂，营养均衡',
-					progress: 80, tags: ['每日盐<5g', '蔬果≥500g', '限制红肉']
-				},
-				{
-					icon: '💊', iconBg: '#FEF2F2', iconColor: '#EF4444',
-					title: '用药计划', desc: '降压药规律服用',
-					progress: 95, tags: ['硝苯地平 早晚各1片']
-				},
-				{
-					icon: '🏥', iconBg: '#DBEAFE', iconColor: '#2563EB',
-					title: '复查计划', desc: '定期检查，跟踪指标变化',
-					progress: 30, tags: ['心内科 3月15日', '血常规 4月1日']
-				}
+			tasks: [
+				{ id: 1, title: '晨跑30分钟', type: '运动', time: '07:00', done: false },
+				{ id: 2, title: '早餐营养搭配', type: '饮食', time: '08:00', done: false },
+				{ id: 3, title: '服用降压药', type: '用药', time: '09:00', done: false },
+				{ id: 4, title: '测量血压', type: '健康', time: '09:30', done: false },
+				{ id: 5, title: '午间散步20分钟', type: '运动', time: '12:30', done: true },
+				{ id: 6, title: '午餐清淡饮食', type: '饮食', time: '12:00', done: true },
+				{ id: 7, title: '下午服药', type: '用药', time: '15:00', done: true },
+				{ id: 8, title: '晚间太极拳', type: '运动', time: '18:00', done: true },
+				{ id: 9, title: '晚间用药', type: '用药', time: '20:00', done: true }
 			]
 		}
 	},
-	onShow() {
-		uni.hideTabBar()
+	computed: {
+		pendingTasks() { return this.tasks.filter(t => !t.done) },
+		doneTasks() { return this.tasks.filter(t => t.done) },
+		doneCount() { return this.doneTasks.length },
+		completionPercent() {
+			if (!this.tasks.length) return 0
+			return Math.round(this.doneCount / this.tasks.length * 100)
+		},
+		ringStyle() {
+			const deg = (this.completionPercent / 100) * 360
+			return {
+				background: `conic-gradient(#34C759 0deg ${deg}deg, transparent ${deg}deg 360deg)`
+			}
+		}
 	},
+	onShow() { uni.hideTabBar() },
 	methods: {
+		tagColor(type) {
+			const m = { '运动': '#34C759', '饮食': '#FF9500', '用药': '#EF4444', '健康': '#4A90D9' }
+			return m[type] || '#4A90D9'
+		},
 		onAiGen() {
 			if (this.aiLoading) return
 			this.aiLoading = true
 			setTimeout(() => {
 				this.aiLoading = false
 				uni.showToast({ title: '计划已生成', icon: 'success' })
-			}, 2500)
+			}, 3000)
+		},
+		confirmComplete(item) {
+			uni.showModal({
+				title: '确认完成',
+				content: `确定已完成「${item.title}」吗？`,
+				success: (res) => {
+					if (res.confirm) {
+						item.done = true
+						uni.showToast({ title: '已完成', icon: 'success' })
+					}
+				}
+			})
 		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-.page-wrapper {
-	min-height: 100vh;
-	background: #F5F7FA;
+.page-wrapper { min-height: 100vh; background: #e2eef0; }
+
+/* Loading */
+.loading-overlay {
+	position: fixed; inset: 0; background: rgba(255,255,255,0.92); z-index: 9999;
+	display: flex; align-items: center; justify-content: center;
 }
+.loading-card { text-align: center; padding: 60rpx; }
+.spinner {
+	width: 80rpx; height: 80rpx; margin: 0 auto 32rpx;
+	border: 6rpx solid #E5E6EB; border-top-color: #4A90D9;
+	border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-title { display: block; font-size: 32rpx; font-weight: 600; color: #1D2129; margin-bottom: 12rpx; }
+.loading-sub { display: block; font-size: 26rpx; color: #86909C; }
+
+/* Header */
 .plan-header {
 	background: linear-gradient(135deg, #4A90D9 0%, #3A7BC8 100%);
-	padding: 80rpx 32rpx 48rpx;
+	padding: calc(var(--status-bar-height, 44px) + 24rpx) 32rpx 48rpx;
 	color: #fff;
 }
-.plan-h-title {
-	display: block;
-	font-size: 40rpx;
-	font-weight: 700;
-	margin-bottom: 6rpx;
-}
-.plan-h-sub {
-	display: block;
-	font-size: 26rpx;
-	opacity: 0.85;
-}
+.plan-h-title { display: block; font-size: 40rpx; font-weight: 700; margin-bottom: 6rpx; }
+.plan-h-sub { display: block; font-size: 26rpx; opacity: 0.85; }
 .ai-gen-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 28rpx;
-	padding: 24rpx;
-	background: rgba(255,255,255,0.15);
-	border-radius: 20rpx;
+	display: flex; align-items: center; justify-content: center;
+	margin-top: 28rpx; padding: 24rpx;
+	background: rgba(255,255,255,0.15); border-radius: 20rpx;
 	border: 2rpx dashed rgba(255,255,255,0.4);
-	font-size: 28rpx;
-	font-weight: 600;
-	color: #fff;
+	font-size: 28rpx; font-weight: 600; color: #fff;
 }
-.ai-gen-btn.loading { opacity: 0.7; }
 
+/* Body */
 .plan-body {
-	margin-top: -20rpx;
-	background: #F5F7FA;
-	border-radius: 32rpx 32rpx 0 0;
-	padding: 32rpx 32rpx 20rpx;
+	margin-top: -20rpx; background: #e2eef0;
+	border-radius: 32rpx 32rpx 0 0; padding: 32rpx 32rpx 20rpx;
 }
-.sec-title {
-	display: block;
-	font-size: 30rpx;
-	font-weight: 600;
-	color: #1D2129;
-	margin-bottom: 20rpx;
-}
+.sec-title { display: block; font-size: 30rpx; font-weight: 600; color: #1D2129; margin-bottom: 20rpx; }
 
-/* 快捷入口 */
-.quick-grid {
-	display: flex;
-	gap: 20rpx;
-	margin-bottom: 32rpx;
-}
+/* Quick Grid */
+.quick-grid { display: flex; gap: 20rpx; margin-bottom: 32rpx; }
 .quick-card {
-	flex: 1;
-	background: #fff;
-	border-radius: 20rpx;
-	padding: 28rpx;
-	text-align: center;
+	flex: 1; background: #fff; border-radius: 20rpx;
+	padding: 28rpx; text-align: center;
 	box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
 }
 .quick-hover { opacity: 0.85; }
-.q-icon {
-	display: block;
-	font-size: 44rpx;
-	margin-bottom: 8rpx;
-}
-.q-label {
-	display: block;
-	font-size: 28rpx;
-	font-weight: 500;
-	color: #1D2129;
-}
-.q-count {
-	display: block;
-	font-size: 22rpx;
-	color: #86909C;
-	margin-top: 4rpx;
-}
+.q-icon { display: block; font-size: 44rpx; margin-bottom: 8rpx; }
+.q-label { display: block; font-size: 28rpx; font-weight: 600; color: #1D2129; }
+.q-count { display: block; font-size: 22rpx; color: #86909C; margin-top: 4rpx; }
 
-/* 计划卡片 */
-.plan-card {
-	background: #fff;
-	border-radius: 24rpx;
-	padding: 28rpx;
-	margin-bottom: 20rpx;
-	box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+/* Progress */
+.progress-card {
+	display: flex; align-items: center; background: #fff;
+	border-radius: 24rpx; padding: 32rpx; margin-bottom: 32rpx;
+	box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); gap: 32rpx;
 }
-.plan-card-hover { opacity: 0.9; }
-.pc-header {
-	display: flex;
-	align-items: center;
-	gap: 20rpx;
-	margin-bottom: 20rpx;
+.progress-ring-area { flex-shrink: 0; }
+.ring-bg {
+	width: 120rpx; height: 120rpx; border-radius: 50%;
+	background: #E5E6EB; position: relative;
 }
-.pc-icon {
-	width: 80rpx;
-	height: 80rpx;
-	border-radius: 20rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 36rpx;
-	flex-shrink: 0;
+.ring-fill {
+	position: absolute; inset: 0; border-radius: 50%;
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 14rpx), #000 calc(100% - 14rpx));
+	mask: radial-gradient(farthest-side, transparent calc(100% - 14rpx), #000 calc(100% - 14rpx));
 }
-.pc-info {
-	flex: 1;
-	min-width: 0;
+.ring-center {
+	position: absolute; inset: 14rpx; border-radius: 50%;
+	background: #fff; display: flex; align-items: center; justify-content: center;
 }
-.pc-title {
-	display: block;
-	font-size: 30rpx;
-	font-weight: 600;
-	color: #1D2129;
+.ring-pct { font-size: 28rpx; font-weight: 700; color: #34C759; }
+.progress-info { flex: 1; }
+.pi-main { display: block; font-size: 32rpx; font-weight: 700; color: #1D2129; }
+.pi-sub { display: block; font-size: 24rpx; color: #86909C; margin: 8rpx 0 16rpx; }
+.pi-bar-wrap {}
+.pi-bar-bg { height: 12rpx; background: #E5E6EB; border-radius: 6rpx; overflow: hidden; }
+.pi-bar-fill { height: 100%; background: #34C759; border-radius: 6rpx; transition: width 0.3s; }
+
+/* Tasks */
+.task-section { margin-bottom: 24rpx; }
+.task-sec-label { display: block; font-size: 26rpx; font-weight: 600; color: #86909C; margin-bottom: 16rpx; }
+.task-item {
+	display: flex; align-items: center; background: #fff;
+	border-radius: 16rpx; padding: 24rpx; margin-bottom: 12rpx; gap: 16rpx;
 }
-.pc-desc {
-	display: block;
-	font-size: 24rpx;
-	color: #86909C;
-	margin-top: 4rpx;
+.task-done { opacity: 0.7; }
+.task-check {
+	width: 44rpx; height: 44rpx; border-radius: 50%;
+	border: 2rpx solid #C9CDD4; display: flex;
+	align-items: center; justify-content: center; flex-shrink: 0;
 }
-.pc-arrow {
-	font-size: 32rpx;
-	color: #C9CDD4;
-	flex-shrink: 0;
-}
-.pc-progress {
-	display: flex;
-	align-items: center;
-	gap: 16rpx;
-	margin-bottom: 16rpx;
-}
-.pc-bar {
-	flex: 1;
-	height: 12rpx;
-	background: #E5E6EB;
-	border-radius: 6rpx;
-	overflow: hidden;
-}
-.pc-fill {
-	height: 100%;
-	border-radius: 6rpx;
-}
-.pc-pct {
-	font-size: 26rpx;
-	font-weight: 600;
-	width: 80rpx;
-	text-align: right;
-}
-.pc-tags {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 12rpx;
-}
-.pc-tag {
-	padding: 6rpx 16rpx;
-	background: #F5F7FA;
-	border-radius: 10rpx;
-	font-size: 22rpx;
-	color: #4E5969;
+.task-check.checked { background: #34C759; border-color: #34C759; color: #fff; font-size: 24rpx; }
+.task-body { flex: 1; }
+.task-name { display: block; font-size: 28rpx; color: #1D2129; }
+.line-through { text-decoration: line-through; color: #86909C !important; }
+.task-time { display: block; font-size: 22rpx; color: #86909C; margin-top: 4rpx; }
+.task-tag {
+	padding: 6rpx 16rpx; border-radius: 10rpx;
+	font-size: 22rpx; color: #fff; flex-shrink: 0;
 }
 </style>

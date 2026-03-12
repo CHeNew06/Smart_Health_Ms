@@ -34,146 +34,149 @@
   justify-content: flex-end;
 }
 /* 智慧健康 - 浅蓝主题色系 */
-/* 智慧健康 - 浅蓝主题色系 */
 .page-wrapper[data-v-48d5af11] {
   min-height: 100vh;
   background: #e2eef0;
-  padding-bottom: 1.5rem;
 }
-.content[data-v-48d5af11] {
-  padding: 0.75rem 1rem;
-}
-.today-section[data-v-48d5af11] {
-  background: rgba(226, 238, 240, 0.8);
-  border-radius: 0.5rem;
-  padding: 0.875rem;
-  margin-bottom: 1rem;
-}
-.section-title[data-v-48d5af11] {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #1D2129;
-  margin-bottom: 0.625rem;
-}
-.take-item[data-v-48d5af11] {
+
+/* Tab Bar */
+.tab-bar[data-v-48d5af11] {
   display: flex;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 0.0625rem solid rgba(74, 144, 217, 0.15);
+  background: #fff;
+  border-bottom: 0.03125rem solid #E5E6EB;
+  padding: 0 0.375rem;
 }
-.take-item[data-v-48d5af11]:last-child {
+.tab-item[data-v-48d5af11] {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 0.25rem;
+  font-size: 0.8125rem;
+  color: #86909C;
+  border-bottom: 0.125rem solid transparent;
+}
+.tab-item.active[data-v-48d5af11] {
+  color: #4A90D9;
+  font-weight: 600;
+  border-bottom-color: #4A90D9;
+}
+
+/* Scroll */
+.content-scroll[data-v-48d5af11] {
+  height: calc(100vh - var(--status-bar-height, 44px) - 44px - 2.8125rem);
+}
+.tab-content[data-v-48d5af11] {
+  padding: 0.75rem 0.875rem;
+}
+
+/* Profile Form */
+.form-card[data-v-48d5af11] {
+  background: #fff;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+}
+.form-row[data-v-48d5af11] {
+  padding: 0.625rem 0;
+  border-bottom: 0.03125rem solid #F2F3F5;
+}
+.form-row[data-v-48d5af11]:last-child {
   border-bottom: none;
 }
-.take-time[data-v-48d5af11] {
-  width: 3.125rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #4A90D9;
-  flex-shrink: 0;
-}
-.take-body[data-v-48d5af11] {
-  flex: 1;
-  min-width: 0;
-}
-.take-name[data-v-48d5af11] {
+.form-label[data-v-48d5af11] {
   display: block;
-  font-size: 0.875rem;
-  color: #1D2129;
-  margin-bottom: 0.125rem;
-}
-.take-dosage[data-v-48d5af11] {
   font-size: 0.75rem;
-  color: #4E5969;
-}
-.take-status[data-v-48d5af11] {
-  padding: 0.3125rem 0.75rem;
-  border-radius: 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-.take-status.status-done[data-v-48d5af11] {
-  background: #E8F5E9;
-  color: #2E7D32;
-}
-.take-status.status-pending[data-v-48d5af11] {
-  background: #EAF2FB;
-  color: #4A90D9;
-}
-.take-status.status-missed[data-v-48d5af11] {
-  background: #E5E6EB;
-  color: #8F959E;
-}
-.list-title[data-v-48d5af11] {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #1D2129;
-  margin-bottom: 0.625rem;
-}
-.med-card[data-v-48d5af11] {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 0.5rem;
-  padding: 0.875rem;
-  margin-bottom: 0.625rem;
-  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04);
-}
-.med-card-hover[data-v-48d5af11] {
-  transform: translateY(-0.0625rem);
-}
-.med-icon[data-v-48d5af11] {
-  font-size: 1.5rem;
-  width: 2.5rem;
-  text-align: center;
-  margin-right: 0.75rem;
-}
-.med-body[data-v-48d5af11] {
-  flex: 1;
-  min-width: 0;
-}
-.med-name[data-v-48d5af11] {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #1D2129;
-  margin-bottom: 0.3125rem;
-}
-.med-schedule[data-v-48d5af11] {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
+  color: #86909C;
   margin-bottom: 0.25rem;
 }
-.schedule-tag[data-v-48d5af11] {
-  padding: 0.125rem 0.4375rem;
-  background: #EAF2FB;
-  color: #4A90D9;
-  border-radius: 0.375rem;
-  font-size: 0.6875rem;
-}
-.med-info[data-v-48d5af11] {
-  font-size: 0.75rem;
-  color: #4E5969;
-}
-.feedback-btn[data-v-48d5af11] {
-  background: #FFF8E1;
-  border: 0.0625rem solid #FFC107;
-  border-radius: 0.5rem;
-  padding: 0.875rem;
-  text-align: center;
+.form-input[data-v-48d5af11] {
   font-size: 0.875rem;
-  color: #E65100;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
+  color: #1D2129;
+  width: 100%;
+  background: transparent;
+  padding: 0.125rem 0;
 }
-.add-med-btn[data-v-48d5af11] {
+.form-textarea[data-v-48d5af11] {
+  font-size: 0.875rem;
+  color: #1D2129;
+  width: 100%;
+  min-height: 2.5rem;
+  background: transparent;
+  padding: 0.125rem 0;
+}
+.picker-val[data-v-48d5af11] {
+  font-size: 0.875rem;
+  color: #1D2129;
+  padding: 0.125rem 0;
+}
+
+/* Btn */
+.btn-group[data-v-48d5af11] {
+  padding: 1rem 0 3.75rem;
+}
+.btn-primary[data-v-48d5af11] {
   background: #4A90D9;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.8125rem;
   text-align: center;
-  font-size: 0.9375rem;
   color: #fff;
+  font-size: 0.875rem;
   font-weight: 600;
+}
+
+/* Med Card */
+.med-card[data-v-48d5af11] {
+  background: #fff;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  margin-bottom: 0.625rem;
+}
+.med-card-header[data-v-48d5af11] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 0.03125rem solid #F2F3F5;
+}
+.med-no[data-v-48d5af11] {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4A90D9;
+}
+.med-del[data-v-48d5af11] {
+  font-size: 0.75rem;
+  color: #EF4444;
+}
+.field-row[data-v-48d5af11] {
+  display: flex;
+  align-items: center;
+  padding: 0.4375rem 0;
+  border-bottom: 0.03125rem solid #F2F3F5;
+}
+.field-row[data-v-48d5af11]:last-child {
+  border-bottom: none;
+}
+.field-label[data-v-48d5af11] {
+  width: 5.625rem;
+  font-size: 0.75rem;
+  color: #86909C;
+  flex-shrink: 0;
+}
+.field-input[data-v-48d5af11] {
+  flex: 1;
+  font-size: 0.8125rem;
+  color: #1D2129;
+}
+
+/* Add row */
+.add-row[data-v-48d5af11] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  border: 0.0625rem dashed #C9CDD4;
+  border-radius: 0.5rem;
+  margin: 0.375rem 0;
+  font-size: 0.875rem;
+  color: #4A90D9;
+  font-weight: 500;
 }
