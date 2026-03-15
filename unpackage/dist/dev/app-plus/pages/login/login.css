@@ -164,37 +164,19 @@
   font-weight: 600;
   margin-top: 0.5rem;
 }
-.divider[data-v-e4e4508d] {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem 0;
-  color: #9CA3AF;
-  font-size: 0.75rem;
-}
-.divider-line[data-v-e4e4508d] {
-  flex: 1;
-  height: 0.0625rem;
-  background: #E5E7EB;
-}
-.divider-text[data-v-e4e4508d] {
-  margin: 0 0.75rem;
-}
-.social-login[data-v-e4e4508d] {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-.social-btn[data-v-e4e4508d] {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 0.09375rem solid #E5E6EB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: #4B5563;
+.try-btn[data-v-e4e4508d] {
+  width: 100%;
+  height: 2.75rem;
   background: #fff;
+  color: #4A90D9;
+  border: 0.0625rem solid #4A90D9;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-top: 1rem;
 }
 .login-footer[data-v-e4e4508d] {
   text-align: center;

@@ -8,14 +8,15 @@
 		<TabSwitch :tabs="['饮食', '运动', '生活', '就医']" v-model="tabIndex" />
 
 		<view class="content">
-			<!-- Warning card -->
-			<view class="warning-card">
+			<!-- Warning card - 有异常时显示 -->
+			<view v-if="warningText" class="warning-card">
 				<text class="warning-title">⚠ 异常指标提醒</text>
-				<text class="warning-text">您的血压近期偏高，建议减少盐分摄入并规律监测。</text>
+				<text class="warning-text">{{ warningText }}</text>
 			</view>
 
 			<!-- Diet tab -->
 			<view v-show="tabIndex === 0" class="advice-list">
+				<view v-if="!dietAdvice.length" class="empty-hint">暂无饮食建议，请先录入健康数据</view>
 				<view v-for="(item, i) in dietAdvice" :key="i" class="advice-item">
 					<view class="advice-icon" :style="{ background: item.color }">{{ item.icon }}</view>
 					<view class="advice-body">
@@ -30,6 +31,7 @@
 
 			<!-- Exercise tab -->
 			<view v-show="tabIndex === 1" class="advice-list">
+				<view v-if="!exerciseAdvice.length" class="empty-hint">暂无运动建议，请先录入健康数据</view>
 				<view v-for="(item, i) in exerciseAdvice" :key="i" class="advice-item">
 					<view class="advice-icon" :style="{ background: item.color }">{{ item.icon }}</view>
 					<view class="advice-body">
@@ -44,6 +46,7 @@
 
 			<!-- Life tab -->
 			<view v-show="tabIndex === 2" class="advice-list">
+				<view v-if="!lifeAdvice.length" class="empty-hint">暂无生活建议，请先录入健康数据</view>
 				<view v-for="(item, i) in lifeAdvice" :key="i" class="advice-item">
 					<view class="advice-icon" :style="{ background: item.color }">{{ item.icon }}</view>
 					<view class="advice-body">
@@ -58,6 +61,7 @@
 
 			<!-- Medical tab -->
 			<view v-show="tabIndex === 3" class="advice-list">
+				<view v-if="!medicalAdvice.length" class="empty-hint">暂无就医建议，请先录入健康数据</view>
 				<view v-for="(item, i) in medicalAdvice" :key="i" class="advice-item">
 					<view class="advice-icon" :style="{ background: item.color }">{{ item.icon }}</view>
 					<view class="advice-body">
@@ -81,23 +85,11 @@
 		data() {
 			return {
 				tabIndex: 0,
-				dietAdvice: [
-					{ icon: '🥗', color: '#E8F5E9', title: '低盐饮食', desc: '每日食盐摄入控制在6克以内，有助于控制血压。', tags: ['控盐', '清淡'] },
-					{ icon: '🥦', color: '#E3F2FD', title: '增加蔬果', desc: '多吃富含钾的蔬菜水果，如香蕉、菠菜等。', tags: ['钾元素', '膳食纤维'] },
-					{ icon: '🚫', color: '#FFF3E0', title: '减少腌制食品', desc: '避免腊肉、咸菜等高钠食物。', tags: ['低钠'] }
-				],
-				exerciseAdvice: [
-					{ icon: '🚶', color: '#E8F5E9', title: '每日步行', desc: '建议每日步行30分钟，中等强度为宜。', tags: ['有氧', '轻度'] },
-					{ icon: '🧘', color: '#F3E5F5', title: '放松训练', desc: '可尝试深呼吸、太极等，帮助稳定血压。', tags: ['减压'] }
-				],
-				lifeAdvice: [
-					{ icon: '😴', color: '#E3F2FD', title: '规律作息', desc: '保持7-8小时睡眠，避免熬夜。', tags: ['睡眠'] },
-					{ icon: '🚭', color: '#FFEBEE', title: '戒烟限酒', desc: '吸烟饮酒会影响血压控制，建议戒除或限制。', tags: ['健康习惯'] }
-				],
-				medicalAdvice: [
-					{ icon: '📋', color: '#FFF8E1', title: '定期复诊', desc: '血压偏高时建议每2-4周复诊一次，遵医嘱用药。', tags: ['复诊'] },
-					{ icon: '💊', color: '#E8EAF6', title: '规范用药', desc: '如已服用降压药，请按时规律服药，勿自行停药。', tags: ['用药'] }
-				]
+				warningText: '',
+				dietAdvice: [],
+				exerciseAdvice: [],
+				lifeAdvice: [],
+				medicalAdvice: []
 			}
 		}
 	}
@@ -126,6 +118,12 @@
 	}
 	.content {
 		padding: 24rpx 32rpx;
+	}
+	.empty-hint {
+		text-align: center;
+		color: $uni-text-color-placeholder;
+		font-size: 28rpx;
+		padding: 60rpx 0;
 	}
 	.warning-card {
 		background: #FEF2F2;

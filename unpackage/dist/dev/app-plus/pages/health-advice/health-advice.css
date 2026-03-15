@@ -82,6 +82,12 @@
 .content[data-v-f71751e5] {
   padding: 0.75rem 1rem;
 }
+.empty-hint[data-v-f71751e5] {
+  text-align: center;
+  color: #C9CDD4;
+  font-size: 0.875rem;
+  padding: 1.875rem 0;
+}
 .warning-card[data-v-f71751e5] {
   background: #FEF2F2;
   border-radius: 0.5rem;

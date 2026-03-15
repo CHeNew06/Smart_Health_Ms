@@ -21,15 +21,15 @@
 			<!-- Stats row -->
 			<view class="stats-row">
 				<view class="stat-card">
-					<text class="stat-value">82%</text>
+					<text class="stat-value">{{ stats.completionRate }}</text>
 					<text class="stat-label">完成率</text>
 				</view>
 				<view class="stat-card">
-					<text class="stat-value">7</text>
+					<text class="stat-value">{{ stats.streak }}</text>
 					<text class="stat-label">连续打卡</text>
 				</view>
 				<view class="stat-card">
-					<text class="stat-value">156</text>
+					<text class="stat-value">{{ stats.totalTasks }}</text>
 					<text class="stat-label">总任务</text>
 				</view>
 			</view>
@@ -37,6 +37,9 @@
 			<!-- Selected day tasks -->
 			<view class="day-tasks">
 				<text class="day-tasks-title">选中日期任务</text>
+				<view v-if="!selectedDayTasks.length" class="empty-hint">
+					<text class="empty-txt">该日期暂无任务记录</text>
+				</view>
 				<view class="task-item" v-for="(t, i) in selectedDayTasks" :key="i">
 					<view class="task-status-dot" :class="t.status"></view>
 					<text class="task-item-title">{{ t.title }}</text>
@@ -65,28 +68,21 @@ export default {
 				date: dateStr,
 				day: i,
 				isToday: i === d,
-				hasTask: [1, 3, 5, 7, 10, 15, 20].indexOf(i) >= 0
+				hasTask: false
 			})
 		}
 		return {
 			selectedDay: todayStr,
 			calendarDays: days,
 			currentMonth: `${y}年${m + 1}月`,
-			selectedDayTasks: [
-				{ title: '晨跑30分钟', time: '08:00', status: 'done' },
-				{ title: '服用降压药', time: '09:00', status: 'done' },
-				{ title: '测量血压', time: '14:00', status: 'missed' }
-			]
+			stats: { completionRate: '--', streak: 0, totalTasks: 0 },
+			selectedDayTasks: []
 		}
 	},
 	methods: {
 		selectDay(d) {
 			this.selectedDay = d.date
-			this.selectedDayTasks = [
-				{ title: '晨跑30分钟', time: '08:00', status: 'done' },
-				{ title: '服用降压药', time: '09:00', status: 'done' },
-				{ title: '测量血压', time: '14:00', status: d.day % 3 === 0 ? 'done' : 'missed' }
-			]
+			this.selectedDayTasks = []
 		}
 	}
 }
@@ -217,4 +213,6 @@ export default {
 	font-size: 24rpx;
 	color: #4E5969;
 }
+.empty-hint { padding: 32rpx; text-align: center; }
+.empty-txt { font-size: 28rpx; color: #86909C; }
 </style>

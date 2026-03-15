@@ -31,23 +31,23 @@
 					</view>
 					<view class="form-row">
 						<text class="form-label">药物过敏史</text>
-						<textarea class="form-textarea" v-model="profile.drugAllergy" placeholder="无/具体药物名称" :disabled="!editMode" />
+						<textarea class="form-textarea" v-model="profile.drugAllergy" placeholder="无/具体药物名称" :disabled="!editMode" :auto-height="true" />
 					</view>
 					<view class="form-row">
 						<text class="form-label">食物/其他过敏史</text>
-						<textarea class="form-textarea" v-model="profile.otherAllergy" placeholder="无/具体过敏源" :disabled="!editMode" />
+						<textarea class="form-textarea" v-model="profile.otherAllergy" placeholder="无/具体过敏源" :disabled="!editMode" :auto-height="true" />
 					</view>
 					<view class="form-row">
 						<text class="form-label">基础慢性病记录</text>
-						<textarea class="form-textarea" v-model="profile.chronicDisease" placeholder="例：高血压、糖尿病" :disabled="!editMode" />
+						<textarea class="form-textarea" v-model="profile.chronicDisease" placeholder="例：高血压、糖尿病" :disabled="!editMode" :auto-height="true" />
 					</view>
 					<view class="form-row">
 						<text class="form-label">既往重大病史/手术史</text>
-						<textarea class="form-textarea" v-model="profile.majorHistory" placeholder="无/具体病史或手术" :disabled="!editMode" />
+						<textarea class="form-textarea" v-model="profile.majorHistory" placeholder="无/具体病史或手术" :disabled="!editMode" :auto-height="true" />
 					</view>
 					<view class="form-row">
 						<text class="form-label">长期固定服用药品</text>
-						<textarea class="form-textarea" v-model="profile.longTermMeds" placeholder="药品名称、剂量" :disabled="!editMode" />
+						<textarea class="form-textarea" v-model="profile.longTermMeds" placeholder="药品名称、剂量" :disabled="!editMode" :auto-height="true" />
 					</view>
 					<view class="form-row">
 						<text class="form-label">紧急联系人</text>
@@ -206,18 +206,18 @@ export default {
 			genderList: ['男', '女'],
 			editMode: false,
 			profile: {
-				name: '张三',
-				gender: '男',
-				age: '72',
-				drugAllergy: '青霉素',
-				otherAllergy: '无',
-				chronicDisease: '高血压、2型糖尿病',
-				majorHistory: '2018年心脏支架手术',
-				longTermMeds: '氨氯地平 5mg/日、二甲双胍 500mg×2/日',
-				emergencyContact: '张小明 138-0000-1234'
+				name: '',
+				gender: '',
+				age: '',
+				drugAllergy: '',
+				otherAllergy: '',
+				chronicDisease: '',
+				majorHistory: '',
+				longTermMeds: '',
+				emergencyContact: ''
 			},
-			shortTermMeds: [emptyShort(), emptyShort(), emptyShort()],
-			longTermMeds: [emptyLong(), emptyLong(), emptyLong()]
+			shortTermMeds: [emptyShort()],
+			longTermMeds: [emptyLong()]
 		}
 	},
 	methods: {
@@ -283,11 +283,13 @@ export default {
 .form-label { display: block; font-size: 24rpx; color: #86909C; margin-bottom: 8rpx; }
 .form-input {
 	font-size: 28rpx; color: #1D2129; width: 100%;
-	background: transparent; padding: 4rpx 0;
+	background: #F7F8FA; border-radius: 12rpx;
+	padding: 16rpx 20rpx; height: 72rpx;
 }
 .form-textarea {
 	font-size: 28rpx; color: #1D2129; width: 100%;
-	min-height: 80rpx; background: transparent; padding: 4rpx 0;
+	min-height: 56rpx; background: #F7F8FA; border-radius: 12rpx;
+	padding: 16rpx 20rpx; line-height: 1.5;
 }
 .picker-val { font-size: 28rpx; color: #1D2129; padding: 4rpx 0; }
 

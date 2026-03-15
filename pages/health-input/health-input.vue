@@ -3,32 +3,22 @@
 		<CustomNavbar title="数据录入" />
 		<TabSwitch :tabs="['手动录入', '语音录入']" v-model="tabIndex" />
 
-		<!-- 手动录入 -->
+		<!-- 手动录入：填写所有指标后统一提交 -->
 		<view v-show="tabIndex === 0" class="manual-panel">
-			<text class="sec-label">选择指标类型</text>
-			<view class="metric-grid">
-				<view
-					v-for="(m, i) in metricTypes"
-					:key="i"
-					class="metric-opt"
-					:class="{ active: selectedMetric === i }"
-					@click="selectedMetric = i"
-				>
-					<text class="mt-icon">{{ m.icon }}</text>
-					<text class="mt-name">{{ m.name }}</text>
-				</view>
-			</view>
-
+			<text class="sec-label">填写健康指标（可填写部分或全部）</text>
 			<view class="form-area">
-				<view class="input-group">
-					<text class="input-label">数值</text>
-					<view v-if="currentMetric.dual" class="dual-input">
-						<input type="number" v-model="bpHigh" :placeholder="currentMetric.ph1" class="input-field" />
-						<text class="separator">/</text>
-						<input type="number" v-model="bpLow" :placeholder="currentMetric.ph2" class="input-field" />
+				<view v-for="m in metricConfig" :key="m.key" class="metric-input-row">
+					<view class="metric-label">
+						<text class="metric-icon">{{ m.icon }}</text>
+						<text class="metric-name">{{ m.name }}</text>
+						<text class="metric-unit">({{ m.unit }})</text>
 					</view>
-					<input v-else type="digit" v-model="singleValue" :placeholder="'请输入' + currentMetric.name" class="input-field" />
-					<text class="unit-hint">单位：{{ currentMetric.unit }}</text>
+					<view v-if="m.dual" class="dual-input">
+						<input type="number" v-model="formData.bp.high" :placeholder="m.ph1" class="input-field" />
+						<text class="separator">/</text>
+						<input type="number" v-model="formData.bp.low" :placeholder="m.ph2" class="input-field" />
+					</view>
+					<input v-else type="digit" v-model="formData[m.key]" :placeholder="'请输入' + m.name" class="input-field" />
 				</view>
 
 				<view class="input-group">
@@ -104,37 +94,41 @@
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
 import TabSwitch from '@/components/tab-switch.vue'
+import { submitBatchInput, submitVoiceInput } from '@/api/health'
+
+const METRIC_CONFIG = [
+	{ key: 'bp', name: '血压', icon: '💓', unit: 'mmHg', dual: true, ph1: '收缩压', ph2: '舒张压' },
+	{ key: 'heartRate', name: '心率', icon: '❤', unit: '次/分', dual: false },
+	{ key: 'temperature', name: '体温', icon: '🌡', unit: '°C', dual: false },
+	{ key: 'bloodSugar', name: '血糖', icon: '💧', unit: 'mmol/L', dual: false },
+	{ key: 'sleep', name: '睡眠', icon: '🌙', unit: '小时', dual: false },
+	{ key: 'breath', name: '呼吸', icon: '🫁', unit: '次/分', dual: false },
+	{ key: 'weight', name: '体重', icon: '⚖', unit: 'kg', dual: false },
+	{ key: 'height', name: '身高', icon: '📏', unit: 'cm', dual: false }
+]
 
 export default {
 	components: { CustomNavbar, TabSwitch },
 	data() {
 		return {
 			tabIndex: 0,
-			metricTypes: [
-				{ name: '血压', icon: '💓', unit: 'mmHg', dual: true, ph1: '收缩压', ph2: '舒张压' },
-				{ name: '心率', icon: '❤', unit: '次/分', dual: false },
-				{ name: '体温', icon: '🌡', unit: '°C', dual: false },
-				{ name: '血糖', icon: '💧', unit: 'mmol/L', dual: false },
-				{ name: '睡眠', icon: '🌙', unit: '小时', dual: false },
-				{ name: '呼吸', icon: '🫁', unit: '次/分', dual: false },
-				{ name: '体重', icon: '⚖', unit: 'kg', dual: false },
-				{ name: '身高', icon: '📏', unit: 'cm', dual: false }
-			],
-			selectedMetric: 0,
-			bpHigh: '',
-			bpLow: '',
-			singleValue: '',
+			metricConfig: METRIC_CONFIG,
+			formData: {
+				bp: { high: '', low: '' },
+				heartRate: '',
+				temperature: '',
+				bloodSugar: '',
+				sleep: '',
+				breath: '',
+				weight: '',
+				height: ''
+			},
 			recordDate: '',
 			recordTime: '',
 			notes: '',
 			isRecording: false,
 			voiceResult: '',
 			extractedTags: []
-		}
-	},
-	computed: {
-		currentMetric() {
-			return this.metricTypes[this.selectedMetric]
 		}
 	},
 	onLoad(options) {
@@ -153,21 +147,89 @@ export default {
 				this.extractedTags = []
 				setTimeout(() => {
 					this.isRecording = false
-					this.voiceResult = '今天早上量了血压，收缩压145，舒张压92，心率72次，感觉有点头晕'
-					this.extractedTags = [
-						{ icon: '💓', label: '血压: 145/92 mmHg', type: 'normal' },
-						{ icon: '❤', label: '心率: 72 次/分', type: 'normal' },
-						{ icon: '⚠', label: '症状: 头晕', type: 'danger' }
-					]
+					this.voiceResult = ''
+					this.extractedTags = []
 				}, 3000)
 			}
 		},
-		onSubmit() {
-			uni.showToast({ title: '提交成功', icon: 'success' })
+		async onSubmit() {
+			const items = []
+			// 血压
+			if (this.formData.bp.high && this.formData.bp.low) {
+				items.push({
+					metricType: 'bp',
+					bpHigh: parseFloat(this.formData.bp.high),
+					bpLow: parseFloat(this.formData.bp.low)
+				})
+			} else if (this.formData.bp.high || this.formData.bp.low) {
+				uni.showToast({ title: '请完整填写收缩压和舒张压', icon: 'none' })
+				return
+			}
+			// 其他指标
+			const singleKeys = ['heartRate', 'temperature', 'bloodSugar', 'sleep', 'breath', 'weight', 'height']
+			for (const key of singleKeys) {
+				const val = this.formData[key]
+				if (val !== '' && val !== null && val !== undefined && String(val).trim() !== '') {
+					items.push({ metricType: key, value: parseFloat(val) })
+				}
+			}
+			if (items.length === 0) {
+				uni.showToast({ title: '请至少填写一项健康指标', icon: 'none' })
+				return
+			}
+			try {
+				await submitBatchInput({
+					recordDate: this.recordDate,
+					recordTime: this.recordTime || undefined,
+					notes: this.notes || undefined,
+					items
+				})
+				uni.showToast({ title: '提交成功', icon: 'success' })
+				this.resetForm()
+			} catch (e) {
+				// request 已统一 showToast
+			}
 		},
-		onVoiceSubmit() {
+		resetForm() {
+			this.formData = {
+				bp: { high: '', low: '' },
+				heartRate: '',
+				temperature: '',
+				bloodSugar: '',
+				sleep: '',
+				breath: '',
+				weight: '',
+				height: ''
+			}
+			this.notes = ''
+		},
+		async onVoiceSubmit() {
 			if (!this.voiceResult) return
-			uni.showToast({ title: '已确认录入', icon: 'success' })
+			if (!this.extractedTags || this.extractedTags.length === 0) {
+				uni.showToast({ title: '请先进行语音识别并确认提取结果', icon: 'none' })
+				return
+			}
+			const extractedData = this.extractedTags.map(t => ({
+				type: t.type,
+				value: t.value,
+				label: t.label
+			}))
+			const d = new Date()
+			const recordDate = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`
+			const recordTime = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`
+			try {
+				await submitVoiceInput({
+					voiceResult: this.voiceResult,
+					extractedData,
+					recordDate,
+					recordTime
+				})
+				uni.showToast({ title: '已确认录入', icon: 'success' })
+				this.voiceResult = ''
+				this.extractedTags = []
+			} catch (e) {
+				// request 已统一 showToast
+			}
 		}
 	}
 }
@@ -190,28 +252,18 @@ export default {
 
 .manual-panel { padding: 0 32rpx; }
 
-.metric-grid {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16rpx;
-	margin-bottom: 28rpx;
-}
-.metric-opt {
-	width: calc(33.33% - 12rpx);
-	padding: 20rpx 12rpx;
-	border: 2rpx solid #E5E6EB;
-	border-radius: 16rpx;
-	text-align: center;
-	background: #fff;
-	box-sizing: border-box;
-	&.active {
-		border-color: #4A90D9;
-		background: rgba(74,144,217,0.08);
+.metric-input-row {
+	margin-bottom: 24rpx;
+	.metric-label {
+		display: flex;
+		align-items: center;
+		gap: 8rpx;
+		margin-bottom: 12rpx;
 	}
+	.metric-icon { font-size: 28rpx; }
+	.metric-name { font-size: 26rpx; color: #4E5969; font-weight: 500; }
+	.metric-unit { font-size: 22rpx; color: #86909C; }
 }
-.mt-icon { display: block; font-size: 36rpx; margin-bottom: 6rpx; }
-.mt-name { font-size: 24rpx; color: #4E5969; }
-.metric-opt.active .mt-name { color: #4A90D9; font-weight: 500; }
 
 .form-area {
 	background: #fff;

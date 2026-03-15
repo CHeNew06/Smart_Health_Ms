@@ -43,34 +43,10 @@ export default {
 	data() {
 		return {
 			plans: [
-				{
-					icon: '🏃', title: '运动计划', desc: '每日运动30分钟，有氧+无氧结合',
-					progress: 65, bgColor: '#E8F5E9', barColor: '#34C759',
-					tagBg: '#E8F5E9', tagColor: '#34C759',
-					tags: ['晨跑', '太极拳', '散步'],
-					url: '/pages/plan-exercise/plan-exercise'
-				},
-				{
-					icon: '🥗', title: '饮食计划', desc: '均衡营养，低盐低脂饮食',
-					progress: 50, bgColor: '#FFF3E0', barColor: '#FF9500',
-					tagBg: '#FFF3E0', tagColor: '#FF9500',
-					tags: ['低盐', '高蛋白', '粗粮'],
-					url: '/pages/plan-diet/plan-diet'
-				},
-				{
-					icon: '💊', title: '用药计划', desc: '按时服药，定期复查',
-					progress: 80, bgColor: '#FFEBEE', barColor: '#EF4444',
-					tagBg: '#FFEBEE', tagColor: '#EF4444',
-					tags: ['降压药', '降糖药', '维生素'],
-					url: '/pages/plan-medication/plan-medication'
-				},
-				{
-					icon: '🏥', title: '复查计划', desc: '定期体检，跟踪健康指标变化',
-					progress: 30, bgColor: '#E3F2FD', barColor: '#4A90D9',
-					tagBg: '#E3F2FD', tagColor: '#4A90D9',
-					tags: ['血常规', '心电图', '肝功能'],
-					url: '/pages/plan-checkup/plan-checkup'
-				}
+				{ icon: '🏃', title: '运动计划', desc: '制定并追踪运动计划', progress: 0, bgColor: '#E8F5E9', barColor: '#34C759', tagBg: '#E8F5E9', tagColor: '#34C759', tags: [], url: '/pages/plan-exercise/plan-exercise' },
+				{ icon: '🥗', title: '饮食计划', desc: '均衡营养，合理安排饮食', progress: 0, bgColor: '#FFF3E0', barColor: '#FF9500', tagBg: '#FFF3E0', tagColor: '#FF9500', tags: [], url: '/pages/plan-diet/plan-diet' },
+				{ icon: '💊', title: '用药计划', desc: '按时服药，定期复查', progress: 0, bgColor: '#FFEBEE', barColor: '#EF4444', tagBg: '#FFEBEE', tagColor: '#EF4444', tags: [], url: '/pages/plan-medication/plan-medication' },
+				{ icon: '🏥', title: '复查计划', desc: '定期体检，跟踪健康指标变化', progress: 0, bgColor: '#E3F2FD', barColor: '#4A90D9', tagBg: '#E3F2FD', tagColor: '#4A90D9', tags: [], url: '/pages/plan-checkup/plan-checkup' }
 			]
 		}
 	},

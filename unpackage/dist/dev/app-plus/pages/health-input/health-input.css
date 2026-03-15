@@ -74,37 +74,26 @@
 .manual-panel[data-v-5e69f1fd] {
   padding: 0 1rem;
 }
-.metric-grid[data-v-5e69f1fd] {
+.metric-input-row[data-v-5e69f1fd] {
+  margin-bottom: 0.75rem;
+}
+.metric-input-row .metric-label[data-v-5e69f1fd] {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.875rem;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.375rem;
 }
-.metric-opt[data-v-5e69f1fd] {
-  width: calc(33.33% - 0.375rem);
-  padding: 0.625rem 0.375rem;
-  border: 0.0625rem solid #E5E6EB;
-  border-radius: 0.5rem;
-  text-align: center;
-  background: #fff;
-  box-sizing: border-box;
+.metric-input-row .metric-icon[data-v-5e69f1fd] {
+  font-size: 0.875rem;
 }
-.metric-opt.active[data-v-5e69f1fd] {
-  border-color: #4A90D9;
-  background: rgba(74, 144, 217, 0.08);
-}
-.mt-icon[data-v-5e69f1fd] {
-  display: block;
-  font-size: 1.125rem;
-  margin-bottom: 0.1875rem;
-}
-.mt-name[data-v-5e69f1fd] {
-  font-size: 0.75rem;
+.metric-input-row .metric-name[data-v-5e69f1fd] {
+  font-size: 0.8125rem;
   color: #4E5969;
-}
-.metric-opt.active .mt-name[data-v-5e69f1fd] {
-  color: #4A90D9;
   font-weight: 500;
+}
+.metric-input-row .metric-unit[data-v-5e69f1fd] {
+  font-size: 0.6875rem;
+  color: #86909C;
 }
 .form-area[data-v-5e69f1fd] {
   background: #fff;

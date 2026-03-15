@@ -9,8 +9,11 @@
 			<!-- Avatar -->
 			<view class="avatar-section">
 				<view class="avatar-upload" @click="chooseAvatar">
-					<text class="avatar-icon">📷</text>
-					<text class="avatar-hint">点击更换头像</text>
+					<image v-if="avatarUrl" :src="avatarUrl" class="avatar-preview" mode="aspectFill" />
+					<view v-else class="avatar-placeholder">
+						<text class="avatar-icon">📷</text>
+						<text class="avatar-hint">点击更换头像</text>
+					</view>
 				</view>
 			</view>
 
@@ -18,8 +21,16 @@
 			<view class="form-section">
 				<text class="section-title">基本信息</text>
 				<view class="form-item">
-					<text class="label">姓名</text>
-					<input class="input" v-model="form.name" placeholder="请输入姓名" />
+					<text class="label">账号</text>
+					<input class="input input-disabled" v-model="form.account" disabled placeholder="账号不可修改" />
+				</view>
+				<view class="form-item">
+					<text class="label">邮箱</text>
+					<input class="input input-disabled" type="text" v-model="form.email" disabled placeholder="邮箱不可修改" />
+				</view>
+				<view class="form-item">
+					<text class="label">昵称</text>
+					<input class="input" v-model="form.nickname" placeholder="请输入昵称" />
 				</view>
 				<view class="form-item">
 					<text class="label">性别</text>
@@ -37,49 +48,17 @@
 				</view>
 				<view class="form-item">
 					<text class="label">出生日期</text>
-					<picker mode="date" :value="form.birthDate" @change="onBirthChange">
-						<view class="picker-value">{{ form.birthDate || '请选择日期' }}</view>
+					<picker mode="date" :value="form.birthday" @change="onBirthChange">
+						<view class="picker-value">{{ form.birthday || '请选择日期' }}</view>
 					</picker>
 				</view>
 				<view class="form-item">
-					<text class="label">身高</text>
-					<input class="input" type="digit" v-model="form.height" placeholder="cm" />
+					<text class="label">地区</text>
+					<input class="input" v-model="form.region" placeholder="如：广东省深圳市" />
 				</view>
 				<view class="form-item">
-					<text class="label">体重</text>
-					<input class="input" type="digit" v-model="form.weight" placeholder="kg" />
-				</view>
-			</view>
-
-			<view class="form-section">
-				<text class="section-title">联系方式</text>
-				<view class="form-item">
-					<text class="label">手机号</text>
-					<input class="input" type="number" v-model="form.phone" placeholder="请输入手机号" />
-				</view>
-				<view class="form-item">
-					<text class="label">邮箱</text>
-					<input class="input" type="text" v-model="form.email" placeholder="请输入邮箱" />
-				</view>
-				<view class="form-item">
-					<text class="label">地址</text>
-					<input class="input" v-model="form.address" placeholder="请输入地址" />
-				</view>
-			</view>
-
-			<view class="form-section">
-				<text class="section-title">紧急联系人</text>
-				<view class="form-item">
-					<text class="label">姓名</text>
-					<input class="input" v-model="form.emergencyName" placeholder="请输入联系人姓名" />
-				</view>
-				<view class="form-item">
-					<text class="label">关系</text>
-					<input class="input" v-model="form.emergencyRel" placeholder="如：子女、配偶" />
-				</view>
-				<view class="form-item">
-					<text class="label">电话</text>
-					<input class="input" type="number" v-model="form.emergencyPhone" placeholder="请输入联系电话" />
+					<text class="label">个性签名</text>
+					<input class="input" v-model="form.signature" placeholder="请输入个性签名" />
 				</view>
 			</view>
 		</view>
@@ -88,39 +67,98 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { getUserProfile, updateUserProfile, uploadAvatar, getAvatarUrl } from '@/api/user'
+
 export default {
 	components: { CustomNavbar },
 	data() {
 		return {
+			avatarUrl: '',
+			saving: false,
 			form: {
-				name: '张老先生',
-				gender: '男',
-				birthDate: '1950-01-15',
-				height: '168',
-				weight: '65',
-				phone: '13800138000',
+				account: '',
 				email: '',
-				address: '',
-				emergencyName: '',
-				emergencyRel: '',
-				emergencyPhone: ''
+				nickname: '',
+				gender: '保密',
+				birthday: '',
+				region: '',
+				signature: ''
 			}
 		}
 	},
+	onLoad() {
+		this.loadProfile()
+	},
 	methods: {
+		async loadProfile() {
+			try {
+				const res = await getUserProfile()
+				const d = res.data || {}
+				this.form.account = d.account || ''
+				this.form.email = d.email || ''
+				this.form.nickname = d.nickname || ''
+				const genderMap = { 0: '保密', 1: '男', 2: '女' }
+				this.form.gender = genderMap[d.gender] || '保密'
+				this.form.birthday = d.birthday || ''
+				this.form.region = d.region || ''
+				this.form.signature = d.signature || ''
+				if (d.avatar) {
+					this.avatarUrl = getAvatarUrl(d.avatar)
+				}
+			} catch (e) {
+				// 加载失败静默处理
+			}
+		},
 		chooseAvatar() {
 			uni.chooseImage({
 				count: 1,
-				success: (res) => {
-					uni.showToast({ title: '已选择头像', icon: 'none' })
+				success: async (res) => {
+					const tempPath = res.tempFilePaths[0]
+					try {
+						uni.showLoading({ title: '上传中...', mask: true })
+						const uploadRes = await uploadAvatar(tempPath)
+						uni.hideLoading()
+						if (uploadRes.data && uploadRes.data.avatar) {
+							this.avatarUrl = getAvatarUrl(uploadRes.data.avatar)
+						} else {
+							this.avatarUrl = tempPath
+						}
+						uni.showToast({ title: '头像上传成功', icon: 'success' })
+					} catch (e) {
+						uni.hideLoading()
+						uni.showToast({ title: '上传失败', icon: 'none' })
+					}
 				}
 			})
 		},
 		onBirthChange(e) {
-			this.form.birthDate = e.detail.value
+			this.form.birthday = e.detail.value
 		},
-		onSave() {
-			uni.showToast({ title: '保存成功', icon: 'success' })
+		async onSave() {
+			if (this.saving) return
+			if (!this.form.nickname) {
+				uni.showToast({ title: '请输入昵称', icon: 'none' })
+				return
+			}
+			this.saving = true
+			const genderMap = { '男': 1, '女': 2, '保密': 0 }
+			try {
+				await updateUserProfile({
+					nickname: this.form.nickname,
+					gender: genderMap[this.form.gender] ?? 0,
+					birthday: this.form.birthday || undefined,
+					region: this.form.region || undefined,
+					signature: this.form.signature || undefined
+				})
+				uni.showToast({ title: '保存成功', icon: 'success' })
+				setTimeout(() => {
+					uni.navigateBack()
+				}, 1000)
+			} catch (e) {
+				// request 内部已处理 toast
+			} finally {
+				this.saving = false
+			}
 		}
 	}
 }
@@ -149,6 +187,18 @@ export default {
 	border-radius: 50%;
 	background: #fff;
 	border: 4rpx dashed #C9CDD4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.avatar-preview {
+	width: 200rpx;
+	height: 200rpx;
+	border-radius: 50%;
+}
+.avatar-placeholder {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -193,6 +243,9 @@ export default {
 	border-radius: 12rpx;
 	padding: 0 24rpx;
 	font-size: 28rpx;
+}
+.input-disabled {
+	color: #86909C;
 }
 .pill-group {
 	display: flex;

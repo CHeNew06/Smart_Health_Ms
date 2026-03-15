@@ -57,6 +57,11 @@
   align-items: center;
   justify-content: center;
 }
+.avatar-img[data-v-dd383ca2] {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
 .avatar-text[data-v-dd383ca2] {
   font-size: 1.5rem;
   color: #fff;

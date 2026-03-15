@@ -241,11 +241,7 @@ export default {
 			kbUp: false,
 			kbHeight: 0,
 			currentHistoryIdx: -1,
-			historyList: [
-				{ title: '血压偏高咨询', time: '今天 09:30' },
-				{ title: '睡眠质量改善', time: '昨天 15:20' },
-				{ title: '饮食注意事项', time: '3月7日 10:15' }
-			],
+			historyList: [],
 			msgList: [],
 			quickQuestions: [
 				'我的血压偏高，日常饮食应该注意什么？',
@@ -369,7 +365,7 @@ export default {
 			if (this.isCanceled) { this.isRecording = false; uni.showToast({ title: '已取消发送', icon: 'none' }); return }
 			if (Date.now() - this.recordStartTime < 1000) { this.isRecording = false; uni.showToast({ title: '说话时间太短', icon: 'none' }); return }
 			this.isRecognizing = true
-			setTimeout(() => { this.isRecording = false; this.isRecognizing = false; this.inputText = '我最近血压有点偏高，需要注意什么？' }, 1500)
+			setTimeout(() => { this.isRecording = false; this.isRecognizing = false; this.inputText = '' }, 1500)
 		},
 		chooseImage() {
 			uni.chooseImage({

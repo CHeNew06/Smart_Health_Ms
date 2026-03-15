@@ -91,16 +91,20 @@
   font-size: 0.875rem;
   color: #1D2129;
   width: 100%;
-  background: transparent;
-  padding: 0.125rem 0;
+  background: #F7F8FA;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.625rem;
+  height: 2.25rem;
 }
 .form-textarea[data-v-48d5af11] {
   font-size: 0.875rem;
   color: #1D2129;
   width: 100%;
-  min-height: 2.5rem;
-  background: transparent;
-  padding: 0.125rem 0;
+  min-height: 1.75rem;
+  background: #F7F8FA;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.625rem;
+  line-height: 1.5;
 }
 .picker-val[data-v-48d5af11] {
   font-size: 0.875rem;

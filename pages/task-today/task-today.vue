@@ -87,17 +87,7 @@ export default {
 	data() {
 		return {
 			ringSize: 80,
-			tasks: [
-				{ id: 1, title: '晨跑30分钟', type: '运动', time: '08:00', done: false },
-				{ id: 2, title: '早餐营养搭配', type: '饮食', time: '08:30', done: false },
-				{ id: 3, title: '服用降压药', type: '用药', time: '09:00', done: false },
-				{ id: 4, title: '测量血压', type: '健康', time: '09:30', done: false },
-				{ id: 5, title: '午间散步', type: '运动', time: '12:30', done: true },
-				{ id: 6, title: '午餐清淡', type: '饮食', time: '12:00', done: true },
-				{ id: 7, title: '下午茶点', type: '饮食', time: '15:00', done: true },
-				{ id: 8, title: '测量血糖', type: '健康', time: '16:00', done: true },
-				{ id: 9, title: '晚间用药', type: '用药', time: '19:00', done: true }
-			]
+			tasks: []
 		}
 	},
 	computed: {

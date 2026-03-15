@@ -26,6 +26,10 @@
       </view>
 
       <view class="history-list">
+        <view v-if="!historyList.length" class="empty-state">
+          <text class="empty-icon">📭</text>
+          <text class="empty-text">暂无咨询记录</text>
+        </view>
         <view
           v-for="(item, idx) in historyList"
           :key="idx"
@@ -69,53 +73,7 @@ export default {
         { label: '智能问答', value: 'chat' },
         { label: 'AI问诊', value: 'inquiry' }
       ],
-      historyList: [
-        {
-          id: '1',
-          title: '血压偏高咨询',
-          mode: 'chat',
-          modeText: '智能问答',
-          summary: '咨询了关于血压偏高的注意事项和测量频率建议',
-          time: '03-09 14:30',
-          count: 6
-        },
-        {
-          id: '2',
-          title: '血糖管理建议',
-          mode: 'chat',
-          modeText: '智能问答',
-          summary: '询问了日常饮食和运动对血糖的影响',
-          time: '03-08 09:15',
-          count: 8
-        },
-        {
-          id: '3',
-          title: '心血管风险评估',
-          mode: 'inquiry',
-          modeText: 'AI问诊',
-          summary: '完成5步主动问诊，AI给出风险评估',
-          time: '03-07 16:20',
-          count: 12
-        },
-        {
-          id: '4',
-          title: '睡眠质量咨询',
-          mode: 'chat',
-          modeText: '智能问答',
-          summary: '咨询了改善睡眠的方法和作息建议',
-          time: '03-06 21:00',
-          count: 4
-        },
-        {
-          id: '5',
-          title: '头痛症状问诊',
-          mode: 'inquiry',
-          modeText: 'AI问诊',
-          summary: '通过AI问诊排查头痛可能原因',
-          time: '03-05 10:45',
-          count: 10
-        }
-      ]
+			historyList: []
     }
   },
   methods: {

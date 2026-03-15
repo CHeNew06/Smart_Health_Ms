@@ -3,7 +3,7 @@
 		<view class="home-header">
 			<view class="greeting-row">
 				<view class="greeting-text">
-					<text class="greeting-title">早上好，张老先生</text>
+					<text class="greeting-title">{{ greetingText }}，{{ displayName }}</text>
 					<text class="greeting-date">{{ dateText }}</text>
 				</view>
 				<view class="input-dropdown-wrap">
@@ -27,23 +27,23 @@
 
 			<view class="score-card">
 				<view class="score-info">
-					<text class="score-title">整体健康状况良好</text>
+					<text class="score-title">{{ scoreTitle }}</text>
 					<view class="score-main">
-						<text class="score-num">86</text>
+						<text class="score-num">{{ healthScore }}</text>
 						<text class="score-unit">健康评分</text>
 					</view>
-					<text class="score-desc">较上周提升3分，继续保持规律的生活习惯</text>
+					<text class="score-desc">{{ scoreDesc }}</text>
 					<view class="stats-row">
 						<view class="stat-col">
-							<text class="stat-val">7</text>
+							<text class="stat-val">{{ streakDays }}</text>
 							<text class="stat-txt">连续打卡天数</text>
 						</view>
 						<view class="stat-col">
-							<text class="stat-val">92%</text>
+							<text class="stat-val">{{ weeklyRate }}</text>
 							<text class="stat-txt">本周完成率</text>
 						</view>
 						<view class="stat-col">
-							<text class="stat-val">正常</text>
+							<text class="stat-val">{{ bodyStatus }}</text>
 							<text class="stat-txt">身体状态</text>
 						</view>
 					</view>
@@ -65,7 +65,7 @@
 				<navigator
 					v-for="(m, idx) in metrics"
 					:key="idx"
-					url="/pages/health-detail/health-detail"
+					:url="'/pages/health-detail/health-detail?type=' + m.type"
 					class="m-card"
 					hover-class="m-card-hover"
 				>
@@ -108,6 +108,8 @@
 
 <script>
 import CustomTabbar from '@/components/custom-tabbar.vue'
+import { getUserInfo, isLoggedIn } from '@/utils/auth'
+import { getUserBasicInfo } from '@/api/auth'
 
 export default {
 	components: { CustomTabbar },
@@ -115,23 +117,50 @@ export default {
 		return {
 			showInputMenu: false,
 			dateText: '',
+			displayName: '',
+			healthScore: '--',
+			streakDays: 0,
+			weeklyRate: '--',
+			bodyStatus: '--',
 			metrics: [
-				{ icon: '🌡', iconBg: '#FEF9C3', label: '体温', value: '37.6', unit: '°C', status: '偏高', statusColor: '#F59E0B' },
-				{ icon: '❤', iconBg: '#ECFDF5', label: '血压', value: '125', unit: '/77 mmHg', status: '正常', statusColor: '#16A34A' },
-				{ icon: '💧', iconBg: '#EFF6FF', label: '血糖', value: '5.8', unit: 'mmol/L', status: '正常', statusColor: '#16A34A' },
-				{ icon: '⚖', iconBg: '#F3E8FF', label: 'BMI', value: '21.9', unit: 'kg/m²', status: '标准', statusColor: '#2563EB' },
-				{ icon: '💗', iconBg: '#FEF2F2', label: '心率', value: '83', unit: 'BPM', status: '正常', statusColor: '#16A34A' },
-				{ icon: '🌙', iconBg: '#EDE9FE', label: '睡眠时长', value: '7.5', unit: '小时', status: '良好', statusColor: '#2563EB' }
+				{ type: 'temperature', icon: '🌡', iconBg: '#FEF9C3', label: '体温', value: '--', unit: '°C', status: '暂无数据', statusColor: '#9CA3AF' },
+				{ type: 'bp', icon: '❤', iconBg: '#ECFDF5', label: '血压', value: '--', unit: '/-- mmHg', status: '暂无数据', statusColor: '#9CA3AF' },
+				{ type: 'bloodSugar', icon: '💧', iconBg: '#EFF6FF', label: '血糖', value: '--', unit: 'mmol/L', status: '暂无数据', statusColor: '#9CA3AF' },
+				{ type: 'bmi', icon: '⚖', iconBg: '#F3E8FF', label: 'BMI', value: '--', unit: 'kg/m²', status: '暂无数据', statusColor: '#9CA3AF' },
+				{ type: 'heartRate', icon: '💗', iconBg: '#FEF2F2', label: '心率', value: '--', unit: 'BPM', status: '暂无数据', statusColor: '#9CA3AF' },
+				{ type: 'sleep', icon: '🌙', iconBg: '#EDE9FE', label: '睡眠时长', value: '--', unit: '小时', status: '暂无数据', statusColor: '#9CA3AF' }
 			],
 			adviceList: [
-				{ icon: '🌡', iconBg: '#FEF9C3', title: '关注体温', desc: '体温偏高，建议多休息，必要时就医检查' },
+				{ icon: '📝', iconBg: '#EFF6FF', title: '开始记录', desc: '录入您的健康数据，获取个性化健康建议' },
 				{ icon: '🏃', iconBg: '#ECFDF5', title: '保持运动', desc: '建议每天进行30分钟中等强度有氧运动' },
-				{ icon: '🥗', iconBg: '#EFF6FF', title: '均衡饮食', desc: '减少钠盐摄入，每日不超过5g，多食新鲜蔬果' }
+				{ icon: '🥗', iconBg: '#FEF9C3', title: '均衡饮食', desc: '合理膳食，多食新鲜蔬果，保持营养均衡' }
 			]
+		}
+	},
+	computed: {
+		greetingText() {
+			const hour = new Date().getHours()
+			if (hour < 6) return '夜深了'
+			if (hour < 9) return '早上好'
+			if (hour < 12) return '上午好'
+			if (hour < 14) return '中午好'
+			if (hour < 18) return '下午好'
+			return '晚上好'
+		},
+		scoreTitle() {
+			if (this.healthScore === '--') return '开始记录健康数据吧'
+			if (this.healthScore >= 80) return '整体健康状况良好'
+			if (this.healthScore >= 60) return '健康状况一般，请注意'
+			return '健康状况需关注'
+		},
+		scoreDesc() {
+			if (this.healthScore === '--') return '录入健康数据后，系统将为您生成健康评分'
+			return '坚持记录，保持规律的生活习惯'
 		}
 	},
 	onShow() {
 		uni.hideTabBar()
+		this.loadUserName()
 	},
 	onLoad() {
 		this.initDateText()
@@ -141,6 +170,26 @@ export default {
 			const d = new Date()
 			const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
 			this.dateText = `今天是 ${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日，${weekDays[d.getDay()]}`
+		},
+		async loadUserName() {
+			if (!isLoggedIn()) {
+				this.displayName = '游客'
+				return
+			}
+			const local = getUserInfo()
+			if (local && local.nickname) {
+				this.displayName = local.nickname
+			}
+			try {
+				const res = await getUserBasicInfo()
+				if (res.data && res.data.nickname) {
+					this.displayName = res.data.nickname
+				} else if (res.data && res.data.account) {
+					this.displayName = res.data.account
+				}
+			} catch (e) {
+				if (!this.displayName) this.displayName = '用户'
+			}
 		},
 		toggleInputMenu() {
 			this.showInputMenu = !this.showInputMenu

@@ -20,11 +20,13 @@
 					<text class="info-label">{{ row.label }}</text>
 					<text class="info-value">{{ row.value }}</text>
 				</view>
+				<view v-if="!infoRows.length" class="empty-hint"><text>暂无药品信息</text></view>
 			</view>
 
 			<!-- Reminder card -->
 			<view class="reminder-card">
 				<text class="card-title">服药提醒</text>
+				<view v-if="!reminders.length" class="empty-hint"><text>暂无服药提醒</text></view>
 				<view v-for="(r, i) in reminders" :key="i" class="reminder-row">
 					<text class="reminder-time">{{ r.time }}</text>
 					<text class="reminder-desc">{{ r.desc }}</text>
@@ -35,6 +37,7 @@
 			<!-- Recent medication history -->
 			<view class="history-card">
 				<text class="card-title">近期用药记录</text>
+				<view v-if="!historyList.length" class="empty-hint"><text>暂无用药记录</text></view>
 				<view v-for="(h, i) in historyList" :key="i" class="history-row">
 					<text class="history-date">{{ h.date }}</text>
 					<text class="history-time">{{ h.time }}</text>
@@ -58,27 +61,11 @@
 		components: { CustomNavbar },
 		data() {
 			return {
-				drugName: '阿司匹林肠溶片',
-				drugDosage: '每次100mg',
-				infoRows: [
-					{ label: '药品类型', value: '抗血小板药' },
-					{ label: '用药频次', value: '每日两次' },
-					{ label: '每次剂量', value: '100mg' },
-					{ label: '开始日期', value: '2024-01-15' },
-					{ label: '处方医生', value: '张医生' },
-					{ label: '购买方式', value: '医院处方' }
-				],
-				reminders: [
-					{ time: '08:00', desc: '早餐后', enabled: true },
-					{ time: '20:00', desc: '晚餐后', enabled: true }
-				],
-				historyList: [
-					{ date: '03-08', time: '08:05', status: 'taken' },
-					{ date: '03-08', time: '20:12', status: 'taken' },
-					{ date: '03-07', time: '08:00', status: 'taken' },
-					{ date: '03-07', time: '20:00', status: 'missed' },
-					{ date: '03-06', time: '08:10', status: 'taken' }
-				]
+				drugName: '',
+				drugDosage: '',
+				infoRows: [],
+				reminders: [],
+				historyList: []
 			}
 		},
 		methods: {

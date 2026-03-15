@@ -10,20 +10,17 @@
 
     <view class="content">
       <!-- 总结卡片 -->
-      <view class="summary-card">
+      <view class="summary-card" v-if="summaryList.length">
         <text class="summary-title">AI总结</text>
         <view class="summary-list">
-          <text class="summary-item">• 建议低盐饮食，每日盐摄入控制在6克以内</text>
-          <text class="summary-item">• 适量运动，如快走、游泳</text>
-          <text class="summary-item">• 保持情绪稳定，避免熬夜</text>
-          <text class="summary-item">• 早晚各测一次血压，记录便于医生参考</text>
+          <text class="summary-item" v-for="(s, i) in summaryList" :key="i">• {{ s }}</text>
         </view>
       </view>
 
       <!-- 聊天回放 -->
       <view class="replay-section">
-        <view class="time-marker">
-          <text>03-09 14:30</text>
+        <view class="time-marker" v-if="chatTime">
+          <text>{{ chatTime }}</text>
         </view>
 
         <view
@@ -39,6 +36,9 @@
             <text class="msg-content">{{ msg.content }}</text>
           </view>
         </view>
+        <view v-if="!chatReplay.length" class="empty-replay">
+          <text>暂无对话记录</text>
+        </view>
       </view>
     </view>
   </view>
@@ -53,20 +53,11 @@ export default {
   data() {
     return {
       navbarBg: '#e2eef0',
-      pageTitle: '血压偏高咨询',
+      pageTitle: '咨询详情',
       modeLabel: '问答模式',
-      chatReplay: [
-        { role: 'user', content: '我最近血压偏高，需要注意什么？' },
-        {
-          role: 'ai',
-          content: '您好，血压偏高建议先从生活方式调整入手：\n1. 低盐饮食，每日盐摄入控制在6克以内；\n2. 适量运动，如快走、游泳；\n3. 保持情绪稳定，避免熬夜；\n4. 定期监测血压。若持续偏高，建议就医评估是否需要用药。'
-        },
-        { role: 'user', content: '每天测量几次比较合适？' },
-        {
-          role: 'ai',
-          content: '一般建议早晚各测一次：早晨起床后、排空膀胱后、服药前测量；晚上睡前测量。每次测2-3遍取平均值，记录便于医生参考。'
-        }
-      ]
+      summaryList: [],
+      chatTime: '',
+      chatReplay: []
     }
   },
   onLoad(options) {

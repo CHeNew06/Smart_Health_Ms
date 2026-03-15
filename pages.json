@@ -1,6 +1,17 @@
 {
 	"pages": [
 		{
+			"path": "pages/splash/splash",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "fade-in"
+				}
+			}
+		},
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationStyle": "custom",

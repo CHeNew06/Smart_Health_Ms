@@ -189,9 +189,9 @@
           <view class="btn-outline" @click="goStep(2)">
             <text>上一步</text>
           </view>
-          <navigator url="/pages/login/login" open-type="redirectTo" class="btn-primary flex2">
-            <text>完成注册</text>
-          </navigator>
+          <view class="btn-primary flex2" @click="handleRegister">
+            <text>{{ registerLoading ? '注册中...' : '完成注册' }}</text>
+          </view>
         </view>
       </view>
     </view>
@@ -200,6 +200,7 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { sendVerifyCode, register } from '@/api/auth'
 
 export default {
   name: 'Register',
@@ -210,6 +211,7 @@ export default {
       countdown: 0,
       timer: null,
       showPassword: false,
+      registerLoading: false,
       formData: {
         email: '',
         verifyCode: '',
@@ -218,12 +220,12 @@ export default {
         confirmPassword: '',
         nickname: '',
         gender: 'male',
-        birthday: '1958-05-15',
+        birthday: '',
         region: '',
         agreeTerms: true
       },
-      strengthLevel: '', // weak | medium | strong
-      passwordMatch: null, // true | false | null
+      strengthLevel: '',
+      passwordMatch: null,
       regionList: [
         '北京市',
         '广东省 · 广州市',
@@ -268,10 +270,44 @@ export default {
   },
   methods: {
     goStep(step) {
+      if (step === 2 && this.currentStep === 1) {
+        if (!this.formData.email) {
+          uni.showToast({ title: '请输入邮箱', icon: 'none' })
+          return
+        }
+        if (!this.formData.verifyCode || this.formData.verifyCode.length < 6) {
+          uni.showToast({ title: '请输入6位验证码', icon: 'none' })
+          return
+        }
+        if (!this.formData.account || this.formData.account.length < 6) {
+          uni.showToast({ title: '账号至少6位，字母开头', icon: 'none' })
+          return
+        }
+      }
+      if (step === 3 && this.currentStep === 2) {
+        if (!this.formData.password || this.formData.password.length < 6) {
+          uni.showToast({ title: '密码至少6位', icon: 'none' })
+          return
+        }
+        if (this.formData.password !== this.formData.confirmPassword) {
+          uni.showToast({ title: '两次密码不一致', icon: 'none' })
+          return
+        }
+      }
       this.currentStep = step
     },
-    getVerifyCode() {
+    async getVerifyCode() {
       if (this.countdown > 0) return
+      if (!this.formData.email) {
+        uni.showToast({ title: '请输入邮箱', icon: 'none' })
+        return
+      }
+      try {
+        await sendVerifyCode({ email: this.formData.email, scene: 'register' })
+        uni.showToast({ title: '验证码已发送', icon: 'success' })
+      } catch (e) {
+        return
+      }
       this.countdown = 60
       this.timer = setInterval(() => {
         this.countdown--
@@ -280,6 +316,35 @@ export default {
           this.timer = null
         }
       }, 1000)
+    },
+    async handleRegister() {
+      if (this.registerLoading) return
+      if (!this.formData.agreeTerms) {
+        uni.showToast({ title: '请同意服务条款', icon: 'none' })
+        return
+      }
+      if (!this.formData.nickname) {
+        uni.showToast({ title: '请输入昵称', icon: 'none' })
+        return
+      }
+      this.registerLoading = true
+      try {
+        await register({
+          account: this.formData.account,
+          password: this.formData.password,
+          email: this.formData.email,
+          code: this.formData.verifyCode,
+          nickname: this.formData.nickname
+        })
+        uni.showToast({ title: '注册成功', icon: 'success' })
+        setTimeout(() => {
+          uni.redirectTo({ url: '/pages/login/login' })
+        }, 1500)
+      } catch (e) {
+        // request 内部已处理 toast
+      } finally {
+        this.registerLoading = false
+      }
     },
     checkStrength() {
       const pwd = this.formData.password

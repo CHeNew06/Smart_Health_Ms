@@ -103,27 +103,21 @@
         <text>登 录</text>
       </view>
 
-      <view class="divider">
-        <view class="divider-line"></view>
-        <text class="divider-text">其他登录方式</text>
-        <view class="divider-line"></view>
-      </view>
-
-      <view class="social-login">
-        <view class="social-btn"><text>微</text></view>
-        <view class="social-btn"><text>Q</text></view>
-        <view class="social-btn"><text>📱</text></view>
+      <view class="try-btn" @click="handleTry">
+        <text>立即体验</text>
       </view>
 
       <view class="login-footer">
-        <text>还没有账号？</text>
-        <navigator url="/pages/register/register" class="register-link">立即注册</navigator>
+        <text>还没有账号？</text><navigator url="/pages/register/register" class="register-link">立即注册</navigator>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+import { login, sendVerifyCode } from '@/api/auth'
+import { setToken, setRefreshToken, setUserInfo } from '@/utils/auth'
+
 export default {
   name: 'Login',
   data() {
@@ -136,16 +130,26 @@ export default {
       showPassword: false,
       rememberPassword: false,
       countdown: 0,
-      timer: null
+      timer: null,
+      loading: false
     }
   },
   beforeDestroy() {
     if (this.timer) clearInterval(this.timer)
   },
   methods: {
-    getVerifyCode() {
+    async getVerifyCode() {
       if (this.countdown > 0) return
-      // 实际应调用 API 发送验证码
+      if (!this.email) {
+        uni.showToast({ title: '请输入邮箱', icon: 'none' })
+        return
+      }
+      try {
+        await sendVerifyCode({ email: this.email, scene: 'login' })
+        uni.showToast({ title: '验证码已发送', icon: 'success' })
+      } catch (e) {
+        return
+      }
       this.countdown = 60
       this.timer = setInterval(() => {
         this.countdown--
@@ -155,7 +159,60 @@ export default {
         }
       }, 1000)
     },
-    handleLogin() {
+    async handleLogin() {
+      if (this.loading) return
+      if (this.loginMode === 'password') {
+        if (!this.account || !this.password) {
+          uni.showToast({ title: '请输入账号和密码', icon: 'none' })
+          return
+        }
+        this.loading = true
+        try {
+          const res = await login({ accountOrEmail: this.account, password: this.password })
+          this.onLoginSuccess(res.data)
+        } catch (e) {
+          // request 内部已处理 toast
+        } finally {
+          this.loading = false
+        }
+      } else {
+        if (!this.email || !this.verifyCode) {
+          uni.showToast({ title: '请输入邮箱和验证码', icon: 'none' })
+          return
+        }
+        this.loading = true
+        try {
+          const res = await login({ accountOrEmail: this.email, code: this.verifyCode })
+          this.onLoginSuccess(res.data)
+        } catch (e) {
+          // request 内部已处理 toast
+        } finally {
+          this.loading = false
+        }
+      }
+    },
+    onLoginSuccess(data) {
+      if (!data) {
+        uni.showToast({ title: '登录响应异常', icon: 'none' })
+        return
+      }
+      const accessToken = data.token || data.accessToken
+      const refresh = data.refreshToken || data.refresh_token
+      if (!accessToken) {
+        console.warn('[login] 登录响应中无 token 字段:', JSON.stringify(data))
+        uni.showToast({ title: '登录异常，未获取到令牌', icon: 'none' })
+        return
+      }
+      setToken(accessToken)
+      if (refresh) setRefreshToken(refresh)
+      setUserInfo({
+        userId: data.userId || data.uid || data.id,
+        account: data.account,
+        nickname: data.nickname
+      })
+      uni.switchTab({ url: '/pages/home/home' })
+    },
+    handleTry() {
       uni.switchTab({ url: '/pages/home/home' })
     }
   }
@@ -361,41 +418,19 @@ $input-border: #E5E6EB;
   margin-top: 16rpx;
 }
 
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 48rpx 0;
-  color: #9CA3AF;
-  font-size: 24rpx;
-}
-
-.divider-line {
-  flex: 1;
-  height: 2rpx;
-  background: #E5E7EB;
-}
-
-.divider-text {
-  margin: 0 24rpx;
-}
-
-.social-login {
-  display: flex;
-  justify-content: center;
-  gap: 48rpx;
-}
-
-.social-btn {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: 50%;
-  border: 3rpx solid $input-border;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40rpx;
-  color: #4B5563;
+.try-btn {
+  width: 100%;
+  height: 88rpx;
   background: #fff;
+  color: $theme-primary;
+  border: 2rpx solid $theme-primary;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 32rpx;
 }
 
 .login-footer {

@@ -3,24 +3,25 @@
 		<!-- Header -->
 		<view class="profile-header">
 			<navigator url="/pages/profile-edit/profile-edit" class="avatar-wrap" hover-class="none">
-				<text class="avatar-text">张</text>
+				<image v-if="userInfo.avatar" :src="avatarFullUrl" class="avatar-img" mode="aspectFill" />
+				<text v-else class="avatar-text">{{ displayInitial }}</text>
 			</navigator>
-			<text class="user-name">张老先生</text>
+			<text class="user-name">{{ userInfo.nickname || userInfo.account || '未登录' }}</text>
 			<view class="badge">健康达人</view>
 		</view>
 
 		<!-- Stats row -->
 		<view class="stats-row">
 			<view class="stat-item">
-				<text class="stat-num">128</text>
+				<text class="stat-num">{{ stats.recordDays }}</text>
 				<text class="stat-desc">已记录天数</text>
 			</view>
 			<view class="stat-item">
-				<text class="stat-num">7</text>
+				<text class="stat-num">{{ stats.streak }}</text>
 				<text class="stat-desc">连续打卡</text>
 			</view>
 			<view class="stat-item">
-				<text class="stat-num">86</text>
+				<text class="stat-num">{{ stats.healthScore }}</text>
 				<text class="stat-desc">健康评分</text>
 			</view>
 		</view>
@@ -33,7 +34,7 @@
 					<text class="menu-title">个人信息</text>
 					<text class="menu-arrow">›</text>
 				</navigator>
-				<navigator url="/pages/health-detail/health-detail" class="menu-item" hover-class="none">
+				<navigator url="/pages/medication/medication" class="menu-item" hover-class="none">
 					<view class="menu-icon" style="background:#34C759;">📋</view>
 					<text class="menu-title">健康档案</text>
 					<text class="menu-arrow">›</text>
@@ -90,18 +91,76 @@
 
 <script>
 import CustomTabbar from '@/components/custom-tabbar.vue'
+import { getUserBasicInfo, logout } from '@/api/auth'
+import { getUserProfile, getAvatarUrl } from '@/api/user'
+import { clearAuth, isLoggedIn, getUserInfo } from '@/utils/auth'
 
 export default {
 	components: { CustomTabbar },
+	data() {
+		return {
+			userInfo: {},
+			stats: {
+				recordDays: 0,
+				streak: 0,
+				healthScore: '--'
+			}
+		}
+	},
+	computed: {
+		displayInitial() {
+			const name = this.userInfo.nickname || this.userInfo.account || ''
+			return name ? name.charAt(0) : '?'
+		},
+		avatarFullUrl() {
+			return getAvatarUrl(this.userInfo.avatar)
+		}
+	},
 	onShow() {
 		uni.hideTabBar()
+		this.loadUserInfo()
 	},
 	methods: {
+		async loadUserInfo() {
+			if (!isLoggedIn()) {
+				this.userInfo = {}
+				return
+			}
+			const local = getUserInfo()
+			if (local) this.userInfo = local
+			try {
+				const res = await getUserBasicInfo()
+				if (res.data) {
+					this.userInfo = { ...this.userInfo, ...res.data }
+				}
+			} catch (e) {}
+			try {
+				const profileRes = await getUserProfile()
+				if (profileRes.data) {
+					const p = profileRes.data
+					if (p.avatar) {
+						this.userInfo = { ...this.userInfo, avatar: p.avatar }
+					}
+					if (p.nickname && !this.userInfo.nickname) {
+						this.userInfo.nickname = p.nickname
+					}
+				}
+			} catch (e) {}
+		},
 		noPage() {
 			uni.showToast({ title: '功能开发中', icon: 'none' })
 		},
 		doLogout() {
-			uni.reLaunch({ url: '/pages/login/login' })
+			uni.showModal({
+				title: '提示',
+				content: '确定要退出登录吗？',
+				success: (res) => {
+					if (!res.confirm) return
+					logout().catch(() => {})
+					clearAuth()
+					uni.reLaunch({ url: '/pages/login/login' })
+				}
+			})
 		}
 	}
 }
@@ -128,6 +187,11 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+.avatar-img {
+	width: 128rpx;
+	height: 128rpx;
+	border-radius: 50%;
 }
 .avatar-text {
 	font-size: 48rpx;
