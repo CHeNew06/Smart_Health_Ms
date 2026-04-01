@@ -1,0 +1,174 @@
+/* 智慧健康 - 浅蓝主题色系 */
+.navbar[data-v-e1c8316f] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-inner[data-v-e1c8316f] {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.navbar-left[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-icon[data-v-e1c8316f] {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.navbar-title[data-v-e1c8316f] {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar-right[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 智慧健康 - 浅蓝主题色系 */
+.page[data-v-6ca84a2e] {
+  min-height: 100vh;
+  background: #e2eef0;
+}
+.page-body[data-v-6ca84a2e] {
+  padding: 0.75rem;
+}
+.calendar-wrap[data-v-6ca84a2e] {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.cal-month[data-v-6ca84a2e] {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1D2129;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.cal-grid[data-v-6ca84a2e] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cal-day-wrap[data-v-6ca84a2e] {
+  width: calc((100% - 3rem) / 7);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cal-day[data-v-6ca84a2e] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #F5F7FA;
+}
+.cal-day.today[data-v-6ca84a2e] {
+  background: #4A90D9;
+  color: #fff;
+}
+.cal-day.selected[data-v-6ca84a2e] {
+  background: #4A90D9;
+  color: #fff;
+  box-shadow: 0 0 0 0.125rem rgba(74, 144, 217, 0.3);
+}
+.day-num[data-v-6ca84a2e] {
+  font-size: 0.8125rem;
+}
+.day-dot[data-v-6ca84a2e] {
+  position: absolute;
+  bottom: 0.25rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #4A90D9;
+  border-radius: 50%;
+}
+.cal-day.today .day-dot[data-v-6ca84a2e],
+.cal-day.selected .day-dot[data-v-6ca84a2e] {
+  background: #fff;
+}
+.stats-row[data-v-6ca84a2e] {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.stat-card[data-v-6ca84a2e] {
+  flex: 1;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+.stat-value[data-v-6ca84a2e] {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4A90D9;
+  display: block;
+}
+.stat-label[data-v-6ca84a2e] {
+  font-size: 0.75rem;
+  color: #4E5969;
+}
+.day-tasks[data-v-6ca84a2e] {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.day-tasks-title[data-v-6ca84a2e] {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.task-item[data-v-6ca84a2e] {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 0.03125rem solid #E5E6EB;
+}
+.task-item[data-v-6ca84a2e]:last-child {
+  border-bottom: none;
+}
+.task-status-dot[data-v-6ca84a2e] {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.task-status-dot.done[data-v-6ca84a2e] {
+  background: #34C759;
+}
+.task-status-dot.missed[data-v-6ca84a2e] {
+  background: #FF3B30;
+}
+.task-item-title[data-v-6ca84a2e] {
+  flex: 1;
+  font-size: 0.875rem;
+  color: #1D2129;
+}
+.task-item-time[data-v-6ca84a2e] {
+  font-size: 0.75rem;
+  color: #4E5969;
+}
+.empty-hint[data-v-6ca84a2e] {
+  padding: 1rem;
+  text-align: center;
+}
+.empty-txt[data-v-6ca84a2e] {
+  font-size: 0.875rem;
+  color: #86909C;
+}

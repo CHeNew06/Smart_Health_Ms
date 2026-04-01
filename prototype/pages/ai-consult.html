@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - AI健康咨询</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .consult-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 48px 16px 12px;
+      background: #fff;
+    }
+    .mode-selector {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1.5px solid var(--primary);
+      border-radius: 10px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      margin-top: 4px;
+      display: none;
+      z-index: 100;
+      overflow: hidden;
+    }
+    .dropdown-menu.show { display: block; }
+    .dropdown-item {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: background .15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dropdown-item:hover { background: var(--gray-50); }
+    .dropdown-item i { width: 20px; text-align: center; }
+
+    .history-link {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .chat-area {
+      flex: 1;
+      padding: 12px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-time {
+      text-align: center;
+      font-size: 11px;
+      color: var(--gray-400);
+      margin: 12px 0;
+    }
+    .ai-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--primary-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .chat-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+    .chat-row.user { flex-direction: row-reverse; }
+
+    .chat-input-bar {
+      padding: 10px 16px 30px;
+      background: #fff;
+      border-top: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-input {
+      flex: 1;
+      height: 40px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 0 16px;
+      font-size: 14px;
+      outline: none;
+      background: var(--gray-50);
+    }
+    .chat-input:focus { border-color: var(--primary); background: #fff; }
+    .send-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .send-btn:hover { background: var(--primary-dark); }
+
+    .mode-content { display: none; }
+    .mode-content.active { display: flex; flex-direction: column; flex: 1; }
+
+    .inquiry-card {
+      background: #fff;
+      margin: 8px 16px;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .inquiry-card .q-number {
+      display: inline-block;
+      padding: 2px 10px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .inquiry-card h4 {
+      font-size: 15px;
+      color: var(--gray-800);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .inquiry-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .inquiry-opt {
+      padding: 12px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .inquiry-opt:hover, .inquiry-opt.selected {
+      border-color: var(--primary);
+      background: var(--primary-bg);
+      color: var(--primary);
+    }
+    .inquiry-opt .opt-radio {
+      width: 18px; height: 18px;
+      border: 2px solid var(--gray-300);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .inquiry-opt.selected .opt-radio {
+      border-color: var(--primary);
+      background: var(--primary);
+    }
+    .inquiry-opt.selected .opt-radio::after {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .inquiry-progress {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .inquiry-progress .progress-bar { flex: 1; }
+    .inquiry-progress .progress-text { font-size: 12px; color: var(--gray-500); white-space: nowrap; }
+    .inquiry-textarea {
+      width: calc(100% - 32px);
+      margin: 0 16px;
+      height: 80px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      resize: none;
+      outline: none;
+    }
+    .inquiry-textarea:focus { border-color: var(--primary); }
+    .next-btn-area {
+      padding: 12px 16px 30px;
+    }
+    .consult-screen {
+      display: flex;
+      flex-direction: column;
+      height: 812px;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="consult-screen">
+      <!-- Nav -->
+      <div class="consult-nav">
+        <div class="mode-selector">
+          <div class="dropdown-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="dropdown-text">智能问答</span>
+            <i class="fas fa-chevron-down" style="font-size:11px"></i>
+          </div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" data-mode="chatMode"><i class="fas fa-comments"></i> 智能问答</div>
+            <div class="dropdown-item" data-mode="inquiryMode"><i class="fas fa-clipboard-question"></i> AI主动问诊</div>
+          </div>
+        </div>
+        <a href="ai-history.html" class="history-link"><i class="fas fa-clock-rotate-left"></i></a>
+      </div>
+
+      <!-- Chat Mode -->
+      <div class="mode-content active" id="chatMode">
+        <div class="chat-area">
+          <div class="chat-time">今天 09:15</div>
+          <div class="chat-row">
+            <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+            <div class="chat-bubble ai">
+              您好！我是您的AI健康顾问。您可以向我咨询任何健康相关问题，我会基于您的健康数据为您提供专业建议。
+            </div>
+          </div>
+          <div class="chat-row user">
+            <div class="chat-bubble user">
+              我最近血压一直偏高，有什么办法可以降低血压吗？
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+            <div class="chat-bubble ai">
+              根据您近7天的血压数据，收缩压平均为135mmHg，确实偏高。以下是一些建议：<br><br>
+              <strong>1. 饮食调整</strong><br>减少钠盐摄入，每日不超过5g<br><br>
+              <strong>2. 适量运动</strong><br>每天快走30分钟<br><br>
+              <strong>3. 药物方面</strong><br>如果您正在服用降压药，请勿自行调整剂量<br><br>
+              建议您本周内到心内科做一次检查。需要我帮您了解更多吗？
+            </div>
+          </div>
+          <div class="chat-row user">
+            <div class="chat-bubble user">
+              好的，谢谢。我想问一下高血压和饮食有什么关系？
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+            <div class="chat-bubble ai">
+              饮食与血压关系密切：<br><br>
+              <strong>应避免：</strong>高盐食物、腌制品、油炸食品<br>
+              <strong>推荐食用：</strong>新鲜蔬果、全谷物、低脂乳制品<br><br>
+              您当前的BMI为23.5，属于正常范围。保持健康饮食对血压控制非常有帮助。
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" class="chat-input" placeholder="输入您的健康问题...">
+          <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+
+      <!-- Inquiry Mode -->
+      <div class="mode-content" id="inquiryMode" style="overflow-y:auto">
+        <div class="inquiry-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:40%;background:var(--primary)"></div>
+          </div>
+          <div class="progress-text">2 / 5 题</div>
+        </div>
+
+        <div class="inquiry-card">
+          <span class="q-number">问题 2</span>
+          <h4>您最近一周是否出现以下症状？（可多选）</h4>
+          <div class="inquiry-options">
+            <div class="inquiry-opt selected" onclick="toggleInquiryOpt(this)">
+              <span class="opt-radio"></span>
+              头晕或头痛
+            </div>
+            <div class="inquiry-opt" onclick="toggleInquiryOpt(this)">
+              <span class="opt-radio"></span>
+              胸闷或心悸
+            </div>
+            <div class="inquiry-opt" onclick="toggleInquiryOpt(this)">
+              <span class="opt-radio"></span>
+              视力模糊
+            </div>
+            <div class="inquiry-opt" onclick="toggleInquiryOpt(this)">
+              <span class="opt-radio"></span>
+              睡眠质量差
+            </div>
+            <div class="inquiry-opt" onclick="toggleInquiryOpt(this)">
+              <span class="opt-radio"></span>
+              以上症状均无
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:0 16px;margin-top:8px">
+          <label style="font-size:13px;color:var(--gray-600);margin-bottom:6px;display:block">补充说明（选填）</label>
+          <textarea class="inquiry-textarea" placeholder="您可以在此补充描述症状详情..." style="width:100%;margin:0"></textarea>
+        </div>
+
+        <div class="next-btn-area">
+          <button class="btn btn-primary btn-block">
+            下一题 <i class="fas fa-chevron-right" style="font-size:12px"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Bar -->
+      <div class="tab-bar">
+        <a href="home.html" class="tab-item"><i class="fas fa-home"></i><span>首页</span></a>
+        <a href="ai-consult.html" class="tab-item active"><i class="fas fa-robot"></i><span>AI咨询</span></a>
+        <a href="plan-overview.html" class="tab-item"><i class="fas fa-clipboard-list"></i><span>健康计划</span></a>
+        <a href="profile.html" class="tab-item"><i class="fas fa-user"></i><span>我的</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - AI咨询</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>AI健康咨询核心页面，提供智能问答和AI主动问诊两种模式。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>智能问答：类微信聊天界面，用户蓝色气泡 / AI白色气泡</li>
+      <li>AI问诊：结构化问题卡片 + 选项式回答</li>
+      <li>顶部下拉框切换两种模式</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">模式切换</span>
+    <span class="note-tag interaction">实时对话</span>
+    <span class="note-tag ux">选项选择</span>
+    <ul>
+      <li>下拉框切换智能问答/AI主动问诊模式</li>
+      <li>问答模式支持文字输入实时发送</li>
+      <li>问诊模式进度条展示答题进度</li>
+      <li>选项卡片可多选/单选</li>
+      <li>历史记录入口在右上角</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>发送消息：POST /api/ai/chat</li>
+      <li>获取问诊问题：GET /api/ai/inquiry/next</li>
+      <li>提交问诊回答：POST /api/ai/inquiry/answer</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script>
+    function toggleInquiryOpt(el) {
+      el.classList.toggle('selected');
+    }
+  </script>
+</body>
+</html>

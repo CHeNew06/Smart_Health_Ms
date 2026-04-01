@@ -1,0 +1,170 @@
+/* 智慧健康 - 浅蓝主题色系 */
+.navbar[data-v-e1c8316f] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-inner[data-v-e1c8316f] {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.navbar-left[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-icon[data-v-e1c8316f] {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.navbar-title[data-v-e1c8316f] {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar-right[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 智慧健康 - 浅蓝主题色系 */
+/* 智慧健康 - 浅蓝主题色系 */
+.page-wrapper[data-v-2eec67f9] {
+  min-height: 100vh;
+  background: #e2eef0;
+  padding-bottom: 1.5rem;
+}
+.nav-edit[data-v-2eec67f9] {
+  font-size: 0.875rem;
+  color: #4A90D9;
+  font-weight: 500;
+}
+.drug-header[data-v-2eec67f9] {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+.drug-icon[data-v-2eec67f9] {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.drug-name[data-v-2eec67f9] {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1D2129;
+  margin-bottom: 0.25rem;
+}
+.drug-dosage[data-v-2eec67f9] {
+  font-size: 0.875rem;
+  color: #4E5969;
+}
+.content[data-v-2eec67f9] {
+  padding: 0.75rem 1rem;
+}
+.info-card[data-v-2eec67f9] {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0 0.875rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04);
+}
+.info-row[data-v-2eec67f9] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 0;
+  border-bottom: 0.0625rem solid #F0F1F3;
+}
+.info-row[data-v-2eec67f9]:last-child {
+  border-bottom: none;
+}
+.info-label[data-v-2eec67f9] {
+  font-size: 0.875rem;
+  color: #4E5969;
+}
+.info-value[data-v-2eec67f9] {
+  font-size: 0.875rem;
+  color: #1D2129;
+  font-weight: 500;
+}
+.reminder-card[data-v-2eec67f9],
+.history-card[data-v-2eec67f9] {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.875rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.04);
+}
+.card-title[data-v-2eec67f9] {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+  margin-bottom: 0.75rem;
+}
+.reminder-row[data-v-2eec67f9] {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 0.0625rem solid #F0F1F3;
+}
+.reminder-row[data-v-2eec67f9]:last-child {
+  border-bottom: none;
+}
+.reminder-time[data-v-2eec67f9] {
+  width: 3.125rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4A90D9;
+  flex-shrink: 0;
+}
+.reminder-desc[data-v-2eec67f9] {
+  flex: 1;
+  font-size: 0.875rem;
+  color: #4E5969;
+}
+.history-row[data-v-2eec67f9] {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 0.0625rem solid #F0F1F3;
+  font-size: 0.8125rem;
+}
+.history-row[data-v-2eec67f9]:last-child {
+  border-bottom: none;
+}
+.history-date[data-v-2eec67f9] {
+  width: 3.125rem;
+  color: #4E5969;
+}
+.history-time[data-v-2eec67f9] {
+  width: 3.125rem;
+  color: #4E5969;
+}
+.history-status[data-v-2eec67f9] {
+  margin-left: auto;
+}
+.history-status.taken[data-v-2eec67f9] {
+  color: #2E7D32;
+}
+.history-status.missed[data-v-2eec67f9] {
+  color: #8F959E;
+}
+.stop-btn[data-v-2eec67f9] {
+  border: 0.0625rem solid #FF3B30;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #FF3B30;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}

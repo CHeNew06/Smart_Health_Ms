@@ -1,17 +1,215 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/splash/splash",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "fade-in"
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/ai-consult/ai-consult",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "AI咨询"
+			}
+		},
+		{
+			"path": "pages/plan-overview/plan-overview",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "健康计划"
+			}
+		},
+		{
+			"path": "pages/task-today/task-today",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "健康任务"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/health-detail/health-detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "指标详情"
+			}
+		},
+		{
+			"path": "pages/health-input/health-input",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "数据录入"
+			}
+		},
+		{
+			"path": "pages/health-trend/health-trend",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "指标趋势"
+			}
+		},
+		{
+			"path": "pages/health-advice/health-advice",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "健康建议"
+			}
+		},
+		{
+			"path": "pages/ai-history/ai-history",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "咨询历史"
+			}
+		},
+		{
+			"path": "pages/ai-history-detail/ai-history-detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "咨询详情"
+			}
+		},
+		{
+			"path": "pages/plan-edit/plan-edit",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "计划编辑"
+			}
+		},
+		{
+			"path": "pages/medication/medication",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "用药管理"
+			}
+		},
+		{
+			"path": "pages/medication-detail/medication-detail",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "用药详情"
+			}
+		},
+		{
+			"path": "pages/task-history/task-history",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "历史任务"
+			}
+		},
+		{
+			"path": "pages/profile-edit/profile-edit",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		{
+			"path": "pages/settings/settings",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/plan-exercise/plan-exercise",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "运动计划"
+			}
+		},
+		{
+			"path": "pages/plan-diet/plan-diet",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "饮食计划"
+			}
+		},
+		{
+			"path": "pages/plan-medication/plan-medication",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "用药计划"
+			}
+		},
+		{
+			"path": "pages/plan-checkup/plan-checkup",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "复查计划"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTitleText": "智慧健康",
+		"navigationBarBackgroundColor": "#e2eef0",
+		"backgroundColor": "#F5F7FA"
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#4A90D9",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tab/empty.png",
+				"selectedIconPath": "static/tab/empty.png"
+			},
+			{
+				"pagePath": "pages/ai-consult/ai-consult",
+				"text": "AI问答",
+				"iconPath": "static/tab/empty.png",
+				"selectedIconPath": "static/tab/empty.png"
+			},
+			{
+				"pagePath": "pages/plan-overview/plan-overview",
+				"text": "健康计划",
+				"iconPath": "static/tab/empty.png",
+				"selectedIconPath": "static/tab/empty.png"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我的",
+				"iconPath": "static/tab/empty.png",
+				"selectedIconPath": "static/tab/empty.png"
+			}
+		]
 	},
 	"uniIdRouter": {}
 }

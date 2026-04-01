@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 今日任务</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .task-header {
+      background: linear-gradient(135deg, #10B981, #059669);
+      padding: 48px 20px 28px;
+      color: #fff;
+    }
+    .task-header .back-row {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+    }
+    .task-header .back-row a { color: #fff; text-decoration: none; font-size: 15px; }
+    .task-header .date-display { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+    .task-header .date-sub { font-size: 13px; opacity: 0.85; }
+    .progress-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      backdrop-filter: blur(5px);
+    }
+    .progress-circle {
+      width: 52px; height: 52px;
+      position: relative;
+    }
+    .progress-circle canvas { width: 52px; height: 52px; }
+    .progress-stats { flex: 1; }
+    .progress-stats .stat-big { font-size: 20px; font-weight: 700; }
+    .progress-stats .stat-label { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+    .task-body {
+      margin-top: -12px;
+      background: var(--gray-50);
+      border-radius: 16px 16px 0 0;
+      padding: 16px 0;
+    }
+    .task-section-title {
+      padding: 4px 16px 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+    }
+    .task-card {
+      background: #fff;
+      margin: 0 16px 8px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: all .2s;
+    }
+    .task-card.completed { opacity: 0.6; }
+    .task-card.completed .task-name { text-decoration: line-through; color: var(--gray-400); }
+    .task-body-info { flex: 1; }
+    .task-name { font-size: 14px; font-weight: 500; color: var(--gray-800); }
+    .task-meta {
+      display: flex; align-items: center; gap: 8px; margin-top: 4px;
+    }
+    .task-type-tag {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .type-exercise { background: #ECFDF5; color: #059669; }
+    .type-diet { background: #FFFBEB; color: #D97706; }
+    .type-med { background: #FEF2F2; color: #DC2626; }
+    .type-life { background: #EDE9FE; color: #7C3AED; }
+    .task-time { font-size: 11px; color: var(--gray-400); }
+    .history-entry {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      margin: 8px 16px 0;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="task-header animate-fadeIn">
+        <div class="back-row">
+          <a href="plan-overview.html"><i class="fas fa-chevron-left"></i> 返回</a>
+          <a href="task-history.html" style="color:#fff;text-decoration:none;font-size:13px"><i class="fas fa-calendar"></i> 历史</a>
+        </div>
+        <div class="date-display">3月9日 周一</div>
+        <div class="date-sub">坚持健康管理第 128 天</div>
+        <div class="progress-card">
+          <div class="progress-circle">
+            <canvas id="taskRing" width="104" height="104" style="width:52px;height:52px"></canvas>
+          </div>
+          <div class="progress-stats">
+            <div class="stat-big"><span class="task-progress-text">3</span> / 8</div>
+            <div class="stat-label">今日任务完成进度</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:24px;font-weight:700">38%</div>
+            <div style="font-size:11px;opacity:0.8">完成率</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-body task-list">
+        <div class="task-section-title">待完成</div>
+        <div class="task-card">
+          <div class="checkbox" onclick="this.classList.toggle('checked');if(this.classList.contains('checked'))this.innerHTML='<i class=\'fas fa-check\' style=\'font-size:12px\'></i>';else this.innerHTML='';this.closest('.task-card').classList.toggle('completed')"></div>
+          <div class="task-body-info">
+            <div class="task-name">晚餐后散步30分钟</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-exercise">运动</span>
+              <span class="task-time"><i class="fas fa-clock"></i> 18:30 - 19:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card">
+          <div class="checkbox" onclick="this.classList.toggle('checked');if(this.classList.contains('checked'))this.innerHTML='<i class=\'fas fa-check\' style=\'font-size:12px\'></i>';else this.innerHTML='';this.closest('.task-card').classList.toggle('completed')"></div>
+          <div class="task-body-info">
+            <div class="task-name">晚间服用硝苯地平 30mg</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-med">用药</span>
+              <span class="task-time"><i class="fas fa-clock"></i> 20:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card">
+          <div class="checkbox" onclick="this.classList.toggle('checked');if(this.classList.contains('checked'))this.innerHTML='<i class=\'fas fa-check\' style=\'font-size:12px\'></i>';else this.innerHTML='';this.closest('.task-card').classList.toggle('completed')"></div>
+          <div class="task-body-info">
+            <div class="task-name">午餐后服用维生素D</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-med">用药</span>
+              <span class="task-time"><i class="fas fa-clock"></i> 12:30</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card">
+          <div class="checkbox" onclick="this.classList.toggle('checked');if(this.classList.contains('checked'))this.innerHTML='<i class=\'fas fa-check\' style=\'font-size:12px\'></i>';else this.innerHTML='';this.closest('.task-card').classList.toggle('completed')"></div>
+          <div class="task-body-info">
+            <div class="task-name">记录今日血压数据</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-life">健康</span>
+              <span class="task-time"><i class="fas fa-clock"></i> 21:00前</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card">
+          <div class="checkbox" onclick="this.classList.toggle('checked');if(this.classList.contains('checked'))this.innerHTML='<i class=\'fas fa-check\' style=\'font-size:12px\'></i>';else this.innerHTML='';this.closest('.task-card').classList.toggle('completed')"></div>
+          <div class="task-body-info">
+            <div class="task-name">晚餐低盐低脂饮食</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-diet">饮食</span>
+              <span class="task-time"><i class="fas fa-clock"></i> 18:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-section-title" style="margin-top:12px">已完成</div>
+        <div class="task-card completed">
+          <div class="checkbox checked"><i class="fas fa-check" style="font-size:12px"></i></div>
+          <div class="task-body-info">
+            <div class="task-name">早晨服用硝苯地平 30mg</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-med">用药</span>
+              <span class="task-time"><i class="fas fa-check-circle" style="color:var(--success)"></i> 08:05 完成</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card completed">
+          <div class="checkbox checked"><i class="fas fa-check" style="font-size:12px"></i></div>
+          <div class="task-body-info">
+            <div class="task-name">早晨服用阿司匹林 100mg</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-med">用药</span>
+              <span class="task-time"><i class="fas fa-check-circle" style="color:var(--success)"></i> 08:05 完成</span>
+            </div>
+          </div>
+        </div>
+        <div class="task-card completed">
+          <div class="checkbox checked"><i class="fas fa-check" style="font-size:12px"></i></div>
+          <div class="task-body-info">
+            <div class="task-name">晨间快走30分钟</div>
+            <div class="task-meta">
+              <span class="task-type-tag type-exercise">运动</span>
+              <span class="task-time"><i class="fas fa-check-circle" style="color:var(--success)"></i> 07:35 完成</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="task-history.html" class="history-entry">
+          <i class="fas fa-calendar-alt"></i> 查看历史任务记录
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 今日任务</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>今日健康任务清单，支持打卡完成，激励用户坚持健康管理。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>绿色主题头部传达健康积极感</li>
+      <li>进度卡片展示完成比例</li>
+      <li>任务分"待完成"和"已完成"两组</li>
+      <li>类型标签彩色区分（运动/饮食/用药/健康）</li>
+      <li>已完成任务灰色+删除线</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">打卡完成</span>
+    <span class="note-tag ux">进度反馈</span>
+    <ul>
+      <li>点击复选框完成打卡，任务自动标记</li>
+      <li>进度百分比实时更新</li>
+      <li>全部完成时可增加庆祝动画</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>今日任务：GET /api/tasks/today</li>
+      <li>完成打卡：POST /api/tasks/{id}/complete</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('taskRing');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const size = canvas.width;
+        const center = size / 2;
+        const radius = center - 8;
+        ctx.beginPath();
+        ctx.arc(center, center, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(center, center, radius, -Math.PI / 2, -Math.PI / 2 + (3 / 8) * Math.PI * 2);
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+    });
+  </script>
+</body>
+</html>

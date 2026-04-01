@@ -1,0 +1,127 @@
+/* 智慧健康 - 浅蓝主题色系 */
+.navbar[data-v-e1c8316f] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+.navbar-inner[data-v-e1c8316f] {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+.navbar-left[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+.nav-icon[data-v-e1c8316f] {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.navbar-title[data-v-e1c8316f] {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.navbar-right[data-v-e1c8316f] {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 智慧健康 - 浅蓝主题色系 */
+.page-wrapper[data-v-3819ddb0] {
+  min-height: 100vh;
+  background: #e2eef0;
+}
+.plan-scroll[data-v-3819ddb0] {
+  height: calc(100vh - var(--status-bar-height, 44px) - 44px);
+}
+.plan-list[data-v-3819ddb0] {
+  padding: 0.875rem;
+}
+.plan-card[data-v-3819ddb0] {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 0.875rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0.0625rem 0.375rem rgba(0, 0, 0, 0.04);
+}
+.card-top[data-v-3819ddb0] {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.card-icon-wrap[data-v-3819ddb0] {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.card-icon[data-v-3819ddb0] {
+  font-size: 1.25rem;
+}
+.card-info[data-v-3819ddb0] {
+  flex: 1;
+}
+.card-title[data-v-3819ddb0] {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1D2129;
+}
+.card-desc[data-v-3819ddb0] {
+  display: block;
+  font-size: 0.75rem;
+  color: #86909C;
+  margin-top: 0.125rem;
+}
+.card-arrow[data-v-3819ddb0] {
+  font-size: 1.125rem;
+  color: #C9CDD4;
+  flex-shrink: 0;
+}
+.card-progress[data-v-3819ddb0] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.625rem;
+}
+.progress-bar-bg[data-v-3819ddb0] {
+  flex: 1;
+  height: 0.4375rem;
+  background: #F2F3F5;
+  border-radius: 0.21875rem;
+  overflow: hidden;
+}
+.progress-bar-fill[data-v-3819ddb0] {
+  height: 100%;
+  border-radius: 0.21875rem;
+  transition: width 0.3s;
+}
+.progress-text[data-v-3819ddb0] {
+  font-size: 0.75rem;
+  color: #86909C;
+  font-weight: 500;
+  width: 1.875rem;
+  text-align: right;
+}
+.card-tags[data-v-3819ddb0] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+.tag-item[data-v-3819ddb0] {
+  padding: 0.1875rem 0.5625rem;
+  border-radius: 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}

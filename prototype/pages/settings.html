@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 设置</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .settings-group {
+      background: #fff;
+      margin: 12px 16px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .setting-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-50);
+      gap: 12px;
+    }
+    .setting-item:last-child { border-bottom: none; }
+    .setting-item .s-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .setting-item .s-text { flex: 1; }
+    .setting-item .s-label { font-size: 14px; color: var(--gray-800); }
+    .setting-item .s-desc { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+    .setting-item .s-value { font-size: 13px; color: var(--gray-500); }
+    .setting-item .s-arrow { color: var(--gray-300); font-size: 12px; }
+
+    .font-size-control {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 16px 16px;
+    }
+    .font-size-control .size-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gray-200);
+      background: #fff;
+      font-size: 16px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .font-size-control .size-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--gray-200);
+      border-radius: 2px;
+      position: relative;
+    }
+    .font-size-control .size-bar .size-fill {
+      width: 60%;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .font-size-control .size-bar .size-thumb {
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    .font-preview {
+      padding: 12px 16px;
+      background: var(--gray-50);
+      margin: 0 16px 16px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      text-align: center;
+    }
+    .cache-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .clear-btn {
+      padding: 5px 12px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .group-title {
+      padding: 16px 16px 6px;
+      font-size: 13px;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="status-bar status-bar-light"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></span></div>
+      <div class="nav-bar nav-bar-light">
+        <a href="profile.html" class="back-btn" style="color:var(--gray-800)"><i class="fas fa-chevron-left"></i></a>
+        设置
+      </div>
+
+      <!-- Reminder Settings -->
+      <div class="group-title">提醒设置</div>
+      <div class="settings-group">
+        <div class="setting-item">
+          <div class="s-icon" style="background:#FEF2F2;color:#EF4444"><i class="fas fa-pills"></i></div>
+          <div class="s-text">
+            <div class="s-label">用药提醒</div>
+            <div class="s-desc">到时间自动提醒服药</div>
+          </div>
+          <div class="toggle active"></div>
+        </div>
+        <div class="setting-item">
+          <div class="s-icon" style="background:#ECFDF5;color:#10B981"><i class="fas fa-list-check"></i></div>
+          <div class="s-text">
+            <div class="s-label">任务提醒</div>
+            <div class="s-desc">健康任务到期提醒</div>
+          </div>
+          <div class="toggle active"></div>
+        </div>
+        <div class="setting-item">
+          <div class="s-icon" style="background:#DBEAFE;color:#2563EB"><i class="fas fa-hospital"></i></div>
+          <div class="s-text">
+            <div class="s-label">复查提醒</div>
+            <div class="s-desc">复查日期前一天提醒</div>
+          </div>
+          <div class="toggle active"></div>
+        </div>
+        <div class="setting-item">
+          <div class="s-icon" style="background:#FFFBEB;color:#F59E0B"><i class="fas fa-bell"></i></div>
+          <div class="s-text">
+            <div class="s-label">异常指标提醒</div>
+            <div class="s-desc">健康数据异常时推送通知</div>
+          </div>
+          <div class="toggle active"></div>
+        </div>
+      </div>
+
+      <!-- Display -->
+      <div class="group-title">显示设置</div>
+      <div class="settings-group">
+        <div class="setting-item" style="flex-wrap:wrap">
+          <div class="s-icon" style="background:#EDE9FE;color:#7C3AED"><i class="fas fa-text-height"></i></div>
+          <div class="s-text">
+            <div class="s-label">字体大小</div>
+            <div class="s-desc">调整应用字体大小（适老化）</div>
+          </div>
+        </div>
+      </div>
+      <div class="font-size-control">
+        <div class="size-btn" style="font-size:12px">A</div>
+        <div class="size-bar">
+          <div class="size-fill"></div>
+          <div class="size-thumb"></div>
+        </div>
+        <div class="size-btn" style="font-size:20px;font-weight:700">A</div>
+      </div>
+      <div class="font-preview">预览文字大小效果</div>
+
+      <!-- Privacy -->
+      <div class="group-title">隐私与安全</div>
+      <div class="settings-group">
+        <div class="setting-item">
+          <div class="s-icon" style="background:var(--gray-100);color:var(--gray-600)"><i class="fas fa-lock"></i></div>
+          <div class="s-text">
+            <div class="s-label">修改密码</div>
+          </div>
+          <i class="fas fa-chevron-right s-arrow"></i>
+        </div>
+        <div class="setting-item">
+          <div class="s-icon" style="background:var(--gray-100);color:var(--gray-600)"><i class="fas fa-shield-halved"></i></div>
+          <div class="s-text">
+            <div class="s-label">隐私设置</div>
+            <div class="s-desc">健康数据可见范围</div>
+          </div>
+          <i class="fas fa-chevron-right s-arrow"></i>
+        </div>
+      </div>
+
+      <!-- Other -->
+      <div class="group-title">其他</div>
+      <div class="settings-group" style="margin-bottom:20px">
+        <div class="setting-item">
+          <div class="s-icon" style="background:var(--gray-100);color:var(--gray-600)"><i class="fas fa-trash-can"></i></div>
+          <div class="s-text">
+            <div class="s-label">清除缓存</div>
+          </div>
+          <div class="cache-info">
+            <span class="s-value" style="margin-right:8px">23.5 MB</span>
+            <button class="clear-btn" onclick="this.textContent='已清除';this.style.background='var(--success-bg)';this.style.color='var(--success)'">清除</button>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div class="s-icon" style="background:var(--gray-100);color:var(--gray-600)"><i class="fas fa-circle-info"></i></div>
+          <div class="s-text">
+            <div class="s-label">版本信息</div>
+          </div>
+          <span class="s-value">v1.0.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 设置页</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>应用设置页面，包含提醒设置、显示设置、隐私安全和其他选项。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>设置项分组展示，每组含标题</li>
+      <li>开关控件使用自定义Toggle样式</li>
+      <li>字体大小调节带滑块和预览</li>
+      <li>彩色图标区分不同功能类型</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">开关切换</span>
+    <span class="note-tag ux">字体预览</span>
+    <ul>
+      <li>各提醒开关独立控制</li>
+      <li>字体大小滑块实时预览效果</li>
+      <li>清除缓存按钮点击后反馈</li>
+      <li>适老化：字体大小调节功能满足老年用户需求</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>获取设置：GET /api/user/settings</li>
+      <li>更新设置：PUT /api/user/settings</li>
+      <li>清除缓存：POST /api/app/clear-cache</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+</body>
+</html>

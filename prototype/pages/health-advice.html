@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 健康建议</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .advice-hero {
+      background: linear-gradient(135deg, var(--primary), #1D4ED8);
+      padding: 48px 20px 30px;
+      color: #fff;
+      text-align: center;
+    }
+    .advice-hero i { font-size: 36px; margin-bottom: 10px; }
+    .advice-hero h2 { font-size: 18px; font-weight: 600; }
+    .advice-hero p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+    .advice-body {
+      margin-top: -12px;
+      background: var(--gray-50);
+      border-radius: 16px 16px 0 0;
+      padding-top: 6px;
+    }
+    .advice-item {
+      background: #fff;
+      margin: 8px 16px;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .advice-item-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .advice-item-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .advice-item h4 { font-size: 15px; font-weight: 600; color: var(--gray-800); flex: 1; }
+    .advice-item p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .advice-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .advice-tag {
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .warning-card {
+      background: var(--danger-bg);
+      border: 1px solid #FECACA;
+      margin: 8px 16px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .warning-card i { color: var(--danger); font-size: 18px; margin-top: 2px; }
+    .warning-card .warning-text { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+    .warning-card .warning-text strong { color: var(--danger); }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="advice-hero animate-fadeIn">
+        <i class="fas fa-lightbulb"></i>
+        <h2>个性化健康建议</h2>
+        <p>基于您的健康数据AI智能生成</p>
+      </div>
+
+      <div class="advice-body">
+        <div class="tabs" data-target="adviceContent">
+          <button class="tab-btn active" data-tab="dietTab">饮食</button>
+          <button class="tab-btn" data-tab="exerciseTab">运动</button>
+          <button class="tab-btn" data-tab="lifestyleTab">生活</button>
+          <button class="tab-btn" data-tab="medicalTab">就医</button>
+        </div>
+
+        <div id="adviceContent">
+          <!-- Diet -->
+          <div class="tab-content active" id="dietTab">
+            <div class="warning-card">
+              <i class="fas fa-exclamation-circle"></i>
+              <div class="warning-text">
+                您的<strong>血压偏高</strong>，饮食需特别注意控盐控脂。
+              </div>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#ECFDF5;color:#10B981"><i class="fas fa-leaf"></i></div>
+                <h4>减少钠盐摄入</h4>
+              </div>
+              <p>建议每日食盐摄入量不超过5克。烹饪时减少酱油、味精等调味料的使用。可使用低钠盐替代普通食盐。</p>
+              <div class="advice-tags">
+                <span class="advice-tag" style="background:#ECFDF5;color:#059669">低盐饮食</span>
+                <span class="advice-tag" style="background:#DBEAFE;color:#2563EB">血压管理</span>
+              </div>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#FEF2F2;color:#EF4444"><i class="fas fa-apple-whole"></i></div>
+                <h4>增加钾元素摄入</h4>
+              </div>
+              <p>多食用富含钾的食物，如香蕉、橙子、土豆、菠菜等。钾元素有助于平衡体内钠含量，帮助控制血压。</p>
+              <div class="advice-tags">
+                <span class="advice-tag" style="background:#FFFBEB;color:#D97706">营养补充</span>
+              </div>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#FFFBEB;color:#F59E0B"><i class="fas fa-fish"></i></div>
+                <h4>优选优质蛋白</h4>
+              </div>
+              <p>增加鱼类（三文鱼、鳕鱼等）摄入，富含Omega-3脂肪酸，有助于心血管健康。减少红肉摄入。</p>
+              <div class="advice-tags">
+                <span class="advice-tag" style="background:#ECFDF5;color:#059669">心血管保护</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise -->
+          <div class="tab-content" id="exerciseTab">
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#EDE9FE;color:#7C3AED"><i class="fas fa-walking"></i></div>
+                <h4>有氧运动</h4>
+              </div>
+              <p>每日建议进行30-45分钟中等强度有氧运动，如快走、慢跑、骑自行车。运动时心率控制在120次/分以内。</p>
+              <div class="advice-tags">
+                <span class="advice-tag" style="background:#EDE9FE;color:#7C3AED">每日30分钟</span>
+                <span class="advice-tag" style="background:#DBEAFE;color:#2563EB">中等强度</span>
+              </div>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#ECFDF5;color:#10B981"><i class="fas fa-spa"></i></div>
+                <h4>太极拳/瑜伽</h4>
+              </div>
+              <p>推荐练习太极拳或简单瑜伽，有助于降低血压、减轻压力。每次20-30分钟，每周3-4次。</p>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#FFFBEB;color:#F59E0B"><i class="fas fa-triangle-exclamation"></i></div>
+                <h4>运动注意事项</h4>
+              </div>
+              <p>避免高强度剧烈运动和突然发力的动作。运动前做好热身，运动后缓慢降温。如感到头晕或不适立即停止。</p>
+            </div>
+          </div>
+
+          <!-- Lifestyle -->
+          <div class="tab-content" id="lifestyleTab">
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#EDE9FE;color:#8B5CF6"><i class="fas fa-bed"></i></div>
+                <h4>规律作息</h4>
+              </div>
+              <p>保持每天7-8小时睡眠，建议晚上10点前入睡。午休20-30分钟有助于血压调节。避免睡前使用电子设备。</p>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#DBEAFE;color:#3B82F6"><i class="fas fa-brain"></i></div>
+                <h4>情绪管理</h4>
+              </div>
+              <p>保持良好心态，避免过度焦虑和紧张。可通过深呼吸、冥想等方式放松。遇事不急躁，心平气和。</p>
+            </div>
+          </div>
+
+          <!-- Medical -->
+          <div class="tab-content" id="medicalTab">
+            <div class="warning-card">
+              <i class="fas fa-stethoscope"></i>
+              <div class="warning-text">
+                您的血压已连续<strong>3天超过正常值</strong>，建议尽快前往医院心内科就诊检查。
+              </div>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#FEF2F2;color:#EF4444"><i class="fas fa-hospital"></i></div>
+                <h4>建议就诊科室</h4>
+              </div>
+              <p>心内科 — 进行详细的血压监测、心电图检查。如有头晕症状，可同时咨询神经内科。</p>
+            </div>
+            <div class="advice-item">
+              <div class="advice-item-header">
+                <div class="advice-item-icon" style="background:#DBEAFE;color:#2563EB"><i class="fas fa-list-check"></i></div>
+                <h4>就诊前准备</h4>
+              </div>
+              <p>1. 携带近7天血压记录数据<br>2. 列出目前服用的所有药物<br>3. 记录近期出现的不适症状<br>4. 空腹就诊（可能需要抽血检查）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 健康建议</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>基于用户健康数据，AI智能生成四类个性化建议，帮助用户改善健康状况。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>四个分类Tab：饮食/运动/生活/就医</li>
+      <li>重要警告使用红色卡片突出展示</li>
+      <li>建议卡片带图标和标签分类</li>
+      <li>内容排版重点突出，层次分明</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">Tab切换</span>
+    <span class="note-tag visual">警告提示</span>
+    <ul>
+      <li>四类建议通过Tab切换查看</li>
+      <li>异常指标关联的建议优先展示</li>
+      <li>就医建议包含就诊科室和准备事项</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>获取建议：GET /api/health/advice?category=diet</li>
+      <li>AI生成建议：POST /api/ai/health-advice</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+</body>
+</html>

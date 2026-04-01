@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智慧健康 - 注册</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .register-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 50px 24px 36px;
+      color: #fff;
+    }
+    .register-header .back-link {
+      color: #fff; text-decoration: none; font-size: 15px;
+      display: flex; align-items: center; gap: 4px; margin-bottom: 20px;
+    }
+    .register-header h1 { font-size: 22px; font-weight: 700; }
+    .register-header p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+    .register-body {
+      padding: 28px 24px;
+      margin-top: -16px;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      min-height: 500px;
+    }
+    .input-wrapper { position: relative; }
+    .input-wrapper .input-icon {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--gray-400); font-size: 15px;
+    }
+    .input-wrapper .input-field { padding-left: 40px; }
+    .code-btn {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      padding: 6px 14px; background: var(--primary-bg); color: var(--primary);
+      border: none; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer;
+    }
+    .code-btn:disabled { opacity: .5; cursor: default; }
+    .gender-select { display: flex; gap: 10px; }
+    .gender-opt {
+      flex: 1; height: 44px;
+      border: 1.5px solid var(--gray-200); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 14px; color: var(--gray-500); cursor: pointer;
+      transition: all .2s; background: var(--gray-50);
+    }
+    .gender-opt.active {
+      border-color: var(--primary); background: var(--primary-bg);
+      color: var(--primary); font-weight: 500;
+    }
+    .terms {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 12px; color: var(--gray-500); margin-bottom: 20px; line-height: 1.6;
+    }
+    .terms a { color: var(--primary); text-decoration: none; }
+    .terms input { margin-top: 3px; accent-color: var(--primary); }
+    .step-indicator {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 24px;
+    }
+    .step-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gray-200); transition: all .3s;
+    }
+    .step-dot.active { width: 24px; border-radius: 4px; background: var(--primary); }
+    .step-dot.done { background: var(--primary-lighter); }
+    .strength-bar { display: flex; gap: 4px; margin-top: 6px; }
+    .strength-bar span { flex: 1; height: 4px; border-radius: 2px; background: var(--gray-200); }
+    .strength-bar.weak span:nth-child(1) { background: var(--danger); }
+    .strength-bar.medium span:nth-child(1),
+    .strength-bar.medium span:nth-child(2) { background: var(--warning); }
+    .strength-bar.strong span:nth-child(1),
+    .strength-bar.strong span:nth-child(2),
+    .strength-bar.strong span:nth-child(3) { background: var(--success); }
+    .strength-text { font-size: 11px; margin-top: 4px; }
+    .region-select {
+      width: 100%; height: 44px;
+      border: 1.5px solid var(--gray-200); border-radius: 10px;
+      padding: 0 14px 0 40px; font-size: 14px; color: var(--gray-800);
+      background: var(--gray-50); outline: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239CA3AF' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+    }
+    .region-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); background-color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="register-header animate-fadeIn">
+        <a href="login.html" class="back-link"><i class="fas fa-chevron-left"></i> 返回</a>
+        <h1>创建账号</h1>
+        <p>注册智慧健康，开启健康管理之旅</p>
+      </div>
+
+      <div class="register-body">
+        <div class="step-indicator">
+          <div class="step-dot active" id="dot1"></div>
+          <div class="step-dot" id="dot2"></div>
+          <div class="step-dot" id="dot3"></div>
+        </div>
+
+        <!-- Step 1: Email + Account + Verification -->
+        <div id="step1">
+          <div class="input-group">
+            <label>邮箱地址</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input type="email" class="input-field" placeholder="请输入邮箱地址">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>验证码</label>
+            <div class="input-wrapper">
+              <i class="fas fa-shield-halved input-icon"></i>
+              <input type="text" class="input-field" placeholder="请输入6位验证码" maxlength="6" style="padding-right:100px">
+              <button class="code-btn" onclick="startCountdown(this)">获取验证码</button>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>账号</label>
+            <div class="input-wrapper">
+              <i class="fas fa-at input-icon"></i>
+              <input type="text" class="input-field" placeholder="请设置账号（字母开头，6-20位）">
+            </div>
+            <div style="font-size:11px;color:var(--gray-400);margin-top:4px">账号用于登录，设置后不可更改</div>
+          </div>
+          <button class="btn btn-primary btn-block" onclick="goStep(2)">下一步</button>
+        </div>
+
+        <!-- Step 2: Password -->
+        <div id="step2" style="display:none">
+          <div class="input-group">
+            <label>设置密码</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input type="password" class="input-field" placeholder="请设置密码（6-20位）" oninput="checkStrength(this.value)">
+            </div>
+            <div class="strength-bar" id="strengthBar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="strength-text text-gray" id="strengthText"></div>
+          </div>
+          <div class="input-group">
+            <label>确认密码</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input type="password" class="input-field" placeholder="请再次输入密码" id="confirmPwd" oninput="checkMatch()">
+            </div>
+            <div class="strength-text" id="matchText"></div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-outline" style="flex:1" onclick="goStep(1)">上一步</button>
+            <button class="btn btn-primary" style="flex:2" onclick="goStep(3)">下一步</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Personal Info -->
+        <div id="step3" style="display:none">
+          <div class="input-group">
+            <label>昵称</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user input-icon"></i>
+              <input type="text" class="input-field" placeholder="请输入昵称">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>性别</label>
+            <div class="gender-select">
+              <div class="gender-opt active" onclick="selectGender(this)"><i class="fas fa-mars"></i> 男</div>
+              <div class="gender-opt" onclick="selectGender(this)"><i class="fas fa-venus"></i> 女</div>
+              <div class="gender-opt" onclick="selectGender(this)"><i class="fas fa-genderless"></i> 保密</div>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>出生日期</label>
+            <div class="input-wrapper">
+              <i class="fas fa-cake-candles input-icon"></i>
+              <input type="date" class="input-field" value="1958-05-15">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>地区</label>
+            <div class="input-wrapper">
+              <i class="fas fa-location-dot input-icon"></i>
+              <select class="region-select">
+                <option value="" disabled>请选择地区</option>
+                <option>北京市</option>
+                <option selected>广东省 · 广州市</option>
+                <option>上海市</option>
+                <option>江苏省 · 南京市</option>
+                <option>浙江省 · 杭州市</option>
+                <option>四川省 · 成都市</option>
+                <option>湖北省 · 武汉市</option>
+                <option>山东省 · 济南市</option>
+                <option>河南省 · 郑州市</option>
+                <option>福建省 · 福州市</option>
+                <option>其他</option>
+              </select>
+            </div>
+          </div>
+          <div class="terms">
+            <input type="checkbox" checked>
+            <span>我已阅读并同意 <a href="#">《服务条款》</a>和<a href="#">《隐私政策》</a></span>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-outline" style="flex:1" onclick="goStep(2)">上一步</button>
+            <a href="login.html" class="btn btn-primary" style="flex:2;text-decoration:none;color:#fff">
+              <i class="fas fa-check"></i> 完成注册
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design Notes -->
+  <div class="design-notes">
+    <h2><i class="fas fa-palette"></i> 设计说明 - 注册页</h2>
+    <h3><i class="fas fa-bullseye"></i> 页面定位</h3>
+    <p>注册页采用分步骤引导设计，降低用户填写压力，提升注册完成率。</p>
+    <h3><i class="fas fa-paint-brush"></i> 视觉设计</h3>
+    <ul>
+      <li>与登录页保持一致的蓝色渐变头部</li>
+      <li>步骤指示器（3个圆点）直观展示进度</li>
+      <li>性别选择使用卡片式单选，操作友好</li>
+      <li>密码强度条实时反馈</li>
+    </ul>
+    <h3><i class="fas fa-hand-pointer"></i> 交互设计</h3>
+    <span class="note-tag interaction">分步表单</span>
+    <span class="note-tag interaction">验证码</span>
+    <span class="note-tag ux">密码强度</span>
+    <ul>
+      <li>三步注册：邮箱验证+账号 → 设置密码(二次确认) → 个人信息</li>
+      <li>验证码60秒倒计时防止重复发送</li>
+      <li>密码强度实时检测 + 二次输入一致性校验</li>
+      <li>性别卡片式交互，出生日期原生日期选择器</li>
+      <li>地区下拉选择器，涵盖主要城市</li>
+    </ul>
+    <h3><i class="fas fa-check-circle"></i> 注册字段</h3>
+    <span class="note-tag data">校验</span>
+    <ul>
+      <li>邮箱：格式校验 + 验证码验证</li>
+      <li>账号：字母开头，6-20位字母数字，唯一性校验</li>
+      <li>密码：6-20位，含字母+数字，二次输入必须一致</li>
+      <li>昵称：1-20个字符</li>
+      <li>性别：男/女/保密</li>
+      <li>出生日期：日期选择器</li>
+      <li>地区：省市级下拉选择</li>
+    </ul>
+    <h3><i class="fas fa-code"></i> 开发对接</h3>
+    <ul>
+      <li>发送验证码：POST /api/auth/send-code</li>
+      <li>验证验证码：POST /api/auth/verify-code</li>
+      <li>账号唯一校验：GET /api/auth/check-username</li>
+      <li>用户注册：POST /api/auth/register</li>
+    </ul>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script>
+    function goStep(step) {
+      document.getElementById('step1').style.display = step === 1 ? 'block' : 'none';
+      document.getElementById('step2').style.display = step === 2 ? 'block' : 'none';
+      document.getElementById('step3').style.display = step === 3 ? 'block' : 'none';
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById('dot' + i);
+        dot.className = 'step-dot';
+        if (i < step) dot.classList.add('done');
+        if (i === step) dot.classList.add('active');
+      }
+    }
+    function selectGender(el) {
+      document.querySelectorAll('.gender-opt').forEach(g => g.classList.remove('active'));
+      el.classList.add('active');
+    }
+    function checkStrength(pwd) {
+      const bar = document.getElementById('strengthBar');
+      const text = document.getElementById('strengthText');
+      if (pwd.length < 6) {
+        bar.className = 'strength-bar weak'; text.textContent = '密码强度：弱'; text.style.color = 'var(--danger)';
+      } else if (pwd.length < 10 || !/[A-Za-z]/.test(pwd) || !/\d/.test(pwd)) {
+        bar.className = 'strength-bar medium'; text.textContent = '密码强度：中'; text.style.color = 'var(--warning)';
+      } else {
+        bar.className = 'strength-bar strong'; text.textContent = '密码强度：强'; text.style.color = 'var(--success)';
+      }
+    }
+    function checkMatch() {
+      const pwd = document.querySelector('#step2 .input-wrapper input[type="password"]').value;
+      const confirm = document.getElementById('confirmPwd').value;
+      const text = document.getElementById('matchText');
+      if (!confirm) { text.textContent = ''; return; }
+      if (pwd === confirm) {
+        text.textContent = '密码一致 ✓'; text.style.color = 'var(--success)';
+      } else {
+        text.textContent = '密码不一致 ✗'; text.style.color = 'var(--danger)';
+      }
+    }
+  </script>
+</body>
+</html>
