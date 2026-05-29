@@ -31,7 +31,7 @@ if (uni.restoreGlobal) {
 }
 (function(vue) {
   "use strict";
-  const BASE_URL = "http://10.7.88.252:8088";
+  const BASE_URL = "http://10.182.234.99:8088";
   const config = {
     BASE_URL,
     API_PREFIX: BASE_URL + "/api",
@@ -89,7 +89,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$r = {
+  const _sfc_main$q = {
     data() {
       return {
         minDisplayTime: 2e3
@@ -166,7 +166,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "splash-page" }, [
       vue.createElementVNode("image", {
         class: "splash-img",
@@ -179,7 +179,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesSplashSplash = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__scopeId", "data-v-b5d3b004"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/splash/splash.vue"]]);
+  const PagesSplashSplash = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__scopeId", "data-v-b5d3b004"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/splash/splash.vue"]]);
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);
@@ -368,7 +368,7 @@ if (uni.restoreGlobal) {
       method: "GET"
     });
   }
-  const _sfc_main$q = {
+  const _sfc_main$p = {
     name: "Login",
     data() {
       return {
@@ -469,7 +469,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "login-header" }, [
         vue.createElementVNode("view", { class: "login-logo" }, [
@@ -666,8 +666,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/login/login.vue"]]);
-  const _sfc_main$p = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/login/login.vue"]]);
+  const _sfc_main$o = {
     name: "CustomNavbar",
     props: {
       title: { type: String, default: "" },
@@ -692,7 +692,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -757,8 +757,8 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const CustomNavbar = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__scopeId", "data-v-e1c8316f"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-navbar.vue"]]);
-  const _sfc_main$o = {
+  const CustomNavbar = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__scopeId", "data-v-e1c8316f"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-navbar.vue"]]);
+  const _sfc_main$n = {
     name: "Register",
     components: { CustomNavbar },
     data() {
@@ -938,7 +938,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -1332,8 +1332,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__scopeId", "data-v-bac4a35d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/register/register.vue"]]);
-  const _sfc_main$n = {
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-bac4a35d"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/register/register.vue"]]);
+  const _sfc_main$m = {
     name: "CustomTabbar",
     props: {
       current: { type: Number, default: 0 }
@@ -1362,7 +1362,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -1419,8 +1419,47 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const CustomTabbar = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-c0af68ba"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-tabbar.vue"]]);
-  const _sfc_main$m = {
+  const CustomTabbar = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-c0af68ba"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/custom-tabbar.vue"]]);
+  function getHealthScore() {
+    return request({ url: "/health/score" });
+  }
+  function getHealthMetrics() {
+    return request({ url: "/health/metrics" });
+  }
+  function getMetricDetail(type) {
+    return request({ url: `/health/metrics/${type}` });
+  }
+  function submitBatchInput(data) {
+    return request({
+      url: "/health/input/batch",
+      method: "POST",
+      data,
+      showLoading: true,
+      loadingText: "正在提交..."
+    });
+  }
+  function submitVoiceInput(data) {
+    return request({
+      url: "/health/input/voice",
+      method: "POST",
+      data,
+      showLoading: true,
+      loadingText: "正在提交..."
+    });
+  }
+  function extractVoiceByDify(data) {
+    return request({
+      url: "/health/voice/extract",
+      method: "POST",
+      data,
+      showLoading: true,
+      loadingText: "正在提取健康指标..."
+    });
+  }
+  function getHealthAdvice() {
+    return request({ url: "/health/advice" });
+  }
+  const _sfc_main$l = {
     components: { CustomTabbar },
     data() {
       return {
@@ -1428,8 +1467,6 @@ if (uni.restoreGlobal) {
         dateText: "",
         displayName: "",
         healthScore: "--",
-        streakDays: 0,
-        weeklyRate: "--",
         bodyStatus: "--",
         metrics: [
           { type: "temperature", icon: "🌡", iconBg: "#FEF9C3", label: "体温", value: "--", unit: "°C", status: "暂无数据", statusColor: "#9CA3AF" },
@@ -1462,11 +1499,14 @@ if (uni.restoreGlobal) {
         return "晚上好";
       },
       scoreTitle() {
-        if (this.healthScore === "--")
+        if (this.healthScore === "--" || this.healthScore === null || this.healthScore === void 0)
           return "开始记录健康数据吧";
-        if (this.healthScore >= 80)
+        const score = Number(this.healthScore);
+        if (isNaN(score))
+          return "开始记录健康数据吧";
+        if (score >= 80)
           return "整体健康状况良好";
-        if (this.healthScore >= 60)
+        if (score >= 60)
           return "健康状况一般，请注意";
         return "健康状况需关注";
       },
@@ -1479,6 +1519,8 @@ if (uni.restoreGlobal) {
     onShow() {
       uni.hideTabBar();
       this.loadUserName();
+      this.loadHealthData();
+      this.loadAdvice();
     },
     onLoad() {
       this.initDateText();
@@ -1512,10 +1554,56 @@ if (uni.restoreGlobal) {
       },
       toggleInputMenu() {
         this.showInputMenu = !this.showInputMenu;
+      },
+      async loadHealthData() {
+        if (!isLoggedIn())
+          return;
+        try {
+          const [scoreRes, metricsRes] = await Promise.all([getHealthScore(), getHealthMetrics()]);
+          if (scoreRes.data) {
+            this.healthScore = scoreRes.data.score ?? "--";
+            this.bodyStatus = scoreRes.data.bodyStatus ?? "--";
+          }
+          if (metricsRes.data && Array.isArray(metricsRes.data)) {
+            const iconMap = { temperature: "🌡", bp: "❤", bloodSugar: "💧", bmi: "⚖", heartRate: "💗", sleep: "🌙" };
+            const iconBgMap = { temperature: "#FEF9C3", bp: "#ECFDF5", bloodSugar: "#EFF6FF", bmi: "#F3E8FF", heartRate: "#FEF2F2", sleep: "#EDE9FE" };
+            const statusColorMap = { normal: "#059669", warn: "#D97706", danger: "#DC2626" };
+            this.metrics = metricsRes.data.map((m) => ({
+              type: m.type,
+              icon: iconMap[m.type] || "📊",
+              iconBg: iconBgMap[m.type] || "#F5F7FA",
+              label: m.label || m.type,
+              value: m.value ?? "--",
+              unit: m.type === "bp" ? "mmHg" : m.unit || "",
+              status: m.statusText || "暂无数据",
+              statusColor: statusColorMap[m.status] || "#9CA3AF"
+            }));
+          }
+        } catch (e) {
+        }
+      },
+      async loadAdvice() {
+        var _a, _b;
+        if (!isLoggedIn())
+          return;
+        try {
+          const res = await getHealthAdvice();
+          if ((_b = (_a = res == null ? void 0 : res.data) == null ? void 0 : _a.suggestions) == null ? void 0 : _b.length) {
+            const iconMap = { diet: "🥗", exercise: "🏃", lifestyle: "📝", medical: "🏥" };
+            const iconBgMap = { diet: "#FEF9C3", exercise: "#ECFDF5", lifestyle: "#EFF6FF", medical: "#FEF2F2" };
+            this.adviceList = res.data.suggestions.map((s) => ({
+              icon: iconMap[s.category] || "💡",
+              iconBg: iconBgMap[s.category] || "#F5F7FA",
+              title: s.title || (s.category === "diet" ? "饮食" : s.category === "exercise" ? "运动" : s.category === "lifestyle" ? "生活" : "就医"),
+              desc: (s.content || "").substring(0, 80) + ((s.content || "").length > 80 ? "..." : "")
+            }));
+          }
+        } catch (e) {
+        }
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createElementVNode("view", { class: "home-header" }, [
@@ -1599,26 +1687,6 @@ if (uni.restoreGlobal) {
               /* TEXT */
             ),
             vue.createElementVNode("view", { class: "stats-row" }, [
-              vue.createElementVNode("view", { class: "stat-col" }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "stat-val" },
-                  vue.toDisplayString($data.streakDays),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode("text", { class: "stat-txt" }, "连续打卡天数")
-              ]),
-              vue.createElementVNode("view", { class: "stat-col" }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "stat-val" },
-                  vue.toDisplayString($data.weeklyRate),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode("text", { class: "stat-txt" }, "本周完成率")
-              ]),
               vue.createElementVNode("view", { class: "stat-col" }, [
                 vue.createElementVNode(
                   "text",
@@ -1769,8 +1837,100 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_CustomTabbar, { current: 0 })
     ]);
   }
-  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-07e72d3c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/home/home.vue"]]);
-  const _sfc_main$l = {
+  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-07e72d3c"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/home/home.vue"]]);
+  function sendMessage(data) {
+    return request({ url: "/consult/chat", method: "POST", data });
+  }
+  function getConversationList() {
+    return request({ url: "/consult/conversations" });
+  }
+  function getConversationDetail(id) {
+    return request({ url: `/consult/conversations/${id}` });
+  }
+  function deleteConversation(id) {
+    return request({ url: `/consult/conversations/${id}`, method: "DELETE" });
+  }
+  function uploadConsultFile(filePath, type = "image") {
+    return new Promise((resolve, reject) => {
+      const token = getToken();
+      uni.uploadFile({
+        url: config.API_PREFIX + "/consult/files/upload",
+        filePath,
+        name: "file",
+        formData: { type },
+        header: token ? { Authorization: "Bearer " + token } : {},
+        success: (res) => {
+          try {
+            const body = typeof res.data === "string" ? JSON.parse(res.data) : res.data;
+            if (body && body.code === 0) {
+              resolve(body);
+            } else {
+              reject(body && body.message || "文件上传失败");
+            }
+          } catch (e) {
+            reject("文件上传响应解析失败");
+          }
+        },
+        fail: (err) => reject(err)
+      });
+    });
+  }
+  function transcribeConsultAudio(filePath) {
+    return new Promise((resolve, reject) => {
+      const token = getToken();
+      uni.uploadFile({
+        url: config.API_PREFIX + "/consult/audio-to-text",
+        filePath,
+        name: "file",
+        header: token ? { Authorization: "Bearer " + token } : {},
+        success: (res) => {
+          try {
+            const body = typeof res.data === "string" ? JSON.parse(res.data) : res.data;
+            if (body && body.code === 0) {
+              resolve(body);
+            } else {
+              reject(body && body.message || "语音转文字失败");
+            }
+          } catch (e) {
+            reject("语音转文字响应解析失败");
+          }
+        },
+        fail: (err) => reject(err)
+      });
+    });
+  }
+  function recognizeSpeech(filePath) {
+    return new Promise((resolve, reject) => {
+      const token = getToken();
+      formatAppLog("log", "at api/speech.js:12", "[Speech] 开始上传音频文件:", filePath);
+      uni.uploadFile({
+        url: config.API_PREFIX + "/speech/recognize",
+        filePath,
+        name: "file",
+        header: token ? { "Authorization": "Bearer " + token } : {},
+        success: (res) => {
+          formatAppLog("log", "at api/speech.js:20", "[Speech] 上传成功, statusCode:", res.statusCode);
+          try {
+            const body = typeof res.data === "string" ? JSON.parse(res.data) : res.data;
+            formatAppLog("log", "at api/speech.js:23", "[Speech] 响应:", JSON.stringify(body));
+            if (body.code === 0 && body.data && body.data.text) {
+              resolve(body.data.text);
+            } else {
+              reject(body.message || "语音识别失败");
+            }
+          } catch (e) {
+            formatAppLog("error", "at api/speech.js:31", "[Speech] 解析响应失败:", e);
+            reject("解析识别结果失败");
+          }
+        },
+        fail: (err) => {
+          formatAppLog("error", "at api/speech.js:36", "[Speech] 上传失败:", err);
+          reject("网络异常，上传失败");
+        }
+      });
+    });
+  }
+  const _sfc_main$k = {
     components: { CustomTabbar },
     data() {
       return {
@@ -1784,14 +1944,20 @@ if (uni.restoreGlobal) {
         shouldStop: false,
         showQuickQ: true,
         tempImagePath: "",
+        tempAudioPath: "",
         isRecording: false,
         isRecognizing: false,
         touchStartY: 0,
         isCanceled: false,
         recordStartTime: 0,
+        recorderManager: null,
+        recordFormat: "m4a",
+        recordStarting: false,
+        pendingStop: false,
         kbUp: false,
         kbHeight: 0,
         currentHistoryIdx: -1,
+        currentConversationId: "",
         historyList: [],
         msgList: [],
         quickQuestions: [
@@ -1819,7 +1985,13 @@ if (uni.restoreGlobal) {
       }
     },
     onLoad() {
+      const sys = uni.getSystemInfoSync();
+      if ((sys.platform || "").toLowerCase().includes("android")) {
+        this.recordFormat = "m4a";
+      }
       this.pushWelcome();
+      this.initRecorder();
+      this.fetchConversations();
       uni.onKeyboardHeightChange((res) => {
         if (res.height > 0) {
           this.kbUp = true;
@@ -1832,11 +2004,56 @@ if (uni.restoreGlobal) {
       });
     },
     methods: {
+      initRecorder() {
+        try {
+          this.recorderManager = uni.getRecorderManager();
+          this.recorderManager.onStop((res) => {
+            this.isRecognizing = false;
+            this.isRecording = false;
+            if (this.isCanceled)
+              return;
+            if (!res || !res.tempFilePath) {
+              uni.showToast({ title: "语音录制失败", icon: "none" });
+              return;
+            }
+            this.tempAudioPath = res.tempFilePath;
+            this.sendVoiceMessage();
+          });
+          this.recorderManager.onError(() => {
+            this.isRecognizing = false;
+            this.isRecording = false;
+            uni.showToast({ title: "语音录制失败", icon: "none" });
+          });
+        } catch (e) {
+          formatAppLog("warn", "at pages/ai-consult/ai-consult.vue:321", "[AI咨询] 初始化录音器失败", e);
+        }
+      },
       pushWelcome() {
         this.msgList = [{
           role: "ai",
           content: "您好！我是您的AI健康助手小Y，很高兴为您服务。请问有什么可以帮您的吗？"
         }];
+      },
+      async fetchConversations() {
+        try {
+          const res = await getConversationList();
+          const rows = res.data && res.data.data || [];
+          this.historyList = rows.map((item) => ({
+            id: item.id,
+            title: item.name || "新对话",
+            time: this.formatTs(item.created_at || item.updated_at)
+          }));
+        } catch (e) {
+          formatAppLog("warn", "at pages/ai-consult/ai-consult.vue:340", "[AI咨询] 获取会话列表失败", e);
+        }
+      },
+      formatTs(ts) {
+        if (!ts)
+          return "";
+        const ms = String(ts).length === 10 ? Number(ts) * 1e3 : Number(ts);
+        const d = new Date(ms);
+        const p = (n) => n < 10 ? "0" + n : "" + n;
+        return `${d.getMonth() + 1}-${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`;
       },
       onInputFocus() {
         this.$nextTick(() => setTimeout(() => this.scrollToEnd(), 300));
@@ -1848,51 +2065,119 @@ if (uni.restoreGlobal) {
           uni.hideKeyboard();
         }
       },
-      sendMessage() {
-        const txt = (this.inputText || "").trim();
-        if (!txt && !this.tempImagePath) {
-          uni.showToast({ title: "请输入消息", icon: "none" });
+      async sendMessage(overrideText) {
+        const txt = (typeof overrideText === "string" ? overrideText : this.inputText || "").trim();
+        const hasImage = !!this.tempImagePath;
+        const hasAudio = !!this.tempAudioPath;
+        if (!txt && !hasImage && !hasAudio) {
+          uni.showToast({ title: "请输入消息或上传文件", icon: "none" });
           return;
         }
-        const userMsg = { role: "user", content: txt || "[图片]" };
-        if (this.tempImagePath) {
+        const userMsg = { role: "user", content: txt || (hasImage ? "[图片消息]" : "[语音消息]") };
+        if (hasImage)
           userMsg.imageUrl = this.tempImagePath;
-          this.tempImagePath = "";
-        }
+        if (hasAudio)
+          userMsg.audio = true;
         this.msgList.push(userMsg);
+        const savedImagePath = this.tempImagePath;
+        const savedAudioPath = this.tempAudioPath;
         this.inputText = "";
+        this.tempImagePath = "";
+        this.tempAudioPath = "";
         this.showQuickQ = false;
         this.$nextTick(() => this.scrollToEnd());
-        this.shouldStop = false;
         this.isLoading = true;
-        setTimeout(() => {
+        try {
+          const files = [];
+          if (hasImage) {
+            const uploadRes = await uploadConsultFile(savedImagePath, "image");
+            const uploadFileId = uploadRes.data && uploadRes.data.id;
+            if (uploadFileId)
+              files.push({ type: "image", uploadFileId });
+          }
+          if (hasAudio) {
+            const uploadRes = await uploadConsultFile(savedAudioPath, "audio");
+            const uploadFileId = uploadRes.data && uploadRes.data.id;
+            if (uploadFileId)
+              files.push({ type: "audio", uploadFileId });
+          }
+          const req = {
+            message: txt || (hasImage ? "请结合图片进行分析" : "请结合语音内容进行分析"),
+            conversationId: this.currentConversationId || void 0,
+            files
+          };
+          const res = await sendMessage(req);
+          const payload = res.data || {};
+          this.currentConversationId = payload.conversation_id || this.currentConversationId;
+          const answer = this.formatAiText(payload.answer) || "我已经收到你的消息，但暂时没有生成回答。";
           this.isLoading = false;
-          const aiMsg = { role: "ai", content: "" };
-          this.msgList.push(aiMsg);
-          this.typeMessage(
-            "好的，我正在为您分析相关信息。根据您的描述，建议您：\n1. 保持规律的作息时间\n2. 适量进行有氧运动\n3. 注意饮食清淡\n4. 定期监测身体指标\n\n如果症状持续，建议及时就医检查。",
-            this.msgList.length - 1
-          );
-        }, 1200);
-      },
-      typeMessage(fullText, msgIdx, charIdx = 0) {
-        if (this.shouldStop) {
-          if (this.msgList[msgIdx])
-            this.msgList[msgIdx].content += "\n\n[回答已终止]";
-          this.isTyping = false;
-          this.shouldStop = false;
-          return;
-        }
-        this.isTyping = true;
-        if (charIdx <= fullText.length) {
-          this.msgList[msgIdx].content = fullText.slice(0, charIdx);
-          if (charIdx % 10 === 0)
-            this.$nextTick(() => this.scrollToEnd());
-          setTimeout(() => this.typeMessage(fullText, msgIdx, charIdx + 1), 45);
-        } else {
-          this.isTyping = false;
+          await this.typewriterPush(answer);
+          await this.fetchConversations();
+        } catch (e) {
+          const msg = e && e.message || (typeof e === "string" ? e : "发送失败，请稍后重试");
+          this.isLoading = false;
+          this.msgList.push({ role: "ai", content: "抱歉，当前无法完成本次问答：" + msg });
           this.scrollToEnd();
         }
+      },
+      async sendVoiceMessage() {
+        if (!this.tempAudioPath)
+          return;
+        this.isLoading = true;
+        try {
+          const transRes = await transcribeConsultAudio(this.tempAudioPath);
+          const text = transRes.data && transRes.data.text || "";
+          if (!text.trim())
+            throw new Error("语音识别结果为空");
+          this.fillRecognizedText(text);
+        } catch (e) {
+          try {
+            const text = await recognizeSpeech(this.tempAudioPath);
+            if (!text || !text.trim())
+              throw new Error("语音识别结果为空");
+            uni.showToast({ title: "已切换备用识别通道", icon: "none" });
+            this.fillRecognizedText(text);
+          } catch (fallbackErr) {
+            this.isLoading = false;
+            this.tempAudioPath = "";
+            uni.showToast({ title: "语音识别失败，请重试", icon: "none" });
+          }
+        }
+      },
+      fillRecognizedText(text) {
+        this.tempAudioPath = "";
+        this.isLoading = false;
+        this.inputText = (text || "").trim();
+        this.showQuickQ = false;
+        this.$nextTick(() => {
+          uni.showToast({ title: "识别完成，请确认后发送", icon: "none" });
+        });
+      },
+      typewriterPush(fullText) {
+        return new Promise((resolve) => {
+          const aiMsg = { role: "ai", content: "" };
+          this.msgList.push(aiMsg);
+          this.isTyping = true;
+          this.shouldStop = false;
+          const idx = this.msgList.length - 1;
+          let pos = 0;
+          const step = () => {
+            if (this.shouldStop || pos >= fullText.length) {
+              this.msgList[idx] = { role: "ai", content: fullText };
+              this.isTyping = false;
+              this.scrollToEnd();
+              resolve();
+              return;
+            }
+            const chunk = Math.min(pos + 2, fullText.length);
+            this.msgList[idx] = { role: "ai", content: fullText.substring(0, chunk) };
+            pos = chunk;
+            if (pos % 10 === 0)
+              this.scrollToEnd();
+            setTimeout(step, 30);
+          };
+          step();
+        });
       },
       stopTyping() {
         this.shouldStop = true;
@@ -1907,6 +2192,8 @@ if (uni.restoreGlobal) {
           content: "确定要开始新的对话吗？",
           success: (res) => {
             if (res.confirm) {
+              this.currentConversationId = "";
+              this.currentHistoryIdx = -1;
               this.pushWelcome();
               this.showQuickQ = true;
             }
@@ -1918,6 +2205,61 @@ if (uni.restoreGlobal) {
         this.isCanceled = false;
         this.recordStartTime = Date.now();
         this.isRecording = true;
+        this.recordStarting = true;
+        this.pendingStop = false;
+        if (!this.recorderManager) {
+          uni.showToast({ title: "当前设备不支持录音", icon: "none" });
+          this.isRecording = false;
+          this.recordStarting = false;
+          return;
+        }
+        this.startRecorderInternal();
+      },
+      startRecorderInternal() {
+        try {
+          this.recorderManager.start({
+            duration: 6e4,
+            sampleRate: 16e3,
+            numberOfChannels: 1,
+            format: this.recordFormat
+          });
+          setTimeout(() => {
+            this.recordStarting = false;
+            if (this.pendingStop) {
+              this.pendingStop = false;
+              this.stopRecording();
+            }
+          }, 200);
+        } catch (e) {
+          this.recordStarting = false;
+          this.isRecording = false;
+          uni.showToast({ title: "录音启动失败", icon: "none" });
+        }
+      },
+      ensureRecordPermission() {
+        return new Promise((resolve) => {
+          uni.authorize({
+            scope: "scope.record",
+            success: () => resolve(true),
+            fail: () => {
+              uni.showModal({
+                title: "需要麦克风权限",
+                content: "语音问答需要麦克风权限，请在系统设置中允许。",
+                success: (res) => {
+                  if (res.confirm) {
+                    uni.openSetting({
+                      success: (s) => resolve(!!(s.authSetting && s.authSetting["scope.record"])),
+                      fail: () => resolve(false)
+                    });
+                  } else {
+                    resolve(false);
+                  }
+                },
+                fail: () => resolve(false)
+              });
+            }
+          });
+        });
       },
       onTouchMove(e) {
         if (!this.isRecording)
@@ -1927,22 +2269,24 @@ if (uni.restoreGlobal) {
       stopRecording() {
         if (!this.isRecording)
           return;
+        if (this.recordStarting) {
+          this.pendingStop = true;
+          return;
+        }
         if (this.isCanceled) {
           this.isRecording = false;
+          this.recorderManager && this.recorderManager.stop();
           uni.showToast({ title: "已取消发送", icon: "none" });
           return;
         }
         if (Date.now() - this.recordStartTime < 1e3) {
           this.isRecording = false;
+          this.recorderManager && this.recorderManager.stop();
           uni.showToast({ title: "说话时间太短", icon: "none" });
           return;
         }
         this.isRecognizing = true;
-        setTimeout(() => {
-          this.isRecording = false;
-          this.isRecognizing = false;
-          this.inputText = "";
-        }, 1500);
+        this.recorderManager && this.recorderManager.stop();
       },
       chooseImage() {
         uni.chooseImage({
@@ -1960,19 +2304,60 @@ if (uni.restoreGlobal) {
         if (mode === 1)
           uni.showToast({ title: "已切换到AI问诊模式", icon: "none" });
       },
-      loadHistory(idx) {
+      async loadHistory(idx) {
         this.currentHistoryIdx = idx;
         this.showSidebar = false;
+        const row = this.historyList[idx];
+        if (!row || !row.id)
+          return;
+        this.currentConversationId = row.id;
+        try {
+          const res = await getConversationDetail(row.id);
+          const rows = res.data && res.data.data || [];
+          const list = [];
+          rows.forEach((item) => {
+            if (item.query)
+              list.push({ role: "user", content: item.query });
+            if (item.answer)
+              list.push({ role: "ai", content: this.formatAiText(item.answer) });
+          });
+          this.msgList = list;
+          if (!this.msgList.length)
+            this.pushWelcome();
+          this.scrollToEnd();
+        } catch (e) {
+          uni.showToast({ title: "加载历史失败", icon: "none" });
+        }
       },
       deleteHistory(idx) {
-        uni.showModal({ title: "删除对话", content: "确定删除？", success: (r) => {
-          if (r.confirm) {
-            this.historyList.splice(idx, 1);
+        uni.showModal({
+          title: "删除对话",
+          content: "确定删除？",
+          success: async (r) => {
+            if (!r.confirm)
+              return;
+            const row = this.historyList[idx];
+            try {
+              if (row && row.id)
+                await deleteConversation(row.id);
+              this.historyList.splice(idx, 1);
+              if (this.currentConversationId === row.id) {
+                this.currentConversationId = "";
+                this.pushWelcome();
+              }
+            } catch (e) {
+              uni.showToast({ title: "删除失败", icon: "none" });
+            }
           }
-        } });
+        });
       },
       previewImg(url) {
         uni.previewImage({ urls: [url], current: url });
+      },
+      formatAiText(raw) {
+        if (!raw || typeof raw !== "string")
+          return "";
+        return raw.replace(/\r\n/g, "\n").replace(/^#{1,6}\s*/gm, "").replace(/\*\*\*(.*?)\*\*\*/g, "$1").replace(/\*\*(.*?)\*\*/g, "$1").replace(/\*(.*?)\*/g, "$1").replace(/`{1,3}(.*?)`{1,3}/g, "$1").replace(/^\s*[-*]\s+/gm, "• ").replace(/^\s*\d+\.\s+/gm, (m) => m).replace(/\n{3,}/g, "\n\n").trim();
       },
       scrollToEnd() {
         this.$nextTick(() => {
@@ -1984,7 +2369,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "chat-page" }, [
       vue.createElementVNode(
@@ -2416,8 +2801,44 @@ if (uni.restoreGlobal) {
       })) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAiConsultAiConsult = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-78fd8d65"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-consult/ai-consult.vue"]]);
-  const _sfc_main$k = {
+  const PagesAiConsultAiConsult = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-78fd8d65"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/ai-consult/ai-consult.vue"]]);
+  function generatePlan() {
+    return request({ url: "/plan/generate", method: "POST", showLoading: false });
+  }
+  function getCurrentPlan() {
+    return request({ url: "/plan/current" });
+  }
+  function getExercisePlan() {
+    return request({ url: "/plan/exercise" });
+  }
+  function updateExercisePlan(data) {
+    return request({ url: "/plan/exercise", method: "PUT", data });
+  }
+  function getDietPlan() {
+    return request({ url: "/plan/diet" });
+  }
+  function updateDietPlan(data) {
+    return request({ url: "/plan/diet", method: "PUT", data });
+  }
+  function getMedicationPlan() {
+    return request({ url: "/plan/medication" });
+  }
+  function getCheckupPlan() {
+    return request({ url: "/plan/checkup" });
+  }
+  function addCheckupRecord(data) {
+    return request({ url: "/plan/checkup", method: "POST", data });
+  }
+  function getTodayTasks() {
+    return request({ url: "/plan/tasks/today" });
+  }
+  function completeTask(taskId) {
+    return request({ url: `/plan/tasks/${taskId}/complete`, method: "POST" });
+  }
+  function getTaskHistory(params) {
+    return request({ url: "/plan/tasks/history", data: params });
+  }
+  const _sfc_main$j = {
     components: { CustomTabbar },
     data() {
       return {
@@ -2449,36 +2870,71 @@ if (uni.restoreGlobal) {
     },
     onShow() {
       uni.hideTabBar();
+      this.loadTasks();
     },
     methods: {
       tagColor(type) {
         const m = { "运动": "#34C759", "饮食": "#FF9500", "用药": "#EF4444", "健康": "#4A90D9" };
         return m[type] || "#4A90D9";
       },
-      onAiGen() {
+      typeLabel(type) {
+        const m = { exercise: "运动", diet: "饮食", medication: "用药", health: "健康" };
+        return m[type] || type;
+      },
+      async loadTasks() {
+        try {
+          const res = await getTodayTasks();
+          this.tasks = (res.data || []).map((t) => ({
+            id: t.id,
+            title: t.title,
+            type: this.typeLabel(t.taskType),
+            time: t.taskTime || "",
+            done: t.status === "done"
+          }));
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-overview/plan-overview.vue:137", "加载任务失败", e);
+        }
+      },
+      async onAiGen() {
         if (this.aiLoading)
           return;
         this.aiLoading = true;
-        setTimeout(() => {
-          this.aiLoading = false;
+        const start = Date.now();
+        const MIN_LOAD_MS = 8e3;
+        try {
+          await generatePlan();
+          const rest = MIN_LOAD_MS - (Date.now() - start);
+          if (rest > 0) {
+            await new Promise((resolve) => setTimeout(resolve, rest));
+          }
           uni.showToast({ title: "计划已生成", icon: "success" });
-        }, 3e3);
+          await this.loadTasks();
+        } catch (e) {
+          uni.showToast({ title: "生成失败", icon: "none" });
+        } finally {
+          this.aiLoading = false;
+        }
       },
       confirmComplete(item) {
         uni.showModal({
           title: "确认完成",
           content: `确定已完成「${item.title}」吗？`,
-          success: (res) => {
+          success: async (res) => {
             if (res.confirm) {
-              item.done = true;
-              uni.showToast({ title: "已完成", icon: "success" });
+              try {
+                await completeTask(item.id);
+                item.done = true;
+                uni.showToast({ title: "已完成", icon: "success" });
+              } catch (e) {
+                uni.showToast({ title: "操作失败", icon: "none" });
+              }
             }
           }
         });
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       $data.aiLoading ? (vue.openBlock(), vue.createElementBlock("view", {
@@ -2690,8 +3146,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_CustomTabbar, { current: 2 })
     ]);
   }
-  const PagesPlanOverviewPlanOverview = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-b97d5bf4"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-overview/plan-overview.vue"]]);
-  const _sfc_main$j = {
+  const PagesPlanOverviewPlanOverview = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-b97d5bf4"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-overview/plan-overview.vue"]]);
+  const _sfc_main$i = {
     components: { CustomNavbar },
     data() {
       return {
@@ -2719,6 +3175,9 @@ if (uni.restoreGlobal) {
         return Math.round(this.doneCount / this.tasks.length * 100);
       }
     },
+    onShow() {
+      this.loadTasks();
+    },
     mounted() {
       this.$nextTick(() => this.drawRing());
     },
@@ -2727,17 +3186,41 @@ if (uni.restoreGlobal) {
         const m = { 运动: "#34C759", 饮食: "#FF9500", 用药: "#FF3B30", 健康: "#4A90D9" };
         return m[type] || "#4A90D9";
       },
-      confirmComplete(item) {
+      typeLabel(type) {
+        const m = { exercise: "运动", diet: "饮食", medication: "用药", health: "健康" };
+        return m[type] || type;
+      },
+      async loadTasks() {
+        try {
+          const res = await getTodayTasks();
+          this.tasks = (res.data || []).map((t) => ({
+            id: t.id,
+            title: t.title,
+            type: this.typeLabel(t.taskType),
+            time: t.taskTime || "",
+            done: t.status === "done"
+          }));
+          this.$nextTick(() => this.drawRing());
+        } catch (e) {
+          formatAppLog("error", "at pages/task-today/task-today.vue:133", "加载任务失败", e);
+        }
+      },
+      async confirmComplete(item) {
         if (item.done)
           return;
         uni.showModal({
           title: "确认完成",
           content: `确定已完成任务「${item.title}」吗？`,
-          success: (res) => {
+          success: async (res) => {
             if (res.confirm) {
-              item.done = true;
-              uni.showToast({ title: "已完成", icon: "success" });
-              this.$nextTick(() => this.drawRing());
+              try {
+                await completeTask(item.id);
+                item.done = true;
+                uni.showToast({ title: "已完成", icon: "success" });
+                this.$nextTick(() => this.drawRing());
+              } catch (e) {
+                uni.showToast({ title: "操作失败", icon: "none" });
+              }
             }
           }
         });
@@ -2764,7 +3247,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-task-today" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -2944,7 +3427,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesTaskTodayTaskToday = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-9d6d08e3"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-today/task-today.vue"]]);
+  const PagesTaskTodayTaskToday = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-9d6d08e3"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/task-today/task-today.vue"]]);
   function getUserProfile() {
     return request({ url: "/profile" });
   }
@@ -2978,16 +3461,11 @@ if (uni.restoreGlobal) {
       return avatarPath;
     return config.BASE_URL + "/" + avatarPath.replace(/^\//, "");
   }
-  const _sfc_main$i = {
+  const _sfc_main$h = {
     components: { CustomTabbar },
     data() {
       return {
-        userInfo: {},
-        stats: {
-          recordDays: 0,
-          streak: 0,
-          healthScore: "--"
-        }
+        userInfo: {}
       };
     },
     computed: {
@@ -3052,7 +3530,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomTabbar = vue.resolveComponent("CustomTabbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page page-profile" }, [
       vue.createElementVNode("view", { class: "profile-header" }, [
@@ -3085,38 +3563,6 @@ if (uni.restoreGlobal) {
           /* TEXT */
         ),
         vue.createElementVNode("view", { class: "badge" }, "健康达人")
-      ]),
-      vue.createElementVNode("view", { class: "stats-row" }, [
-        vue.createElementVNode("view", { class: "stat-item" }, [
-          vue.createElementVNode(
-            "text",
-            { class: "stat-num" },
-            vue.toDisplayString($data.stats.recordDays),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", { class: "stat-desc" }, "已记录天数")
-        ]),
-        vue.createElementVNode("view", { class: "stat-item" }, [
-          vue.createElementVNode(
-            "text",
-            { class: "stat-num" },
-            vue.toDisplayString($data.stats.streak),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", { class: "stat-desc" }, "连续打卡")
-        ]),
-        vue.createElementVNode("view", { class: "stat-item" }, [
-          vue.createElementVNode(
-            "text",
-            { class: "stat-num" },
-            vue.toDisplayString($data.stats.healthScore),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", { class: "stat-desc" }, "健康评分")
-        ])
       ]),
       vue.createElementVNode("view", { class: "menu-wrap" }, [
         vue.createElementVNode("view", { class: "menu-group" }, [
@@ -3237,7 +3683,7 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_CustomTabbar, { current: 3 })
     ]);
   }
-  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-dd383ca2"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile/profile.vue"]]);
+  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-dd383ca2"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/profile/profile.vue"]]);
   function emptyDetail(conf) {
     return {
       ...conf,
@@ -3259,7 +3705,7 @@ if (uni.restoreGlobal) {
   for (const [k, v] of Object.entries(METRIC_CONFIG$1)) {
     ALL_DETAILS[k] = emptyDetail(v);
   }
-  const _sfc_main$h = {
+  const _sfc_main$g = {
     components: { CustomNavbar },
     data() {
       return {
@@ -3270,11 +3716,42 @@ if (uni.restoreGlobal) {
     onLoad(options) {
       if (options && options.type && ALL_DETAILS[options.type]) {
         this.metricType = options.type;
-        this.detail = ALL_DETAILS[options.type];
+        this.detail = { ...ALL_DETAILS[options.type] };
+      }
+    },
+    onShow() {
+      this.loadDetail();
+    },
+    methods: {
+      async loadDetail() {
+        try {
+          const res = await getMetricDetail(this.metricType);
+          if (res == null ? void 0 : res.data) {
+            const d = res.data;
+            this.detail = {
+              ...METRIC_CONFIG$1[this.metricType],
+              value: d.value || "--",
+              statusText: d.statusText || "暂无数据",
+              statusClass: d.statusClass || "normal",
+              refRange: d.refRange || this.detail.refRange,
+              records: (d.records || []).map((r) => {
+                const t = (r.recordTime || "").toString();
+                return {
+                  date: r.recordDate || "",
+                  time: t.length > 5 ? t.substring(0, 5) : t,
+                  value: r.valueDisplay || "-",
+                  statusClass: r.status === "danger" ? "high" : r.status || "normal",
+                  status: r.statusText || ""
+                };
+              })
+            };
+          }
+        } catch (e) {
+        }
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, {
@@ -3340,14 +3817,6 @@ if (uni.restoreGlobal) {
         ])
       ]),
       vue.createElementVNode("view", { class: "detail-body" }, [
-        vue.createElementVNode("navigator", {
-          url: "/pages/health-trend/health-trend?type=" + $data.metricType,
-          class: "trend-entry",
-          "hover-class": "trend-entry-hover"
-        }, [
-          vue.createElementVNode("text", { class: "trend-icon" }, "📈"),
-          vue.createElementVNode("text", { class: "trend-text" }, "查看趋势图表")
-        ], 8, ["url"]),
         vue.createElementVNode("text", { class: "section-title" }, "最近 7 天记录"),
         vue.createElementVNode("view", { class: "record-list" }, [
           !$data.detail.records.length ? (vue.openBlock(), vue.createElementBlock("view", {
@@ -3415,8 +3884,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthDetailHealthDetail = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-ea663d6b"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-detail/health-detail.vue"]]);
-  const _sfc_main$g = {
+  const PagesHealthDetailHealthDetail = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-ea663d6b"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-detail/health-detail.vue"]]);
+  const _sfc_main$f = {
     name: "TabSwitch",
     props: {
       tabs: { type: Array, default: () => [] },
@@ -3424,7 +3893,7 @@ if (uni.restoreGlobal) {
     },
     emits: ["update:modelValue"]
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "tab-switch" }, [
       (vue.openBlock(true), vue.createElementBlock(
         vue.Fragment,
@@ -3449,13 +3918,17 @@ if (uni.restoreGlobal) {
       ))
     ]);
   }
-  const TabSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-b971217e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/tab-switch.vue"]]);
-  function submitBatchInput(data) {
-    return request({ url: "/health/input/batch", method: "POST", data });
-  }
-  function submitVoiceInput(data) {
-    return request({ url: "/health/input/voice", method: "POST", data });
-  }
+  const TabSwitch = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-b971217e"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/components/tab-switch.vue"]]);
+  const ICON_BY_TYPE = {
+    bp: "💓",
+    heartRate: "❤",
+    temperature: "🌡",
+    bloodSugar: "💧",
+    sleep: "🌙",
+    breath: "🫁",
+    weight: "⚖",
+    height: "📏"
+  };
   const METRIC_CONFIG = [
     { key: "bp", name: "血压", icon: "💓", unit: "mmHg", dual: true, ph1: "收缩压", ph2: "舒张压" },
     { key: "heartRate", name: "心率", icon: "❤", unit: "次/分", dual: false },
@@ -3466,7 +3939,7 @@ if (uni.restoreGlobal) {
     { key: "weight", name: "体重", icon: "⚖", unit: "kg", dual: false },
     { key: "height", name: "身高", icon: "📏", unit: "cm", dual: false }
   ];
-  const _sfc_main$f = {
+  const _sfc_main$e = {
     components: { CustomNavbar, TabSwitch },
     data() {
       return {
@@ -3485,10 +3958,24 @@ if (uni.restoreGlobal) {
         recordDate: "",
         recordTime: "",
         notes: "",
+        // 语音录入
         isRecording: false,
+        recognizing: false,
         voiceResult: "",
-        extractedTags: []
+        extractedTags: [],
+        recordDuration: 0,
+        recorderManager: null,
+        recordTimer: null
       };
+    },
+    computed: {
+      voiceHint() {
+        if (this.isRecording)
+          return "正在录音，再次点击停止...";
+        if (this.recognizing)
+          return "正在识别中，请稍候...";
+        return "点击按钮开始语音记录（最长60秒）";
+      }
     },
     onLoad(options) {
       if (options && options.tab === "1") {
@@ -3497,18 +3984,259 @@ if (uni.restoreGlobal) {
       const d = /* @__PURE__ */ new Date();
       this.recordDate = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
       this.recordTime = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+      this.initRecorder();
+    },
+    onUnload() {
+      this.clearRecordTimer();
+      if (this.recorderManager && this.isRecording) {
+        this.recorderManager.stop();
+      }
     },
     methods: {
-      toggleRecording() {
-        this.isRecording = !this.isRecording;
+      initRecorder() {
+        const rm = uni.getRecorderManager();
+        rm.onStart(() => {
+          this.isRecording = true;
+          this.recordDuration = 0;
+          this.startRecordTimer();
+        });
+        rm.onStop((res) => {
+          this.isRecording = false;
+          this.clearRecordTimer();
+          formatAppLog("log", "at pages/health-input/health-input.vue:183", "[Recorder] onStop, tempFilePath:", res.tempFilePath, "duration:", res.duration, "fileSize:", res.fileSize);
+          if (res.tempFilePath) {
+            if (res.duration && res.duration < 1e3) {
+              uni.showToast({ title: "录音时间过短，请至少录制1秒", icon: "none" });
+              return;
+            }
+            this.doRecognize(res.tempFilePath);
+          } else {
+            uni.showToast({ title: "录音文件获取失败，请重试", icon: "none" });
+          }
+        });
+        rm.onError((err) => {
+          this.isRecording = false;
+          this.clearRecordTimer();
+          formatAppLog("error", "at pages/health-input/health-input.vue:198", "[Recorder] onError:", JSON.stringify(err));
+          let msg = "录音失败";
+          if (err.errMsg) {
+            if (err.errMsg.indexOf("auth") !== -1 || err.errMsg.indexOf("permission") !== -1 || err.errMsg.indexOf("deny") !== -1) {
+              msg = "没有录音权限，请在系统设置中开启";
+            } else {
+              msg = "录音失败: " + err.errMsg;
+            }
+          }
+          uni.showToast({ title: msg, icon: "none", duration: 3e3 });
+        });
+        this.recorderManager = rm;
+      },
+      startRecordTimer() {
+        this.recordTimer = setInterval(() => {
+          this.recordDuration++;
+          if (this.recordDuration >= 60) {
+            this.recorderManager.stop();
+          }
+        }, 1e3);
+      },
+      clearRecordTimer() {
+        if (this.recordTimer) {
+          clearInterval(this.recordTimer);
+          this.recordTimer = null;
+        }
+      },
+      async toggleRecording() {
+        if (this.recognizing)
+          return;
         if (this.isRecording) {
+          this.recorderManager.stop();
+        } else {
+          const hasPermission = await this.checkRecordPermission();
+          if (!hasPermission)
+            return;
           this.voiceResult = "";
           this.extractedTags = [];
-          setTimeout(() => {
-            this.isRecording = false;
-            this.voiceResult = "";
-            this.extractedTags = [];
-          }, 3e3);
+          this.recordDuration = 0;
+          this.recorderManager.start({
+            format: "wav",
+            sampleRate: 16e3,
+            numberOfChannels: 1,
+            encodeBitRate: 256e3,
+            frameSize: 16e3,
+            duration: 6e4
+          });
+        }
+      },
+      checkRecordPermission() {
+        return new Promise((resolve) => {
+          const os = uni.getSystemInfoSync().platform;
+          if (os === "android") {
+            const main = plus.android.runtimeMainActivity();
+            main.getPackageName();
+            const ContextCompat = plus.android.importClass("androidx.core.content.ContextCompat");
+            plus.android.importClass("android.Manifest");
+            const granted = ContextCompat.checkSelfPermission(main, "android.permission.RECORD_AUDIO");
+            if (granted !== 0) {
+              const ActivityCompat = plus.android.importClass("androidx.core.app.ActivityCompat");
+              ActivityCompat.requestPermissions(main, ["android.permission.RECORD_AUDIO"], 1001);
+              setTimeout(() => {
+                const result = ContextCompat.checkSelfPermission(main, "android.permission.RECORD_AUDIO");
+                if (result !== 0) {
+                  uni.showModal({
+                    title: "权限提示",
+                    content: "语音录入需要麦克风权限，请在系统设置中允许本应用录音",
+                    showCancel: false
+                  });
+                  resolve(false);
+                } else {
+                  resolve(true);
+                }
+              }, 2e3);
+              return;
+            }
+            resolve(true);
+          } else if (os === "ios") {
+            const avAuth = plus.ios.importClass("AVCaptureDevice");
+            const status = avAuth.authorizationStatusForMediaType("soun");
+            if (status === 3) {
+              resolve(true);
+            } else if (status === 0) {
+              avAuth.requestAccessForMediaType("soun", (granted) => {
+                resolve(!!granted);
+              });
+            } else {
+              uni.showModal({
+                title: "权限提示",
+                content: "语音录入需要麦克风权限，请在系统设置中允许本应用录音",
+                showCancel: false
+              });
+              resolve(false);
+            }
+          } else {
+            resolve(true);
+          }
+        });
+      },
+      async doRecognize(filePath) {
+        this.recognizing = true;
+        try {
+          const text = await recognizeSpeech(filePath);
+          this.voiceResult = text;
+          if (!text) {
+            uni.showToast({ title: "未识别到语音内容，请重试", icon: "none" });
+            return;
+          }
+          try {
+            const res = await extractVoiceByDify({
+              voiceResult: text,
+              recordDate: this.recordDate,
+              recordTime: this.recordTime
+            });
+            const list = res && Array.isArray(res.data) ? res.data : Array.isArray(res) ? res : null;
+            this.applyDifyExtracted(list);
+          } catch (e) {
+            this.parseVoiceResult(text);
+          }
+        } catch (err) {
+          const msg = typeof err === "string" ? err : err.message || "语音识别出错";
+          uni.showToast({ title: msg, icon: "none" });
+        } finally {
+          this.recognizing = false;
+        }
+      },
+      applyDifyExtracted(list) {
+        if (!list || !list.length) {
+          this.parseVoiceResult(this.voiceResult);
+          return;
+        }
+        this.extractedTags = list.map((r) => {
+          let label = r.label || r.type;
+          if (r.type === "bp" && r.value && typeof r.value === "object") {
+            const h = r.value.high;
+            const l = r.value.low;
+            if (h != null && l != null && (!label || !String(label).includes("/"))) {
+              label = `血压 ${h}/${l} mmHg`;
+            }
+          }
+          return {
+            type: r.type,
+            value: r.value,
+            label,
+            icon: ICON_BY_TYPE[r.type] || "📋",
+            cls: ""
+          };
+        });
+      },
+      parseVoiceResult(text) {
+        const tags = [];
+        const normalized = text.replace(/[，。！？、；：""''（）【】]/g, " ");
+        const bpMatch = normalized.match(/(\d{2,3})\s*[\/\\]\s*(\d{2,3})/) || normalized.match(/[收高]缩?压\s*[是为]?\s*(\d{2,3})\s*[，,]?\s*[舒低]张?压\s*[是为]?\s*(\d{2,3})/) || normalized.match(/血压\s*[是为]?\s*(\d{2,3})\s*[\/\\,，\s]\s*(\d{2,3})/);
+        if (bpMatch) {
+          const high = parseFloat(bpMatch[1]);
+          const low = parseFloat(bpMatch[2]);
+          if (high > 50 && high < 250 && low > 30 && low < 150) {
+            tags.push({
+              type: "bp",
+              icon: "💓",
+              label: `血压 ${high}/${low} mmHg`,
+              value: { high, low }
+            });
+          }
+        }
+        const hrMatch = normalized.match(/心[率跳]\s*[是为]?\s*[每每]?\s*[分]?\s*[钟]?\s*(\d{2,3})/);
+        if (hrMatch) {
+          const v = parseFloat(hrMatch[1]);
+          if (v > 30 && v < 220) {
+            tags.push({ type: "heartRate", icon: "❤", label: `心率 ${v} 次/分`, value: v });
+          }
+        }
+        const tempMatch = normalized.match(/体温\s*[是为]?\s*([\d]+\.?\d*)/) || normalized.match(/([\d]+\.?\d*)\s*[度℃]/);
+        if (tempMatch) {
+          const v = parseFloat(tempMatch[1]);
+          if (v > 34 && v < 43) {
+            tags.push({ type: "temperature", icon: "🌡", label: `体温 ${v} °C`, value: v });
+          }
+        }
+        const bgMatch = normalized.match(/血糖\s*[是为]?\s*([\d]+\.?\d*)/);
+        if (bgMatch) {
+          const v = parseFloat(bgMatch[1]);
+          if (v > 1 && v < 35) {
+            tags.push({ type: "bloodSugar", icon: "💧", label: `血糖 ${v} mmol/L`, value: v });
+          }
+        }
+        const sleepMatch = normalized.match(/睡[了眠觉]\s*[了]?\s*([\d]+\.?\d*)\s*[个]?\s*[半]?\s*小时/);
+        if (sleepMatch) {
+          let v = parseFloat(sleepMatch[1]);
+          if (normalized.includes("半小时") || normalized.includes("半个小时")) {
+            v += 0.5;
+          }
+          if (v > 0 && v < 24) {
+            tags.push({ type: "sleep", icon: "🌙", label: `睡眠 ${v} 小时`, value: v });
+          }
+        }
+        const weightMatch = normalized.match(/体重\s*[是为]?\s*([\d]+\.?\d*)/) || normalized.match(/([\d]+\.?\d*)\s*[公千]斤/) || normalized.match(/([\d]+\.?\d*)\s*[kK][gG]/);
+        if (weightMatch && !tags.some((t) => t.type === "weight")) {
+          const v = parseFloat(weightMatch[1]);
+          if (v > 20 && v < 300) {
+            tags.push({ type: "weight", icon: "⚖", label: `体重 ${v} kg`, value: v });
+          }
+        }
+        const heightMatch = normalized.match(/身高\s*[是为]?\s*([\d]+\.?\d*)/) || normalized.match(/([\d]+\.?\d*)\s*[cC][mM]/);
+        if (heightMatch && !tags.some((t) => t.type === "height")) {
+          const v = parseFloat(heightMatch[1]);
+          if (v > 50 && v < 250) {
+            tags.push({ type: "height", icon: "📏", label: `身高 ${v} cm`, value: v });
+          }
+        }
+        const breathMatch = normalized.match(/呼吸\s*[频率]*\s*[是为]?\s*(\d{1,2})/);
+        if (breathMatch) {
+          const v = parseFloat(breathMatch[1]);
+          if (v > 5 && v < 60) {
+            tags.push({ type: "breath", icon: "🫁", label: `呼吸 ${v} 次/分`, value: v });
+          }
+        }
+        this.extractedTags = tags;
+        if (tags.length === 0 && this.voiceResult) {
+          uni.showToast({ title: "未能从语音中提取到健康指标，请尝试说得更清楚", icon: "none", duration: 3e3 });
         }
       },
       async onSubmit() {
@@ -3541,8 +4269,11 @@ if (uni.restoreGlobal) {
             notes: this.notes || void 0,
             items
           });
-          uni.showToast({ title: "提交成功", icon: "success" });
+          uni.showToast({ title: "数据提交成功", icon: "success" });
           this.resetForm();
+          setTimeout(() => {
+            uni.switchTab({ url: "/pages/home/home" });
+          }, 800);
         } catch (e) {
         }
       },
@@ -3581,15 +4312,19 @@ if (uni.restoreGlobal) {
             recordDate,
             recordTime
           });
-          uni.showToast({ title: "已确认录入", icon: "success" });
+          uni.showToast({ title: "数据提交成功", icon: "success" });
           this.voiceResult = "";
           this.extractedTags = [];
+          this.recordDuration = 0;
+          setTimeout(() => {
+            uni.switchTab({ url: "/pages/home/home" });
+          }, 800);
         } catch (e) {
         }
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     const _component_TabSwitch = vue.resolveComponent("TabSwitch");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
@@ -3755,7 +4490,7 @@ if (uni.restoreGlobal) {
             vue.createElementVNode(
               "text",
               { class: "voice-hint" },
-              vue.toDisplayString($data.isRecording ? "正在录音..." : "点击按钮开始语音记录"),
+              vue.toDisplayString($options.voiceHint),
               1
               /* TEXT */
             ),
@@ -3782,21 +4517,34 @@ if (uni.restoreGlobal) {
                 64
                 /* STABLE_FRAGMENT */
               ))
-            ])) : vue.createCommentVNode("v-if", true)
+            ])) : vue.createCommentVNode("v-if", true),
+            $data.recordDuration > 0 && !$data.isRecording ? (vue.openBlock(), vue.createElementBlock(
+              "text",
+              {
+                key: 1,
+                class: "duration-text"
+              },
+              "录音时长：" + vue.toDisplayString($data.recordDuration) + "s",
+              1
+              /* TEXT */
+            )) : vue.createCommentVNode("v-if", true)
           ]),
           vue.createElementVNode("view", { class: "voice-result-card" }, [
             vue.createElementVNode("text", { class: "vr-label" }, "🔊 识别结果"),
-            $data.voiceResult ? (vue.openBlock(), vue.createElementBlock(
+            $data.recognizing ? (vue.openBlock(), vue.createElementBlock("text", {
+              key: 0,
+              class: "vr-text"
+            }, "正在识别，请稍候...")) : $data.voiceResult ? (vue.openBlock(), vue.createElementBlock(
               "text",
               {
-                key: 0,
+                key: 1,
                 class: "vr-text"
               },
               '"' + vue.toDisplayString($data.voiceResult) + '"',
               1
               /* TEXT */
             )) : (vue.openBlock(), vue.createElementBlock("text", {
-              key: 1,
+              key: 2,
               class: "vr-empty"
             }, "暂无识别结果，请点击上方按钮开始语音记录"))
           ]),
@@ -3814,7 +4562,7 @@ if (uni.restoreGlobal) {
                     "view",
                     {
                       key: i,
-                      class: vue.normalizeClass(["ext-tag", t.type])
+                      class: vue.normalizeClass(["ext-tag", t.cls || ""])
                     },
                     [
                       vue.createElementVNode(
@@ -3849,7 +4597,7 @@ if (uni.restoreGlobal) {
           vue.createElementVNode(
             "view",
             {
-              class: vue.normalizeClass(["btn-submit voice-submit", { disabled: !$data.voiceResult }]),
+              class: vue.normalizeClass(["btn-submit voice-submit", { disabled: !$data.voiceResult || $data.extractedTags.length === 0 }]),
               onClick: _cache[8] || (_cache[8] = (...args) => $options.onVoiceSubmit && $options.onVoiceSubmit(...args))
             },
             [
@@ -3866,313 +4614,62 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesHealthInputHealthInput = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-5e69f1fd"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-input/health-input.vue"]]);
-  const _sfc_main$e = {
-    components: { CustomNavbar },
-    data() {
-      return {
-        metricTypes: [
-          { id: "bp", name: "血压" },
-          { id: "hr", name: "心率" },
-          { id: "glu", name: "血糖" },
-          { id: "temp", name: "体温" },
-          { id: "sleep", name: "睡眠" },
-          { id: "breath", name: "呼吸" },
-          { id: "weight", name: "体重" }
-        ],
-        selectedMetric: "bp",
-        timeRanges: [
-          { id: 7, name: "7天" },
-          { id: 14, name: "14天" },
-          { id: 30, name: "30天" }
-        ],
-        selectedRange: 7,
-        canvasWidth: 320,
-        canvasHeight: 200,
-        allData: (() => {
-          const emptyMetric = (refText, warnHigh = 999, warnLow = 0) => ({
-            refText,
-            stats: { avg: "--", max: "--", min: "--" },
-            analysis: "暂无数据，请先录入健康数据",
-            data7: [],
-            data14: [],
-            data30: [],
-            labels7: [],
-            warnHigh,
-            warnLow
-          });
-          return {
-            bp: emptyMetric("收缩压90-140 mmHg，舒张压60-90 mmHg", 140, 90),
-            hr: emptyMetric("静息心率60-100 次/分", 100, 60),
-            glu: emptyMetric("空腹血糖3.9-6.1 mmol/L", 6.1, 3.9),
-            temp: emptyMetric("正常体温36.0-37.2 °C", 37.2, 36),
-            sleep: emptyMetric("建议睡眠时长7-9小时", 9, 7),
-            breath: emptyMetric("正常呼吸频率12-20 次/分", 20, 12),
-            weight: emptyMetric("根据BMI维持健康体重")
-          };
-        })()
-      };
-    },
-    computed: {
-      currentMetricData() {
-        return this.allData[this.selectedMetric] || this.allData.bp;
-      },
-      chartData() {
-        const d = this.currentMetricData;
-        if (this.selectedRange === 7)
-          return d.data7;
-        if (this.selectedRange === 14)
-          return d.data14;
-        return d.data30;
-      }
-    },
-    mounted() {
-      const info = uni.getSystemInfoSync();
-      this.canvasWidth = info.windowWidth - 64;
-      this.canvasHeight = 200;
-      this.$nextTick(() => {
-        this.drawChart();
-      });
-    },
-    methods: {
-      selectMetric(id) {
-        this.selectedMetric = id;
-        this.$nextTick(() => this.drawChart());
-      },
-      selectRange(id) {
-        this.selectedRange = id;
-        this.$nextTick(() => this.drawChart());
-      },
-      drawChart() {
-        const ctx = uni.createCanvasContext("trendChart", this);
-        const w = this.canvasWidth;
-        const h = this.canvasHeight;
-        const data = this.chartData;
-        if (!data || data.length === 0)
-          return;
-        const padTop = 25, padBottom = 30, padLeft = 40, padRight = 15;
-        const chartW = w - padLeft - padRight;
-        const chartH = h - padTop - padBottom;
-        const min = Math.min(...data);
-        const max = Math.max(...data);
-        const range = max - min || 1;
-        const yMin = min - range * 0.15;
-        const yMax = max + range * 0.15;
-        const yRange = yMax - yMin;
-        ctx.clearRect(0, 0, w, h);
-        const md = this.currentMetricData;
-        if (md.warnHigh < 999) {
-          const warnY = padTop + chartH * (1 - (md.warnHigh - yMin) / yRange);
-          if (warnY > padTop && warnY < h - padBottom) {
-            ctx.setStrokeStyle("rgba(239,68,68,0.3)");
-            ctx.setLineDash([4, 4]);
-            ctx.beginPath();
-            ctx.moveTo(padLeft, warnY);
-            ctx.lineTo(w - padRight, warnY);
-            ctx.stroke();
-            ctx.setLineDash([]);
-          }
-        }
-        ctx.setFontSize(10);
-        ctx.setFillStyle("#86909C");
-        const ySteps = 4;
-        for (let i = 0; i <= ySteps; i++) {
-          const val = yMin + yRange / ySteps * i;
-          const y = padTop + chartH * (1 - i / ySteps);
-          ctx.fillText(val.toFixed(Number.isInteger(val) ? 0 : 1), 2, y + 3);
-          ctx.setStrokeStyle("#f0f0f0");
-          ctx.beginPath();
-          ctx.moveTo(padLeft, y);
-          ctx.lineTo(w - padRight, y);
-          ctx.stroke();
-        }
-        const step = chartW / (data.length - 1 || 1);
-        const showEvery = data.length <= 7 ? 1 : data.length <= 14 ? 2 : 5;
-        for (let i = 0; i < data.length; i++) {
-          if (i % showEvery === 0 || i === data.length - 1) {
-            const x = padLeft + i * step;
-            let label = "";
-            if (data.length <= 7 && md.labels7 && md.labels7[i]) {
-              label = md.labels7[i];
-            } else {
-              label = "" + (i + 1);
-            }
-            ctx.setFillStyle("#86909C");
-            ctx.setFontSize(9);
-            ctx.fillText(label, x - 10, h - 8);
-          }
-        }
-        const grd = ctx.createLinearGradient(0, padTop, 0, h - padBottom);
-        grd.addColorStop(0, "rgba(74,144,217,0.25)");
-        grd.addColorStop(1, "rgba(74,144,217,0)");
-        ctx.beginPath();
-        ctx.moveTo(padLeft, h - padBottom);
-        for (let i = 0; i < data.length; i++) {
-          const x = padLeft + i * step;
-          const y = padTop + chartH * (1 - (data[i] - yMin) / yRange);
-          ctx.lineTo(x, y);
-        }
-        ctx.lineTo(padLeft + (data.length - 1) * step, h - padBottom);
-        ctx.closePath();
-        ctx.setFillStyle(grd);
-        ctx.fill();
-        ctx.setStrokeStyle("#4A90D9");
-        ctx.setLineWidth(2);
-        ctx.beginPath();
-        for (let i = 0; i < data.length; i++) {
-          const x = padLeft + i * step;
-          const y = padTop + chartH * (1 - (data[i] - yMin) / yRange);
-          if (i === 0)
-            ctx.moveTo(x, y);
-          else
-            ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-        for (let i = 0; i < data.length; i++) {
-          const x = padLeft + i * step;
-          const y = padTop + chartH * (1 - (data[i] - yMin) / yRange);
-          const isWarn = data[i] > md.warnHigh || data[i] < md.warnLow;
-          ctx.setFillStyle("#fff");
-          ctx.beginPath();
-          ctx.arc(x, y, 4, 0, 2 * Math.PI);
-          ctx.fill();
-          ctx.setStrokeStyle(isWarn ? "#EF4444" : "#4A90D9");
-          ctx.setLineWidth(2);
-          ctx.beginPath();
-          ctx.arc(x, y, 4, 0, 2 * Math.PI);
-          ctx.stroke();
-          if (isWarn) {
-            ctx.setFillStyle(isWarn ? "#EF4444" : "#4A90D9");
-            ctx.setFontSize(9);
-            ctx.fillText(data[i].toString(), x - 8, y - 8);
-          }
-        }
-        ctx.draw();
-      }
-    }
-  };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
-    return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
-      vue.createVNode(_component_CustomNavbar, { title: "指标趋势" }),
-      vue.createElementVNode("view", { class: "content" }, [
-        vue.createElementVNode("scroll-view", {
-          "scroll-x": "",
-          class: "metric-scroll",
-          "show-scrollbar": false
-        }, [
-          vue.createElementVNode("view", { class: "metric-pills" }, [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($data.metricTypes, (m, i) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: i,
-                  class: vue.normalizeClass(["pill", { active: $data.selectedMetric === m.id }]),
-                  onClick: ($event) => $options.selectMetric(m.id)
-                }, vue.toDisplayString(m.name), 11, ["onClick"]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            ))
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "time-range" }, [
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($data.timeRanges, (t, i) => {
-              return vue.openBlock(), vue.createElementBlock("view", {
-                key: i,
-                class: vue.normalizeClass(["time-btn", { active: $data.selectedRange === t.id }]),
-                onClick: ($event) => $options.selectRange(t.id)
-              }, vue.toDisplayString(t.name), 11, ["onClick"]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ]),
-        vue.createElementVNode("view", { class: "chart-area" }, [
-          vue.createElementVNode(
-            "canvas",
-            {
-              "canvas-id": "trendChart",
-              id: "trendChart",
-              class: "trend-canvas",
-              style: vue.normalizeStyle({ width: $data.canvasWidth + "px", height: $data.canvasHeight + "px" })
-            },
-            null,
-            4
-            /* STYLE */
-          )
-        ]),
-        vue.createElementVNode("view", { class: "ref-box" }, [
-          vue.createElementVNode("text", { class: "ref-title" }, "参考范围"),
-          vue.createElementVNode(
-            "text",
-            { class: "ref-text" },
-            vue.toDisplayString($options.currentMetricData.refText),
-            1
-            /* TEXT */
-          )
-        ]),
-        vue.createElementVNode("view", { class: "stats-row" }, [
-          vue.createElementVNode("view", { class: "stat-card" }, [
-            vue.createElementVNode(
-              "text",
-              { class: "stat-value" },
-              vue.toDisplayString($options.currentMetricData.stats.avg),
-              1
-              /* TEXT */
-            ),
-            vue.createElementVNode("text", { class: "stat-label" }, "平均值")
-          ]),
-          vue.createElementVNode("view", { class: "stat-card" }, [
-            vue.createElementVNode(
-              "text",
-              { class: "stat-value" },
-              vue.toDisplayString($options.currentMetricData.stats.max),
-              1
-              /* TEXT */
-            ),
-            vue.createElementVNode("text", { class: "stat-label" }, "最高值")
-          ]),
-          vue.createElementVNode("view", { class: "stat-card" }, [
-            vue.createElementVNode(
-              "text",
-              { class: "stat-value" },
-              vue.toDisplayString($options.currentMetricData.stats.min),
-              1
-              /* TEXT */
-            ),
-            vue.createElementVNode("text", { class: "stat-label" }, "最低值")
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "trend-card" }, [
-          vue.createElementVNode("text", { class: "trend-title" }, "趋势分析"),
-          vue.createElementVNode(
-            "text",
-            { class: "trend-text" },
-            vue.toDisplayString($options.currentMetricData.analysis),
-            1
-            /* TEXT */
-          )
-        ])
-      ])
-    ]);
-  }
-  const PagesHealthTrendHealthTrend = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-067ba3e8"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-trend/health-trend.vue"]]);
+  const PagesHealthInputHealthInput = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-5e69f1fd"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/health-input/health-input.vue"]]);
   const _sfc_main$d = {
     components: { CustomNavbar, TabSwitch },
     data() {
       return {
         tabIndex: 0,
+        totalScore: null,
         warningText: "",
         dietAdvice: [],
         exerciseAdvice: [],
         lifeAdvice: [],
         medicalAdvice: []
       };
+    },
+    onShow() {
+      this.loadAdvice();
+    },
+    methods: {
+      async loadAdvice() {
+        try {
+          const res = await getHealthAdvice();
+          const data = res == null ? void 0 : res.data;
+          if (!data)
+            return;
+          if (data.totalScore != null) {
+            this.totalScore = typeof data.totalScore === "number" ? Math.round(data.totalScore) : data.totalScore;
+          }
+          const list = data.suggestions;
+          if (list && Array.isArray(list) && list.length) {
+            const colorMap = { diet: "#FEF9C3", exercise: "#ECFDF5", lifestyle: "#EFF6FF", medical: "#FEF2F2" };
+            const iconMap = { diet: "🥗", exercise: "🏃", lifestyle: "📝", medical: "🏥" };
+            this.dietAdvice = [];
+            this.exerciseAdvice = [];
+            this.lifeAdvice = [];
+            this.medicalAdvice = [];
+            for (const s of list) {
+              const item = {
+                icon: iconMap[s.category] || "💡",
+                color: colorMap[s.category] || "#F5F7FA",
+                title: s.title || "",
+                desc: s.content || "",
+                tags: []
+              };
+              if (s.category === "diet")
+                this.dietAdvice.push(item);
+              else if (s.category === "exercise")
+                this.exerciseAdvice.push(item);
+              else if (s.category === "lifestyle")
+                this.lifeAdvice.push(item);
+              else if (s.category === "medical")
+                this.medicalAdvice.push(item);
+            }
+          }
+        } catch (e) {
+        }
+      }
     }
   };
   function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
@@ -4181,6 +4678,16 @@ if (uni.restoreGlobal) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, { title: "健康建议" }),
       vue.createElementVNode("view", { class: "header-area" }, [
+        $data.totalScore != null ? (vue.openBlock(), vue.createElementBlock(
+          "view",
+          {
+            key: 0,
+            class: "score-badge"
+          },
+          "健康评分 " + vue.toDisplayString($data.totalScore),
+          1
+          /* TEXT */
+        )) : vue.createCommentVNode("v-if", true),
         vue.createElementVNode("text", { class: "header-icon" }, "💡"),
         vue.createElementVNode("text", { class: "header-desc" }, "基于您的健康数据，为您提供个性化建议")
       ]),
@@ -4791,9 +5298,44 @@ if (uni.restoreGlobal) {
         ]
       };
     },
+    onShow() {
+      this.loadOverview();
+    },
     methods: {
       goDetail(url) {
         uni.navigateTo({ url });
+      },
+      async loadOverview() {
+        try {
+          const planRes = await getCurrentPlan();
+          if (!planRes.data)
+            return;
+          const [exRes, dietRes, ckRes] = await Promise.all([
+            getExercisePlan(),
+            getDietPlan(),
+            getCheckupPlan()
+          ]);
+          const exList = exRes.data || [];
+          if (exList.length) {
+            const names = [...new Set(exList.map((e) => e.name))].slice(0, 3);
+            this.plans[0].tags = names;
+            this.plans[0].progress = Math.min(100, Math.round(exList.length / 10 * 100));
+          }
+          const meals = dietRes.data && dietRes.data.meals || [];
+          if (meals.length) {
+            this.plans[1].tags = ["已安排" + meals.length + "餐"];
+            this.plans[1].progress = Math.min(100, Math.round(meals.length / 21 * 100));
+          }
+          this.plans[2].progress = 50;
+          this.plans[2].tags = ["查看用药详情"];
+          const ckList = ckRes.data || [];
+          if (ckList.length) {
+            this.plans[3].tags = ["共" + ckList.length + "项复查"];
+            this.plans[3].progress = Math.round(ckList.filter((c) => c.status === "done").length / ckList.length * 100);
+          }
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-edit/plan-edit.vue:91", "加载计划概览失败", e);
+        }
       }
     }
   };
@@ -4917,11 +5459,35 @@ if (uni.restoreGlobal) {
     ]);
   }
   const PagesPlanEditPlanEdit = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-3819ddb0"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-edit/plan-edit.vue"]]);
+  function getMedProfile() {
+    return request({ url: "/medication/profile" });
+  }
+  function updateMedProfile(data) {
+    return request({ url: "/medication/profile", method: "PUT", data });
+  }
+  function getShortTermMeds() {
+    return request({ url: "/medication/short-term" });
+  }
+  function submitShortTermMeds(data) {
+    return request({ url: "/medication/short-term", method: "POST", data });
+  }
+  function getLongTermMeds() {
+    return request({ url: "/medication/long-term" });
+  }
+  function submitLongTermMeds(data) {
+    return request({ url: "/medication/long-term", method: "POST", data });
+  }
+  function getMedRecordDetail(id) {
+    return request({ url: `/medication/record/${id}` });
+  }
+  function deleteMedRecord(id) {
+    return request({ url: `/medication/record/${id}`, method: "DELETE" });
+  }
   function emptyShort() {
-    return { name: "", frequency: "", contraindication: "", dosage: "", date: "", onTime: "", sideEffect: "", doctor: "", remark: "" };
+    return { name: "", frequency: "", contraindication: "", dosage: "", date: "", endDate: "", onTime: "", sideEffect: "", doctor: "", remark: "" };
   }
   function emptyLong() {
-    return { name: "", purpose: "", contraindication: "", frequency: "", dosage: "", date: "", onTime: "", sideEffect: "", doctor: "", followUpNote: "" };
+    return { name: "", purpose: "", contraindication: "", frequency: "", dosage: "", date: "", endDate: "", onTime: "", sideEffect: "", doctor: "", followUpNote: "" };
   }
   const _sfc_main$9 = {
     components: { CustomNavbar },
@@ -4930,6 +5496,12 @@ if (uni.restoreGlobal) {
         tabIdx: 0,
         tabList: ["用药人档案", "短期用药记录", "慢性病长期用药"],
         genderList: ["男", "女"],
+        freqOptions: [
+          { label: "上午(8:00)", value: "上午(8:00)" },
+          { label: "中午(11:00)", value: "中午(11:00)" },
+          { label: "晚上(18:00)", value: "晚上(18:00)" },
+          { label: "睡前(22:00)", value: "睡前(22:00)" }
+        ],
         editMode: false,
         profile: {
           name: "",
@@ -4940,19 +5512,91 @@ if (uni.restoreGlobal) {
           chronicDisease: "",
           majorHistory: "",
           longTermMeds: "",
-          emergencyContact: ""
+          emergencyContactName: "",
+          emergencyContactPhone: ""
         },
         shortTermMeds: [emptyShort()],
-        longTermMeds: [emptyLong()]
+        longTermMeds: [emptyLong()],
+        shortTermHistory: [],
+        longTermHistory: []
       };
     },
+    onShow() {
+      if (!isLoggedIn())
+        return;
+      this.loadProfile();
+      this.loadShortHistory();
+      this.loadLongHistory();
+    },
     methods: {
+      switchTab(i) {
+        this.tabIdx = i;
+      },
       onGenderChange(e) {
         this.profile.gender = this.genderList[e.detail.value];
       },
-      saveProfile() {
-        this.editMode = false;
-        uni.showToast({ title: "档案已保存", icon: "success" });
+      isFreqSelected(item, val) {
+        if (!item.frequency)
+          return false;
+        return item.frequency.split(",").includes(val);
+      },
+      toggleFreq(item, val) {
+        const arr = item.frequency ? item.frequency.split(",").filter((s) => s) : [];
+        const idx = arr.indexOf(val);
+        if (idx >= 0) {
+          arr.splice(idx, 1);
+        } else {
+          arr.push(val);
+        }
+        item.frequency = arr.join(",");
+      },
+      async loadProfile() {
+        try {
+          const res = await getMedProfile();
+          if (res == null ? void 0 : res.data) {
+            const d = res.data;
+            this.profile = {
+              name: d.name || "",
+              gender: d.gender || "",
+              age: d.age || "",
+              drugAllergy: d.drugAllergy || "",
+              otherAllergy: d.otherAllergy || "",
+              chronicDisease: d.chronicDisease || "",
+              majorHistory: d.majorHistory || "",
+              longTermMeds: d.longTermMeds || "",
+              emergencyContactName: d.emergencyContactName || "",
+              emergencyContactPhone: d.emergencyContactPhone || ""
+            };
+          }
+        } catch (e) {
+        }
+      },
+      async saveProfile() {
+        try {
+          await updateMedProfile(this.profile);
+          this.editMode = false;
+          uni.showToast({ title: "档案已保存", icon: "success" });
+        } catch (e) {
+          uni.showToast({ title: "保存失败", icon: "none" });
+        }
+      },
+      async loadShortHistory() {
+        try {
+          const res = await getShortTermMeds();
+          if ((res == null ? void 0 : res.data) && Array.isArray(res.data)) {
+            this.shortTermHistory = res.data;
+          }
+        } catch (e) {
+        }
+      },
+      async loadLongHistory() {
+        try {
+          const res = await getLongTermMeds();
+          if ((res == null ? void 0 : res.data) && Array.isArray(res.data)) {
+            this.longTermHistory = res.data;
+          }
+        } catch (e) {
+        }
       },
       addShort() {
         this.shortTermMeds.push(emptyShort());
@@ -4967,8 +5611,20 @@ if (uni.restoreGlobal) {
           }
         });
       },
-      submitShort() {
-        uni.showToast({ title: "短期记录已提交", icon: "success" });
+      async submitShort() {
+        const valid = this.shortTermMeds.some((m) => m.name && m.name.trim());
+        if (!valid) {
+          uni.showToast({ title: "请至少填写一个药品名称", icon: "none" });
+          return;
+        }
+        try {
+          await submitShortTermMeds({ records: this.shortTermMeds });
+          uni.showToast({ title: "短期记录已提交", icon: "success" });
+          this.shortTermMeds = [emptyShort()];
+          this.loadShortHistory();
+        } catch (e) {
+          uni.showToast({ title: (e == null ? void 0 : e.message) || "提交失败", icon: "none" });
+        }
       },
       addLong() {
         this.longTermMeds.push(emptyLong());
@@ -4983,8 +5639,23 @@ if (uni.restoreGlobal) {
           }
         });
       },
-      submitLong() {
-        uni.showToast({ title: "慢性病记录已提交", icon: "success" });
+      async submitLong() {
+        const valid = this.longTermMeds.some((m) => m.name && m.name.trim());
+        if (!valid) {
+          uni.showToast({ title: "请至少填写一个药品名称", icon: "none" });
+          return;
+        }
+        try {
+          await submitLongTermMeds({ records: this.longTermMeds });
+          uni.showToast({ title: "慢性病记录已提交", icon: "success" });
+          this.longTermMeds = [emptyLong()];
+          this.loadLongHistory();
+        } catch (e) {
+          uni.showToast({ title: (e == null ? void 0 : e.message) || "提交失败", icon: "none" });
+        }
+      },
+      goDetail(id) {
+        uni.navigateTo({ url: "/pages/medication-detail/medication-detail?id=" + id });
       }
     }
   };
@@ -5005,7 +5676,7 @@ if (uni.restoreGlobal) {
             return vue.openBlock(), vue.createElementBlock("view", {
               key: i,
               class: vue.normalizeClass(["tab-item", { active: $data.tabIdx === i }]),
-              onClick: ($event) => $data.tabIdx = i
+              onClick: ($event) => $options.switchTab(i)
             }, [
               vue.createElementVNode(
                 "text",
@@ -5129,14 +5800,26 @@ if (uni.restoreGlobal) {
               ])
             ]),
             vue.createElementVNode("view", { class: "form-row" }, [
-              vue.createElementVNode("text", { class: "form-label" }, "紧急联系人"),
+              vue.createElementVNode("text", { class: "form-label" }, "紧急联系人姓名"),
               vue.withDirectives(vue.createElementVNode("input", {
                 class: "form-input",
-                "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.profile.emergencyContact = $event),
-                placeholder: "姓名 + 电话",
+                "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.profile.emergencyContactName = $event),
+                placeholder: "请输入联系人姓名",
                 disabled: !$data.editMode
               }, null, 8, ["disabled"]), [
-                [vue.vModelText, $data.profile.emergencyContact]
+                [vue.vModelText, $data.profile.emergencyContactName]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "紧急联系人电话"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.profile.emergencyContactPhone = $event),
+                placeholder: "请输入手机号码",
+                type: "number",
+                disabled: !$data.editMode
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.profile.emergencyContactPhone]
               ])
             ])
           ]),
@@ -5144,13 +5827,13 @@ if (uni.restoreGlobal) {
             !$data.editMode ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 0,
               class: "btn-primary",
-              onClick: _cache[9] || (_cache[9] = ($event) => $data.editMode = true)
+              onClick: _cache[10] || (_cache[10] = ($event) => $data.editMode = true)
             }, [
               vue.createElementVNode("text", null, "✏️ 编辑档案")
             ])) : (vue.openBlock(), vue.createElementBlock("view", {
               key: 1,
               class: "btn-primary",
-              onClick: _cache[10] || (_cache[10] = (...args) => $options.saveProfile && $options.saveProfile(...args))
+              onClick: _cache[11] || (_cache[11] = (...args) => $options.saveProfile && $options.saveProfile(...args))
             }, [
               vue.createElementVNode("text", null, "💾 保存档案")
             ]))
@@ -5160,6 +5843,75 @@ if (uni.restoreGlobal) {
           key: 1,
           class: "tab-content"
         }, [
+          $data.shortTermHistory.length ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "history-section"
+          }, [
+            vue.createElementVNode("text", { class: "history-title" }, "已有记录"),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.shortTermHistory, (item, idx) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: "sh" + idx,
+                  class: "history-card",
+                  onClick: ($event) => $options.goDetail(item.id)
+                }, [
+                  vue.createElementVNode("view", { class: "hc-top" }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "hc-name" },
+                      "💊 " + vue.toDisplayString(item.name),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "hc-date" },
+                      vue.toDisplayString(item.recordDate) + vue.toDisplayString(item.recordEndDate ? " ~ " + item.recordEndDate : ""),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "hc-info" }, [
+                    item.dosage ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 0,
+                        class: "hc-tag"
+                      },
+                      vue.toDisplayString(item.dosage),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true),
+                    item.frequency ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 1,
+                        class: "hc-tag"
+                      },
+                      vue.toDisplayString(item.frequency),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true),
+                    item.onTime ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 2,
+                        class: vue.normalizeClass(["hc-tag", item.onTime === "是" ? "tag-green" : "tag-orange"])
+                      },
+                      vue.toDisplayString(item.onTime === "是" ? "按时服用" : item.onTime),
+                      3
+                      /* TEXT, CLASS */
+                    )) : vue.createCommentVNode("v-if", true)
+                  ])
+                ], 8, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("text", { class: "section-label" }, "添加新记录"),
           (vue.openBlock(true), vue.createElementBlock(
             vue.Fragment,
             null,
@@ -5192,14 +5944,30 @@ if (uni.restoreGlobal) {
                     [vue.vModelText, item.name]
                   ])
                 ]),
-                vue.createElementVNode("view", { class: "field-row" }, [
+                vue.createElementVNode("view", { class: "field-row field-row-wrap" }, [
                   vue.createElementVNode("text", { class: "field-label" }, "医嘱频次"),
-                  vue.withDirectives(vue.createElementVNode("input", {
-                    class: "field-input",
-                    "onUpdate:modelValue": ($event) => item.frequency = $event,
-                    placeholder: "如：每日3次"
-                  }, null, 8, ["onUpdate:modelValue"]), [
-                    [vue.vModelText, item.frequency]
+                  vue.createElementVNode("view", { class: "freq-tags" }, [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($data.freqOptions, (opt) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          key: opt.value,
+                          class: vue.normalizeClass(["freq-tag", { "freq-active": $options.isFreqSelected(item, opt.value) }]),
+                          onClick: ($event) => $options.toggleFreq(item, opt.value)
+                        }, [
+                          vue.createElementVNode(
+                            "text",
+                            null,
+                            vue.toDisplayString(opt.label),
+                            1
+                            /* TEXT */
+                          )
+                        ], 10, ["onClick"]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
                   ])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
@@ -5223,7 +5991,7 @@ if (uni.restoreGlobal) {
                   ])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
-                  vue.createElementVNode("text", { class: "field-label" }, "用药日期"),
+                  vue.createElementVNode("text", { class: "field-label" }, "用药起始日期"),
                   vue.createElementVNode("picker", {
                     mode: "date",
                     onChange: (e) => item.date = e.detail.value
@@ -5231,11 +5999,27 @@ if (uni.restoreGlobal) {
                     vue.createElementVNode(
                       "view",
                       { class: "field-input picker-val" },
-                      vue.toDisplayString(item.date || "选择日期"),
+                      vue.toDisplayString(item.date || "选择起始日期"),
                       1
                       /* TEXT */
                     )
                   ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药结束日期"),
+                  vue.createElementVNode("picker", {
+                    mode: "date",
+                    start: item.date || "",
+                    onChange: (e) => item.endDate = e.detail.value
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.endDate || "选择结束日期"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["start", "onChange"])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
                   vue.createElementVNode("text", { class: "field-label" }, "是否按时服用"),
@@ -5289,14 +6073,14 @@ if (uni.restoreGlobal) {
           )),
           vue.createElementVNode("view", {
             class: "add-row",
-            onClick: _cache[11] || (_cache[11] = (...args) => $options.addShort && $options.addShort(...args))
+            onClick: _cache[12] || (_cache[12] = (...args) => $options.addShort && $options.addShort(...args))
           }, [
             vue.createElementVNode("text", null, "+ 添加药品")
           ]),
           vue.createElementVNode("view", { class: "btn-group" }, [
             vue.createElementVNode("view", {
               class: "btn-primary",
-              onClick: _cache[12] || (_cache[12] = (...args) => $options.submitShort && $options.submitShort(...args))
+              onClick: _cache[13] || (_cache[13] = (...args) => $options.submitShort && $options.submitShort(...args))
             }, [
               vue.createElementVNode("text", null, "📤 提交短期用药记录")
             ])
@@ -5306,6 +6090,75 @@ if (uni.restoreGlobal) {
           key: 2,
           class: "tab-content"
         }, [
+          $data.longTermHistory.length ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "history-section"
+          }, [
+            vue.createElementVNode("text", { class: "history-title" }, "已有记录"),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.longTermHistory, (item, idx) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: "lh" + idx,
+                  class: "history-card",
+                  onClick: ($event) => $options.goDetail(item.id)
+                }, [
+                  vue.createElementVNode("view", { class: "hc-top" }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "hc-name" },
+                      "💊 " + vue.toDisplayString(item.name),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "hc-date" },
+                      vue.toDisplayString(item.recordDate) + vue.toDisplayString(item.recordEndDate ? " ~ " + item.recordEndDate : ""),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "hc-info" }, [
+                    item.purpose ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 0,
+                        class: "hc-tag tag-blue"
+                      },
+                      vue.toDisplayString(item.purpose),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true),
+                    item.dosage ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 1,
+                        class: "hc-tag"
+                      },
+                      vue.toDisplayString(item.dosage),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true),
+                    item.frequency ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 2,
+                        class: "hc-tag"
+                      },
+                      vue.toDisplayString(item.frequency),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true)
+                  ])
+                ], 8, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("text", { class: "section-label" }, "添加新记录"),
           (vue.openBlock(true), vue.createElementBlock(
             vue.Fragment,
             null,
@@ -5358,14 +6211,30 @@ if (uni.restoreGlobal) {
                     [vue.vModelText, item.contraindication]
                   ])
                 ]),
-                vue.createElementVNode("view", { class: "field-row" }, [
+                vue.createElementVNode("view", { class: "field-row field-row-wrap" }, [
                   vue.createElementVNode("text", { class: "field-label" }, "医嘱频次"),
-                  vue.withDirectives(vue.createElementVNode("input", {
-                    class: "field-input",
-                    "onUpdate:modelValue": ($event) => item.frequency = $event,
-                    placeholder: "如：每日2次"
-                  }, null, 8, ["onUpdate:modelValue"]), [
-                    [vue.vModelText, item.frequency]
+                  vue.createElementVNode("view", { class: "freq-tags" }, [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($data.freqOptions, (opt) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          key: opt.value,
+                          class: vue.normalizeClass(["freq-tag", { "freq-active": $options.isFreqSelected(item, opt.value) }]),
+                          onClick: ($event) => $options.toggleFreq(item, opt.value)
+                        }, [
+                          vue.createElementVNode(
+                            "text",
+                            null,
+                            vue.toDisplayString(opt.label),
+                            1
+                            /* TEXT */
+                          )
+                        ], 10, ["onClick"]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
                   ])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
@@ -5379,7 +6248,7 @@ if (uni.restoreGlobal) {
                   ])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
-                  vue.createElementVNode("text", { class: "field-label" }, "用药日期"),
+                  vue.createElementVNode("text", { class: "field-label" }, "用药起始日期"),
                   vue.createElementVNode("picker", {
                     mode: "date",
                     onChange: (e) => item.date = e.detail.value
@@ -5387,11 +6256,27 @@ if (uni.restoreGlobal) {
                     vue.createElementVNode(
                       "view",
                       { class: "field-input picker-val" },
-                      vue.toDisplayString(item.date || "选择日期"),
+                      vue.toDisplayString(item.date || "选择起始日期"),
                       1
                       /* TEXT */
                     )
                   ], 40, ["onChange"])
+                ]),
+                vue.createElementVNode("view", { class: "field-row" }, [
+                  vue.createElementVNode("text", { class: "field-label" }, "用药结束日期"),
+                  vue.createElementVNode("picker", {
+                    mode: "date",
+                    start: item.date || "",
+                    onChange: (e) => item.endDate = e.detail.value
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "field-input picker-val" },
+                      vue.toDisplayString(item.endDate || "选择结束日期"),
+                      1
+                      /* TEXT */
+                    )
+                  ], 40, ["start", "onChange"])
                 ]),
                 vue.createElementVNode("view", { class: "field-row" }, [
                   vue.createElementVNode("text", { class: "field-label" }, "是否按时服用"),
@@ -5445,14 +6330,14 @@ if (uni.restoreGlobal) {
           )),
           vue.createElementVNode("view", {
             class: "add-row",
-            onClick: _cache[13] || (_cache[13] = (...args) => $options.addLong && $options.addLong(...args))
+            onClick: _cache[14] || (_cache[14] = (...args) => $options.addLong && $options.addLong(...args))
           }, [
             vue.createElementVNode("text", null, "+ 添加药品")
           ]),
           vue.createElementVNode("view", { class: "btn-group" }, [
             vue.createElementVNode("view", {
               class: "btn-primary",
-              onClick: _cache[14] || (_cache[14] = (...args) => $options.submitLong && $options.submitLong(...args))
+              onClick: _cache[15] || (_cache[15] = (...args) => $options.submitLong && $options.submitLong(...args))
             }, [
               vue.createElementVNode("text", null, "📤 提交慢性病用药记录")
             ])
@@ -5466,28 +6351,66 @@ if (uni.restoreGlobal) {
     components: { CustomNavbar },
     data() {
       return {
+        recordId: null,
         drugName: "",
-        drugDosage: "",
-        infoRows: [],
-        reminders: [],
-        historyList: []
+        medTypeText: "",
+        infoRows: []
       };
     },
+    onLoad(options) {
+      if (options && options.id) {
+        this.recordId = options.id;
+        this.loadDetail();
+      }
+    },
     methods: {
-      onEdit() {
-        uni.showToast({ title: "编辑", icon: "none" });
+      async loadDetail() {
+        try {
+          const res = await getMedRecordDetail(this.recordId);
+          if (res == null ? void 0 : res.data) {
+            const d = res.data;
+            this.drugName = d.name || "未知药品";
+            this.medTypeText = d.medType === "long_term" ? "慢性病长期用药" : "短期用药";
+            const rows = [];
+            if (d.purpose)
+              rows.push({ label: "治疗病症/用途", value: d.purpose });
+            if (d.dosage)
+              rows.push({ label: "单次剂量", value: d.dosage });
+            if (d.frequency)
+              rows.push({ label: "医嘱频次", value: d.frequency });
+            if (d.contraindication)
+              rows.push({ label: "用药禁忌", value: d.contraindication, cls: "warn" });
+            if (d.recordDate)
+              rows.push({ label: "用药日期", value: d.recordDate });
+            if (d.onTime)
+              rows.push({ label: "是否按时服用", value: d.onTime, cls: d.onTime === "是" ? "good" : "warn" });
+            if (d.sideEffect)
+              rows.push({ label: "不良反应", value: d.sideEffect, cls: "warn" });
+            if (d.doctor)
+              rows.push({ label: "开具医师", value: d.doctor });
+            if (d.remark)
+              rows.push({ label: "备注", value: d.remark });
+            if (d.followUpNote)
+              rows.push({ label: "复诊/调整备注", value: d.followUpNote });
+            this.infoRows = rows;
+          }
+        } catch (e) {
+          uni.showToast({ title: "加载失败", icon: "none" });
+        }
       },
-      toggleReminder(idx) {
-        this.reminders[idx].enabled = !this.reminders[idx].enabled;
-      },
-      onStopMedication() {
+      onDelete() {
         uni.showModal({
-          title: "确认",
-          content: "确定要停止服用该药物吗？",
-          success: (res) => {
-            if (res.confirm) {
-              uni.showToast({ title: "已停止用药", icon: "success" });
-              setTimeout(() => uni.navigateBack(), 1e3);
+          title: "确认删除",
+          content: `确定要删除「${this.drugName}」的用药记录吗？`,
+          success: async (res) => {
+            if (!res.confirm)
+              return;
+            try {
+              await deleteMedRecord(this.recordId);
+              uni.showToast({ title: "已删除", icon: "success" });
+              setTimeout(() => uni.navigateBack(), 800);
+            } catch (e) {
+              uni.showToast({ title: "删除失败", icon: "none" });
             }
           }
         });
@@ -5498,18 +6421,11 @@ if (uni.restoreGlobal) {
     const _component_CustomNavbar = vue.resolveComponent("CustomNavbar");
     return vue.openBlock(), vue.createElementBlock("view", { class: "page-wrapper" }, [
       vue.createVNode(_component_CustomNavbar, {
-        title: $data.drugName,
-        "show-back": true
-      }, {
-        right: vue.withCtx(() => [
-          vue.createElementVNode("text", {
-            class: "nav-edit",
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.onEdit && $options.onEdit(...args))
-          }, "编辑")
-        ]),
-        _: 1
-        /* STABLE */
-      }, 8, ["title"]),
+        title: $data.drugName || "用药详情",
+        "show-back": true,
+        bgColor: "#4A90D9",
+        titleColor: "#fff"
+      }, null, 8, ["title"]),
       vue.createElementVNode("view", { class: "drug-header" }, [
         vue.createElementVNode("text", { class: "drug-icon" }, "💊"),
         vue.createElementVNode(
@@ -5521,8 +6437,8 @@ if (uni.restoreGlobal) {
         ),
         vue.createElementVNode(
           "text",
-          { class: "drug-dosage" },
-          vue.toDisplayString($data.drugDosage),
+          { class: "drug-type" },
+          vue.toDisplayString($data.medTypeText),
           1
           /* TEXT */
         )
@@ -5546,10 +6462,12 @@ if (uni.restoreGlobal) {
                 ),
                 vue.createElementVNode(
                   "text",
-                  { class: "info-value" },
+                  {
+                    class: vue.normalizeClass(["info-value", row.cls || ""])
+                  },
                   vue.toDisplayString(row.value),
-                  1
-                  /* TEXT */
+                  3
+                  /* TEXT, CLASS */
                 )
               ]);
             }),
@@ -5563,97 +6481,11 @@ if (uni.restoreGlobal) {
             vue.createElementVNode("text", null, "暂无药品信息")
           ])) : vue.createCommentVNode("v-if", true)
         ]),
-        vue.createElementVNode("view", { class: "reminder-card" }, [
-          vue.createElementVNode("text", { class: "card-title" }, "服药提醒"),
-          !$data.reminders.length ? (vue.openBlock(), vue.createElementBlock("view", {
-            key: 0,
-            class: "empty-hint"
-          }, [
-            vue.createElementVNode("text", null, "暂无服药提醒")
-          ])) : vue.createCommentVNode("v-if", true),
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($data.reminders, (r, i) => {
-              return vue.openBlock(), vue.createElementBlock("view", {
-                key: i,
-                class: "reminder-row"
-              }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "reminder-time" },
-                  vue.toDisplayString(r.time),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode(
-                  "text",
-                  { class: "reminder-desc" },
-                  vue.toDisplayString(r.desc),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode("switch", {
-                  checked: r.enabled,
-                  onChange: ($event) => $options.toggleReminder(i),
-                  color: "#4A90D9"
-                }, null, 40, ["checked", "onChange"])
-              ]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ]),
-        vue.createElementVNode("view", { class: "history-card" }, [
-          vue.createElementVNode("text", { class: "card-title" }, "近期用药记录"),
-          !$data.historyList.length ? (vue.openBlock(), vue.createElementBlock("view", {
-            key: 0,
-            class: "empty-hint"
-          }, [
-            vue.createElementVNode("text", null, "暂无用药记录")
-          ])) : vue.createCommentVNode("v-if", true),
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($data.historyList, (h, i) => {
-              return vue.openBlock(), vue.createElementBlock("view", {
-                key: i,
-                class: "history-row"
-              }, [
-                vue.createElementVNode(
-                  "text",
-                  { class: "history-date" },
-                  vue.toDisplayString(h.date),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode(
-                  "text",
-                  { class: "history-time" },
-                  vue.toDisplayString(h.time),
-                  1
-                  /* TEXT */
-                ),
-                vue.createElementVNode(
-                  "text",
-                  {
-                    class: vue.normalizeClass(["history-status", h.status === "taken" ? "taken" : "missed"])
-                  },
-                  vue.toDisplayString(h.status === "taken" ? "已服用" : "漏服"),
-                  3
-                  /* TEXT, CLASS */
-                )
-              ]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ]),
         vue.createElementVNode("view", {
           class: "stop-btn",
-          onClick: _cache[1] || (_cache[1] = (...args) => $options.onStopMedication && $options.onStopMedication(...args))
+          onClick: _cache[0] || (_cache[0] = (...args) => $options.onDelete && $options.onDelete(...args))
         }, [
-          vue.createElementVNode("text", null, "停止用药")
+          vue.createElementVNode("text", null, "删除该记录")
         ])
       ])
     ]);
@@ -5686,10 +6518,35 @@ if (uni.restoreGlobal) {
         selectedDayTasks: []
       };
     },
+    onShow() {
+      this.loadHistory();
+    },
     methods: {
+      async loadHistory() {
+        try {
+          const res = await getTaskHistory({ date: this.selectedDay });
+          const data = res.data || {};
+          this.stats = {
+            completionRate: data.completionRate || "--",
+            streak: data.streak || 0,
+            totalTasks: data.totalTasks || 0
+          };
+          const taskDates = data.taskDates || [];
+          this.calendarDays.forEach((d) => {
+            d.hasTask = taskDates.includes(d.date);
+          });
+          this.selectedDayTasks = (data.tasks || []).map((t) => ({
+            title: t.title,
+            time: t.taskTime || "",
+            status: t.status
+          }));
+        } catch (e) {
+          formatAppLog("error", "at pages/task-history/task-history.vue:105", "加载历史任务失败", e);
+        }
+      },
       selectDay(d) {
         this.selectedDay = d.date;
-        this.selectedDayTasks = [];
+        this.loadHistory();
       }
     }
   };
@@ -6288,14 +7145,22 @@ if (uni.restoreGlobal) {
           const names = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
           const today = /* @__PURE__ */ new Date();
           const dayOfWeek = today.getDay() === 0 ? 7 : today.getDay();
-          return names.map((name, i) => ({
-            name,
-            date: "",
-            isToday: i + 1 === dayOfWeek,
-            exercises: []
-          }));
+          return names.map((name, i) => {
+            const diff = i + 1 - dayOfWeek;
+            const d = new Date(today);
+            d.setDate(today.getDate() + diff);
+            return {
+              name,
+              date: d.getMonth() + 1 + "/" + d.getDate(),
+              isToday: i + 1 === dayOfWeek,
+              exercises: []
+            };
+          });
         })()
       };
+    },
+    onShow() {
+      this.loadPlan();
     },
     computed: {
       ringAerobicStyle() {
@@ -6306,9 +7171,67 @@ if (uni.restoreGlobal) {
       }
     },
     methods: {
-      saveEdit() {
-        this.editMode = false;
-        uni.showToast({ title: "已保存", icon: "success" });
+      async loadPlan() {
+        try {
+          const res = await getExercisePlan();
+          const list = res.data || [];
+          this.weekPlan.forEach((d) => d.exercises = []);
+          list.forEach((item) => {
+            const idx = item.dayOfWeek - 1;
+            if (idx >= 0 && idx < 7) {
+              this.weekPlan[idx].exercises.push({
+                name: item.name,
+                duration: item.duration,
+                intensity: item.intensity || "",
+                isAerobic: item.isAerobic !== false
+              });
+            }
+          });
+          this.calcStats();
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-exercise/plan-exercise.vue:156", "加载运动计划失败", e);
+        }
+      },
+      calcStats() {
+        let aerobic = 0, anaerobic = 0, cal = 0;
+        this.weekPlan.forEach((d) => {
+          d.exercises.forEach((ex) => {
+            if (ex.isAerobic)
+              aerobic++;
+            else
+              anaerobic++;
+            const mins = parseInt(ex.duration) || 0;
+            cal += ex.isAerobic ? mins * 7 : mins * 5;
+          });
+        });
+        const total = aerobic + anaerobic;
+        this.aerobicPct = total > 0 ? Math.round(aerobic / total * 100) : 0;
+        this.totalCalories = cal;
+      },
+      async saveEdit() {
+        const exercises = [];
+        this.weekPlan.forEach((day, i) => {
+          day.exercises.forEach((ex, j) => {
+            if (ex.name && ex.name.trim()) {
+              exercises.push({
+                dayOfWeek: i + 1,
+                name: ex.name,
+                duration: ex.duration,
+                intensity: ex.intensity,
+                isAerobic: ex.isAerobic,
+                sortOrder: j
+              });
+            }
+          });
+        });
+        try {
+          await updateExercisePlan(exercises);
+          this.editMode = false;
+          this.calcStats();
+          uni.showToast({ title: "已保存", icon: "success" });
+        } catch (e) {
+          uni.showToast({ title: "保存失败", icon: "none" });
+        }
       },
       addExercise(dayIdx) {
         this.weekPlan[dayIdx].exercises.push({
@@ -6585,6 +7508,9 @@ if (uni.restoreGlobal) {
   const PagesPlanExercisePlanExercise = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-a0098282"], ["__file", "E:/Javaproject/Smart health M/Smart_Health_Ms_Head/pages/plan-exercise/plan-exercise.vue"]]);
   const _sfc_main$3 = {
     components: { CustomNavbar },
+    onShow() {
+      this.loadPlan();
+    },
     data() {
       const dayNames = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
       const today = /* @__PURE__ */ new Date();
@@ -6644,13 +7570,75 @@ if (uni.restoreGlobal) {
       }
     },
     methods: {
+      async loadPlan() {
+        try {
+          const res = await getDietPlan();
+          const data = res.data || {};
+          const meals = data.meals || [];
+          const target = data.target;
+          this.weekMeals.forEach((d) => d.meals = []);
+          const typeMap = { breakfast: "早餐", lunch: "午餐", dinner: "晚餐", snack: "加餐" };
+          meals.forEach((item) => {
+            const idx = item.dayOfWeek - 1;
+            if (idx >= 0 && idx < 7) {
+              this.weekMeals[idx].meals.push({
+                type: typeMap[item.mealType] || item.mealType,
+                mealType: item.mealType,
+                calories: item.calories || 0,
+                foods: item.foods ? item.foods.split("、") : []
+              });
+            }
+          });
+          if (target) {
+            this.dailyTarget = target.dailyCalories || 1800;
+            this.carbTarget = target.carbTarget || 225;
+            this.proteinTarget = target.proteinTarget || 68;
+            this.fatTarget = target.fatTarget || 55;
+          }
+          this.calcConsumed();
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-diet/plan-diet.vue:170", "加载饮食计划失败", e);
+        }
+      },
+      calcConsumed() {
+        const today = /* @__PURE__ */ new Date();
+        const todayIdx = (today.getDay() + 6) % 7;
+        const todayMeals = this.weekMeals[todayIdx] ? this.weekMeals[todayIdx].meals : [];
+        this.consumed = todayMeals.reduce((sum, m) => sum + (m.calories || 0), 0);
+      },
       updateFoods(dayIdx, mealIdx, val) {
         const arr = val.split("、").filter((s) => s.trim());
         this.weekMeals[dayIdx].meals[mealIdx].foods = arr.length ? arr : [];
       },
-      saveEdit() {
-        this.editMode = false;
-        uni.showToast({ title: "已保存", icon: "success" });
+      async saveEdit() {
+        const typeRMap = { "早餐": "breakfast", "午餐": "lunch", "晚餐": "dinner", "加餐": "snack" };
+        const meals = [];
+        this.weekMeals.forEach((day, i) => {
+          day.meals.forEach((m, j) => {
+            meals.push({
+              dayOfWeek: i + 1,
+              mealType: m.mealType || typeRMap[m.type] || "breakfast",
+              calories: m.calories,
+              foods: Array.isArray(m.foods) ? m.foods.join("、") : m.foods,
+              sortOrder: j
+            });
+          });
+        });
+        try {
+          await updateDietPlan({
+            meals,
+            target: {
+              dailyCalories: this.dailyTarget,
+              carbTarget: this.carbTarget,
+              proteinTarget: this.proteinTarget,
+              fatTarget: this.fatTarget
+            }
+          });
+          this.editMode = false;
+          uni.showToast({ title: "已保存", icon: "success" });
+        } catch (e) {
+          uni.showToast({ title: "保存失败", icon: "none" });
+        }
       }
     }
   };
@@ -6931,6 +7919,18 @@ if (uni.restoreGlobal) {
         allMeds: {}
       };
     },
+    created() {
+      const today = /* @__PURE__ */ new Date();
+      const dayOfWeek = (today.getDay() + 6) % 7;
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - dayOfWeek + i);
+        this.weekDays[i].date = d.getMonth() + 1 + "/" + d.getDate();
+      }
+    },
+    onShow() {
+      this.loadMeds();
+    },
     computed: {
       currentMeds() {
         const list = this.allMeds[this.selectedDay];
@@ -6938,6 +7938,32 @@ if (uni.restoreGlobal) {
       }
     },
     methods: {
+      async loadMeds() {
+        try {
+          const res = await getMedicationPlan();
+          const list = res.data || [];
+          const meds = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [] };
+          list.forEach((item) => {
+            const wi = item.weekIndex;
+            if (wi >= 0 && wi <= 6) {
+              meds[wi].push({
+                time: item.time,
+                period: item.period,
+                name: item.name,
+                dosage: item.dosage,
+                status: item.status || "pending",
+                recordId: item.recordId
+              });
+            }
+          });
+          for (let i = 0; i < 7; i++) {
+            meds[i].sort((a, b) => (a.time || "").localeCompare(b.time || ""));
+          }
+          this.allMeds = meds;
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-medication/plan-medication.vue:110", "加载用药计划失败", e);
+        }
+      },
       toggleMed(idx) {
         const m = this.currentMeds[idx];
         if (m.status !== "pending")
@@ -7082,24 +8108,48 @@ if (uni.restoreGlobal) {
         records: []
       };
     },
+    onShow() {
+      this.loadRecords();
+    },
     methods: {
-      addRecord() {
+      async loadRecords() {
+        try {
+          const res = await getCheckupPlan();
+          this.records = (res.data || []).map((r) => {
+            const parts = r.checkupDate.split("-");
+            return {
+              id: r.id,
+              day: parseInt(parts[2]),
+              month: parseInt(parts[1]) + "月",
+              hospital: r.hospital,
+              items: r.items ? r.items.split("、") : [],
+              note: r.note || "",
+              status: r.status
+            };
+          });
+        } catch (e) {
+          formatAppLog("error", "at pages/plan-checkup/plan-checkup.vue:100", "加载复查记录失败", e);
+        }
+      },
+      async addRecord() {
         if (!this.newRecord.date || !this.newRecord.hospital || !this.newRecord.itemsStr) {
           uni.showToast({ title: "请填写完整", icon: "none" });
           return;
         }
-        const parts = this.newRecord.date.split("-");
-        this.records.unshift({
-          day: parts[2],
-          month: parseInt(parts[1]) + "月",
-          hospital: this.newRecord.hospital,
-          items: this.newRecord.itemsStr.split("、").filter((s) => s.trim()),
-          note: this.newRecord.note,
-          status: "upcoming"
-        });
-        this.showAddModal = false;
-        this.newRecord = { date: "", hospital: "", itemsStr: "", note: "" };
-        uni.showToast({ title: "已添加", icon: "success" });
+        try {
+          await addCheckupRecord({
+            checkupDate: this.newRecord.date,
+            hospital: this.newRecord.hospital,
+            items: this.newRecord.itemsStr,
+            note: this.newRecord.note
+          });
+          this.showAddModal = false;
+          this.newRecord = { date: "", hospital: "", itemsStr: "", note: "" };
+          uni.showToast({ title: "已添加", icon: "success" });
+          await this.loadRecords();
+        } catch (e) {
+          uni.showToast({ title: "添加失败", icon: "none" });
+        }
       }
     }
   };
@@ -7312,7 +8362,6 @@ if (uni.restoreGlobal) {
   __definePage("pages/profile/profile", PagesProfileProfile);
   __definePage("pages/health-detail/health-detail", PagesHealthDetailHealthDetail);
   __definePage("pages/health-input/health-input", PagesHealthInputHealthInput);
-  __definePage("pages/health-trend/health-trend", PagesHealthTrendHealthTrend);
   __definePage("pages/health-advice/health-advice", PagesHealthAdviceHealthAdvice);
   __definePage("pages/ai-history/ai-history", PagesAiHistoryAiHistory);
   __definePage("pages/ai-history-detail/ai-history-detail", PagesAiHistoryDetailAiHistoryDetail);

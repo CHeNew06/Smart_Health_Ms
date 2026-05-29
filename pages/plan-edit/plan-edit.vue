@@ -37,6 +37,7 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { getCurrentPlan, getExercisePlan, getDietPlan, getCheckupPlan } from '@/api/plan'
 
 export default {
 	components: { CustomNavbar },
@@ -50,9 +51,44 @@ export default {
 			]
 		}
 	},
+	onShow() {
+		this.loadOverview()
+	},
 	methods: {
 		goDetail(url) {
 			uni.navigateTo({ url })
+		},
+		async loadOverview() {
+			try {
+				const planRes = await getCurrentPlan()
+				if (!planRes.data) return
+
+				const [exRes, dietRes, ckRes] = await Promise.all([
+					getExercisePlan(), getDietPlan(), getCheckupPlan()
+				])
+
+				const exList = exRes.data || []
+				if (exList.length) {
+					const names = [...new Set(exList.map(e => e.name))].slice(0, 3)
+					this.plans[0].tags = names
+					this.plans[0].progress = Math.min(100, Math.round(exList.length / 10 * 100))
+				}
+
+				const meals = (dietRes.data && dietRes.data.meals) || []
+				if (meals.length) {
+					this.plans[1].tags = ['已安排' + meals.length + '餐']
+					this.plans[1].progress = Math.min(100, Math.round(meals.length / 21 * 100))
+				}
+
+				this.plans[2].progress = 50
+				this.plans[2].tags = ['查看用药详情']
+
+				const ckList = ckRes.data || []
+				if (ckList.length) {
+					this.plans[3].tags = ['共' + ckList.length + '项复查']
+					this.plans[3].progress = Math.round(ckList.filter(c => c.status === 'done').length / ckList.length * 100)
+				}
+			} catch(e) { console.error('加载计划概览失败', e) }
 		}
 	}
 }

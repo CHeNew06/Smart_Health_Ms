@@ -10,22 +10,6 @@
 			<view class="badge">健康达人</view>
 		</view>
 
-		<!-- Stats row -->
-		<view class="stats-row">
-			<view class="stat-item">
-				<text class="stat-num">{{ stats.recordDays }}</text>
-				<text class="stat-desc">已记录天数</text>
-			</view>
-			<view class="stat-item">
-				<text class="stat-num">{{ stats.streak }}</text>
-				<text class="stat-desc">连续打卡</text>
-			</view>
-			<view class="stat-item">
-				<text class="stat-num">{{ stats.healthScore }}</text>
-				<text class="stat-desc">健康评分</text>
-			</view>
-		</view>
-
 		<!-- Menu groups -->
 		<view class="menu-wrap">
 			<view class="menu-group">
@@ -99,12 +83,7 @@ export default {
 	components: { CustomTabbar },
 	data() {
 		return {
-			userInfo: {},
-			stats: {
-				recordDays: 0,
-				streak: 0,
-				healthScore: '--'
-			}
+			userInfo: {}
 		}
 	},
 	computed: {
@@ -212,28 +191,6 @@ export default {
 	border-radius: 32rpx;
 	font-size: 24rpx;
 	color: #fff;
-}
-.stats-row {
-	display: flex;
-	margin: -32rpx 24rpx 24rpx;
-	background: #fff;
-	border-radius: 24rpx;
-	padding: 24rpx;
-	box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
-}
-.stat-item {
-	flex: 1;
-	text-align: center;
-}
-.stat-num {
-	font-size: 36rpx;
-	font-weight: 700;
-	color: #4A90D9;
-	display: block;
-}
-.stat-desc {
-	font-size: 24rpx;
-	color: #4E5969;
 }
 .menu-wrap {
 	padding: 0 24rpx;

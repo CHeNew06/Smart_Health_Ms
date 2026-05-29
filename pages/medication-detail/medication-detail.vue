@@ -1,16 +1,12 @@
 <template>
 	<view class="page-wrapper">
-		<CustomNavbar :title="drugName" :show-back="true">
-			<template #right>
-				<text class="nav-edit" @click="onEdit">编辑</text>
-			</template>
-		</CustomNavbar>
+		<CustomNavbar :title="drugName || '用药详情'" :show-back="true" bgColor="#4A90D9" titleColor="#fff" />
 
 		<!-- Header with drug info -->
 		<view class="drug-header">
 			<text class="drug-icon">💊</text>
 			<text class="drug-name">{{ drugName }}</text>
-			<text class="drug-dosage">{{ drugDosage }}</text>
+			<text class="drug-type">{{ medTypeText }}</text>
 		</view>
 
 		<view class="content">
@@ -18,202 +14,165 @@
 			<view class="info-card">
 				<view v-for="(row, i) in infoRows" :key="i" class="info-row">
 					<text class="info-label">{{ row.label }}</text>
-					<text class="info-value">{{ row.value }}</text>
+					<text class="info-value" :class="row.cls || ''">{{ row.value }}</text>
 				</view>
 				<view v-if="!infoRows.length" class="empty-hint"><text>暂无药品信息</text></view>
 			</view>
 
-			<!-- Reminder card -->
-			<view class="reminder-card">
-				<text class="card-title">服药提醒</text>
-				<view v-if="!reminders.length" class="empty-hint"><text>暂无服药提醒</text></view>
-				<view v-for="(r, i) in reminders" :key="i" class="reminder-row">
-					<text class="reminder-time">{{ r.time }}</text>
-					<text class="reminder-desc">{{ r.desc }}</text>
-					<switch :checked="r.enabled" @change="toggleReminder(i)" color="#4A90D9" />
-				</view>
-			</view>
-
-			<!-- Recent medication history -->
-			<view class="history-card">
-				<text class="card-title">近期用药记录</text>
-				<view v-if="!historyList.length" class="empty-hint"><text>暂无用药记录</text></view>
-				<view v-for="(h, i) in historyList" :key="i" class="history-row">
-					<text class="history-date">{{ h.date }}</text>
-					<text class="history-time">{{ h.time }}</text>
-					<text class="history-status" :class="h.status === 'taken' ? 'taken' : 'missed'">
-						{{ h.status === 'taken' ? '已服用' : '漏服' }}
-					</text>
-				</view>
-			</view>
-
-			<!-- Stop medication button -->
-			<view class="stop-btn" @click="onStopMedication">
-				<text>停止用药</text>
+			<!-- Delete button -->
+			<view class="stop-btn" @click="onDelete">
+				<text>删除该记录</text>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import CustomNavbar from '@/components/custom-navbar.vue'
-	export default {
-		components: { CustomNavbar },
-		data() {
-			return {
-				drugName: '',
-				drugDosage: '',
-				infoRows: [],
-				reminders: [],
-				historyList: []
+import CustomNavbar from '@/components/custom-navbar.vue'
+import { getMedRecordDetail, deleteMedRecord } from '@/api/medication'
+
+export default {
+	components: { CustomNavbar },
+	data() {
+		return {
+			recordId: null,
+			drugName: '',
+			medTypeText: '',
+			infoRows: []
+		}
+	},
+	onLoad(options) {
+		if (options && options.id) {
+			this.recordId = options.id
+			this.loadDetail()
+		}
+	},
+	methods: {
+		async loadDetail() {
+			try {
+				const res = await getMedRecordDetail(this.recordId)
+				if (res?.data) {
+					const d = res.data
+					this.drugName = d.name || '未知药品'
+					this.medTypeText = d.medType === 'long_term' ? '慢性病长期用药' : '短期用药'
+
+					const rows = []
+					if (d.purpose) rows.push({ label: '治疗病症/用途', value: d.purpose })
+					if (d.dosage) rows.push({ label: '单次剂量', value: d.dosage })
+					if (d.frequency) rows.push({ label: '医嘱频次', value: d.frequency })
+					if (d.contraindication) rows.push({ label: '用药禁忌', value: d.contraindication, cls: 'warn' })
+					if (d.recordDate) rows.push({ label: '用药日期', value: d.recordDate })
+					if (d.onTime) rows.push({ label: '是否按时服用', value: d.onTime, cls: d.onTime === '是' ? 'good' : 'warn' })
+					if (d.sideEffect) rows.push({ label: '不良反应', value: d.sideEffect, cls: 'warn' })
+					if (d.doctor) rows.push({ label: '开具医师', value: d.doctor })
+					if (d.remark) rows.push({ label: '备注', value: d.remark })
+					if (d.followUpNote) rows.push({ label: '复诊/调整备注', value: d.followUpNote })
+
+					this.infoRows = rows
+				}
+			} catch (e) {
+				uni.showToast({ title: '加载失败', icon: 'none' })
 			}
 		},
-		methods: {
-			onEdit() {
-				uni.showToast({ title: '编辑', icon: 'none' })
-			},
-			toggleReminder(idx) {
-				this.reminders[idx].enabled = !this.reminders[idx].enabled
-			},
-			onStopMedication() {
-				uni.showModal({
-					title: '确认',
-					content: '确定要停止服用该药物吗？',
-					success: (res) => {
-						if (res.confirm) {
-							uni.showToast({ title: '已停止用药', icon: 'success' })
-							setTimeout(() => uni.navigateBack(), 1000)
-						}
+		onDelete() {
+			uni.showModal({
+				title: '确认删除',
+				content: `确定要删除「${this.drugName}」的用药记录吗？`,
+				success: async (res) => {
+					if (!res.confirm) return
+					try {
+						await deleteMedRecord(this.recordId)
+						uni.showToast({ title: '已删除', icon: 'success' })
+						setTimeout(() => uni.navigateBack(), 800)
+					} catch (e) {
+						uni.showToast({ title: '删除失败', icon: 'none' })
 					}
-				})
-			}
+				}
+			})
 		}
 	}
+}
 </script>
 
 <style lang="scss" scoped>
-	@import '@/uni.scss';
-	.page-wrapper {
-		min-height: 100vh;
-		background: $theme-bg;
-		padding-bottom: 48rpx;
-	}
-	.nav-edit {
-		font-size: 28rpx;
-		color: $theme-primary;
-		font-weight: 500;
-	}
-	.drug-header {
-		background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
-		padding: 48rpx 32rpx;
-		text-align: center;
-	}
-	.drug-icon {
-		display: block;
-		font-size: 80rpx;
-		margin-bottom: 16rpx;
-	}
-	.drug-name {
-		display: block;
-		font-size: 40rpx;
-		font-weight: 700;
-		color: $uni-text-color;
-		margin-bottom: 8rpx;
-	}
-	.drug-dosage {
-		font-size: 28rpx;
-		color: $uni-text-color-secondary;
-	}
-	.content {
-		padding: 24rpx 32rpx;
-	}
-	.info-card {
-		background: #fff;
-		border-radius: $uni-radius-base;
-		padding: 0 28rpx;
-		margin-bottom: 24rpx;
-		box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
-	}
-	.info-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 28rpx 0;
-		border-bottom: 2rpx solid #F0F1F3;
-		&:last-child { border-bottom: none; }
-	}
-	.info-label {
-		font-size: 28rpx;
-		color: $uni-text-color-secondary;
-	}
-	.info-value {
-		font-size: 28rpx;
-		color: $uni-text-color;
-		font-weight: 500;
-	}
-	.reminder-card,
-	.history-card {
-		background: #fff;
-		border-radius: $uni-radius-base;
-		padding: 28rpx;
-		margin-bottom: 24rpx;
-		box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
-	}
-	.card-title {
-		display: block;
-		font-size: 30rpx;
-		font-weight: 600;
-		color: $uni-text-color;
-		margin-bottom: 24rpx;
-	}
-	.reminder-row {
-		display: flex;
-		align-items: center;
-		padding: 20rpx 0;
-		border-bottom: 2rpx solid #F0F1F3;
-		&:last-child { border-bottom: none; }
-	}
-	.reminder-time {
-		width: 100rpx;
-		font-size: 28rpx;
-		font-weight: 600;
-		color: $theme-primary;
-		flex-shrink: 0;
-	}
-	.reminder-desc {
-		flex: 1;
-		font-size: 28rpx;
-		color: $uni-text-color-secondary;
-	}
-	.history-row {
-		display: flex;
-		align-items: center;
-		padding: 16rpx 0;
-		border-bottom: 2rpx solid #F0F1F3;
-		font-size: 26rpx;
-		&:last-child { border-bottom: none; }
-	}
-	.history-date {
-		width: 100rpx;
-		color: $uni-text-color-secondary;
-	}
-	.history-time {
-		width: 100rpx;
-		color: $uni-text-color-secondary;
-	}
-	.history-status {
-		margin-left: auto;
-		&.taken { color: #2E7D32; }
-		&.missed { color: #8F959E; }
-	}
-	.stop-btn {
-		border: 2rpx solid #FF3B30;
-		border-radius: $uni-radius-base;
-		padding: 32rpx;
-		text-align: center;
-		font-size: 30rpx;
-		color: #FF3B30;
-		font-weight: 600;
-		margin-top: 16rpx;
-	}
+@import '@/uni.scss';
+.page-wrapper {
+	min-height: 100vh;
+	background: $theme-bg;
+	padding-bottom: 48rpx;
+}
+.drug-header {
+	background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+	padding: 48rpx 32rpx;
+	text-align: center;
+}
+.drug-icon {
+	display: block;
+	font-size: 80rpx;
+	margin-bottom: 16rpx;
+}
+.drug-name {
+	display: block;
+	font-size: 40rpx;
+	font-weight: 700;
+	color: $uni-text-color;
+	margin-bottom: 8rpx;
+}
+.drug-type {
+	font-size: 26rpx;
+	color: $uni-text-color-secondary;
+	background: rgba(0,0,0,0.06);
+	padding: 6rpx 20rpx;
+	border-radius: 20rpx;
+	display: inline-block;
+}
+.content {
+	padding: 24rpx 32rpx;
+}
+.info-card {
+	background: #fff;
+	border-radius: $uni-radius-base;
+	padding: 0 28rpx;
+	margin-bottom: 24rpx;
+	box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.info-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 28rpx 0;
+	border-bottom: 2rpx solid #F0F1F3;
+	&:last-child { border-bottom: none; }
+}
+.info-label {
+	font-size: 28rpx;
+	color: $uni-text-color-secondary;
+	flex-shrink: 0;
+	margin-right: 20rpx;
+}
+.info-value {
+	font-size: 28rpx;
+	color: $uni-text-color;
+	font-weight: 500;
+	text-align: right;
+	flex: 1;
+	&.good { color: #059669; }
+	&.warn { color: #D97706; }
+}
+.empty-hint {
+	padding: 48rpx;
+	text-align: center;
+	font-size: 28rpx;
+	color: #86909C;
+}
+.stop-btn {
+	border: 2rpx solid #FF3B30;
+	border-radius: $uni-radius-base;
+	padding: 32rpx;
+	text-align: center;
+	font-size: 30rpx;
+	color: #FF3B30;
+	font-weight: 600;
+	margin-top: 16rpx;
+}
 </style>

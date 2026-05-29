@@ -52,6 +52,7 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { getTaskHistory } from '@/api/plan'
 export default {
 	components: { CustomNavbar },
 	data() {
@@ -79,10 +80,33 @@ export default {
 			selectedDayTasks: []
 		}
 	},
+	onShow() {
+		this.loadHistory()
+	},
 	methods: {
+		async loadHistory() {
+			try {
+				const res = await getTaskHistory({ date: this.selectedDay })
+				const data = res.data || {}
+				this.stats = {
+					completionRate: data.completionRate || '--',
+					streak: data.streak || 0,
+					totalTasks: data.totalTasks || 0
+				}
+				const taskDates = data.taskDates || []
+				this.calendarDays.forEach(d => {
+					d.hasTask = taskDates.includes(d.date)
+				})
+				this.selectedDayTasks = (data.tasks || []).map(t => ({
+					title: t.title,
+					time: t.taskTime || '',
+					status: t.status
+				}))
+			} catch(e) { console.error('加载历史任务失败', e) }
+		},
 		selectDay(d) {
 			this.selectedDay = d.date
-			this.selectedDayTasks = []
+			this.loadHistory()
 		}
 	}
 }

@@ -2,6 +2,7 @@
 	<view class="page-wrapper">
 		<CustomNavbar title="健康建议" />
 		<view class="header-area">
+			<view v-if="totalScore != null" class="score-badge">健康评分 {{ totalScore }}</view>
 			<text class="header-icon">💡</text>
 			<text class="header-desc">基于您的健康数据，为您提供个性化建议</text>
 		</view>
@@ -80,16 +81,59 @@
 <script>
 	import CustomNavbar from '@/components/custom-navbar.vue'
 	import TabSwitch from '@/components/tab-switch.vue'
+	import { getHealthAdvice } from '@/api/health'
+
 	export default {
 		components: { CustomNavbar, TabSwitch },
 		data() {
 			return {
 				tabIndex: 0,
+				totalScore: null,
 				warningText: '',
 				dietAdvice: [],
 				exerciseAdvice: [],
 				lifeAdvice: [],
 				medicalAdvice: []
+			}
+		},
+		onShow() {
+			this.loadAdvice()
+		},
+		methods: {
+			async loadAdvice() {
+				try {
+					const res = await getHealthAdvice()
+					const data = res?.data
+					if (!data) return
+					// 总分（来自 Dify 工作流）
+					if (data.totalScore != null) {
+						this.totalScore = typeof data.totalScore === 'number' ? Math.round(data.totalScore) : data.totalScore
+					}
+					const list = data.suggestions
+					if (list && Array.isArray(list) && list.length) {
+						const colorMap = { diet: '#FEF9C3', exercise: '#ECFDF5', lifestyle: '#EFF6FF', medical: '#FEF2F2' }
+						const iconMap = { diet: '🥗', exercise: '🏃', lifestyle: '📝', medical: '🏥' }
+						this.dietAdvice = []
+						this.exerciseAdvice = []
+						this.lifeAdvice = []
+						this.medicalAdvice = []
+						for (const s of list) {
+							const item = {
+								icon: iconMap[s.category] || '💡',
+								color: colorMap[s.category] || '#F5F7FA',
+								title: s.title || '',
+								desc: s.content || '',
+								tags: []
+							}
+							if (s.category === 'diet') this.dietAdvice.push(item)
+							else if (s.category === 'exercise') this.exerciseAdvice.push(item)
+							else if (s.category === 'lifestyle') this.lifeAdvice.push(item)
+							else if (s.category === 'medical') this.medicalAdvice.push(item)
+						}
+					}
+				} catch (e) {
+					// 保持空数组
+				}
 			}
 		}
 	}
@@ -106,6 +150,14 @@
 		background: linear-gradient(135deg, #4A90D9 0%, #6BA5E0 100%);
 		padding: 40rpx 32rpx;
 		text-align: center;
+	}
+	.score-badge {
+		display: inline-block;
+		background: rgba(255,255,255,0.25);
+		padding: 8rpx 24rpx;
+		border-radius: 24rpx;
+		font-size: 26rpx;
+		margin-bottom: 16rpx;
 	}
 	.header-icon {
 		display: block;

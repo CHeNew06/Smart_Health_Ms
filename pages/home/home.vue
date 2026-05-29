@@ -35,14 +35,6 @@
 					<text class="score-desc">{{ scoreDesc }}</text>
 					<view class="stats-row">
 						<view class="stat-col">
-							<text class="stat-val">{{ streakDays }}</text>
-							<text class="stat-txt">连续打卡天数</text>
-						</view>
-						<view class="stat-col">
-							<text class="stat-val">{{ weeklyRate }}</text>
-							<text class="stat-txt">本周完成率</text>
-						</view>
-						<view class="stat-col">
 							<text class="stat-val">{{ bodyStatus }}</text>
 							<text class="stat-txt">身体状态</text>
 						</view>
@@ -110,6 +102,7 @@
 import CustomTabbar from '@/components/custom-tabbar.vue'
 import { getUserInfo, isLoggedIn } from '@/utils/auth'
 import { getUserBasicInfo } from '@/api/auth'
+import { getHealthScore, getHealthMetrics, getHealthAdvice } from '@/api/health'
 
 export default {
 	components: { CustomTabbar },
@@ -119,8 +112,6 @@ export default {
 			dateText: '',
 			displayName: '',
 			healthScore: '--',
-			streakDays: 0,
-			weeklyRate: '--',
 			bodyStatus: '--',
 			metrics: [
 				{ type: 'temperature', icon: '🌡', iconBg: '#FEF9C3', label: '体温', value: '--', unit: '°C', status: '暂无数据', statusColor: '#9CA3AF' },
@@ -148,9 +139,11 @@ export default {
 			return '晚上好'
 		},
 		scoreTitle() {
-			if (this.healthScore === '--') return '开始记录健康数据吧'
-			if (this.healthScore >= 80) return '整体健康状况良好'
-			if (this.healthScore >= 60) return '健康状况一般，请注意'
+			if (this.healthScore === '--' || this.healthScore === null || this.healthScore === undefined) return '开始记录健康数据吧'
+			const score = Number(this.healthScore)
+			if (isNaN(score)) return '开始记录健康数据吧'
+			if (score >= 80) return '整体健康状况良好'
+			if (score >= 60) return '健康状况一般，请注意'
 			return '健康状况需关注'
 		},
 		scoreDesc() {
@@ -161,6 +154,8 @@ export default {
 	onShow() {
 		uni.hideTabBar()
 		this.loadUserName()
+		this.loadHealthData()
+		this.loadAdvice()
 	},
 	onLoad() {
 		this.initDateText()
@@ -193,6 +188,51 @@ export default {
 		},
 		toggleInputMenu() {
 			this.showInputMenu = !this.showInputMenu
+		},
+		async loadHealthData() {
+			if (!isLoggedIn()) return
+			try {
+				const [scoreRes, metricsRes] = await Promise.all([getHealthScore(), getHealthMetrics()])
+				if (scoreRes.data) {
+					this.healthScore = scoreRes.data.score ?? '--'
+					this.bodyStatus = scoreRes.data.bodyStatus ?? '--'
+				}
+				if (metricsRes.data && Array.isArray(metricsRes.data)) {
+					const iconMap = { temperature: '🌡', bp: '❤', bloodSugar: '💧', bmi: '⚖', heartRate: '💗', sleep: '🌙' }
+					const iconBgMap = { temperature: '#FEF9C3', bp: '#ECFDF5', bloodSugar: '#EFF6FF', bmi: '#F3E8FF', heartRate: '#FEF2F2', sleep: '#EDE9FE' }
+					const statusColorMap = { normal: '#059669', warn: '#D97706', danger: '#DC2626' }
+					this.metrics = metricsRes.data.map(m => ({
+						type: m.type,
+						icon: iconMap[m.type] || '📊',
+						iconBg: iconBgMap[m.type] || '#F5F7FA',
+						label: m.label || m.type,
+						value: m.value ?? '--',
+						unit: m.type === 'bp' ? 'mmHg' : (m.unit || ''),
+						status: m.statusText || '暂无数据',
+						statusColor: statusColorMap[m.status] || '#9CA3AF'
+					}))
+				}
+			} catch (e) {
+				// 未登录或接口失败时保持默认值
+			}
+		},
+		async loadAdvice() {
+			if (!isLoggedIn()) return
+			try {
+				const res = await getHealthAdvice()
+				if (res?.data?.suggestions?.length) {
+					const iconMap = { diet: '🥗', exercise: '🏃', lifestyle: '📝', medical: '🏥' }
+					const iconBgMap = { diet: '#FEF9C3', exercise: '#ECFDF5', lifestyle: '#EFF6FF', medical: '#FEF2F2' }
+					this.adviceList = res.data.suggestions.map(s => ({
+						icon: iconMap[s.category] || '💡',
+						iconBg: iconBgMap[s.category] || '#F5F7FA',
+						title: s.title || (s.category === 'diet' ? '饮食' : s.category === 'exercise' ? '运动' : s.category === 'lifestyle' ? '生活' : '就医'),
+						desc: (s.content || '').substring(0, 80) + ((s.content || '').length > 80 ? '...' : '')
+					}))
+				}
+			} catch (e) {
+				// 保持默认建议
+			}
 		}
 	}
 }
@@ -397,6 +437,7 @@ export default {
 .m-info {
 	flex: 1;
 	min-width: 0;
+	overflow: hidden;
 	.m-label {
 		display: block;
 		font-size: 24rpx;
@@ -406,16 +447,19 @@ export default {
 		display: flex;
 		align-items: baseline;
 		margin-top: 2rpx;
+		min-width: 0;
 	}
 	.m-val {
-		font-size: 36rpx;
+		font-size: 32rpx;
 		font-weight: 700;
 		color: #1D2129;
+		flex-shrink: 0;
 	}
 	.m-unit {
 		font-size: 20rpx;
 		color: #C9CDD4;
 		margin-left: 4rpx;
+		flex-shrink: 0;
 	}
 	.m-status {
 		display: block;

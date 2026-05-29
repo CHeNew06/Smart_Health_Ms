@@ -75,13 +75,6 @@
 			}
 		},
 		{
-			"path": "pages/health-trend/health-trend",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "指标趋势"
-			}
-		},
-		{
 			"path": "pages/health-advice/health-advice",
 			"style": {
 				"navigationStyle": "custom",
