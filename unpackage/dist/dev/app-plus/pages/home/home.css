@@ -236,6 +236,7 @@
 .m-info[data-v-07e72d3c] {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 .m-info .m-label[data-v-07e72d3c] {
   display: block;
@@ -246,16 +247,19 @@
   display: flex;
   align-items: baseline;
   margin-top: 0.0625rem;
+  min-width: 0;
 }
 .m-info .m-val[data-v-07e72d3c] {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1D2129;
+  flex-shrink: 0;
 }
 .m-info .m-unit[data-v-07e72d3c] {
   font-size: 0.625rem;
   color: #C9CDD4;
   margin-left: 0.125rem;
+  flex-shrink: 0;
 }
 .m-info .m-status[data-v-07e72d3c] {
   display: block;

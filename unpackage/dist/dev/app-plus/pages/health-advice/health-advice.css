@@ -70,6 +70,14 @@
   padding: 1.25rem 1rem;
   text-align: center;
 }
+.score-badge[data-v-f71751e5] {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
 .header-icon[data-v-f71751e5] {
   display: block;
   font-size: 1.75rem;

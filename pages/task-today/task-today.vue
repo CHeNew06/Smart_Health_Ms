@@ -81,6 +81,7 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { getTodayTasks, completeTask } from '@/api/plan'
 
 export default {
 	components: { CustomNavbar },
@@ -103,6 +104,9 @@ export default {
 			return Math.round(this.doneCount / this.tasks.length * 100)
 		}
 	},
+	onShow() {
+		this.loadTasks()
+	},
 	mounted() {
 		this.$nextTick(() => this.drawRing())
 	},
@@ -111,16 +115,38 @@ export default {
 			const m = { 运动: '#34C759', 饮食: '#FF9500', 用药: '#FF3B30', 健康: '#4A90D9' }
 			return m[type] || '#4A90D9'
 		},
-		confirmComplete(item) {
+		typeLabel(type) {
+			const m = { exercise: '运动', diet: '饮食', medication: '用药', health: '健康' }
+			return m[type] || type
+		},
+		async loadTasks() {
+			try {
+				const res = await getTodayTasks()
+				this.tasks = (res.data || []).map(t => ({
+					id: t.id,
+					title: t.title,
+					type: this.typeLabel(t.taskType),
+					time: t.taskTime || '',
+					done: t.status === 'done'
+				}))
+				this.$nextTick(() => this.drawRing())
+			} catch(e) { console.error('加载任务失败', e) }
+		},
+		async confirmComplete(item) {
 			if (item.done) return
 			uni.showModal({
 				title: '确认完成',
 				content: `确定已完成任务「${item.title}」吗？`,
-				success: (res) => {
+				success: async (res) => {
 					if (res.confirm) {
-						item.done = true
-						uni.showToast({ title: '已完成', icon: 'success' })
-						this.$nextTick(() => this.drawRing())
+						try {
+							await completeTask(item.id)
+							item.done = true
+							uni.showToast({ title: '已完成', icon: 'success' })
+							this.$nextTick(() => this.drawRing())
+						} catch(e) {
+							uni.showToast({ title: '操作失败', icon: 'none' })
+						}
 					}
 				}
 			})

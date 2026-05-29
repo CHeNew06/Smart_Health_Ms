@@ -86,6 +86,7 @@
 
 <script>
 import CustomTabbar from '@/components/custom-tabbar.vue'
+import { generatePlan, getTodayTasks, completeTask } from '@/api/plan'
 
 export default {
 	components: { CustomTabbar },
@@ -110,28 +111,63 @@ export default {
 			}
 		}
 	},
-	onShow() { uni.hideTabBar() },
+	onShow() {
+		uni.hideTabBar()
+		this.loadTasks()
+	},
 	methods: {
 		tagColor(type) {
 			const m = { '运动': '#34C759', '饮食': '#FF9500', '用药': '#EF4444', '健康': '#4A90D9' }
 			return m[type] || '#4A90D9'
 		},
-		onAiGen() {
+		typeLabel(type) {
+			const m = { exercise: '运动', diet: '饮食', medication: '用药', health: '健康' }
+			return m[type] || type
+		},
+		async loadTasks() {
+			try {
+				const res = await getTodayTasks()
+				this.tasks = (res.data || []).map(t => ({
+					id: t.id,
+					title: t.title,
+					type: this.typeLabel(t.taskType),
+					time: t.taskTime || '',
+					done: t.status === 'done'
+				}))
+			} catch(e) { console.error('加载任务失败', e) }
+		},
+		async onAiGen() {
 			if (this.aiLoading) return
 			this.aiLoading = true
-			setTimeout(() => {
-				this.aiLoading = false
+			const start = Date.now()
+			const MIN_LOAD_MS = 8000
+			try {
+				await generatePlan()
+				const rest = MIN_LOAD_MS - (Date.now() - start)
+				if (rest > 0) {
+					await new Promise((resolve) => setTimeout(resolve, rest))
+				}
 				uni.showToast({ title: '计划已生成', icon: 'success' })
-			}, 3000)
+				await this.loadTasks()
+			} catch(e) {
+				uni.showToast({ title: '生成失败', icon: 'none' })
+			} finally {
+				this.aiLoading = false
+			}
 		},
 		confirmComplete(item) {
 			uni.showModal({
 				title: '确认完成',
 				content: `确定已完成「${item.title}」吗？`,
-				success: (res) => {
+				success: async (res) => {
 					if (res.confirm) {
-						item.done = true
-						uni.showToast({ title: '已完成', icon: 'success' })
+						try {
+							await completeTask(item.id)
+							item.done = true
+							uni.showToast({ title: '已完成', icon: 'success' })
+						} catch(e) {
+							uni.showToast({ title: '操作失败', icon: 'none' })
+						}
 					}
 				}
 			})

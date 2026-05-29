@@ -218,6 +218,8 @@
 
 <script>
 import CustomTabbar from '@/components/custom-tabbar.vue'
+import { sendMessage, getConversationList, getConversationDetail, deleteConversation, uploadConsultFile, transcribeConsultAudio } from '@/api/consult'
+import { recognizeSpeech } from '@/api/speech'
 
 export default {
 	components: { CustomTabbar },
@@ -233,14 +235,20 @@ export default {
 			shouldStop: false,
 			showQuickQ: true,
 			tempImagePath: '',
+			tempAudioPath: '',
 			isRecording: false,
 			isRecognizing: false,
 			touchStartY: 0,
 			isCanceled: false,
 			recordStartTime: 0,
+			recorderManager: null,
+			recordFormat: 'm4a',
+			recordStarting: false,
+			pendingStop: false,
 			kbUp: false,
 			kbHeight: 0,
 			currentHistoryIdx: -1,
+			currentConversationId: '',
 			historyList: [],
 			msgList: [],
 			quickQuestions: [
@@ -268,7 +276,16 @@ export default {
 		}
 	},
 	onLoad() {
+		// 安卓端优先使用 m4a，兼容性通常优于 mp3
+		// #ifdef APP-PLUS
+		const sys = uni.getSystemInfoSync()
+		if ((sys.platform || '').toLowerCase().includes('android')) {
+			this.recordFormat = 'm4a'
+		}
+		// #endif
 		this.pushWelcome()
+		this.initRecorder()
+		this.fetchConversations()
 		uni.onKeyboardHeightChange((res) => {
 			if (res.height > 0) {
 				this.kbUp = true
@@ -281,11 +298,54 @@ export default {
 		})
 	},
 	methods: {
+		initRecorder() {
+			try {
+				this.recorderManager = uni.getRecorderManager()
+				this.recorderManager.onStop((res) => {
+					this.isRecognizing = false
+					this.isRecording = false
+					if (this.isCanceled) return
+					if (!res || !res.tempFilePath) {
+						uni.showToast({ title: '语音录制失败', icon: 'none' })
+						return
+					}
+					this.tempAudioPath = res.tempFilePath
+					this.sendVoiceMessage()
+				})
+				this.recorderManager.onError(() => {
+					this.isRecognizing = false
+					this.isRecording = false
+					uni.showToast({ title: '语音录制失败', icon: 'none' })
+				})
+			} catch (e) {
+				console.warn('[AI咨询] 初始化录音器失败', e)
+			}
+		},
 		pushWelcome() {
 			this.msgList = [{
 				role: 'ai',
 				content: '您好！我是您的AI健康助手小Y，很高兴为您服务。请问有什么可以帮您的吗？'
 			}]
+		},
+		async fetchConversations() {
+			try {
+				const res = await getConversationList()
+				const rows = (res.data && res.data.data) || []
+				this.historyList = rows.map((item) => ({
+					id: item.id,
+					title: item.name || '新对话',
+					time: this.formatTs(item.created_at || item.updated_at)
+				}))
+			} catch (e) {
+				console.warn('[AI咨询] 获取会话列表失败', e)
+			}
+		},
+		formatTs(ts) {
+			if (!ts) return ''
+			const ms = String(ts).length === 10 ? Number(ts) * 1000 : Number(ts)
+			const d = new Date(ms)
+			const p = (n) => (n < 10 ? '0' + n : '' + n)
+			return `${d.getMonth() + 1}-${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`
 		},
 		onInputFocus() {
 			this.$nextTick(() => setTimeout(() => this.scrollToEnd(), 300))
@@ -296,50 +356,114 @@ export default {
 				uni.hideKeyboard()
 			}
 		},
-		sendMessage() {
-			const txt = (this.inputText || '').trim()
-			if (!txt && !this.tempImagePath) {
-				uni.showToast({ title: '请输入消息', icon: 'none' })
+		async sendMessage(overrideText) {
+			const txt = (typeof overrideText === 'string' ? overrideText : this.inputText || '').trim()
+			const hasImage = !!this.tempImagePath
+			const hasAudio = !!this.tempAudioPath
+			if (!txt && !hasImage && !hasAudio) {
+				uni.showToast({ title: '请输入消息或上传文件', icon: 'none' })
 				return
 			}
-			const userMsg = { role: 'user', content: txt || '[图片]' }
-			if (this.tempImagePath) {
-				userMsg.imageUrl = this.tempImagePath
-				this.tempImagePath = ''
-			}
+			const userMsg = { role: 'user', content: txt || (hasImage ? '[图片消息]' : '[语音消息]') }
+			if (hasImage) userMsg.imageUrl = this.tempImagePath
+			if (hasAudio) userMsg.audio = true
 			this.msgList.push(userMsg)
+
+			const savedImagePath = this.tempImagePath
+			const savedAudioPath = this.tempAudioPath
 			this.inputText = ''
+			this.tempImagePath = ''
+			this.tempAudioPath = ''
 			this.showQuickQ = false
 			this.$nextTick(() => this.scrollToEnd())
 
-			this.shouldStop = false
 			this.isLoading = true
-			setTimeout(() => {
+			try {
+				const files = []
+				if (hasImage) {
+					const uploadRes = await uploadConsultFile(savedImagePath, 'image')
+					const uploadFileId = uploadRes.data && uploadRes.data.id
+					if (uploadFileId) files.push({ type: 'image', uploadFileId })
+				}
+				if (hasAudio) {
+					const uploadRes = await uploadConsultFile(savedAudioPath, 'audio')
+					const uploadFileId = uploadRes.data && uploadRes.data.id
+					if (uploadFileId) files.push({ type: 'audio', uploadFileId })
+				}
+
+				const req = {
+					message: txt || (hasImage ? '请结合图片进行分析' : '请结合语音内容进行分析'),
+					conversationId: this.currentConversationId || undefined,
+					files
+				}
+				const res = await sendMessage(req)
+				const payload = res.data || {}
+				this.currentConversationId = payload.conversation_id || this.currentConversationId
+				const answer = this.formatAiText(payload.answer) || '我已经收到你的消息，但暂时没有生成回答。'
 				this.isLoading = false
-				const aiMsg = { role: 'ai', content: '' }
-				this.msgList.push(aiMsg)
-				this.typeMessage(
-					'好的，我正在为您分析相关信息。根据您的描述，建议您：\n1. 保持规律的作息时间\n2. 适量进行有氧运动\n3. 注意饮食清淡\n4. 定期监测身体指标\n\n如果症状持续，建议及时就医检查。',
-					this.msgList.length - 1
-				)
-			}, 1200)
-		},
-		typeMessage(fullText, msgIdx, charIdx = 0) {
-			if (this.shouldStop) {
-				if (this.msgList[msgIdx]) this.msgList[msgIdx].content += '\n\n[回答已终止]'
-				this.isTyping = false
-				this.shouldStop = false
-				return
-			}
-			this.isTyping = true
-			if (charIdx <= fullText.length) {
-				this.msgList[msgIdx].content = fullText.slice(0, charIdx)
-				if (charIdx % 10 === 0) this.$nextTick(() => this.scrollToEnd())
-				setTimeout(() => this.typeMessage(fullText, msgIdx, charIdx + 1), 45)
-			} else {
-				this.isTyping = false
+				await this.typewriterPush(answer)
+				await this.fetchConversations()
+			} catch (e) {
+				const msg = (e && e.message) || (typeof e === 'string' ? e : '发送失败，请稍后重试')
+				this.isLoading = false
+				this.msgList.push({ role: 'ai', content: '抱歉，当前无法完成本次问答：' + msg })
 				this.scrollToEnd()
 			}
+		},
+		async sendVoiceMessage() {
+			if (!this.tempAudioPath) return
+			this.isLoading = true
+			try {
+				const transRes = await transcribeConsultAudio(this.tempAudioPath)
+				const text = (transRes.data && transRes.data.text) || ''
+				if (!text.trim()) throw new Error('语音识别结果为空')
+				this.fillRecognizedText(text)
+			} catch (e) {
+				try {
+					const text = await recognizeSpeech(this.tempAudioPath)
+					if (!text || !text.trim()) throw new Error('语音识别结果为空')
+					uni.showToast({ title: '已切换备用识别通道', icon: 'none' })
+					this.fillRecognizedText(text)
+				} catch (fallbackErr) {
+					this.isLoading = false
+					this.tempAudioPath = ''
+					uni.showToast({ title: '语音识别失败，请重试', icon: 'none' })
+				}
+			}
+		},
+		fillRecognizedText(text) {
+			this.tempAudioPath = ''
+			this.isLoading = false
+			this.inputText = (text || '').trim()
+			this.showQuickQ = false
+			this.$nextTick(() => {
+				uni.showToast({ title: '识别完成，请确认后发送', icon: 'none' })
+			})
+		},
+		typewriterPush(fullText) {
+			return new Promise((resolve) => {
+				const aiMsg = { role: 'ai', content: '' }
+				this.msgList.push(aiMsg)
+				this.isTyping = true
+				this.shouldStop = false
+				const idx = this.msgList.length - 1
+				let pos = 0
+				const step = () => {
+					if (this.shouldStop || pos >= fullText.length) {
+						this.msgList[idx] = { role: 'ai', content: fullText }
+						this.isTyping = false
+						this.scrollToEnd()
+						resolve()
+						return
+					}
+					const chunk = Math.min(pos + 2, fullText.length)
+					this.msgList[idx] = { role: 'ai', content: fullText.substring(0, chunk) }
+					pos = chunk
+					if (pos % 10 === 0) this.scrollToEnd()
+					setTimeout(step, 30)
+				}
+				step()
+			})
 		},
 		stopTyping() { this.shouldStop = true },
 		sendQuick(q) { this.inputText = q; this.sendMessage() },
@@ -347,7 +471,14 @@ export default {
 			uni.showModal({
 				title: '新建对话',
 				content: '确定要开始新的对话吗？',
-				success: (res) => { if (res.confirm) { this.pushWelcome(); this.showQuickQ = true } }
+				success: (res) => {
+					if (res.confirm) {
+						this.currentConversationId = ''
+						this.currentHistoryIdx = -1
+						this.pushWelcome()
+						this.showQuickQ = true
+					}
+				}
 			})
 		},
 		startRecording(e) {
@@ -355,6 +486,75 @@ export default {
 			this.isCanceled = false
 			this.recordStartTime = Date.now()
 			this.isRecording = true
+			this.recordStarting = true
+			this.pendingStop = false
+			if (!this.recorderManager) {
+				uni.showToast({ title: '当前设备不支持录音', icon: 'none' })
+				this.isRecording = false
+				this.recordStarting = false
+				return
+			}
+			// APP-PLUS 安卓端直接 start，避免授权弹窗导致 touchend 先触发、请求不发起
+			// #ifdef APP-PLUS
+			this.startRecorderInternal()
+			// #endif
+			// #ifndef APP-PLUS
+			this.ensureRecordPermission().then((ok) => {
+				if (!ok) {
+					this.isRecording = false
+					this.recordStarting = false
+					uni.showToast({ title: '请先开启麦克风权限', icon: 'none' })
+					return
+				}
+				this.startRecorderInternal()
+			})
+			// #endif
+		},
+		startRecorderInternal() {
+			try {
+				this.recorderManager.start({
+					duration: 60000,
+					sampleRate: 16000,
+					numberOfChannels: 1,
+					format: this.recordFormat
+				})
+				setTimeout(() => {
+					this.recordStarting = false
+					if (this.pendingStop) {
+						this.pendingStop = false
+						this.stopRecording()
+					}
+				}, 200)
+			} catch (e) {
+				this.recordStarting = false
+				this.isRecording = false
+				uni.showToast({ title: '录音启动失败', icon: 'none' })
+			}
+		},
+		ensureRecordPermission() {
+			return new Promise((resolve) => {
+				uni.authorize({
+					scope: 'scope.record',
+					success: () => resolve(true),
+					fail: () => {
+						uni.showModal({
+							title: '需要麦克风权限',
+							content: '语音问答需要麦克风权限，请在系统设置中允许。',
+							success: (res) => {
+								if (res.confirm) {
+									uni.openSetting({
+										success: (s) => resolve(!!(s.authSetting && s.authSetting['scope.record'])),
+										fail: () => resolve(false)
+									})
+								} else {
+									resolve(false)
+								}
+							},
+							fail: () => resolve(false)
+						})
+					}
+				})
+			})
 		},
 		onTouchMove(e) {
 			if (!this.isRecording) return
@@ -362,10 +562,24 @@ export default {
 		},
 		stopRecording() {
 			if (!this.isRecording) return
-			if (this.isCanceled) { this.isRecording = false; uni.showToast({ title: '已取消发送', icon: 'none' }); return }
-			if (Date.now() - this.recordStartTime < 1000) { this.isRecording = false; uni.showToast({ title: '说话时间太短', icon: 'none' }); return }
+			if (this.recordStarting) {
+				this.pendingStop = true
+				return
+			}
+			if (this.isCanceled) {
+				this.isRecording = false
+				this.recorderManager && this.recorderManager.stop()
+				uni.showToast({ title: '已取消发送', icon: 'none' })
+				return
+			}
+			if (Date.now() - this.recordStartTime < 1000) {
+				this.isRecording = false
+				this.recorderManager && this.recorderManager.stop()
+				uni.showToast({ title: '说话时间太短', icon: 'none' })
+				return
+			}
 			this.isRecognizing = true
-			setTimeout(() => { this.isRecording = false; this.isRecognizing = false; this.inputText = '' }, 1500)
+			this.recorderManager && this.recorderManager.stop()
 		},
 		chooseImage() {
 			uni.chooseImage({
@@ -377,11 +591,62 @@ export default {
 			this.consultMode = mode; this.showModeSheet = false
 			if (mode === 1) uni.showToast({ title: '已切换到AI问诊模式', icon: 'none' })
 		},
-		loadHistory(idx) { this.currentHistoryIdx = idx; this.showSidebar = false },
+		async loadHistory(idx) {
+			this.currentHistoryIdx = idx
+			this.showSidebar = false
+			const row = this.historyList[idx]
+			if (!row || !row.id) return
+			this.currentConversationId = row.id
+			try {
+				const res = await getConversationDetail(row.id)
+				const rows = (res.data && res.data.data) || []
+				const list = []
+				rows.forEach((item) => {
+					if (item.query) list.push({ role: 'user', content: item.query })
+					if (item.answer) list.push({ role: 'ai', content: this.formatAiText(item.answer) })
+				})
+				this.msgList = list
+				if (!this.msgList.length) this.pushWelcome()
+				this.scrollToEnd()
+			} catch (e) {
+				uni.showToast({ title: '加载历史失败', icon: 'none' })
+			}
+		},
 		deleteHistory(idx) {
-			uni.showModal({ title: '删除对话', content: '确定删除？', success: (r) => { if (r.confirm) { this.historyList.splice(idx, 1) } } })
+			uni.showModal({
+				title: '删除对话',
+				content: '确定删除？',
+				success: async (r) => {
+					if (!r.confirm) return
+					const row = this.historyList[idx]
+					try {
+						if (row && row.id) await deleteConversation(row.id)
+						this.historyList.splice(idx, 1)
+						if (this.currentConversationId === row.id) {
+							this.currentConversationId = ''
+							this.pushWelcome()
+						}
+					} catch (e) {
+						uni.showToast({ title: '删除失败', icon: 'none' })
+					}
+				}
+			})
 		},
 		previewImg(url) { uni.previewImage({ urls: [url], current: url }) },
+		formatAiText(raw) {
+			if (!raw || typeof raw !== 'string') return ''
+			return raw
+				.replace(/\r\n/g, '\n')
+				.replace(/^#{1,6}\s*/gm, '')
+				.replace(/\*\*\*(.*?)\*\*\*/g, '$1')
+				.replace(/\*\*(.*?)\*\*/g, '$1')
+				.replace(/\*(.*?)\*/g, '$1')
+				.replace(/`{1,3}(.*?)`{1,3}/g, '$1')
+				.replace(/^\s*[-*]\s+/gm, '• ')
+				.replace(/^\s*\d+\.\s+/gm, (m) => m)
+				.replace(/\n{3,}/g, '\n\n')
+				.trim()
+		},
 		scrollToEnd() {
 			this.$nextTick(() => {
 				this.scrollIntoId = ''

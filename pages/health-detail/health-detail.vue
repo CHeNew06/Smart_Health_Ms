@@ -19,11 +19,6 @@
 		</view>
 
 		<view class="detail-body">
-			<navigator :url="'/pages/health-trend/health-trend?type=' + metricType" class="trend-entry" hover-class="trend-entry-hover">
-				<text class="trend-icon">📈</text>
-				<text class="trend-text">查看趋势图表</text>
-			</navigator>
-
 			<text class="section-title">最近 7 天记录</text>
 			<view class="record-list">
 				<view v-if="!detail.records.length" class="empty-record">
@@ -46,6 +41,7 @@
 
 <script>
 import CustomNavbar from '@/components/custom-navbar.vue'
+import { getMetricDetail } from '@/api/health'
 
 function emptyDetail(conf) {
 	return {
@@ -82,7 +78,39 @@ export default {
 	onLoad(options) {
 		if (options && options.type && ALL_DETAILS[options.type]) {
 			this.metricType = options.type
-			this.detail = ALL_DETAILS[options.type]
+			this.detail = { ...ALL_DETAILS[options.type] }
+		}
+	},
+	onShow() {
+		this.loadDetail()
+	},
+	methods: {
+		async loadDetail() {
+			try {
+				const res = await getMetricDetail(this.metricType)
+				if (res?.data) {
+					const d = res.data
+					this.detail = {
+						...METRIC_CONFIG[this.metricType],
+						value: d.value || '--',
+						statusText: d.statusText || '暂无数据',
+						statusClass: d.statusClass || 'normal',
+						refRange: d.refRange || this.detail.refRange,
+						records: (d.records || []).map(r => {
+						const t = (r.recordTime || '').toString()
+						return {
+							date: r.recordDate || '',
+							time: t.length > 5 ? t.substring(0, 5) : t,
+							value: r.valueDisplay || '-',
+							statusClass: r.status === 'danger' ? 'high' : (r.status || 'normal'),
+							status: r.statusText || ''
+						}
+					})
+					}
+				}
+			} catch (e) {
+				// 保持静态配置
+			}
 		}
 	}
 }
@@ -106,14 +134,21 @@ export default {
 .big-value { font-size: 72rpx; font-weight: 700; }
 .big-unit { font-size: 30rpx; opacity: 0.85; }
 
-.status-badge-danger {
-	display: inline-block; padding: 8rpx 28rpx; border-radius: 28rpx;
-	background: rgba(239,68,68,0.2); color: #FCA5A5;
-	font-size: 26rpx; font-weight: 600; margin-top: 8rpx;
-}
+.status-badge-normal,
 .status-badge-success {
 	display: inline-block; padding: 8rpx 28rpx; border-radius: 28rpx;
 	background: rgba(34,197,94,0.2); color: #86EFAC;
+	font-size: 26rpx; font-weight: 600; margin-top: 8rpx;
+}
+.status-badge-warn {
+	display: inline-block; padding: 8rpx 28rpx; border-radius: 28rpx;
+	background: rgba(245,158,11,0.2); color: #FCD34D;
+	font-size: 26rpx; font-weight: 600; margin-top: 8rpx;
+}
+.status-badge-danger,
+.status-badge-high {
+	display: inline-block; padding: 8rpx 28rpx; border-radius: 28rpx;
+	background: rgba(239,68,68,0.2); color: #FCA5A5;
 	font-size: 26rpx; font-weight: 600; margin-top: 8rpx;
 }
 
@@ -130,17 +165,12 @@ export default {
 	border-radius: 32rpx 32rpx 0 0; padding: 28rpx 0 48rpx;
 }
 
-.trend-entry {
-	display: flex; align-items: center; justify-content: center;
-	gap: 12rpx; padding: 28rpx; margin: 0 32rpx 24rpx;
-	background: #EAF2FB; border-radius: 20rpx;
-	color: #4A90D9; font-weight: 500; font-size: 28rpx;
-}
-.trend-entry-hover { background: #DBEAFE; }
-.trend-icon { font-size: 32rpx; }
-.trend-text { font-size: 28rpx; }
-
 .section-title { font-size: 32rpx; font-weight: 600; color: #1D2129; padding: 0 32rpx 20rpx; }
+
+.empty-record {
+	padding: 48rpx; text-align: center; font-size: 26rpx; color: #86909C;
+	background: #fff; border-radius: 16rpx; margin-bottom: 12rpx;
+}
 
 .record-list { padding: 0 32rpx; }
 .record-item {
